@@ -1,0 +1,11 @@
+#default_screen: 'home_screen'
+base_url: 'http://qa.dose.com'
+screens:
+  home_screen:
+    load:
+      live?:
+        - element_name: 'logo_button'
+          exists?: true
+    elements:
+      logo_button:
+        css: 'div.logo a'
