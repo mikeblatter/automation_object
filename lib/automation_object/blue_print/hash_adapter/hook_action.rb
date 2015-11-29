@@ -30,6 +30,18 @@ module AutomationObject::BluePrint::HashAdapter
       return self.hash.keys
     end
 
+    #Get length of hook actions
+    # @return [Integer] length of hook actions
+    def length
+      return self.hash.keys.length
+    end
+
+    #See if hook actions are empty
+    # @return [Boolean] if hook actions are empty
+    def empty?
+      return (self.hash.keys.length > 0) ? false : true
+    end
+
     # @return [Symbol, nil] screen to change to
     def change_screen
       change_screen = self.hash[:change_screen]

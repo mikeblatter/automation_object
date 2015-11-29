@@ -1,7 +1,17 @@
 #default_screen: 'home_screen'
 base_url: 'http://qa.dose.com'
+default_screen: 'home_screen'
 screens:
   home_screen:
+    load:
+      before:
+        wait_for_elements:
+          - element_name: 'logo_button'
+            exists?: true
+      live?:
+        - element_name: 'logo_button'
+          exists?: true
     elements:
       logo_button:
-        css: 'div.logo a'
+        css: 'header a.logo'
+  list_screen:

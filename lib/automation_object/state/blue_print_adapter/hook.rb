@@ -1,3 +1,4 @@
+require_relative 'hook_action'
 require_relative 'hook_element_requirement'
 
 module AutomationObject
@@ -6,18 +7,36 @@ module AutomationObject
       class Hook < Composite
         # @return [Boolean, nil] return nil if no live? check, otherwise boolean
         def live?
-          return nil unless self.blue_prints.live?.length > 0
+          self.before
+
+          return nil if self.blue_prints.live?.empty?
 
           self.blue_prints.live?.each { |element_requirement_blueprints|
-            hook_element_requirement = HookElementRequirement.new(blue_prints: element_requirement_blueprints)
-            hook_element_requirement.session = self.session
-            hook_element_requirement.loops = 1
-            hook_element_requirement.element_blueprints = self.blue_prints.parent.elements[element_requirement_blueprints.element_name]
-
+            hook_element_requirement = HookElementRequirement.new(blue_prints: element_requirement_blueprints, session: self.session, loops: 1)
             return false unless hook_element_requirement.run
           }
 
+          self.after
+
           return true
+        end
+
+        #Runs the before hook
+        # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
+        def before
+          return if self.blue_prints.before.empty?
+
+          hook_action = HookAction.new(blue_prints: self.blue_prints.before, session: self.session, loops: 1)
+          return hook_action.run
+        end
+
+        #Runs the after hook
+        # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
+        def after
+          return unless self.blue_prints.after.empty?
+
+          hook_action = HookAction.new(blue_prints: self.blue_prints.after, session: self.session, loops: 1)
+          return hook_action.run
         end
       end
     end

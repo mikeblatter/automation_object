@@ -1,3 +1,5 @@
+require_relative 'error'
+
 module AutomationObject
   module State
     #Manages the driver windows
@@ -13,7 +15,16 @@ module AutomationObject
       end
 
       def set_screen(screen)
-        @windows_screens[@window_handle] = screen
+        @windows_screens[screen] = @window_handle
+      end
+
+      def use_screen(screen)
+        raise ScreenDoesNotExistError unless @windows_screens.keys.include?(screen)
+
+        return if @window_handle == @windows_screens[screen]
+
+        @driver.window_handle = @windows_screens[screen]
+        @window_handle = @windows_screens[screen]
       end
 
       def destroy

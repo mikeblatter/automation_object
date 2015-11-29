@@ -1,6 +1,6 @@
 require_relative 'composite'
-
 require_relative 'screen'
+require_relative '../error'
 
 module AutomationObject
   module State
@@ -11,17 +11,29 @@ module AutomationObject
 
         def create
           self.session.get(self.blue_prints.base_url) if self.blue_prints.base_url
+          self.session.window_manager.set_screen(self.initial_screen)
         end
 
         def destroy
         end
 
         def initial_screen
-          return self.blue_prints.default_screen if self.blue_prints.default_screen
+          if self.blue_prints.default_screen
+            screen_name = self.blue_prints.default_screen
+            default_screen_live = self.screens[screen_name].load.live?
+
+            if default_screen_live == nil or default_screen_live == true
+              return screen_name
+            else
+              raise 'no default screen'
+            end
+          end
 
           self.screens.each { |screen_name, screen|
             return screen_name if screen.load.live?
           }
+
+          raise 'no screens'
         end
       end
     end

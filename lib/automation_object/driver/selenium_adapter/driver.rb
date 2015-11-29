@@ -6,6 +6,8 @@ module AutomationObject::Driver::SeleniumAdapter
   #Driver proxy for Selenium
   #Conform Selenium driver interface to what's expected of the Driver Port
   class Driver < AutomationObject::Proxies::Proxy
+    DOC_COMPLETE_SLEEP = 1
+
     include AutomationObject::Driver::SeleniumDriverHelper
 
     # @param driver [Selenium::WebDriver::Driver] Selenium Web Driver

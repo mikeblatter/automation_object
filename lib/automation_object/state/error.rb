@@ -1,7 +1,9 @@
 module AutomationObject
   module Driver
     module State
-      class NoInitialScreen < StandardError; end
+      class NoInitialScreenError < StandardError; end
+
+      class ScreenDoesNotExistError < StandardError; end
     end
   end
 end

@@ -28,6 +28,7 @@ module AutomationObject
       def load(type, name)
         case type
           when :screen
+            self.window_manager.use_screen(name)
           when :modal
           when :element_group
           when :element_hash

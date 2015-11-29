@@ -39,5 +39,23 @@ module AutomationObject::BluePrint::HashAdapter
           return nil
       end
     end
+
+    #Convience for getting element blueprints
+    # @return [AutomationObject::BluePrint::HashAdapter::Element]
+    def element_blueprints(composite_object = nil)
+      unless composite_object
+        composite_object = self
+      end
+
+      #Traverse!
+      if composite_object.hash[:elements].is_a?(Hash)
+
+        return composite_object.elements[self.element_name]
+      elsif composite_object.parent
+        return self.element_blueprints(composite_object.parent)
+      end
+
+      return nil
+    end
   end
 end

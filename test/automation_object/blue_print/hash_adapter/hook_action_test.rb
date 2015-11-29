@@ -43,6 +43,21 @@ class TestHashAdapterHookAction < Minitest::Test
     assert_equal [:change_screen, :sleep], composite.hook_order
   end
 
+  def test_length
+    composite = self.create_composite({ :change_screen => 'test_screen', :sleep => 1 })
+    assert_equal 2, composite.length
+  end
+
+  def test_empty_true
+    composite = self.create_composite({})
+    assert_equal true, composite.empty?
+  end
+
+  def test_empty_false
+    composite = self.create_composite({ :change_screen => 'test_screen', :sleep => 1 })
+    assert_equal false, composite.empty?
+  end
+
   def test_change_screen
     composite = self.create_composite({ :change_screen => 'test_screen' })
     assert_equal :test_screen, composite.change_screen
