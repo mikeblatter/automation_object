@@ -1,5 +1,28 @@
 require_relative '../lib/automation_object'
 
+driver = Selenium::WebDriver.for :chrome
+
+at_exit {
+  driver.quit
+}
+
+options = {
+    blue_prints: File.join(File.expand_path(__dir__), 'test_blueprints/'),
+    driver: driver
+}
+
+return if blue_prints.screens == nol
+blue_prints.screens
+
+
+
+dsl_api = AutomationObject::Framework.new(options)
+
+ap dsl_api.home_screen
+
+dsl_api.quit
+
+=begin
 raw_driver = Selenium::WebDriver.for :chrome
 
 AutomationObject::Driver.adapter = :selenium
@@ -27,3 +50,4 @@ ensure
 
   driver.quit
 end
+=end

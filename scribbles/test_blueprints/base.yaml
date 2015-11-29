@@ -4,7 +4,9 @@ screens:
   home_screen:
     load:
       live?:
-        - element_name: 'logo_button'
+        - element_name: 'eewwewewe'
+          exists?: true
+        - element_name: 'ddd'
           exists?: true
     elements:
       logo_button:

@@ -25,8 +25,15 @@ module AutomationObject
       @adapter = AutomationObject::BluePrint.const_get("#{adapter_const}")
     end
 
-    def new(*args)
-      adapter.build_composite(*args)
+    def new(blueprint_arg)
+      case blueprint_arg
+        when String
+          self.adapter = :yaml
+        when Hash
+          self.adapter = :hash
+      end
+
+      adapter.build_composite(blueprint_arg)
     end
   end
 end

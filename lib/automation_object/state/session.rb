@@ -38,8 +38,20 @@ module AutomationObject
       end
 
       def load(type, name)
+        case type
+          when :screen
+          when :modal
+          when :element_group
+          when :element_hash
+          when :element_array
+          when :element
+        end
         ap type
         ap name
+      end
+
+      def quit
+        puts "State::Session quit".colorize(:red)
       end
     end
   end

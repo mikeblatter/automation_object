@@ -15,6 +15,10 @@ module AutomationObject
       def load(type, name)
         return self.session.load(type, name)
       end
+
+      def quit
+        self.session.quit
+      end
     end
   end
 end

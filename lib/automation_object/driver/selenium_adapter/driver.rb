@@ -67,6 +67,15 @@ module AutomationObject::Driver::SeleniumAdapter
       @subject.switch_to.default_content
     end
 
+    def get(url)
+      @subject.get(url)
+
+      until self.document_complete?
+        sleep(DOC_COMPLETE_SLEEP)
+        loops += 1
+      end
+    end
+
     # @return [Boolean] document is complete
     def document_complete?
       return @subject.execute_script('return document.readyState;') == 'complete'
