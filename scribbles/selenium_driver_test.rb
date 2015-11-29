@@ -1,8 +1,9 @@
 require_relative '../lib/automation_object'
 
 raw_driver = Selenium::WebDriver.for :chrome
-ao = AutomationObject::Framework.new(driver: raw_driver,
-                                         blue_prints: File.expand_path(File.join(__dir__, 'test_blueprints/')))
+
+AutomationObject::Driver.adapter = :selenium
+driver = AutomationObject::Driver.new(raw_driver)
 
 begin
   loop do
@@ -24,5 +25,5 @@ ensure
   puts 'Press enter to quit'
   input = gets
 
-  ao.quit
+  driver.quit
 end

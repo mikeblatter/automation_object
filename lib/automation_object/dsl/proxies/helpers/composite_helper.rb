@@ -5,7 +5,7 @@ module AutomationObject::Dsl
     module CompositeHelper
       attr_accessor :state
 
-      # @param state [AutomationObject::State::Controller]
+      # @param state [AutomationObject::State::Session]
       def state=(state)
         @state = state
         self.children.each { |child|

@@ -1,4 +1,4 @@
-require_relative 'state/controller'
+require_relative 'state/session'
 
 module AutomationObject
   #State Port, following port/adapter pattern
@@ -24,12 +24,13 @@ module AutomationObject
       @adapter = AutomationObject::State.const_get("#{adapter_const}")
     end
 
-    # Creates/returns the controller, attaches driver, and composite adapter
+    # Creates/returns a new session, attaches driver, and composite adapter
+    # Will use a composite to direct the other layers (ie BluePrint)
     # @param args [Hash] arguments
-    # @return [AutomationObject::State::Controller] state controller
+    # @return [AutomationObject::State::Session] Session instance
     def new(args={})
       adapter_composite = self.adapter.build_composite(args)
-      return Controller.new(driver: args.fetch(:driver), composite: adapter_composite)
+      return Session.new(driver: args.fetch(:driver), composite: adapter_composite)
     end
   end
 end

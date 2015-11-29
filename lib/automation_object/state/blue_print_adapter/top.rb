@@ -9,8 +9,11 @@ module AutomationObject
         #Children for this composite
         has_many :screens, interface: Screen
 
-        def create_state
+        def create
           self.session.get(self.blue_prints.base_url) if self.blue_prints.base_url
+        end
+
+        def destroy
         end
 
         def initial_screen

@@ -2,12 +2,6 @@
 base_url: 'http://qa.dose.com'
 screens:
   home_screen:
-    load:
-      live?:
-        - element_name: 'eewwewewe'
-          exists?: true
-        - element_name: 'ddd'
-          exists?: true
     elements:
       logo_button:
         css: 'div.logo a'
