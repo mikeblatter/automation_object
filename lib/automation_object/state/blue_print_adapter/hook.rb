@@ -1,5 +1,5 @@
 require_relative 'hook_action'
-require_relative 'hook_element_requirement'
+require_relative 'hook_actions/element_requirement'
 
 module AutomationObject
   module State
@@ -12,7 +12,7 @@ module AutomationObject
           return nil if self.blue_prints.live?.empty?
 
           self.blue_prints.live?.each { |element_requirement_blueprints|
-            hook_element_requirement = HookElementRequirement.new(blue_prints: element_requirement_blueprints, session: self.session, loops: 1)
+            hook_element_requirement = ElementRequirement.new(blue_prints: element_requirement_blueprints, session: self.session, loops: 1)
             return false unless hook_element_requirement.run
           }
 
