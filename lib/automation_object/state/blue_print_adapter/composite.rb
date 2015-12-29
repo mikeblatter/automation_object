@@ -7,21 +7,16 @@ module AutomationObject
       class Composite
         include AutomationObject::ReflectionHelper
 
-        attr_accessor :blue_prints, :children, :session, :parent
+        attr_accessor :blue_prints, :children, :driver, :parent
 
         def children
           @children ||= Hash.new
         end
 
-        def session=(session_object)
-          @session = session_object
-          self.children.each_value { |child|
-            child.session = session_object
-          }
-        end
-
         def initialize(args={})
           self.blue_prints = args.fetch(:blue_prints)
+          self.driver = args.fetch(:driver)
+
           self.parent = args.fetch :parent, nil
 
           #Build composite on self, using children property.
@@ -35,7 +30,9 @@ module AutomationObject
 
         def add_has_one_relationships
           self.class.has_one_relationships.each { |name, composite_class|
-            self.children[name] = composite_class.new(blue_prints: self.blue_prints.send(name), parent: self)
+            self.children[name] = composite_class.new(blue_prints: self.blue_prints.send(name),
+                                                      driver: self.driver,
+                                                      parent: self)
             self.add_attribute(name, self.children[name])
           }
         end
@@ -45,7 +42,9 @@ module AutomationObject
             children_hash = Hash.new
 
             self.blue_prints.send(name).each { |child_key, child_blue_prints|
-              children_hash[child_key] = composite_class.new(blue_prints: child_blue_prints, parent: self)
+              children_hash[child_key] = composite_class.new(blue_prints: child_blue_prints,
+                                                             driver: self.driver,
+                                                             parent: self)
               children_hash[child_key].build_composite
 
               self.children[child_key] = children_hash[child_key]

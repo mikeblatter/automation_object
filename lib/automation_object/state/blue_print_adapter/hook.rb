@@ -12,7 +12,7 @@ module AutomationObject
           return nil if self.blue_prints.live?.empty?
 
           self.blue_prints.live?.each { |element_requirement_blueprints|
-            hook_element_requirement = ElementRequirement.new(blue_prints: element_requirement_blueprints, session: self.session, loops: 1)
+            hook_element_requirement = ElementRequirement.new(blue_prints: element_requirement_blueprints, driver: self.driver, loops: 1)
             return false unless hook_element_requirement.run
           }
 
@@ -26,7 +26,7 @@ module AutomationObject
         def before
           return if self.blue_prints.before.empty?
 
-          hook_action = HookAction.new(blue_prints: self.blue_prints.before, session: self.session, loops: 1)
+          hook_action = HookAction.new(blue_prints: self.blue_prints.before, driver: self.driver, loops: 1)
           return hook_action.run
         end
 
@@ -35,7 +35,7 @@ module AutomationObject
         def after
           return unless self.blue_prints.after.empty?
 
-          hook_action = HookAction.new(blue_prints: self.blue_prints.after, session: self.session, loops: 1)
+          hook_action = HookAction.new(blue_prints: self.blue_prints.after, driver: self.driver, loops: 1)
           return hook_action.run
         end
       end

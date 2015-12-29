@@ -5,7 +5,7 @@ module AutomationObject
     module BluePrintAdapter
       class ElementRequirement < ActionLoop
         def element
-          @element ||= self.session.find_element(*self.blue_prints.element_blueprints.selector_params)
+          @element ||= self.driver.find_element(*self.blue_prints.element_blueprints.selector_params)
         end
 
         def single_run
@@ -16,7 +16,7 @@ module AutomationObject
 
             case requirement_name
               when :exists?
-                if requirement_value != self.session.exists?(*self.blue_prints.element_blueprints.selector_params)
+                if requirement_value != self.driver.exists?(*self.blue_prints.element_blueprints.selector_params)
                   return false
                 end
               else

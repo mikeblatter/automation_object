@@ -72,9 +72,9 @@ module AutomationObject::Driver::SeleniumAdapter
     def get(url)
       @subject.get(url)
 
-      until self.document_complete?
+      30.times do
         sleep(DOC_COMPLETE_SLEEP)
-        loops += 1
+        break if self.document_complete?
       end
     end
 

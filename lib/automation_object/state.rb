@@ -6,7 +6,7 @@ module AutomationObject
   module State
     extend self
 
-    # @return [AutomationObject::State::Module]
+    # @return [AutomationObject::State::BluePrintAdapter::Top]
     def adapter
       return @adapter if @adapter
       self.adapter = :blue_print

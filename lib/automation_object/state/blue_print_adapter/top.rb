@@ -9,9 +9,10 @@ module AutomationObject
         #Children for this composite
         has_many :screens, interface: Screen
 
+        # @return [Symbol] symbol of the initial screen found
         def create
-          self.session.get(self.blue_prints.base_url) if self.blue_prints.base_url
-          self.session.window_manager.set_screen(self.initial_screen)
+          self.driver.get(self.blue_prints.base_url) if self.blue_prints.base_url
+          return self.initial_screen
         end
 
         def destroy
@@ -25,7 +26,7 @@ module AutomationObject
             if default_screen_live == nil or default_screen_live == true
               return screen_name
             else
-              raise 'no default screen'
+              raise AutomationObject::State::NoInitialScreenError.new
             end
           end
 
@@ -33,7 +34,7 @@ module AutomationObject
             return screen_name if screen.load.live?
           }
 
-          raise 'no screens'
+          raise AutomationObject::State::NoInitialScreenError.new
         end
       end
     end

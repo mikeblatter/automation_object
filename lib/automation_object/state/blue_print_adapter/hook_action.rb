@@ -4,7 +4,7 @@ module AutomationObject
       class HookAction < Composite
         def initialize(args = {})
           @blue_prints = args.fetch(:blue_prints)
-          @session = args.fetch(:session)
+          @driver = args.fetch(:driver)
           @loops = args.fetch(:loops, 1)
         end
 

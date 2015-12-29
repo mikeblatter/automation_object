@@ -1,4 +1,5 @@
 require_relative 'window_manager'
+require_relative 'error'
 
 module AutomationObject
   module State
@@ -10,11 +11,10 @@ module AutomationObject
         self.driver = args.fetch :driver
         self.composite = args.fetch :composite
 
-        self.window_manager = WindowManager.new(driver: self.driver)
-        self.composite.session = self
+        self.window_manager = WindowManager.new(driver: self.driver, composite: self.composite)
 
         self.window_manager.create
-        self.composite.create
+        self.window_manager.set_screen(self.composite.create)
       end
 
       # Pass method on to driver, with maybe some extra work for caching, controlling windows!
@@ -30,14 +30,12 @@ module AutomationObject
           when :screen
             self.window_manager.use_screen(name)
           when :modal
-          when :element_group
-          when :element_hash
-          when :element_array
-          when :element
+            #self.window_manager.use_model(name)
+          when :element, :element_array, :element_hash, :element_group
+            return self.window_manager.get_object(type, name)
+          else
+            raise AutomationObject::State::UndefinedLoadTypeError.new
         end
-
-        ap type
-        ap name
       end
 
       def quit

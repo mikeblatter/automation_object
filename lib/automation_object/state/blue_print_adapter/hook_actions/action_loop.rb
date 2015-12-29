@@ -10,10 +10,12 @@ module AutomationObject
           return @args.fetch(:blue_prints)
         end
 
-        def session
-          return @args.fetch(:session)
+        def driver
+          return @args.fetch(:driver)
         end
 
+        # Loops to run action for, default to 30
+        # TODO: Maybe set some kind of constants somewhere for 30?
         # @return [Integer] loops
         def loops
           return @args.fetch(:loops, 30)
