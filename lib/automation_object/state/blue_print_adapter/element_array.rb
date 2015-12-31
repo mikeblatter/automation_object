@@ -5,14 +5,12 @@ module AutomationObject
   module State
     module BluePrintAdapter
       class ElementArray < Composite
-        # @return [Array] Selenium type elements
-        def load(window_manager)
+        # @return [Array<AutomationObject::State::BluePrintAdapter::ElementProxy>] Selenium proxy
+        def load
           elements = self.driver.find_elements(*self.blue_prints.selector_params)
 
           wrapped_elements = elements.map {|element|
-            ElementProxy.new(subject: element,
-                             blue_prints: self.blue_prints,
-                             window_manager: window_manager)
+            ElementProxy.new(composite: self, element: element)
           }
 
           return wrapped_elements

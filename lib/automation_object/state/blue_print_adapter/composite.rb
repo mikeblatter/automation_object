@@ -23,6 +23,13 @@ module AutomationObject
           self.build_composite
         end
 
+        # Recursive function to reach top with ease
+        # @return [AutomationObject::State::BluePrintAdapter::Top]
+        def top
+          #Should recursively call top until parent is nil
+          return (self.parent == nil) ? self : self.parent.top
+        end
+
         def build_composite
           self.add_has_one_relationships
           self.add_has_many_relationships

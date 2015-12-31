@@ -13,6 +13,8 @@ module AutomationObject::BluePrint::HashAdapter
   class Element < Composite
     include ElementHelper
 
+    before_create :method_hooks
+
     #Relationships
     has_one :load, interface: Hook
     has_many :custom_methods, interface: CustomMethod

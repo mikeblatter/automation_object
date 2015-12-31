@@ -32,6 +32,9 @@ module AutomationObject
           @current_screen = screen
         end
 
+        def request_modal(modal)
+        end
+
         #TODO: add modal or screen logic!
         def current_composite
           return self.screens[@current_screen]
@@ -42,16 +45,16 @@ module AutomationObject
 
           case type
             when :element
-              object = self.current_composite.elements[name].load(self)
+              object = self.current_composite.elements[name]
             when :element_array
-              object = self.current_composite.element_arrays[name].load(self)
+              object = self.current_composite.element_arrays[name]
             when :element_hash
-              object = self.current_composite.element_hashes[name].load(self)
+              object = self.current_composite.element_hashes[name]
             when :element_group
-              object = self.current_composite.element_groups[name].load(self)
+              object = self.current_composite.element_groups[name]
           end
 
-          return object
+          return object.load
         end
       end
     end

@@ -14,6 +14,9 @@ screens:
     elements:
       logo_button:
         css: 'header a.logo'
+        click:
+          after:
+            change_screen: 'home_screen'
     element_arrays:
       list_links:
         css: 'div.feed-item div.image a'

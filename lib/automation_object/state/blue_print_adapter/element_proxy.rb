@@ -6,12 +6,15 @@ module AutomationObject
       #Proxy class to allow for usage of hooks
       class ElementProxy < AutomationObject::Proxies::Proxy
         def initialize(args = {})
-          @subject = args.fetch :subject
-          @blue_prints = args.fetch :blue_prints
+          @composite = args.fetch :composite
+          @subject = args.fetch :element
         end
 
         #Overiding base method to run possible hooks
         def method_missing(method_symbol, *args, &block)
+          puts method_symbol
+          ap @composite.blue_prints.method_hook?(method_symbol)
+
           return @subject.send(method_symbol, *args, &block)
         end
       end
