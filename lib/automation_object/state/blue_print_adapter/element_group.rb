@@ -1,4 +1,5 @@
 require_relative 'composite'
+require_relative 'element_proxy'
 
 module AutomationObject
   module State

@@ -18,7 +18,7 @@ command :run do |c|
       raw_driver = Selenium::WebDriver.for :chrome
 
       ao = AutomationObject::Framework.new(driver: raw_driver,
-                                           blue_prints: File.expand_path(File.join(__dir__, 'test_blueprints/')))
+                                           blue_prints: File.expand_path(File.join(__dir__, 'blue_prints/')))
 
       say "Can operate on the variable ao for AutomationObject"
       say "Example: ao.home_screen.logo_button"

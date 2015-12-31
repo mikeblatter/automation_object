@@ -35,5 +35,10 @@ module AutomationObject::Driver::SeleniumAdapter
       javascript_string = "return window.scroll(#{scroll_x_position}, #{scroll_y_position});"
       @driver.execute_script(javascript_string)
     end
+
+    def click
+      self.scroll_into_view
+      @subject.click
+    end
   end
 end

@@ -14,4 +14,7 @@ screens:
     elements:
       logo_button:
         css: 'header a.logo'
+    element_arrays:
+      list_links:
+        css: 'div.feed-item div.image a'
   list_screen:

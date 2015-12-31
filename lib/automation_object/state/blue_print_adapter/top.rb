@@ -1,21 +1,23 @@
 require_relative 'composite'
 require_relative 'screen'
+
+require_relative 'helpers/screen_manager'
+
 require_relative '../error'
 
 module AutomationObject
   module State
     module BluePrintAdapter
       class Top < Composite
+        include ScreenManager
+
         #Children for this composite
         has_many :screens, interface: Screen
 
         # @return [Symbol] symbol of the initial screen found
         def create
           self.driver.get(self.blue_prints.base_url) if self.blue_prints.base_url
-          return self.initial_screen
-        end
-
-        def destroy
+          self.set_screen(self.initial_screen)
         end
 
         def initial_screen
