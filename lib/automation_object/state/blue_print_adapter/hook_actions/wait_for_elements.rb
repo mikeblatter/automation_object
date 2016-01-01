@@ -4,7 +4,8 @@ module AutomationObject
   module State
     module BluePrintAdapter
       class WaitForElements < ActionLoop
-
+        def single_run
+        end
       end
     end
   end

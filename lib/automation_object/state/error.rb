@@ -3,5 +3,6 @@ module AutomationObject
     class UndefinedLoadTypeError < StandardError; end
     class NoInitialScreenError < StandardError; end
     class ScreenDoesNotExistError < StandardError; end
+    class ScreenNotLiveError < StandardError; end
   end
 end

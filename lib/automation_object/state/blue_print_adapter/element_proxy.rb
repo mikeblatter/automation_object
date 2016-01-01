@@ -12,10 +12,15 @@ module AutomationObject
 
         #Overiding base method to run possible hooks
         def method_missing(method_symbol, *args, &block)
-          puts method_symbol
-          ap @composite.blue_prints.method_hook?(method_symbol)
+          #Run before hook if needed
+          @composite.method_hooks[method_symbol].before if @composite.method_hook?(method_symbol)
 
-          return @subject.send(method_symbol, *args, &block)
+          subject_return = @subject.send(method_symbol, *args, &block)
+
+          #Run after hook if needed
+          @composite.method_hooks[method_symbol].after if @composite.method_hook?(method_symbol)
+
+          return subject_return
         end
       end
     end

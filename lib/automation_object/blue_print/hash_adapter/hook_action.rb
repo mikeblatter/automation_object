@@ -9,11 +9,12 @@ module AutomationObject::BluePrint::HashAdapter
     before_create :wait_for_elements
 
     #Validations
-    validates_keys allowed_keys: [:wait_for_new_window, :show_modal, :close_window, :change_screen,
+    validates_keys allowed_keys: [:new_screen, :show_modal, :close_window, :change_screen,
                   :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
                   :possible_screen_changes]
 
     validates :change_screen, instance_of: [String, Symbol], screen_presence_of: true
+    validates :new_screen, instance_of: [String, Symbol], screen_presence_of: true
     validates :change_to_previous_screen, instance_of: TrueClass
     validates :close_modal, instance_of: TrueClass
     validates :close_window, instance_of: TrueClass
@@ -22,7 +23,6 @@ module AutomationObject::BluePrint::HashAdapter
     validates :show_modal, instance_of: String, modal_presence_of: true
     validates :sleep, instance_of: Numeric
     validates :wait_for_elements, instance_of: Array
-    validates :wait_for_new_window, instance_of: TrueClass
 
     #Get the order to run the hook in
     # @return [Array<Symbol>] list of hook methods to run in given order
@@ -39,7 +39,7 @@ module AutomationObject::BluePrint::HashAdapter
     #See if hook actions are empty
     # @return [Boolean] if hook actions are empty
     def empty?
-      return (self.hash.keys.length > 0) ? false : true
+      return !(self.hash.keys.length > 0)
     end
 
     # @return [Symbol, nil] screen to change to
@@ -49,6 +49,18 @@ module AutomationObject::BluePrint::HashAdapter
       case change_screen
         when Symbol, String
           return change_screen.to_sym
+        else
+          return nil
+      end
+    end
+
+    # @return [Symbol, nil] new screen
+    def new_screen
+      new_screen = self.hash[:new_screen]
+
+      case new_screen
+        when Symbol, String
+          return new_screen.to_sym
         else
           return nil
       end
@@ -67,11 +79,6 @@ module AutomationObject::BluePrint::HashAdapter
     # @return [Boolean]
     def change_to_previous_screen
       return self.hash[:change_to_previous_screen] ||= false
-    end
-
-    # @return [Boolean]
-    def wait_for_new_window
-      return self.hash[:wait_for_new_window] ||= false
     end
 
     # @return [Symbol, nil]

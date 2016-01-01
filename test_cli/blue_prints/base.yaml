@@ -1,8 +1,18 @@
 #default_screen: 'home_screen'
 base_url: 'http://qa.dose.com'
 default_screen: 'home_screen'
+views:
+  header_view:
+    elements:
+      logo_button:
+        css: 'header a.logo'
+        click:
+          after:
+            change_screen: 'home_screen'
 screens:
   home_screen:
+    included_views:
+      - 'header_view'
     load:
       before:
         wait_for_elements:
@@ -11,13 +21,23 @@ screens:
       live?:
         - element_name: 'logo_button'
           exists?: true
-    elements:
-      logo_button:
-        css: 'header a.logo'
-        click:
-          after:
-            change_screen: 'home_screen'
     element_arrays:
       list_links:
         css: 'div.feed-item div.image a'
+        click:
+          after:
+            change_screen: 'list_screen'
   list_screen:
+    included_views:
+      - 'header_view'
+    load:
+      before:
+        wait_for_elements:
+          - element_name: 'title_text'
+            exists?: true
+      live?:
+        - element_name: 'title_text'
+          exists?: true
+    elements:
+      title_text:
+        css: 'h1.title'

@@ -71,7 +71,10 @@ module AutomationObject::Driver::SeleniumAdapter
 
     def get(url)
       @subject.get(url)
+      self.document_complete_wait
+    end
 
+    def document_complete_wait
       30.times do
         sleep(DOC_COMPLETE_SLEEP)
         break if self.document_complete?

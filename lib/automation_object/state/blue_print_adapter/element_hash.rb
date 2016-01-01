@@ -1,10 +1,14 @@
 require_relative 'composite'
+require_relative 'helpers/element_helper'
+
 require_relative 'element_proxy'
 
 module AutomationObject
   module State
     module BluePrintAdapter
       class ElementHash < Composite
+        include ElementHelper
+
         # @return [Hash<String, AutomationObject::State::BluePrintAdapter::ElementProxy>] Selenium proxy
         def load
           elements = self.driver.find_elements(*self.blue_prints.selector_params)

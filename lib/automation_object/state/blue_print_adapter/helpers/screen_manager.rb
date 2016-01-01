@@ -47,6 +47,7 @@ module AutomationObject
             when :element
               object = self.current_composite.elements[name]
             when :element_array
+              ap self.current_composite
               object = self.current_composite.element_arrays[name]
             when :element_hash
               object = self.current_composite.element_hashes[name]

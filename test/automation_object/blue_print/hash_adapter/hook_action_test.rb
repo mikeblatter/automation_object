@@ -32,7 +32,7 @@ class TestHashAdapterHookAction < Minitest::Test
         :show_modal => nil,
         :sleep => 0,
         :wait_for_elements => [],
-        :wait_for_new_window => false,
+        :new_screen => nil,
     }
 
     self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::HookAction)
@@ -107,8 +107,8 @@ class TestHashAdapterHookAction < Minitest::Test
     }
   end
 
-  def test_wait_for_new_window
-    composite = self.create_composite({ :wait_for_new_window => true })
-    assert_equal true, composite.wait_for_new_window
+  def test_new_screen
+    composite = self.create_composite({ :new_screen => 'new_screen' })
+    assert_equal :new_screen, composite.new_screen
   end
 end
