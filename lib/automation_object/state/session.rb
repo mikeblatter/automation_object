@@ -16,11 +16,15 @@ module AutomationObject
       def load(type, name)
         case type
           when :screen
-            self.composite.request_screen(name)
+            unless self.composite.screen_exists?(name)
+              raise AutomationObject::State::ScreenDoesNotExistError.new
+            end
+
+            self.composite.use_screen(name)
           when :modal
-            self.composite.request_modal(name)
+            #self.composite.use_model(name)
           when :element, :element_array, :element_hash, :element_group
-            return self.composite.request_object(type, name)
+            return self.composite.get_object(type, name)
           else
             raise AutomationObject::State::UndefinedLoadTypeError.new
         end
