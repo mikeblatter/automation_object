@@ -33,7 +33,7 @@ module AutomationObject
 
         def create_screen(name)
           driver_handles = self.driver.window_handles
-          diff_handles = self.window_handles - driver_handles
+          diff_handles = driver_handles - self.window_handles
 
           #Should only have one extra window
           if diff_handles.length > 1

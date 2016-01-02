@@ -7,7 +7,7 @@ require_relative 'hook_actions/reset_screen'
 require_relative 'hook_actions/show_modal'
 require_relative 'hook_actions/sleep'
 require_relative 'hook_actions/wait_for_elements'
-require_relative 'hook_actions/wait_for_new_window'
+require_relative 'hook_actions/new_screen'
 
 module AutomationObject
   module State
