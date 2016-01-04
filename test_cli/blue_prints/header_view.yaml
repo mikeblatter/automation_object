@@ -1,0 +1,8 @@
+views:
+  header_view:
+    elements:
+      logo_button:
+        css: 'header a.logo'
+        click:
+          after:
+            change_screen: 'home_screen'

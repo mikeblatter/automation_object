@@ -1,7 +1,7 @@
 require_relative '../../proxies/proxy'
-require_relative '../models/element_hash'
 
 require_relative 'helpers/composite_helper'
+
 module AutomationObject::Dsl
   module Proxies
     #ElementHash proxy for model
@@ -9,7 +9,7 @@ module AutomationObject::Dsl
       include CompositeHelper
 
       def initialize
-        @subject = Models::ElementHash.new
+        @subject = nil
       end
     end
   end

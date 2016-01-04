@@ -17,7 +17,7 @@ module AutomationObject
         case type
           when :screen
             unless self.composite.screen_exists?(name)
-              raise AutomationObject::State::ScreenDoesNotExistError.new
+              raise AutomationObject::State::ScreenNotLiveError.new
             end
 
             self.composite.use_screen(name)

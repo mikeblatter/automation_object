@@ -26,7 +26,7 @@ class TestHashAdapterHookAction < Minitest::Test
         :change_screen => nil,
         :change_to_previous_screen => false,
         :close_modal => false,
-        :close_window => false,
+        :close_screen => false,
         :possible_screen_changes => [],
         :reset_screen => false,
         :show_modal => nil,
@@ -63,9 +63,9 @@ class TestHashAdapterHookAction < Minitest::Test
     assert_equal :test_screen, composite.change_screen
   end
 
-  def test_close_window
-    composite = self.create_composite({ :close_window => true })
-    assert_equal true, composite.close_window
+  def test_close_screen
+    composite = self.create_composite({ :close_screen => true })
+    assert_equal true, composite.close_screen
   end
 
   def test_change_to_previous_screen

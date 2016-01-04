@@ -1,9 +1,9 @@
+require_relative 'window'
+
 module AutomationObject
   module State
     module BluePrintAdapter
       module ScreenManager
-        Window = Struct.new(:name, :window_handle)
-
         # @return [Array<Window>]
         def windows
           @windows ||= []
@@ -20,15 +20,18 @@ module AutomationObject
 
         def set_screen(name)
           current_window_handle = self.driver.window_handle
+          previous_window = nil
 
           self.windows.each { |window|
             if window.window_handle == current_window_handle
-              self.windows.delete(window)
+              previous_window = self.windows.delete(window)
               break
             end
           }
 
-          self.windows << Window.new(name, current_window_handle)
+          self.windows << Window.new(name: name,
+                                     window_handle: current_window_handle,
+                                     previous_window: previous_window)
         end
 
         def create_screen(name)
@@ -40,7 +43,7 @@ module AutomationObject
             raise "Expecting only one extra window, got #{diff_handles.length}"
           end
 
-          self.windows << Window.new(name, diff_handles.first)
+          self.windows << Window.new(name: name, window_handle: diff_handles.first)
         end
 
         def use_screen(name)
@@ -53,7 +56,7 @@ module AutomationObject
             self.driver.window_handle = window.window_handle
           }
 
-          @current_screen = name
+          @current_screen_name = name
         end
 
         def delete_screen(name)
@@ -70,8 +73,22 @@ module AutomationObject
           return false
         end
 
+        # @return [Window, nil]
+        def current_window
+          return nil unless @current_screen_name
+          return self.get_window(@current_screen_name)
+        end
+
+        def get_window(name)
+          self.windows.each { |window|
+            return window if name == window.name
+          }
+
+          return nil
+        end
+
         def current_composite
-          return self.screens[@current_screen]
+          return self.screens[@current_screen_name]
         end
 
         def get_object(type, name)

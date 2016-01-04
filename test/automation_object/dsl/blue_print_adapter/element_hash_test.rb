@@ -13,6 +13,6 @@ class TestDslBluePrintAdapterElementHash < Minitest::Test
 
   def test_implements_proxy
     proxy = @element_hash_adapter.build_composite
-    assert_instance_of AutomationObject::Dsl::Models::ElementHash, proxy
+    assert_nil proxy
   end
 end

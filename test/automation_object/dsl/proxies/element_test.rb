@@ -11,6 +11,6 @@ class TestDslProxyElement < Minitest::Test
   end
 
   def test_subject
-    assert_instance_of AutomationObject::Dsl::Models::Element, @proxy
+    assert_nil @proxy
   end
 end

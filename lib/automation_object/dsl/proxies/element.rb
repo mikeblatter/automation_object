@@ -1,5 +1,4 @@
 require_relative '../../proxies/proxy'
-require_relative '../models/element'
 
 require_relative 'helpers/composite_helper'
 
@@ -10,7 +9,7 @@ module AutomationObject::Dsl
       include CompositeHelper
 
       def initialize
-        @subject = Models::Element.new
+        @subject = nil
       end
     end
   end

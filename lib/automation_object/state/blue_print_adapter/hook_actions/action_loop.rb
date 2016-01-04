@@ -25,8 +25,9 @@ module AutomationObject
           return false
         end
 
+        # @return [Boolean] success or not
         def single_run
-          raise 'Abstract issue'
+          raise 'Abstract Issue'
         end
       end
     end

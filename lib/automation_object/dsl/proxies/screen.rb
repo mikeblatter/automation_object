@@ -12,6 +12,10 @@ module AutomationObject::Dsl
       def initialize
         @subject = Models::Screen.new
       end
+
+      def active?
+        return self.state
+      end
     end
   end
 end

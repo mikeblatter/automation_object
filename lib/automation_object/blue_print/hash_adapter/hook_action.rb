@@ -9,7 +9,7 @@ module AutomationObject::BluePrint::HashAdapter
     before_create :wait_for_elements
 
     #Validations
-    validates_keys allowed_keys: [:new_screen, :show_modal, :close_window, :change_screen,
+    validates_keys allowed_keys: [:new_screen, :show_modal, :close_screen, :change_screen,
                   :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
                   :possible_screen_changes]
 
@@ -17,7 +17,7 @@ module AutomationObject::BluePrint::HashAdapter
     validates :new_screen, instance_of: [String, Symbol], screen_presence_of: true
     validates :change_to_previous_screen, instance_of: TrueClass
     validates :close_modal, instance_of: TrueClass
-    validates :close_window, instance_of: TrueClass
+    validates :close_screen, instance_of: TrueClass
     validates :possible_screen_changes, instance_of: String, screen_presence_of: true
     validates :reset_screen, instance_of: TrueClass
     validates :show_modal, instance_of: String, modal_presence_of: true
@@ -67,8 +67,8 @@ module AutomationObject::BluePrint::HashAdapter
     end
 
     # @return [Boolean]
-    def close_window
-      return self.hash[:close_window] ||= false
+    def close_screen
+      return self.hash[:close_screen] ||= false
     end
 
     # @return [Boolean]

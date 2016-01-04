@@ -1,5 +1,4 @@
 require_relative 'action_loop'
-require_relative '../../error'
 
 module AutomationObject
   module State
@@ -7,18 +6,18 @@ module AutomationObject
       class ChangeScreen < ActionLoop
         def initialize(args = {})
           super
-          self.loops = 1
+          @new_screen_name = args.fetch :blue_prints
         end
 
         def single_run
-          new_screen_name = self.blue_prints
           self.driver.document_complete_wait
 
-          new_screen = self.composite.top.screens[new_screen_name]
+          new_screen = self.composite.top.screens[@new_screen_name]
           if new_screen.load.live?
-            self.composite.top.set_screen(new_screen_name)
+            self.composite.top.set_screen(@new_screen_name)
+            return true
           else
-            raise AutomationObject::State::ScreenNotLiveError.new
+            return false
           end
         end
       end

@@ -13,6 +13,6 @@ class TestDslBluePrintAdapterElementGroup < Minitest::Test
 
   def test_implements_proxy
     proxy = @element_group_adapter.build_composite
-    assert_instance_of AutomationObject::Dsl::Models::ElementGroup, proxy
+    assert_nil proxy
   end
 end

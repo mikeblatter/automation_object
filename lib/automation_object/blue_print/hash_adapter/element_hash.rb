@@ -23,6 +23,7 @@ module AutomationObject::BluePrint::HashAdapter
 
     #Validations
     validates :load, instance_of: Hash
+
     validates :define_elements_by, instance_of: [String, Symbol], presence_of: true
     validates :custom_range, instance_of: [Hash, String]
     validates :in_iframe, instance_of: String, element_presence_of: true

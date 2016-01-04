@@ -1,0 +1,14 @@
+screens:
+  home_screen:
+    included_views:
+      - 'header_view'
+    load:
+      live?:
+        - element_name: 'logo_button'
+          exists?: true
+    element_arrays:
+      list_links:
+        css: 'div.feed-item div.image a'
+        click:
+          after:
+            change_screen: 'article_screen'

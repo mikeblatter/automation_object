@@ -7,7 +7,6 @@ module AutomationObject
       class NewScreen < ActionLoop
         def initialize(args = {})
           super
-          self.loops = 1
         end
 
         def single_run
@@ -15,19 +14,14 @@ module AutomationObject
           new_screen = self.composite.top.screens[new_screen_name]
 
           stored_window_handles = self.composite.top.window_handles
-          driver_handles = []
-          30.times do
-            sleep(1)
-            driver_handles = self.driver.window_handles
-            break if driver_handles.length > stored_window_handles
-          end
+          driver_handles = self.driver.window_handles
 
           if driver_handles.length <= stored_window_handles.length
-            raise 'Expecting new window to exist'
+            return false
           end
 
           if (driver_handles.length - stored_window_handles.length) > 1
-            raise 'Only expecting one window to open'
+            return false
           end
 
           self.composite.top.create_screen(new_screen_name)
@@ -35,9 +29,7 @@ module AutomationObject
 
           self.driver.document_complete_wait
 
-          unless new_screen.load.live?
-            raise AutomationObject::State::ScreenNotLiveError.new
-          end
+          return new_screen.load.live?
         end
       end
     end
