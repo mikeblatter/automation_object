@@ -1,0 +1,17 @@
+screens:
+  article_screen:
+    included_views:
+      - 'header_view'
+    load:
+      live?:
+        - element_name: 'title_text'
+          exists?: true
+    elements:
+      title_text:
+        css: 'h1.title'
+    element_arrays:
+      facebook_buttons:
+        css: 'div.list-share-buttons div.facebook-button'
+        click:
+          after:
+            new_screen: 'facebook_share_screen'
