@@ -36,7 +36,11 @@ module AutomationObject
             if self.parent
               self.parent.add_errors(self.errors)
             else
+<<<<<<< HEAD
               raise Validators::ValidationError.new(self.errors.reverse)
+=======
+              raise Validators::ValidationError.new(self.errors.uniq.reverse)
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
             end
           end
 

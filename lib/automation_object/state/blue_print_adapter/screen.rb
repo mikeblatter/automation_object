@@ -20,6 +20,15 @@ module AutomationObject
         has_many :element_arrays, interface: ElementArray
         has_many :element_groups, interface: ElementGroup
         has_many :element_hashes, interface: ElementHash
+<<<<<<< HEAD
+=======
+
+        attr_accessor :active
+        # @return [Boolean] screen is active or not
+        def active
+          return @active ||= false
+        end
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
       end
     end
   end

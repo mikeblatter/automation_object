@@ -15,12 +15,21 @@ module AutomationObject::BluePrint::HashAdapter
     include ElementHelper
     include MultipleElementsHelper
 
+<<<<<<< HEAD
+=======
+    before_create :method_hooks
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     #Relationships
     has_one :load, interface: Hook
     has_many :custom_methods, interface: CustomMethod
 
     #Validations
     validates :load, instance_of: Hash
+<<<<<<< HEAD
+=======
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     validates :define_elements_by, instance_of: [String, Symbol], presence_of: true
     validates :custom_range, instance_of: [Hash, String]
     validates :in_iframe, instance_of: String, element_presence_of: true

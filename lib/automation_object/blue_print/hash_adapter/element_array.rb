@@ -15,6 +15,11 @@ module AutomationObject::BluePrint::HashAdapter
     include ElementHelper
     include MultipleElementsHelper
 
+<<<<<<< HEAD
+=======
+    before_create :method_hooks
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     #Relationships
     has_one :load, interface: Hook
     has_many :custom_methods, interface: CustomMethod

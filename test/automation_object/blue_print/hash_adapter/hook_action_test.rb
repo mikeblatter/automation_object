@@ -26,13 +26,21 @@ class TestHashAdapterHookAction < Minitest::Test
         :change_screen => nil,
         :change_to_previous_screen => false,
         :close_modal => false,
+<<<<<<< HEAD
         :close_window => false,
+=======
+        :close_screen => false,
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
         :possible_screen_changes => [],
         :reset_screen => false,
         :show_modal => nil,
         :sleep => 0,
         :wait_for_elements => [],
+<<<<<<< HEAD
         :wait_for_new_window => false,
+=======
+        :new_screen => nil,
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     }
 
     self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::HookAction)
@@ -43,14 +51,38 @@ class TestHashAdapterHookAction < Minitest::Test
     assert_equal [:change_screen, :sleep], composite.hook_order
   end
 
+<<<<<<< HEAD
+=======
+  def test_length
+    composite = self.create_composite({ :change_screen => 'test_screen', :sleep => 1 })
+    assert_equal 2, composite.length
+  end
+
+  def test_empty_true
+    composite = self.create_composite({})
+    assert_equal true, composite.empty?
+  end
+
+  def test_empty_false
+    composite = self.create_composite({ :change_screen => 'test_screen', :sleep => 1 })
+    assert_equal false, composite.empty?
+  end
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
   def test_change_screen
     composite = self.create_composite({ :change_screen => 'test_screen' })
     assert_equal :test_screen, composite.change_screen
   end
 
+<<<<<<< HEAD
   def test_close_window
     composite = self.create_composite({ :close_window => true })
     assert_equal true, composite.close_window
+=======
+  def test_close_screen
+    composite = self.create_composite({ :close_screen => true })
+    assert_equal true, composite.close_screen
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
   end
 
   def test_change_to_previous_screen
@@ -92,8 +124,14 @@ class TestHashAdapterHookAction < Minitest::Test
     }
   end
 
+<<<<<<< HEAD
   def test_wait_for_new_window
     composite = self.create_composite({ :wait_for_new_window => true })
     assert_equal true, composite.wait_for_new_window
+=======
+  def test_new_screen
+    composite = self.create_composite({ :new_screen => 'new_screen' })
+    assert_equal :new_screen, composite.new_screen
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
   end
 end

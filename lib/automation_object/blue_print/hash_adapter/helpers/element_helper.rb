@@ -28,6 +28,32 @@ module AutomationObject::BluePrint
       def in_iframe?
         (self.in_iframe) ? true : false
       end
+<<<<<<< HEAD
+=======
+
+      def method_hook?(name)
+        return self.method_hooks.has_key?(name)
+      end
+
+      # @return [Hash<Hook>] array of Hook that are defined under the element
+      def method_hooks
+        return @method_hooks if @method_hooks
+
+        children = {}
+        self.hash.each { |key, value|
+          #Skip possible keys that elements can have
+          #Otherwise should be a method hook
+          next if [:load, :custom_methods, :in_iframe, :css, :xpath, :define_elements_by, :custom_range].include?(key)
+          children[key] = value
+        }
+
+        @method_hooks = self.create_hash_children(children,
+                                                   { interface: Hook,
+                                                     location: self.location + '[hook]' })
+
+        return @method_hooks
+      end
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     end
   end
 end

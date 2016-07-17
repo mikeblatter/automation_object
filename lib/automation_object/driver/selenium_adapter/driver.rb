@@ -6,6 +6,11 @@ module AutomationObject::Driver::SeleniumAdapter
   #Driver proxy for Selenium
   #Conform Selenium driver interface to what's expected of the Driver Port
   class Driver < AutomationObject::Proxies::Proxy
+<<<<<<< HEAD
+=======
+    DOC_COMPLETE_SLEEP = 1
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     include AutomationObject::Driver::SeleniumDriverHelper
 
     # @param driver [Selenium::WebDriver::Driver] Selenium Web Driver
@@ -69,10 +74,20 @@ module AutomationObject::Driver::SeleniumAdapter
 
     def get(url)
       @subject.get(url)
+<<<<<<< HEAD
 
       until self.document_complete?
         sleep(DOC_COMPLETE_SLEEP)
         loops += 1
+=======
+      self.document_complete_wait
+    end
+
+    def document_complete_wait
+      30.times do
+        sleep(DOC_COMPLETE_SLEEP)
+        break if self.document_complete?
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
       end
     end
 

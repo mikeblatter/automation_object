@@ -7,12 +7,17 @@ module AutomationObject
       class Composite
         include AutomationObject::ReflectionHelper
 
+<<<<<<< HEAD
         attr_accessor :blue_prints, :children, :session, :parent
+=======
+        attr_accessor :blue_prints, :children, :driver, :parent
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
 
         def children
           @children ||= Hash.new
         end
 
+<<<<<<< HEAD
         def session=(session_object)
           @session = session_object
           self.children.each_value { |child|
@@ -22,12 +27,28 @@ module AutomationObject
 
         def initialize(args={})
           self.blue_prints = args.fetch(:blue_prints)
+=======
+        def initialize(args={})
+          self.blue_prints = args.fetch(:blue_prints)
+          self.driver = args.fetch(:driver)
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
           self.parent = args.fetch :parent, nil
 
           #Build composite on self, using children property.
           self.build_composite
         end
 
+<<<<<<< HEAD
+=======
+        # Recursive function to reach top with ease
+        # @return [AutomationObject::State::BluePrintAdapter::Top]
+        def top
+          #Should recursively call top until parent is nil
+          return (self.parent == nil) ? self : self.parent.top
+        end
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
         def build_composite
           self.add_has_one_relationships
           self.add_has_many_relationships
@@ -35,7 +56,13 @@ module AutomationObject
 
         def add_has_one_relationships
           self.class.has_one_relationships.each { |name, composite_class|
+<<<<<<< HEAD
             self.children[name] = composite_class.new(blue_prints: self.blue_prints.send(name), parent: self)
+=======
+            self.children[name] = composite_class.new(blue_prints: self.blue_prints.send(name),
+                                                      driver: self.driver,
+                                                      parent: self)
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
             self.add_attribute(name, self.children[name])
           }
         end
@@ -45,7 +72,13 @@ module AutomationObject
             children_hash = Hash.new
 
             self.blue_prints.send(name).each { |child_key, child_blue_prints|
+<<<<<<< HEAD
               children_hash[child_key] = composite_class.new(blue_prints: child_blue_prints, parent: self)
+=======
+              children_hash[child_key] = composite_class.new(blue_prints: child_blue_prints,
+                                                             driver: self.driver,
+                                                             parent: self)
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
               children_hash[child_key].build_composite
 
               self.children[child_key] = children_hash[child_key]

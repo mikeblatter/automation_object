@@ -9,20 +9,34 @@ module AutomationObject::BluePrint::HashAdapter
     before_create :wait_for_elements
 
     #Validations
+<<<<<<< HEAD
     validates_keys allowed_keys: [:wait_for_new_window, :show_modal, :close_window, :change_screen,
+=======
+    validates_keys allowed_keys: [:new_screen, :show_modal, :close_screen, :change_screen,
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
                   :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
                   :possible_screen_changes]
 
     validates :change_screen, instance_of: [String, Symbol], screen_presence_of: true
+<<<<<<< HEAD
     validates :change_to_previous_screen, instance_of: TrueClass
     validates :close_modal, instance_of: TrueClass
     validates :close_window, instance_of: TrueClass
+=======
+    validates :new_screen, instance_of: [String, Symbol], screen_presence_of: true
+    validates :change_to_previous_screen, instance_of: TrueClass
+    validates :close_modal, instance_of: TrueClass
+    validates :close_screen, instance_of: TrueClass
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     validates :possible_screen_changes, instance_of: String, screen_presence_of: true
     validates :reset_screen, instance_of: TrueClass
     validates :show_modal, instance_of: String, modal_presence_of: true
     validates :sleep, instance_of: Numeric
     validates :wait_for_elements, instance_of: Array
+<<<<<<< HEAD
     validates :wait_for_new_window, instance_of: TrueClass
+=======
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
 
     #Get the order to run the hook in
     # @return [Array<Symbol>] list of hook methods to run in given order
@@ -30,6 +44,21 @@ module AutomationObject::BluePrint::HashAdapter
       return self.hash.keys
     end
 
+<<<<<<< HEAD
+=======
+    #Get length of hook actions
+    # @return [Integer] length of hook actions
+    def length
+      return self.hash.keys.length
+    end
+
+    #See if hook actions are empty
+    # @return [Boolean] if hook actions are empty
+    def empty?
+      return !(self.hash.keys.length > 0)
+    end
+
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     # @return [Symbol, nil] screen to change to
     def change_screen
       change_screen = self.hash[:change_screen]
@@ -42,9 +71,27 @@ module AutomationObject::BluePrint::HashAdapter
       end
     end
 
+<<<<<<< HEAD
     # @return [Boolean]
     def close_window
       return self.hash[:close_window] ||= false
+=======
+    # @return [Symbol, nil] new screen
+    def new_screen
+      new_screen = self.hash[:new_screen]
+
+      case new_screen
+        when Symbol, String
+          return new_screen.to_sym
+        else
+          return nil
+      end
+    end
+
+    # @return [Boolean]
+    def close_screen
+      return self.hash[:close_screen] ||= false
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     end
 
     # @return [Boolean]
@@ -57,11 +104,14 @@ module AutomationObject::BluePrint::HashAdapter
       return self.hash[:change_to_previous_screen] ||= false
     end
 
+<<<<<<< HEAD
     # @return [Boolean]
     def wait_for_new_window
       return self.hash[:wait_for_new_window] ||= false
     end
 
+=======
+>>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
     # @return [Symbol, nil]
     def show_modal
       show_modal = self.hash[:show_modal]
