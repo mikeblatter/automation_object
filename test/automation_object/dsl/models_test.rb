@@ -1,8 +1,8 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/automation_object/dsl/models/modal'
+require_relative '../../test_helper'
+require_relative '../../../lib/automation_object/dsl/models.rb'
 
 #Test AutomationObject::Dsl::Models::Modal
-class TestDslModelModal < Minitest::Test
+class TestDslModelsModal < Minitest::Test
   def setup
   end
 

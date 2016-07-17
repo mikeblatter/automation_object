@@ -1,5 +1,5 @@
 require_relative '../../proxies/proxy'
-require_relative '../models/top'
+require_relative '../models'
 
 require_relative 'helpers/composite_helper'
 

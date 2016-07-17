@@ -1,5 +1,5 @@
 require_relative '../../proxies/proxy'
-require_relative '../models/screen'
+require_relative '../models.rb'
 
 require_relative 'helpers/composite_helper'
 
@@ -11,10 +11,6 @@ module AutomationObject::Dsl
 
       def initialize
         @subject = Models::Screen.new
-      end
-
-      def active?
-        return self.state
       end
     end
   end

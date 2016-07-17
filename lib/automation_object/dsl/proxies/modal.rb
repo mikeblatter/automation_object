@@ -1,5 +1,5 @@
 require_relative '../../proxies/proxy'
-require_relative '../models/modal'
+require_relative '../models.rb'
 
 require_relative 'helpers/composite_helper'
 
