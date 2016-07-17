@@ -17,7 +17,7 @@ From: https://github.com/RailsApps/learn-rails
 ## Command for Interactive CLI
 
 ```
-bundle exec rake cli
+ruby main.rb cli --trace
 ```
 
 ### Example CMDs
@@ -32,5 +32,5 @@ puts 'test'
 ## Command for Cucumber Tests
 
 ```
-bundle exec rake cucumber
+ruby main.rb cucumber --trace
 ```

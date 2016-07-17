@@ -37,8 +37,6 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 
   #For step definitions
   spec.add_runtime_dependency 'cucumber'
-  spec.add_runtime_dependency 'rspec'
-  spec.add_runtime_dependency 'rspec-expectations'
 
   #XML Driver
   spec.add_runtime_dependency 'rest-client'

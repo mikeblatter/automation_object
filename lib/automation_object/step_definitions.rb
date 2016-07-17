@@ -4,7 +4,6 @@ module AutomationObject
     extend self
 
     def load
-      include RSpec::Matchers
       Dir[File.dirname(__FILE__) + '/step_definitions/**/*.rb'].each { |file| require file }
     end
   end

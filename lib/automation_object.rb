@@ -15,5 +15,8 @@ require_relative 'automation_object/helpers/hash'
 #Core Framework
 require_relative 'automation_object/framework'
 
+#Cucumber Step Definitions
+require_relative 'automation_object/step_definitions'
+
 module AutomationObject
 end

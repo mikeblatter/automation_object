@@ -8,6 +8,18 @@ module AutomationObject
   #Framework class, the core
   #A Proxy class that will become the DSL Framework
   class Framework < Proxies::Proxy
+    #Static
+    class << self
+      attr_accessor :singleton
+
+      #Singleton method if using Cucumber
+      #TODO: was temporary fix for Cucumber, probably change
+      # @return [Framework] singleton of self
+      def get
+        return self.singleton
+      end
+    end
+
     attr_accessor :args, :blue_prints, :driver, :state, :dsl
 
     # @param args [Hash] arguments for Framework
@@ -25,6 +37,8 @@ module AutomationObject
       #Create the DSL
       #Should create all subsequent needed object
       @subject = self.dsl
+
+      AutomationObject::Framework.singleton = self
     end
 
     # dsl get method

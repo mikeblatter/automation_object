@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# AutomationObject
-=======
 # AutomationObject
 
 Configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.
@@ -16,4 +13,3 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 This is still very much a work in progress and is not complete. Currently using this project as an experiment in design patterns
 and exploration of Ruby code. Will update README as I progress and create the gem in rubygems.org when the majority of it is done
 and stable.
->>>>>>> c986db7e1e052faa3fbf7f9f821e69c56b46fd41
