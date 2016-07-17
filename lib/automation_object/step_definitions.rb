@@ -4,6 +4,10 @@ module AutomationObject
     extend self
 
     def load
+      require 'minitest/autorun'
+      require 'minitest/unit'
+      require 'minitest-bonus-assertions'
+
       Dir[File.dirname(__FILE__) + '/step_definitions/**/*.rb'].each { |file| require file }
     end
   end
