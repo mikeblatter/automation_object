@@ -1,12 +1,12 @@
 screens:
-  home_screen:
+  contact_screen:
     included_views:
       - 'header_view'
     load:
       live?:
         - element_name: 'title'
           exists?: true
-          text: 'Stay in touch.'
+          text: 'Contact'
     elements:
       title:
-        xpath: '//main//h3'
+        xpath: '//main/h3'

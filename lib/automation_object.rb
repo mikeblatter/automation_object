@@ -1,6 +1,5 @@
 #Gems
 require 'awesome_print'
-require 'colorize'
 require 'ostruct'
 require 'event_emitter'
 require 'appium_lib'

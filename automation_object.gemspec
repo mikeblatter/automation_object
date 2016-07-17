@@ -31,11 +31,20 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'fakefs'
   spec.add_development_dependency 'commander'
 
-  spec.add_runtime_dependency 'colorize'
+  #Misc
   spec.add_runtime_dependency 'awesome_print'
+  spec.add_runtime_dependency 'event_emitter'
+
+  #For step definitions
+  spec.add_runtime_dependency 'cucumber'
+  spec.add_runtime_dependency 'rspec'
+  spec.add_runtime_dependency 'rspec-expectations'
+
+  #XML Driver
   spec.add_runtime_dependency 'rest-client'
   spec.add_runtime_dependency 'nokogiri', '~> 1.6.3.1'
-  spec.add_runtime_dependency 'event_emitter'
+
+  #Drivers, TODO: maybe remove these as dependencies
   spec.add_runtime_dependency 'appium_lib', '~> 6.0.0'
   spec.add_runtime_dependency 'selenium-webdriver', '~> 2.41', '>= 2.41.0'
 end

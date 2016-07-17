@@ -1,8 +1,18 @@
 views:
   header_view:
     elements:
-      logo_button:
-        css: 'header a.logo'
+      home_button:
+        xpath: '//a[text()="Home"]'
+        click:
+          after:
+            change_screen: 'home_screen'
+      about_button:
+        xpath: '//a[text()="About"]'
+        click:
+          after:
+            change_screen: 'home_screen'
+      contact_button:
+        xpath: '//a[text()="Contact"]'
         click:
           after:
             change_screen: 'home_screen'

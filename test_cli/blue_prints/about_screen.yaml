@@ -1,12 +1,12 @@
 screens:
-  home_screen:
+  about_screen:
     included_views:
       - 'header_view'
     load:
       live?:
         - element_name: 'title'
           exists?: true
-          text: 'Stay in touch.'
+          text: 'About Foobar Kadigan'
     elements:
       title:
-        xpath: '//main//h3'
+        xpath: '//main/h3'
