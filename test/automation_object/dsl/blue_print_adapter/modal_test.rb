@@ -11,9 +11,6 @@ class TestDslBluePrintAdapterModal < Minitest::Test
         :element_arrays => {
             :test_element_array => stub()
         },
-        :element_groups => {
-            :test_element_group => stub()
-        },
         :element_hashes => {
             :test_element_hash => stub()
         }
@@ -34,7 +31,6 @@ class TestDslBluePrintAdapterModal < Minitest::Test
 
     assert_respond_to proxy, :test_element
     assert_respond_to proxy, :test_element_array
-    assert_respond_to proxy, :test_element_group
     assert_respond_to proxy, :test_element_hash
   end
 end

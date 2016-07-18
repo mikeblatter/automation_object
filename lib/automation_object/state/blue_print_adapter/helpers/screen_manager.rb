@@ -101,8 +101,6 @@ module AutomationObject
               object = self.current_composite.element_arrays[name]
             when :element_hash
               object = self.current_composite.element_hashes[name]
-            when :element_group
-              object = self.current_composite.element_groups[name]
           end
 
           return object.load

@@ -1,4 +1,4 @@
-require 'form'
+require_relative 'form'
 
 module AutomationObject::Driver::NokogiriAdapter
   #Element class for Nokogiri/XML

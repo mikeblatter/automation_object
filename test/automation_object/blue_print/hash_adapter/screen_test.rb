@@ -31,7 +31,6 @@ class TestHashAdapterScreen < Minitest::Test
         :elements => {},
         :element_arrays => {},
         :element_hashes => {},
-        :element_groups => {},
         :automatic_onload_modals => [],
         :automatic_screen_changes => [],
         :included_views => [],
@@ -100,18 +99,6 @@ class TestHashAdapterScreen < Minitest::Test
     composite.element_hashes.each { |composite_name, composite|
       assert_includes [:test_one, :test_two], composite_name
       assert_instance_of AutomationObject::BluePrint::HashAdapter::ElementHash, composite
-    }
-  end
-
-  def test_elements_groups
-    composite = self.create_composite({ :element_groups => { :test_one => {}, :test_two => {}}})
-
-    assert_instance_of Hash, composite.element_groups
-    assert_equal 2, composite.element_groups.keys.length
-
-    composite.element_groups.each { |composite_name, composite|
-      assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::ElementGroup, composite
     }
   end
 

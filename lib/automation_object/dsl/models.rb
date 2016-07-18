@@ -7,7 +7,6 @@ module AutomationObject
       class Element < OpenStruct ; end
       class ElementHash < OpenStruct ; end
       class ElementArray < OpenStruct ; end
-      class ElementGroup < OpenStruct ; end
     end
   end
 end
