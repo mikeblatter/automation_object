@@ -1,3 +1,5 @@
+require 'form'
+
 module AutomationObject::Driver::NokogiriAdapter
   #Element class for Nokogiri/XML
   class Element < AutomationObject::Proxies::Proxy
@@ -16,7 +18,12 @@ module AutomationObject::Driver::NokogiriAdapter
       @subject['href']
     end
 
-    # @return [Boolean] content of element
+    # @return [String] text of element
+    def text
+      @subject['content']
+    end
+
+    # @return [String] content of element
     def content
       @subject['content']
     end
@@ -33,6 +40,27 @@ module AutomationObject::Driver::NokogiriAdapter
       end
 
       @driver.get(url)
+    end
+
+    def send_keys(text)
+      @subject['value'] = text
+    end
+
+    def submit
+      form = find_form(@subject)
+      raise 'Unable to find form' unless form_element
+
+      @driver.send(form.request_method, form.params)
+    end
+
+    private
+
+    # @return [AutomationObject::Driver:NokogiriAdapter::Form]
+    def find_form(element)
+      return nil unless element
+
+      return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == 'form'
+      return find_form(element.parent)
     end
   end
 end

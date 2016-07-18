@@ -1,7 +1,7 @@
 require_relative '../../../test_helper'
 require_relative '../../../../lib/automation_object/step_definitions/element/regex'
 
-class TestRegexElementStepDefinition < Minitest::Test
+class TestElementStepDefinitionRegex < Minitest::Test
   CALL_EXAMPLES = [
       'I click on the "home_screen" "about_button" element',
       'I hover over the "home_screen" "test_link" element',
@@ -25,6 +25,9 @@ class TestRegexElementStepDefinition < Minitest::Test
   ]
 
   EQUAL_EXAMPLES = [
+      'the "home_screen" "title" element "text" should equal "Home"',
+      '"home_screen" "title" element "text" should not equal "About"',
+      'the "home_screen" "title" element "text" shouldn\'t equal "%{saved_value}"',
       'the "home_screen" "test" element "text" should not equal "blah"',
   ]
 
@@ -35,27 +38,27 @@ class TestRegexElementStepDefinition < Minitest::Test
   end
 
   def test_call_method
-    iterate_and_test(CALL_EXAMPLES, AutomationObject::StepDefinitions::Element::Regex::CALL_METHOD)
+    iterate_and_test(CALL_EXAMPLES, AutomationObject::StepDefinitions::Element::CALL_REGEX)
   end
 
   def test_type_method
-    iterate_and_test(TYPE_EXAMPLES, AutomationObject::StepDefinitions::Element::Regex::TYPE_METHOD)
+    iterate_and_test(TYPE_EXAMPLES, AutomationObject::StepDefinitions::Element::TYPE_REGEX)
   end
 
   def test_scroll_method
-    iterate_and_test(SCROLL_EXAMPLES, AutomationObject::StepDefinitions::Element::Regex::SCROLL_METHOD)
+    iterate_and_test(SCROLL_EXAMPLES, AutomationObject::StepDefinitions::Element::SCROLL_REGEX)
   end
 
   def test_save_method
-    iterate_and_test(SAVE_EXAMPLES, AutomationObject::StepDefinitions::Element::Regex::SAVE_METHOD)
+    iterate_and_test(SAVE_EXAMPLES, AutomationObject::StepDefinitions::Element::SAVE_REGEX)
   end
 
   def test_exist_should
-    iterate_and_test(EXIST_EXAMPLES, AutomationObject::StepDefinitions::Element::Regex::EXIST_SHOULD)
+    iterate_and_test(EXIST_EXAMPLES, AutomationObject::StepDefinitions::Element::EXIST_REGEX)
   end
 
   def test_equal_should
-    iterate_and_test(EQUAL_EXAMPLES, AutomationObject::StepDefinitions::Element::Regex::EQUAL_SHOULD)
+    iterate_and_test(EQUAL_EXAMPLES, AutomationObject::StepDefinitions::Element::EQUAL_REGEX)
   end
 
   #Iterate through examples and make sure there is a match

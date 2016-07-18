@@ -10,9 +10,9 @@ views:
         xpath: '//a[text()="About"]'
         click:
           after:
-            change_screen: 'home_screen'
+            change_screen: 'about_screen'
       contact_button:
         xpath: '//a[text()="Contact"]'
         click:
           after:
-            change_screen: 'home_screen'
+            change_screen: 'contact_screen'

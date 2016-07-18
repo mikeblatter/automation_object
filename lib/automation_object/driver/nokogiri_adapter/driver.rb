@@ -72,8 +72,12 @@ module AutomationObject::Driver::NokogiriAdapter
       return title
     end
 
-    def get(url)
-      @session.get(url)
+    def get(url, params = {})
+      @session.get(url, params)
+    end
+
+    def post(url, params = {})
+      @session.post(url, params)
     end
   end
 end

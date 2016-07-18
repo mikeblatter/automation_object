@@ -1,50 +1,87 @@
-require_relative 'regex'
+require_relative '../action'
 
-#Call method on an element
+module AutomationObject
+  module StepDefinitions
+    module Element
+      class CallAction < AutomationObject::StepDefinitions::Action
+        def initialize(*args)
+          super
+          @method, @screen, @element = self.args
+        end
 
-#Examples:
-# I click on the "home_screen" "about_button" element
-# I hover over the "home_screen" "test_link" element
-# I tap on "home_screen" "logo_button" element
+        def run
+          automation_object.send(@screen).send(@element).send(@method)
+        end
+      end
 
-When(AutomationObject::StepDefinitions::Element::Regex::CALL_METHOD) do |*args|
-  #Parse args for any stored cache values
-  method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+      class TypeAction < AutomationObject::StepDefinitions::Action
+        def initialize(*args)
+          super
+          @text, @screen, @element = self.args
+        end
 
-  #Call method
-  AutomationObject::Framework.get.send(screen).send(element).send(method)
-end
+        def run
+          automation_object.send(@screen).send(@element).send_keys(@text)
+        end
+      end
 
-#Type into field element
+      class ScrollAction < AutomationObject::StepDefinitions::Action
+        def initialize(*args)
+          super
+          @screen, @element = self.args
+        end
 
-# I type "blah" into the "home_screen" "text_field" element
-# I hover over the "home_screen" "test_link" element
-# I tap on "home_screen" "logo_button" element
+        def run
+          automation_object.send(@screen).send(@element).scroll_into_view
+        end
+      end
 
-When(AutomationObject::StepDefinitions::Element::Regex::TYPE_METHOD) do |*args|
-  #Parse args for any stored cache values
-  text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+      class SaveAction < AutomationObject::StepDefinitions::Action
+        def initialize(*args)
+          super
+          @method, @key, @screen, @element = self.args
+        end
 
-  #Call send_keys method and type text
-  AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
-end
+        def run
+          #Save value from called method/property
+          value = automation_object.send(@screen).send(@element).send(@method)
+          AutomationObject::StepDefinitions::Cache.set(@key, value)
+        end
+      end
 
-#Scroll element into view
-When(AutomationObject::StepDefinitions::Element::Regex::SCROLL_METHOD) do |*args|
-  #Parse args for any stored cache values
-  screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+      class ExistAction < AutomationObject::StepDefinitions::Action
+        def initialize(*args)
+          super
+          @screen, @element, @negative = self.args
+        end
 
-  #Scroll element into view
-  element = AutomationObject::Framework.get.send(screen).send(element)
-  element.scroll_into_view
-end
+        def run
+          exists = AutomationObject::Framework.get.send(@screen).send(@element).exists?
 
-#Save something from an element
-When(AutomationObject::StepDefinitions::Element::Regex::SAVE_METHOD) do |*args|
-  #Parse args for any stored cache values
-  method, key, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+          if @negative
+            assert_equal false, exists
+          else
+            assert_equal true, exists
+          end
+        end
+      end
 
-  #Save value from called method/property
-  value = AutomationObject::Framework.get.send(screen).send(element).send(method)
-  AutomationObject::StepDefinitions::Cache.set(key, value)
+      class EqualAction < AutomationObject::StepDefinitions::Action
+        def initialize(*args)
+          super
+          @screen, @element, @method, @negative, @expected_value = self.args
+        end
+
+        def run
+          actual_value = AutomationObject::Framework.get.send(@screen).send(@element).send(@method)
+
+          if @negative
+            refute_equal @expected_value, actual_value
+          else
+            assert_equal @expected_value, actual_value
+          end
+        end
+      end
+    end
+  end
 end
