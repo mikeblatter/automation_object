@@ -27,6 +27,10 @@ module AutomationObject
             self.previous_window = nil
           end
         end
+
+        def use_modal(name)
+
+        end
       end
     end
   end

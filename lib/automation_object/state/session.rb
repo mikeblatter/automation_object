@@ -22,7 +22,7 @@ module AutomationObject
 
             self.composite.use_screen(name)
           when :modal
-            #self.composite.use_model(name)
+            self.composite.use_model(name)
           when :element, :element_array, :element_hash
             return self.composite.get_object(type, name)
           else
