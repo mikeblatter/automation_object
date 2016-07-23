@@ -18,6 +18,15 @@ module AutomationObject
           return handles
         end
 
+        def window_closed?(screen)
+          self.windows.each { |window|
+            if window.name == screen && window.closed?
+              self.delete_screen(screen)
+              return true
+            end
+          }
+        end
+
         def set_screen(name)
           current_window_handle = self.driver.window_handle
           previous_window = nil
@@ -31,7 +40,8 @@ module AutomationObject
 
           self.windows << Window.new(name: name,
                                      window_handle: current_window_handle,
-                                     previous_window: previous_window)
+                                     previous_window: previous_window,
+                                     driver: self.driver)
         end
 
         def create_screen(name)
@@ -43,7 +53,7 @@ module AutomationObject
             raise "Expecting only one extra window, got #{diff_handles.length}"
           end
 
-          self.windows << Window.new(name: name, window_handle: diff_handles.first)
+          self.windows << Window.new(name: name, window_handle: diff_handles.first, driver: self.driver)
         end
 
         def use_screen(name)

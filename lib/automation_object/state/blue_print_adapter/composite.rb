@@ -1,4 +1,6 @@
 require_relative '../../helpers/reflection_helper'
+require_relative 'top'
+require_relative 'screen'
 
 module AutomationObject
   module State
@@ -7,16 +9,17 @@ module AutomationObject
       class Composite
         include AutomationObject::ReflectionHelper
 
-        attr_accessor :blue_prints, :children, :driver, :parent
+        attr_accessor :blue_prints, :children, :driver, :parent, :name
 
         def children
           @children ||= Hash.new
         end
 
         def initialize(args={})
-          self.blue_prints = args.fetch(:blue_prints)
-          self.driver = args.fetch(:driver)
+          self.blue_prints = args.fetch :blue_prints
+          self.driver = args.fetch :driver
 
+          self.name = args.fetch :name, nil
           self.parent = args.fetch :parent, nil
 
           #Build composite on self, using children property.
@@ -30,6 +33,15 @@ module AutomationObject
           return (self.parent == nil) ? self : self.parent.top
         end
 
+        # Recursive function to reach parent screen
+        # @return [AutomationObject::State::BluePrintAdapter::Screen,nil]
+        def screen
+          return nil if self.is_a?(Top)
+
+          #Should recursively call top until parent is nil
+          return (self.is_a?(Screen)) ? self : self.parent.screen
+        end
+
         def build_composite
           self.add_has_one_relationships
           self.add_has_many_relationships
@@ -37,7 +49,8 @@ module AutomationObject
 
         def add_has_one_relationships
           self.class.has_one_relationships.each { |name, composite_class|
-            self.children[name] = composite_class.new(blue_prints: self.blue_prints.send(name),
+            self.children[name] = composite_class.new(name: name,
+                                                      blue_prints: self.blue_prints.send(name),
                                                       driver: self.driver,
                                                       parent: self)
             self.add_attribute(name, self.children[name])
@@ -49,7 +62,8 @@ module AutomationObject
             children_hash = Hash.new
 
             self.blue_prints.send(name).each { |child_key, child_blue_prints|
-              children_hash[child_key] = composite_class.new(blue_prints: child_blue_prints,
+              children_hash[child_key] = composite_class.new(name: child_key,
+                                                             blue_prints: child_blue_prints,
                                                              driver: self.driver,
                                                              parent: self)
               children_hash[child_key].build_composite

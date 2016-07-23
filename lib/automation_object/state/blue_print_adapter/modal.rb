@@ -7,11 +7,8 @@ require_relative 'element_hash'
 module AutomationObject
   module State
     module BluePrintAdapter
-      class Modal < Composite
-        #Children for this composite
-        has_many :elements, interface: Element
-        has_many :element_arrays, interface: ElementArray
-        has_many :element_hashes, interface: ElementHash
+      #Operates similarly to screen
+      class Modal < Screen
       end
     end
   end

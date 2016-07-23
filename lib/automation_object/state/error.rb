@@ -14,5 +14,8 @@ module AutomationObject
         super(message)
       end
     end
+
+    class ModalParentExpected < StandardError; end
+    class ScreenParentExpected < StandardError; end
   end
 end
