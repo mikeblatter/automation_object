@@ -1,10 +1,10 @@
-require_relative '../../../../../test_helper'
-require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validation_error'
+require_relative '../../../../test_helper'
+require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validation_error'
 
 #Test AutomationObject::BluePrint::HashAdapter::Validators::ValidationError
 class TestValidationError < Minitest::Test
   def setup
-    @validation_error_class = AutomationObject::BluePrint::HashAdapter::Validators::ValidationError
+    @validation_error_class = AutomationObject::BluePrint::HashAdapter::ValidationError
   end
 
   def test_errors

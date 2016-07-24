@@ -1,5 +1,6 @@
 require_relative '../../../../lib/automation_object/helpers/composite'
 require_relative 'helpers/validation_helper'
+require_relative 'helpers/validation_error'
 
 module AutomationObject
   module BluePrint
@@ -25,7 +26,7 @@ module AutomationObject
             if self.parent
               self.parent.add_errors(self.errors)
             else
-              raise Validators::ValidationError.new(self.errors.uniq.reverse)
+              raise ValidationError.new(self.errors.uniq.reverse)
             end
           end
         end
