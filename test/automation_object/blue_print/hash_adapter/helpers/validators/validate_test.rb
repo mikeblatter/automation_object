@@ -1,5 +1,5 @@
-require_relative '../../../../test_helper'
-require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/validators/validate'
+require_relative '../../../../../test_helper'
+require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate'
 
 #Test AutomationObject::BluePrint::HashAdapter::Validators::Validate
 class TestValidate < Minitest::Test

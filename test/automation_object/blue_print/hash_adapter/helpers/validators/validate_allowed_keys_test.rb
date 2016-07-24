@@ -1,5 +1,5 @@
-require_relative '../../../../test_helper'
-require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/validators/validate_allowed_keys'
+require_relative '../../../../../test_helper'
+require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_allowed_keys'
 
 #Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateAllowedKeys
 class TestValidateAllowedKeys < Minitest::Test

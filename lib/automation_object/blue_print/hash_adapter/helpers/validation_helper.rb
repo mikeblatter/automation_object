@@ -1,11 +1,11 @@
 #Require all the validators
-require_relative '../validators/validate_instance_of'
-require_relative '../validators/validate_allowed_keys'
-require_relative '../validators/validate_screen_presence_of'
-require_relative '../validators/validate_modal_presence_of'
-require_relative '../validators/validate_view_presence_of'
-require_relative '../validators/validate_element_presence_of'
-require_relative '../validators/validate_presence_of'
+require_relative 'validators/validate_instance_of'
+require_relative 'validators/validate_allowed_keys'
+require_relative 'validators/validate_screen_presence_of'
+require_relative 'validators/validate_modal_presence_of'
+require_relative 'validators/validate_view_presence_of'
+require_relative 'validators/validate_element_presence_of'
+require_relative 'validators/validate_presence_of'
 
 module AutomationObject
   module BluePrint

@@ -1,5 +1,5 @@
-require_relative '../../../../test_helper'
-require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/validators/validation_error'
+require_relative '../../../../../test_helper'
+require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validation_error'
 
 #Test AutomationObject::BluePrint::HashAdapter::Validators::ValidationError
 class TestValidationError < Minitest::Test

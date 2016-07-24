@@ -21,7 +21,7 @@ module AutomationObject
           end
 
           if (driver_handles.length - stored_window_handles.length) > 1
-            return false
+            raise MoreThenOneScreenCreated.new
           end
 
           self.composite.top.create_screen(new_screen_name)
