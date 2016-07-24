@@ -8,7 +8,7 @@ module AutomationObject
     include CompositeHook
     include ReflectionHelper
 
-    attr_accessor :name, :parent, :location
+    attr_accessor :name, :parent, :location, :children
 
     # @param name [Symbol] name of the object
     # @param parent [Object, nil] parent composite object
@@ -23,6 +23,10 @@ module AutomationObject
       self.add_has_many_relationships
 
       self.after_create_run
+    end
+
+    def children
+      @children ||= {}
     end
 
     # Get top composite Object
@@ -50,30 +54,17 @@ module AutomationObject
 
     def add_has_one_relationships
       self.class.has_one_relationships.each { |name, options|
-        self.add_attribute(name, get_child(name, options))
+        self.children[name] = get_child(name, options)
+        self.add_attribute(name, self.children[name])
       }
     end
 
     def add_has_many_relationships
       self.class.has_many_relationships.each { |name, options|
-        composite_children = self.create_hash_children(get_children(name, options), options)
-        self.add_attribute(name, composite_children)
+        composite_children = get_children(name, options)
+        self.children[name] = composite_children
+        self.add_attribute(name, self.children[name])
       }
-    end
-
-    # @param children [Hash] hash of children
-    # @param args [Hash] arguments for adding children
-    def create_hash_children(children, args)
-      composite_children = children.inject({}) { |hash, (key, value)|
-        child_location = self.location + "[#{key}]"
-
-        interface = (args.is_a?(Class)) ? args : args.fetch :interface
-
-        hash[key] = interface.new(key, value, self, child_location)
-        hash
-      }
-
-      return composite_children
     end
 
     class << self

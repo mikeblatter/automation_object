@@ -6,7 +6,7 @@ require_relative 'element_proxy'
 module AutomationObject
   module State
     module BluePrintAdapter
-      class ElementArray < Composite
+      class ElementArray < AutomationObject::State::BluePrintAdapter::Composite
         include ElementHelper
 
         # @return [Array<AutomationObject::State::BluePrintAdapter::ElementProxy>] Selenium proxy

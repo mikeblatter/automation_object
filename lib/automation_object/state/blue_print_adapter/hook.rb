@@ -1,10 +1,12 @@
+require_relative 'composite'
+
 require_relative 'hook_action'
 require_relative 'hook_actions/element_requirement'
 
 module AutomationObject
   module State
     module BluePrintAdapter
-      class Hook < Composite
+      class Hook < AutomationObject::State::BluePrintAdapter::Composite
         # @return [Boolean, nil] return nil if no live? check, otherwise boolean
         def live?
           self.before

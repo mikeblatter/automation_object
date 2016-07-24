@@ -8,7 +8,7 @@ module AutomationObject
   module State
     module BluePrintAdapter
       #TODO: refactor to container
-      class Modal < Composite
+      class Modal < AutomationObject::State::BluePrintAdapter::Composite
         has_one :load, interface: Hook
 
         #Children for this composite

@@ -9,7 +9,7 @@ require_relative 'element_hash'
 module AutomationObject
   module State
     module BluePrintAdapter
-      class Screen < Composite
+      class Screen < AutomationObject::State::BluePrintAdapter::Composite
         has_one :load, interface: Hook
 
         #Children for this composite

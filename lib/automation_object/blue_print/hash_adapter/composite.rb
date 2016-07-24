@@ -46,7 +46,9 @@ module AutomationObject
         # @return children [Hash] return children and names
         def get_children(name, options)
           children = self.hash[name]
-          (children.is_a?(Hash)) ? children : Hash.new
+          children = (children.is_a?(Hash)) ? children : Hash.new
+
+          self.create_hash_children(children, options)
         end
 
         # @param name [Symbol] name of child
@@ -57,6 +59,19 @@ module AutomationObject
             location = (args[:location]) ? args[:location] : self.location
             child_location = location + "[#{index}]"
             args[:interface].new("#{name}[#{index}]", child, self, child_location)
+          }
+
+          return composite_children
+        end
+
+        # @param children [Hash] hash of children
+        # @param args [Hash] arguments for adding children
+        def create_hash_children(children, args)
+          composite_children = children.inject({}) { |hash, (key, value)|
+            child_location = self.location + "[#{key}]"
+
+            hash[key] = args.fetch(:interface).new(key, value, self, child_location)
+            hash
           }
 
           return composite_children
