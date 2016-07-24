@@ -1,7 +1,7 @@
 require_relative 'composite'
 
-require_relative 'hook'
 require_relative 'modal'
+require_relative 'hook'
 require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'
@@ -13,7 +13,7 @@ module AutomationObject
         has_one :load, interface: Hook
 
         #Children for this composite
-        has_many :modals, interface: Screen
+        has_many :modals, interface: Modal
 
         has_many :elements, interface: Element
         has_many :element_arrays, interface: ElementArray

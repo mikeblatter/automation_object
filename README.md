@@ -13,3 +13,20 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 This is still very much a work in progress and is not complete. Currently using this project as an experiment in design patterns
 and exploration of Ruby code. Will update README as I progress and create the gem in rubygems.org when the majority of it is done
 and stable.
+
+## Settings up Selenium/Chromedriver locally
+
+Edit your shell profile, typically for mac users ~/.bash_profile
+
+```
+export SELENIUM_SERVER_JAR=/Users/yourusername/path/where/jar/is
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=/Users/yourusername/path/to/drivers:$PATH
+```
+
+To test this, open a new shell session. You should see the variables in the output from the following command:
+
+```
+printenv
+```
+

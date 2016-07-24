@@ -66,7 +66,10 @@ module AutomationObject
     def create_hash_children(children, args)
       composite_children = children.inject({}) { |hash, (key, value)|
         child_location = self.location + "[#{key}]"
-        hash[key] = args[:interface].new(key, value, self, child_location)
+
+        interface = (args.is_a?(Class)) ? args : args.fetch :interface
+
+        hash[key] = interface.new(key, value, self, child_location)
         hash
       }
 
