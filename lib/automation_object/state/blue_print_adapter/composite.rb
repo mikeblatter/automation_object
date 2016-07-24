@@ -1,4 +1,4 @@
-require_relative '../../helpers/reflection_helper'
+require_relative '../../helpers/composite'
 require_relative 'top'
 require_relative 'screen'
 
@@ -6,14 +6,36 @@ module AutomationObject
   module State
     module BluePrintAdapter
       #Parent composite class
-      class Composite
-        include AutomationObject::ReflectionHelper
-
-        attr_accessor :blue_prints, :children, :driver, :parent, :name
+      class Composite < Composite
+        attr_accessor :blue_prints, :driver
 
         def children
           @children ||= Hash.new
         end
+
+        # @param hash [Hash] hash for the composite to build of off
+        # @param name [Symbol] name of composite element
+        # @param parent [Object, nil] parent composite object
+        # @param location [String] string location for error/debugging purposes
+        def initialize(hash = {}, name = :top, parent = nil, location = 'top')
+          #Add hash before calling super
+          self.hash = (hash.is_a?(Hash)) ? hash : {}
+          self.hash.symbolize_keys_deep!
+
+          super(name, parent, location)
+
+          #Validate using ValidationHelper
+          unless self.valid?
+            if self.parent
+              self.parent.add_errors(self.errors)
+            else
+              raise Validators::ValidationError.new(self.errors.uniq.reverse)
+            end
+          end
+        end
+
+
+
 
         def initialize(args={})
           self.blue_prints = args.fetch :blue_prints
@@ -73,31 +95,6 @@ module AutomationObject
 
             self.add_attribute(name, children_hash)
           }
-        end
-
-        class << self
-          #Has many children relationship for the composite
-          # @param children_name [Symbol] name of the children, should be a BluePrint method
-          # @param args [Hash] additional arguments, expects interface
-          def has_many(children_name, args)
-            self.has_many_relationships[children_name] = args.fetch(:interface)
-          end
-
-          # @return [Hash] relationships for the composite
-          def has_many_relationships
-            @has_many_relationships ||= Hash.new
-          end
-
-          # @param child_name [Symbol] name of key
-          # @param args [Hash] arguments
-          def has_one(child_name, args)
-            self.has_one_relationships[child_name] = args.fetch(:interface)
-          end
-
-          # @return [Hash] hash of relationships
-          def has_one_relationships
-            @has_one_relationships ||= Hash.new
-          end
         end
       end
     end
