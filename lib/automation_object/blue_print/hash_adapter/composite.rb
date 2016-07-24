@@ -58,7 +58,7 @@ module AutomationObject
           composite_children = children.map.with_index { |child, index|
             location = (args[:location]) ? args[:location] : self.location
             child_location = location + "[#{index}]"
-            args[:interface].new("#{name}[#{index}]", child, self, child_location)
+            args[:interface].new(child, "#{name}[#{index}]", self, child_location)
           }
 
           return composite_children
@@ -70,7 +70,7 @@ module AutomationObject
           composite_children = children.inject({}) { |hash, (key, value)|
             child_location = self.location + "[#{key}]"
 
-            hash[key] = args.fetch(:interface).new(key, value, self, child_location)
+            hash[key] = args[:interface].new(value, key, self, child_location)
             hash
           }
 

@@ -104,6 +104,8 @@ module AutomationObject
         def get_object(type, name)
           object = nil
 
+          ap type
+
           case type
             when :element
               object = self.current_composite.elements[name]

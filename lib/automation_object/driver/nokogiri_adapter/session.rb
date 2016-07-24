@@ -13,7 +13,7 @@ module AutomationObject::Driver::NokogiriAdapter
 
     def create_session
       self.current_url = nil
-      self.url_history = { self.window_handle => Array.new }
+      self.url_history = {self.window_handle => Array.new}
       self.window_handles = [self.window_handle]
 
       @windows_xml = Hash.new

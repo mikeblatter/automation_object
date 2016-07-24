@@ -11,7 +11,7 @@ module AutomationObject
         def params
           params = {}
 
-          @node.traverse {|node|
+          @node.traverse { |node|
             next unless node.name == 'input'
             params[node['name']] = node['value']
           }

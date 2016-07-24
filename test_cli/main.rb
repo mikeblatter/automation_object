@@ -45,6 +45,7 @@ command :cli do |c|
         ap eval(command)
       rescue Exception => e
         ap e
+        puts e.backtrace
       end
     end
   end

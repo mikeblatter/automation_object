@@ -4,7 +4,9 @@ module AutomationObject
       #Base class for the DSL BluePrint adapter composite
       #BluePrintAdapter uses the BluePrint composite to create the proxy/model composite in the DSL
       class Composite
-        class << self; attr_accessor :implemented_proxy end
+        class << self;
+          attr_accessor :implemented_proxy
+        end
 
         # @param args [Hash] arguments, expects :blue_prints
         def initialize(args={})

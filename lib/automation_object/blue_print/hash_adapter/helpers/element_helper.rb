@@ -46,8 +46,8 @@ module AutomationObject::BluePrint
         }
 
         @method_hooks = self.create_hash_children(children,
-                                                   { interface: Hook,
-                                                     location: self.location + '[hook]' })
+                                                  {interface: Hook,
+                                                   location: self.location + '[hook]'})
 
         return @method_hooks
       end

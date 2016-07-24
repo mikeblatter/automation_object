@@ -10,6 +10,8 @@ module AutomationObject
   module State
     module BluePrintAdapter
       class Screen < AutomationObject::State::BluePrintAdapter::Composite
+        attr_accessor :active_modal
+
         has_one :load, interface: Hook
 
         #Children for this composite

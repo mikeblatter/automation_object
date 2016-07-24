@@ -4,10 +4,14 @@ module AutomationObject
     #http://www.rubydoc.info/gems/selenium-webdriver/Selenium/WebDriver/Error
     module NokogiriAdapter
       #
-      class WebDriverError < StandardError; end
-      class NoSuchElementError < WebDriverError; end
-      class NoSuchWindowError < WebDriverError; end
-      class NoSuchDocumentError < WebDriverError; end
+      class WebDriverError < StandardError;
+      end
+      class NoSuchElementError < WebDriverError;
+      end
+      class NoSuchWindowError < WebDriverError;
+      end
+      class NoSuchDocumentError < WebDriverError;
+      end
     end
   end
 end

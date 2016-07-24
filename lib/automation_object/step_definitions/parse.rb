@@ -25,7 +25,7 @@ module AutomationObject
       def parse(string)
         parsed_string = string
 
-        string.scan(/%\{(\w+)\}/) {|cache_key|
+        string.scan(/%\{(\w+)\}/) { |cache_key|
           cached_value = AutomationObject::StepDefinitions::Cache.get(cache_key)
           next unless cached_value
 

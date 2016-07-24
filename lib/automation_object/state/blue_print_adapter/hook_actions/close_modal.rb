@@ -16,7 +16,12 @@ module AutomationObject
           modal = self.composite.parent
           modal.active = modal.live?
 
-          return (model.active?) ? false : true
+          if !modal.active?
+            self.composite.screen.active_modal = nil
+            return true
+          else
+            return false
+          end
         end
       end
     end
