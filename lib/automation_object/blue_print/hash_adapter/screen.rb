@@ -1,5 +1,5 @@
 #Require parent class
-require_relative 'helpers/composite'
+require_relative 'composite'
 
 #Require child classes
 require_relative 'automatic_onload_modal'
@@ -53,7 +53,7 @@ module AutomationObject
 
           children = self.hash[:automatic_onload_modals]
           children = (children.is_a?(Array)) ? children : Array.new
-          @automatic_onload_modals = self.create_array_children(children,
+          @automatic_onload_modals = self.create_array_children(:automatic_onload_modals, children,
                                                                 {interface: AutomaticOnloadModal,
                                                                  location: self.location + '[automatic_onload_modals]'})
 

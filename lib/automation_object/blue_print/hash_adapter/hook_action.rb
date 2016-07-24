@@ -1,5 +1,5 @@
 #Require parent class
-require_relative 'helpers/composite'
+require_relative 'composite'
 require_relative 'hook_element_requirements'
 
 module AutomationObject
@@ -121,7 +121,7 @@ module AutomationObject
           wait_for_elements = self.hash[:wait_for_elements]
 
           children = (wait_for_elements.is_a?(Array)) ? wait_for_elements : Array.new
-          @wait_for_elements = self.create_array_children(children,
+          @wait_for_elements = self.create_array_children(:wait_for_elements, children,
                                                           {interface: HookElementRequirements,
                                                            location: self.location + '[wait_for_elements]'
                                                           })

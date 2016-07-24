@@ -1,5 +1,5 @@
 #Require parent class
-require_relative 'helpers/composite'
+require_relative 'composite'
 
 require_relative 'hook_action'
 require_relative 'hook_element_requirements'
@@ -26,7 +26,7 @@ module AutomationObject
           children = self.hash[:live?]
           children = (children.is_a?(Array)) ? children : Array.new
 
-          @live = self.create_array_children(children, {interface: HookElementRequirements, location: self.location + '[live?]'})
+          @live = self.create_array_children(:live, children, {interface: HookElementRequirements, location: self.location + '[live?]'})
           return @live
         end
       end

@@ -1,5 +1,5 @@
 #Require parent class
-require_relative 'helpers/composite'
+require_relative 'composite'
 
 module AutomationObject
   module BluePrint

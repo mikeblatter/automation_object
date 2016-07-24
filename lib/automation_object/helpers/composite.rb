@@ -10,10 +10,10 @@ module AutomationObject
 
     attr_accessor :name, :parent, :location
 
-    # @param name [String] name of the object
+    # @param name [Symbol] name of the object
     # @param parent [Object, nil] parent composite object
     # @param location [String] string location for error/debugging purposes
-    def initialize(name = 'top', parent = nil, location = 'top')
+    def initialize(name = :top, parent = nil, location = 'top')
       self.parent = parent
       self.location = location
 

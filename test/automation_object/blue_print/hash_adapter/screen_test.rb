@@ -17,7 +17,7 @@ class TestHashAdapterScreen < Minitest::Test
   end
 
   def create_composite(hash, parent = nil)
-    return AutomationObject::BluePrint::HashAdapter::Screen.new(hash, parent)
+    return AutomationObject::BluePrint::HashAdapter::Screen.new(hash, :screen, parent)
   end
 
   def test_defaults
