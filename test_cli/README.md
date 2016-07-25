@@ -5,10 +5,6 @@ A more complete hands-on test for automation_object, to assist in development.
 Test will launch a interactive CLI to test the DSL structure and it's interactions with the website.
 A local rails server will launch on 3024, blue prints of the website are located in this directory.
 
-## Rails App
-
-From: https://github.com/RailsApps/learn-rails
-
 ## Requirements
 
 1. Gem dependencies 

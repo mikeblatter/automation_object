@@ -3,6 +3,13 @@ screens:
     included_views:
       - 'header_view'
     load:
+      before:
+        wait_for_elements:
+          - element_name: 'title'
+            exists?: true
+            text: 'Stay iouch.'
+            visible?: false
+        sleep: 5
       live?:
         - element_name: 'title'
           exists?: true

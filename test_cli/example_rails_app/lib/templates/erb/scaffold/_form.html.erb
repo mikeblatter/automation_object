@@ -1,13 +1,20 @@
-<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
-  <%%= f.error_notification %>
+<%%= form_for(@<%= singular_table_name %>, html: {:class => "form-horizontal", :role => 'form'}) do |f| %>
+  <%%= render 'shared/form_error_message', object: @<%= singular_table_name %> %>
 
-  <div class="form-inputs">
   <%- attributes.each do |attribute| -%>
-    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+    <div class="form-group">
+      <%%= f.label :<%= attribute.name %>, class: 'control-label col-sm-2' %>
+      <div class="col-sm-4">
+        <%%= f.text_field :<%= attribute.name %>, class: 'form-control' %>
+      </div>
+    </div>
   <%- end -%>
-  </div>
 
-  <div class="form-actions">
-    <%%= f.button :submit %>
+  <div class="form-group">
+    <div class="col-sm-2">&nbsp;</div>
+    <div class="col-sm-4">
+      <%%= render 'shared/form_action_bar', f: f %>
+    </div>
   </div>
 <%% end %>
+

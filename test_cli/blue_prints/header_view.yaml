@@ -6,13 +6,8 @@ views:
         click:
           after:
             change_screen: 'home_screen'
-      about_button:
-        xpath: '//a[text()="About"]'
-        click:
-          after:
-            change_screen: 'about_screen'
       contact_button:
-        xpath: '//a[text()="Contact"]'
+        xpath: '//a[text()="Contacts"]'
         click:
           after:
             change_screen: 'contact_screen'

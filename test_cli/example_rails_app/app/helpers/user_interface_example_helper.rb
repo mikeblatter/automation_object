@@ -1,0 +1,2 @@
+module UserInterfaceExampleHelper
+end
