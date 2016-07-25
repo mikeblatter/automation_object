@@ -1,0 +1,17 @@
+screens:
+  new_window_screen:
+    included_views:
+      - 'header_view'
+    load:
+      live?:
+        - element_name: 'title'
+          exists?: true
+          text: 'New Window Test'
+    elements:
+      title:
+        css: 'h2'
+      open_button:
+        css: '.new_window_button'
+        click:
+          after:
+            new_screen: 'opened_window_screen'

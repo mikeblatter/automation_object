@@ -5,4 +5,7 @@ class UserInterfaceExampleController < ApplicationController
   def opened_new_window
     render :layout => 'blank'
   end
+
+  def modals
+  end
 end

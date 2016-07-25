@@ -6,7 +6,7 @@ screens:
       live?:
         - element_name: 'title'
           exists?: true
-          text: 'Contact'
+          text: 'Contacts'
     elements:
       title:
-        xpath: '//main/h3'
+        xpath: '//h2'
