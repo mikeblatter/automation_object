@@ -69,6 +69,10 @@ module AutomationObject
           @current_screen_name = name
         end
 
+        def use_modal(modal_name)
+          @current_modal_name = modal_name
+        end
+
         def delete_screen(name)
           self.windows.each { |window|
             self.windows.delete(name) if window.name == name
@@ -81,6 +85,10 @@ module AutomationObject
           }
 
           return false
+        end
+
+        def destroy_modal
+          @current_modal_name = nil
         end
 
         # @return [Window, nil]
@@ -98,13 +106,19 @@ module AutomationObject
         end
 
         def current_composite
+          if @current_modal_name
+            return self.screens[@current_screen_name].modals[@current_modal_name]
+          end
+
           return self.screens[@current_screen_name]
+        end
+
+        def current_screen
+          @current_screen_name
         end
 
         def get_object(type, name)
           object = nil
-
-          ap type
 
           case type
             when :element

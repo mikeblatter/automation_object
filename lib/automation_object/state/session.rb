@@ -22,7 +22,11 @@ module AutomationObject
 
             self.composite.use_screen(name)
           when :modal
-            self.composite.use_model(name)
+            unless self.composite.screens[self.composite.current_screen].current_modal == name
+              raise AutomationObject::State::ModalNotActiveError.new(name)
+            end
+
+            self.composite.use_modal(name)
           when :element, :element_array, :element_hash
             return self.composite.get_object(type, name)
           else

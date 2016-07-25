@@ -17,7 +17,9 @@ module AutomationObject
           modal.active = modal.live?
 
           if !modal.active?
-            self.composite.screen.active_modal = nil
+            self.composite.screen.modal = nil
+            self.composite.screen.current_modal = nil
+            self.composite.top.destroy_modal()
             return true
           else
             return false

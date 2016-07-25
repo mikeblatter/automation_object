@@ -18,9 +18,10 @@ command :cli do |c|
   c.description = 'Will start up driver and AutomationObject. After will run loop letting you input commands to the ao variable.'
   c.example 'description', 'command example'
   c.action do |args, options|
-    say "Can operate on the variable ao for AutomationObject"
-    say "Example: ao.home_screen.logo_button"
-    say "Which will be executed via eval()"
+    say "- Can operate on the variable ao for AutomationObject"
+    say "- Example: ao.home_screen.logo_button"
+    say "- Wait for first ask to run command"
+    say "----------------------------------------------------"
 
     @rails_app = RailsApp.new
     @rails_app.create

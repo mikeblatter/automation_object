@@ -13,7 +13,6 @@ module AutomationObject
           self.driver.document_complete_wait
 
           new_screen = self.composite.top.screens[@new_screen_name]
-          raise 'test'
           if new_screen.load.live?
             self.composite.top.set_screen(@new_screen_name)
             return true

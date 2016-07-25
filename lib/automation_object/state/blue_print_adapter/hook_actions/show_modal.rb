@@ -14,7 +14,8 @@ module AutomationObject
 
           new_modal = self.composite.screen.modals[@new_modal_name]
           if new_modal.load.live?
-            self.composite.screen.active_modal = new_modal
+            self.composite.screen.current_modal = @new_modal_name
+            self.composite.screen.modal = new_modal
             return true
           else
             return false

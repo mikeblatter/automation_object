@@ -35,10 +35,10 @@ module AutomationObject
         # @param name [Symbol] name of child
         # @param options [Hash] options for child
         def get_child(name, options)
-          child = (self.hash[options[:key]].is_a?(Hash)) ? self.hash[options[:key]] : Hash.new
-          child_location = self.location + "[#{options[:key]}]"
+          child = (self.hash[name].is_a?(Hash)) ? self.hash[name] : Hash.new
+          child_location = self.location + "[#{name}]"
 
-          options[:interface].new(name, child, self, child_location)
+          options[:interface].new(child, name, self, child_location)
         end
 
         # Overriding base get_children method

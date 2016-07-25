@@ -17,7 +17,6 @@ class ::String
 
   def join_url(url)
     full_url = self.chomp('/') + url.reverse.chomp('/').reverse
-    ap full_url
     return full_url
   end
 

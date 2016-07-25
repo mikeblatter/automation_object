@@ -30,7 +30,11 @@ module AutomationObject
         def before
           return nil if self.blue_prints.before.empty?
 
-          hook_action = HookAction.new(blue_prints: self.blue_prints.before, driver: self.driver, parent: self)
+          hook_action = HookAction.new(self.blue_prints.before,
+                                       self.driver,
+                                       :hook_action,
+                                       self,
+                                       self.location + '[hook_action]')
           return hook_action.run
         end
 
@@ -39,7 +43,11 @@ module AutomationObject
         def after
           return nil if self.blue_prints.after.empty?
 
-          hook_action = HookAction.new(blue_prints: self.blue_prints.after, driver: self.driver, parent: self)
+          hook_action = HookAction.new(self.blue_prints.after,
+                                       self.driver,
+                                       :hook_action,
+                                       self,
+                                       self.location + '[hook_action]')
           return hook_action.run
         end
       end
