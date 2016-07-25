@@ -11,7 +11,7 @@ screens:
       title:
         css: 'h2'
       open_button:
-        css: '.new_window_button'
+        css: 'a.new_window_button'
         click:
           after:
             new_screen: 'opened_window_screen'

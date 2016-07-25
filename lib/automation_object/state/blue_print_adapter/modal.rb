@@ -11,9 +11,6 @@ module AutomationObject
       class Modal < AutomationObject::State::BluePrintAdapter::Composite
         has_one :load, interface: Hook
 
-        #Children for this composite
-        has_many :modals, interface: Modal
-
         has_many :elements, interface: Element
         has_many :element_arrays, interface: ElementArray
         has_many :element_hashes, interface: ElementHash

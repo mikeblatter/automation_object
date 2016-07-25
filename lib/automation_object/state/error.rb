@@ -16,11 +16,9 @@ module AutomationObject
       end
     end
 
-    class ModalParentExpected < StandardError;
-    end
-    class ScreenParentExpected < StandardError;
-    end
-    class MoreThenOneScreenCreated < StandardError;
-    end
+    class ModalNotActiveError < StandardError; end
+    class ModalParentExpected < StandardError; end
+    class ScreenParentExpected < StandardError; end
+    class MoreThenOneScreenCreated < StandardError; end
   end
 end

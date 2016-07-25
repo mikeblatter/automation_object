@@ -2,7 +2,7 @@ module AutomationObject
   module State
     module BluePrintAdapter
       class Window
-        attr_accessor :name, :window_handle, :previous_window, :driver
+        attr_accessor :name, :window_handle, :previous_window, :driver, :active_modal
 
         def initialize(args = {})
           self.name = args.fetch :name

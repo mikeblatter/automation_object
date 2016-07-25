@@ -70,7 +70,7 @@ module AutomationObject
         end
 
         def use_modal(modal_name)
-          @current_modal_name = modal_name
+          current_window.active_modal = modal_name
         end
 
         def delete_screen(name)
@@ -88,7 +88,7 @@ module AutomationObject
         end
 
         def destroy_modal
-          @current_modal_name = nil
+          current_window.active_modal = nil
         end
 
         # @return [Window, nil]
@@ -106,8 +106,8 @@ module AutomationObject
         end
 
         def current_composite
-          if @current_modal_name
-            return self.screens[@current_screen_name].modals[@current_modal_name]
+          if current_window.active_modal
+            return self.screens[@current_screen_name].modals[current_window.active_modal]
           end
 
           return self.screens[@current_screen_name]

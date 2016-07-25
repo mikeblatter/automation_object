@@ -10,14 +10,15 @@ module AutomationObject
         end
 
         def single_run
-          self.driver.document_complete_wait
-
           new_modal = self.composite.screen.modals[@new_modal_name]
-          if new_modal.load.live?
+          puts @new_modal_name
+          if new_modal.load.live? != false
+            puts "new modal is live!"
             self.composite.screen.current_modal = @new_modal_name
             self.composite.screen.modal = new_modal
             return true
           else
+            puts "new modal is no dice!"
             return false
           end
         end
