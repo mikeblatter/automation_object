@@ -1,0 +1,17 @@
+screens:
+  opened_window_screen:
+    included_views:
+      - 'header_view'
+    load:
+      live?:
+        - element_name: 'title'
+          exists?: true
+          text: 'Opened Window Test'
+    elements:
+      title:
+        css: 'h2'
+      close_button:
+        css: '.close_window_button'
+        click:
+          after:
+            close_screen: true

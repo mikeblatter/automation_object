@@ -8,7 +8,7 @@ require_relative '../error'
 module AutomationObject
   module State
     module BluePrintAdapter
-      class Top < Composite
+      class Top < AutomationObject::State::BluePrintAdapter::Composite
         include ScreenManager
 
         #Children for this composite

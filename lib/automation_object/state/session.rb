@@ -17,13 +17,17 @@ module AutomationObject
         case type
           when :screen
             unless self.composite.screen_exists?(name)
-              raise AutomationObject::State::ScreenNotLiveError.new
+              raise AutomationObject::State::ScreenNotActiveError.new(name)
             end
 
             self.composite.use_screen(name)
           when :modal
-            #self.composite.use_model(name)
-          when :element, :element_array, :element_hash, :element_group
+            unless self.composite.screens[self.composite.current_screen].current_modal == name
+              raise AutomationObject::State::ModalNotActiveError.new(name)
+            end
+
+            self.composite.use_modal(name)
+          when :element, :element_array, :element_hash
             return self.composite.get_object(type, name)
           else
             raise AutomationObject::State::UndefinedLoadTypeError.new

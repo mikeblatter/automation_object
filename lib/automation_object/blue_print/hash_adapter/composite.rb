@@ -1,74 +1,68 @@
-require_relative '../../helpers/reflection_helper'
+require_relative '../../../../lib/automation_object/helpers/composite'
 require_relative 'helpers/validation_helper'
-require_relative 'helpers/hook_helper'
-
-require_relative 'validators/validation_error'
+require_relative 'helpers/validation_error'
 
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Composite is a super class that helps build composite objects based of a Hash
-      #Composite classes should inherit from this class and use the class-level methods to add the components
-      class Composite
-        include AutomationObject::ReflectionHelper
+      class Composite < AutomationObject::Composite
         include ValidationHelper
-        include HookHelper
 
-        attr_accessor :hash, :parent, :location
+        attr_accessor :hash
 
         # @param hash [Hash] hash for the composite to build of off
+        # @param name [Symbol] name of composite element
         # @param parent [Object, nil] parent composite object
         # @param location [String] string location for error/debugging purposes
-        def initialize(hash = {}, parent = nil, location = 'top')
+        def initialize(hash = {}, name = :top, parent = nil, location = 'top')
+          #Add hash before calling super
           self.hash = (hash.is_a?(Hash)) ? hash : {}
           self.hash.symbolize_keys_deep!
 
-          self.parent = parent
-          self.location = location
-
-          self.before_create_run
-
-          self.add_has_many_relationships
-          self.add_has_one_relationships
+          super(name, parent, location)
 
           #Validate using ValidationHelper
           unless self.valid?
             if self.parent
               self.parent.add_errors(self.errors)
             else
-              raise Validators::ValidationError.new(self.errors.uniq.reverse)
+              raise ValidationError.new(self.errors.uniq.reverse)
             end
           end
-
-          self.after_create_run
         end
 
-        # @param name [Symbol] name of key
-        # @param args [Hash] arguments
-        def self.has_many(name, args)
-          key = args.fetch :key, name
-          interface = args.fetch :interface
+        # Overriding base get_child method
+        # @param name [Symbol] name of child
+        # @param options [Hash] options for child
+        def get_child(name, options)
+          child = (self.hash[name].is_a?(Hash)) ? self.hash[name] : Hash.new
+          child_location = self.location + "[#{name}]"
 
-          self.has_many_relationships[name] = {
-              :key => key,
-              :interface => interface
+          options[:interface].new(child, name, self, child_location)
+        end
+
+        # Overriding base get_children method
+        # @param name [Symbol] name of child
+        # @param options [Hash] options for child
+        # @return children [Hash] return children and names
+        def get_children(name, options)
+          children = self.hash[name]
+          children = (children.is_a?(Hash)) ? children : Hash.new
+
+          self.create_hash_children(children, options)
+        end
+
+        # @param name [Symbol] name of child
+        # @param children [Array] hash of children
+        # @param args [Hash] arguments for adding children
+        def create_array_children(name, children, args)
+          composite_children = children.map.with_index { |child, index|
+            location = (args[:location]) ? args[:location] : self.location
+            child_location = location + "[#{index}]"
+            args[:interface].new(child, "#{name}[#{index}]", self, child_location)
           }
-        end
 
-        # @return [Hash] hash of relationships
-        def self.has_many_relationships
-          @has_many_relationships ||= Hash.new
-        end
-
-        def add_has_many_relationships
-          self.class.has_many_relationships.each { |name, options|
-            children = self.hash[options[:key]]
-
-            children = (children.is_a?(Hash)) ? children : Hash.new
-            composite_children = self.create_hash_children(children, options)
-
-            self.add_attribute(name, composite_children)
-          }
+          return composite_children
         end
 
         # @param children [Hash] hash of children
@@ -76,49 +70,12 @@ module AutomationObject
         def create_hash_children(children, args)
           composite_children = children.inject({}) { |hash, (key, value)|
             child_location = self.location + "[#{key}]"
-            hash[key] = args[:interface].new(value, self, child_location)
+
+            hash[key] = args[:interface].new(value, key, self, child_location)
             hash
           }
 
           return composite_children
-        end
-
-        # @param children [Array] hash of children
-        # @param args [Hash] arguments for adding children
-        def create_array_children(children, args)
-          composite_children = children.map.with_index { |child, index|
-            location = (args[:location]) ? args[:location] : self.location
-            child_location = location + "[#{index}]"
-            args[:interface].new(child, self, child_location)
-          }
-
-          return composite_children
-        end
-
-        # @param name [Symbol] name of key
-        # @param args [Hash] arguments
-        def self.has_one(name, args)
-          key = args.fetch :key, name
-          interface = args.fetch :interface
-
-          self.has_one_relationships[name] = {
-              :key => key,
-              :interface => interface
-          }
-        end
-
-        # @return [Hash] hash of relationships
-        def self.has_one_relationships
-          @has_one_relationships ||= Hash.new
-        end
-
-        def add_has_one_relationships
-          self.class.has_one_relationships.each { |name, options|
-            child = (self.hash[options[:key]].is_a?(Hash)) ? self.hash[options[:key]] : Hash.new
-            child_location = self.location + "[#{options[:key]}]"
-            composite_child = options[:interface].new(child, self, child_location)
-            self.add_attribute(name, composite_child)
-          }
         end
       end
     end

@@ -1,3 +1,5 @@
+require_relative 'composite'
+
 require_relative 'hook_actions/change_screen'
 require_relative 'hook_actions/change_to_previous_screen'
 require_relative 'hook_actions/close_modal'
@@ -12,11 +14,7 @@ require_relative 'hook_actions/new_screen'
 module AutomationObject
   module State
     module BluePrintAdapter
-      class HookAction < Composite
-        def initialize(args = {})
-          super(args)
-        end
-
+      class HookAction < AutomationObject::State::BluePrintAdapter::Composite
         # @return [Boolean] run success or not
         def run
           self.blue_prints.hook_order.each { |hook_name|

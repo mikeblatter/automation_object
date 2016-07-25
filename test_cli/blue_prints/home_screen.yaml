@@ -4,11 +4,9 @@ screens:
       - 'header_view'
     load:
       live?:
-        - element_name: 'logo_button'
+        - element_name: 'title'
           exists?: true
-    element_arrays:
-      list_links:
-        css: 'div.feed-item div.image a'
-        click:
-          after:
-            change_screen: 'article_screen'
+          text: 'AutomationObject Testing'
+    elements:
+      title:
+        css: 'div.container h2'

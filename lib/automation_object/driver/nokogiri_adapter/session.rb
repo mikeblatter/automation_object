@@ -13,7 +13,7 @@ module AutomationObject::Driver::NokogiriAdapter
 
     def create_session
       self.current_url = nil
-      self.url_history = { self.window_handle => Array.new }
+      self.url_history = {self.window_handle => Array.new}
       self.window_handles = [self.window_handle]
 
       @windows_xml = Hash.new
@@ -58,7 +58,21 @@ module AutomationObject::Driver::NokogiriAdapter
     # Get url, will set xml to current window handle
     # @param url [String] url to get xml for
     # @return [Object] nokogiri object
-    def get(url)
+    def get(url, params = {})
+      request(:get, url, params)
+    end
+
+    # Post url, will set xml to current window handle
+    # @param url [String] url to get xml for
+    # @return [Object] nokogiri object
+    def post(url, params = {})
+      request(:post, url, params)
+    end
+
+    # Request url, will set xml to current window handle
+    # @param url [String] url to get xml for
+    # @return [Object] nokogiri object
+    def request(type, url, params)
       if url.valid_url? == false and self.current_url == nil
         raise ArgumentError, "Expecting get argument url to be a valid_url?, got #{url}"
       elsif url.valid_url? == false and self.current_url
@@ -66,7 +80,7 @@ module AutomationObject::Driver::NokogiriAdapter
       end
 
       client_resource = RestClient::Resource.new(url, :ssl_version => 'SSLv23_client')
-      response = client_resource.get
+      response = client_resource.send(type)
 
       self.current_url = url
       self.url_history[self.window_handle].push(url)

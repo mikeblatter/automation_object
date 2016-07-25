@@ -1,0 +1,12 @@
+screens:
+  modals_screen:
+    included_views:
+      - 'header_view'
+    load:
+      live?:
+        - element_name: 'title'
+          exists?: true
+          text: 'Modals Test'
+    elements:
+      title:
+        css: 'h2'

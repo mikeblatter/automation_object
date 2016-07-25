@@ -41,7 +41,7 @@ module AutomationObject::Dsl
           when :screen, :modal
             #Just load
             self.composite_hooks[name] = lambda { self.request_load(type, name) }
-          when :element, :element_array, :element_hash, :element_group
+          when :element, :element_array, :element_hash
             #Set return to subject
             self.composite_hooks[name] = lambda { @subject[name] = self.request_load(type, name) }
         end

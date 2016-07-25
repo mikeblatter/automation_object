@@ -1,6 +1,5 @@
 #Gems
 require 'awesome_print'
-require 'colorize'
 require 'ostruct'
 require 'event_emitter'
 require 'appium_lib'
@@ -15,6 +14,9 @@ require_relative 'automation_object/helpers/hash'
 
 #Core Framework
 require_relative 'automation_object/framework'
+
+#Cucumber Step Definitions
+require_relative 'automation_object/step_definitions'
 
 module AutomationObject
 end

@@ -1,0 +1,12 @@
+screens:
+  contact_screen:
+    included_views:
+      - 'header_view'
+    load:
+      live?:
+        - element_name: 'title'
+          exists?: true
+          text: 'Contacts'
+    elements:
+      title:
+        xpath: '//h2'

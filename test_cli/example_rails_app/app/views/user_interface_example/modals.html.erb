@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Modals Test</h2>
+  <div class="container">
+    <div class="row">
+      <%= link_to 'Modal One Button',
+                  '#',
+                  :class => 'btn btn-info .dialog_one_button',
+                  :onclick => "$('#dialog1').dialog(); return false;" %>
+      <br/><br/>
+    </div>
+    <div class="row">
+      <%= link_to 'Modal Two Button',
+                  '#',
+                  :class => 'btn btn-info .dialog_two_button',
+                  :onclick => "$('#dialog2').dialog(); return false;" %>
+      <br/><br/>
+    </div>
+    <div class="row">
+      <%= link_to 'Modal Three Button',
+                  '#',
+                  :class => 'btn btn-info .dialog_three_button',
+                  :onclick => "$('#dialog3').dialog(); return false;" %>
+    </div>
+  </div>
+</div>
+<div style="display: none;">
+  <div id="dialog1" title="Basic Modal">
+    <p>This is an example dialog</p>
+  </div>
+
+  <div id="dialog2" title="Second Basic Modal">
+    <p>This is an example dialog</p>
+  </div>
+
+  <div id="dialog3" title="Third Basic Modal">
+    <p>This is an example dialog</p>
+  </div>
+</div>

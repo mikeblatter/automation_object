@@ -1,8 +1,31 @@
 views:
   header_view:
+    modals:
+      interface_menu_modal:
+        elements:
+          modals_button:
+            xpath: '//a[text()="Modals"]'
+            click:
+              after:
+                change_screen: 'modals_screen'
+          new_window_button:
+            xpath: '//a[text()="New Window"]'
+            click:
+              after:
+                change_screen: 'new_window_screen'
     elements:
-      logo_button:
-        css: 'header a.logo'
+      home_button:
+        css: 'a.navbar-brand'
         click:
           after:
             change_screen: 'home_screen'
+      user_interface_menu_button:
+        css: 'a.open_interface_menu'
+        click:
+          after:
+            show_modal: 'interface_menu_modal'
+      contact_button:
+        xpath: '//a[text()="Contacts"]'
+        click:
+          after:
+            change_screen: 'contact_screen'

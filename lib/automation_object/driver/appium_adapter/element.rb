@@ -32,7 +32,7 @@ module AutomationObject::Driver::AppiumAdapter
       element_location = self.location_once_scrolled_into_view
 
       if element_location[:y] < 0
-        scroll_position =  @driver.scroll_position
+        scroll_position = @driver.scroll_position
         scroll_y_position = scroll_position[:y] + element_location[:y]
         @driver.execute_script("window.scroll(#{element_location[:x]},#{scroll_y_position});")
       end

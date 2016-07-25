@@ -15,7 +15,11 @@ module AutomationObject
 
           @method_hooks = {}
           self.blue_prints.method_hooks.each { |key, blue_prints|
-            @method_hooks[key] = Hook.new(driver: self.driver, blue_prints: blue_prints, parent: self)
+            @method_hooks[key] = Hook.new(blue_prints,
+                                          self.driver,
+                                          key,
+                                          self,
+                                          self.location + "[#{key}]")
           }
 
           return @method_hooks
