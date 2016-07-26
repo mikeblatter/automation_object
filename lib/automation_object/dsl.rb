@@ -24,7 +24,7 @@ module AutomationObject
     # Creates/returns composite and attaches the State to the composite
     # @return [AutomationObject::Dsl::Models::Top]
     def new(args={})
-      composite = self.adapter.build_composite(args)
+      composite = self.adapter.build(args)
       composite.state = args.fetch(:state)
 
       return composite

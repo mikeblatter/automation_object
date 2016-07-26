@@ -6,7 +6,7 @@ class TestYamlHashAdapter < Minitest::Test
     AutomationObject::BluePrint.adapter = :yaml
     AutomationObject::BluePrint::HashAdapter::Top.skip_validations = true
 
-    @yaml_adapter = AutomationObject::BluePrint::YamlAdapter.build_composite
+    @yaml_adapter = AutomationObject::BluePrint::YamlAdapter.build
   end
 
   def teardown

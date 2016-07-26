@@ -33,7 +33,7 @@ module AutomationObject
           self.adapter = :hash
       end
 
-      adapter.build_composite(blueprint_arg)
+      adapter.build(blueprint_arg)
     end
   end
 end

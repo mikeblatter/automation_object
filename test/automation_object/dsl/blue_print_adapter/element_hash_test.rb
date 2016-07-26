@@ -12,7 +12,7 @@ class TestDslBluePrintAdapterElementHash < Minitest::Test
   end
 
   def test_implements_proxy
-    proxy = @element_hash_adapter.build_composite
+    proxy = @element_hash_adapter.build
     assert_nil proxy
   end
 end

@@ -25,12 +25,12 @@ class TestDslBluePrintAdapterScreen < Minitest::Test
   end
 
   def test_implements_proxy
-    proxy = @screen_adapter.build_composite
+    proxy = @screen_adapter.build
     assert_instance_of AutomationObject::Dsl::Models::Screen, proxy
   end
 
   def test_has_many
-    proxy = @screen_adapter.build_composite
+    proxy = @screen_adapter.build
 
     assert_respond_to proxy, :test_modal
     assert_respond_to proxy, :test_element

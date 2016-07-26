@@ -11,13 +11,13 @@ module AutomationObject::BluePrint
 
     # @param path [String] path to YAML directory
     # @return [AutomationObject::BluePrint::HashAdapter::Top] Composite BluePrint Object
-    def self.build_composite(path = '')
+    def self.build(path = '')
       path = File.expand_path(path)
 
       file_array = self.collect_files(path)
       merged_yaml_hash = self.load_yaml_files(file_array)
 
-      return HashAdapter.build_composite(merged_yaml_hash)
+      return HashAdapter.build(merged_yaml_hash)
     end
 
     # @param file_array [Array<String>] array of file paths to load

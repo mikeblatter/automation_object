@@ -11,13 +11,13 @@ class TestDslBluePrintAdapter < Minitest::Test
 
   def test_build_composite_error
     assert_raises KeyError do
-      AutomationObject::Dsl::BluePrintAdapter.build_composite
+      AutomationObject::Dsl::BluePrintAdapter.build
     end
   end
 
   def test_build_composite
     blue_print_stub = stub(:screens => {})
     assert_instance_of AutomationObject::Dsl::Models::Top,
-                       AutomationObject::Dsl::BluePrintAdapter.build_composite(blue_prints: blue_print_stub)
+                       AutomationObject::Dsl::BluePrintAdapter.build(blue_prints: blue_print_stub)
   end
 end

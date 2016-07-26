@@ -7,6 +7,64 @@ screens:
         - element_name: 'title'
           exists?: true
           text: 'Modals Test'
+    modals:
+      modal_one:
+        load:
+          live?:
+            - element_name: 'title'
+              exists?: true
+              visible?: true
+        elements:
+          title:
+            css: 'body div.ui-dialog span.ui-dialog-title'
+          close_button:
+            css: 'body div.ui-dialog button.ui-dialog-titlebar-close'
+            click:
+              after:
+                close_modal: true
+      modal_two:
+        load:
+          live?:
+            - element_name: 'title'
+              exists?: true
+              visible?: true
+        elements:
+          title:
+            css: 'body div.ui-dialog span.ui-dialog-title'
+          close_button:
+            css: 'body div.ui-dialog button.ui-dialog-titlebar-close'
+            click:
+              after:
+                close_modal: true
+      modal_three:
+        load:
+          live?:
+            - element_name: 'title'
+              exists?: true
+              visible?: true
+        elements:
+          title:
+            css: 'body div.ui-dialog span.ui-dialog-title'
+          close_button:
+            css: 'body div.ui-dialog button.ui-dialog-titlebar-close'
+            click:
+              after:
+                close_modal: true
     elements:
       title:
         css: 'h2'
+      modal_button_one:
+        css: '.dialog_one_button'
+        click:
+          after:
+            show_modal: 'modal_one'
+      modal_button_two:
+        css: '.dialog_two_button'
+        click:
+          after:
+            show_modal: 'modal_two'
+      modal_button_three:
+        css: '.dialog_three_button'
+        click:
+          after:
+            show_modal: 'modal_three'

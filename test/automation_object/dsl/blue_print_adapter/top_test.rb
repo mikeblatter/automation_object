@@ -13,12 +13,12 @@ class TestDslBluePrintAdapterTop < Minitest::Test
   end
 
   def test_implements_proxy
-    proxy = @top_adapter.build_composite
+    proxy = @top_adapter.build
     assert_instance_of AutomationObject::Dsl::Models::Top, proxy
   end
 
   def test_has_many
-    proxy = @top_adapter.build_composite
+    proxy = @top_adapter.build
 
     assert_respond_to proxy, :test_screen_one
     assert_respond_to proxy, :test_screen_two

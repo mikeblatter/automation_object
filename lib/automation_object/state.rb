@@ -29,7 +29,7 @@ module AutomationObject
     # @param args [Hash] arguments
     # @return [AutomationObject::State::Session] Session instance
     def new(args={})
-      adapter_composite = self.adapter.build_composite(args)
+      adapter_composite = self.adapter.build(args)
       return Session.new(driver: args.fetch(:driver), composite: adapter_composite)
     end
   end

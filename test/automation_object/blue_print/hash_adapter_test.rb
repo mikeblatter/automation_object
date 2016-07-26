@@ -6,7 +6,7 @@ class TestBluePrintHashAdapter < Minitest::Test
     AutomationObject::BluePrint.adapter = :hash
     AutomationObject::BluePrint::HashAdapter::Top.skip_validations = true
 
-    @hash_adapter = AutomationObject::BluePrint::HashAdapter.build_composite
+    @hash_adapter = AutomationObject::BluePrint::HashAdapter.build
   end
 
   def teardown

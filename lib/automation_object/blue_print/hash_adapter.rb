@@ -5,7 +5,7 @@ module AutomationObject::BluePrint
   module HashAdapter
     # @param [Hash] hash that includes all the information needed to create a BluePrint
     # @return [AutomationObject::BluePrint::HashAdapter::Top] Composite BluePrint Object
-    def self.build_composite(hash = {})
+    def self.build(hash = {})
       hash.symbolize_keys_deep!
       Top.new(hash, :top)
     end

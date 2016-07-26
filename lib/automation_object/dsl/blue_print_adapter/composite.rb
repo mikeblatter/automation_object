@@ -15,13 +15,13 @@ module AutomationObject
 
         # Build and return the DSL composite
         # @return [Object] composite for the given level
-        def build_composite
+        def build
           proxy = self.class.implemented_proxy.new
 
           self.class.has_many_relationships.each { |name, composite_class|
             @blue_prints.send(name).each { |child_key, child_blue_prints|
               child_composite = composite_class.new(blue_prints: child_blue_prints)
-              child_proxy = child_composite.build_composite
+              child_proxy = child_composite.build
 
               type = name.to_s.gsub(/e?s$/, '').to_sym #Unpluralize
               proxy.add(name: child_key, type: type, object: child_proxy)
