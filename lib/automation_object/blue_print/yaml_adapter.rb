@@ -1,5 +1,6 @@
 require 'yaml'
 
+require_relative '../blue_print'
 require_relative 'hash_adapter'
 require_relative 'helpers/file_helper'
 
@@ -17,7 +18,8 @@ module AutomationObject::BluePrint
       file_array = self.collect_files(path)
       merged_yaml_hash = self.load_yaml_files(file_array)
 
-      return HashAdapter.build(merged_yaml_hash)
+      AutomationObject::BluePrint.adapter = :hash
+      return AutomationObject::BluePrint.new(merged_yaml_hash)
     end
 
     # @param file_array [Array<String>] array of file paths to load

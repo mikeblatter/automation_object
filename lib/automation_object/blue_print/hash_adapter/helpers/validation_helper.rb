@@ -7,6 +7,8 @@ require_relative 'validators/validate_view_presence_of'
 require_relative 'validators/validate_element_presence_of'
 require_relative 'validators/validate_presence_of'
 
+require_relative '../../../helpers/string'
+
 module AutomationObject
   module BluePrint
     module HashAdapter
