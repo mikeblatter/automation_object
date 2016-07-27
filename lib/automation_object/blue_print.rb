@@ -25,6 +25,8 @@ module AutomationObject
       @adapter = AutomationObject::BluePrint.const_get("#{adapter_const}")
     end
 
+    # Adapters use the composite AutomationObject::BluePrint::Composite interfaces
+    # @return [AutomationObject::BluePrint::Composite::Top]
     def new(blueprint_arg)
       case blueprint_arg
         when String

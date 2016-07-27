@@ -9,7 +9,7 @@ module AutomationObject::BluePrint
     # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
     def build(hash = {})
       hash.symbolize_keys_deep!
-      AutomationObject::BluePrint::HashAdapter::Top.new(hash)
+      AutomationObject::BluePrint::Composite::Top.new(AutomationObject::BluePrint::HashAdapter, hash)
     end
   end
 end
