@@ -43,13 +43,11 @@ module AutomationObject
           return self.errors.empty?
         end
 
-        # @param base [Class] class to extend when included
         def self.included(base)
           base.extend(ClassMethods)
         end
 
         #Class level methods
-        #Does not need self. syntax use def blah puts 'whatever' end
         module ClassMethods
           def skip_validations=(boolean)
             @skip_validations = boolean

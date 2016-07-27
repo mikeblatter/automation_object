@@ -4,8 +4,7 @@ require_relative 'composite'
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #View composite, no children, merges into screens then screens will add children here
-      #Helpful to have validations before merging the hashes, that way errors show in the correct place
+      #View composite
       class View < Composite
         #Validations
         validates_keys allowed_keys: [:automatic_onload_modals, :automatic_screen_changes, :elements, :element_arrays,

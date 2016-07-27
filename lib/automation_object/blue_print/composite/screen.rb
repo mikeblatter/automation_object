@@ -1,49 +1,59 @@
 #Require parent class
 require_relative 'base'
 
+require_relative 'automatic_onload_modal'
+require_relative 'hook'
+
+require_relative 'modal'
+require_relative 'element'
+require_relative 'element_array'
+require_relative 'element_hash'
+
 module AutomationObject
   module BluePrint
     module Composite
-      #Screen-level composite, ActiveRecord style composite implementation inheriting from Composite
+      #Screen composite class, passing method to adapter only
+      #Hoping to improve code completion and standard interface where
+      #classes use this as a template to add additional adapters
       class Screen < Base
         # @return [Array<Symbol>]
         def included_views
-          raise NotImplementedError
+          self.adapter.screens
         end
 
         # @return [Array<AutomaticOnloadModal>]
         def automatic_onload_modals
-          raise NotImplementedError
+          self.adapter.automatic_onload_modals
         end
 
         # @return [Array<Symbol>]
         def automatic_screen_changes
-          raise NotImplementedError
+          self.adapter.automatic_screen_changes
         end
 
         # @return [Hook]
         def load
-          raise NotImplementedError
+          self.adapter.load
         end
 
         # @return [Hash<Modal>]
         def modals
-          raise NotImplementedError
+          self.adapter.modals
         end
 
         # @return [Hash<Element>]
         def elements
-          raise NotImplementedError
+          self.adapter.elements
         end
 
         # @return [Hash<ElementArray>]
         def element_arrays
-          raise NotImplementedError
+          self.adapter.element_arrays
         end
 
         # @return [Hash<ElementHash>]
         def element_hashes
-          raise NotImplementedError
+          self.adapter.element_hashes
         end
       end
     end

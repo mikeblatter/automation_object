@@ -4,42 +4,43 @@ require_relative 'base'
 module AutomationObject
   module BluePrint
     module Composite
-      #View composite, no children, merges into screens then screens will add children here
-      #Helpful to have validations before merging the hashes, that way errors show in the correct place
+      #View composite class, passing method to adapter only
+      #Hoping to improve code completion and standard interface where
+      #classes use this as a template to add additional adapters
       class View < Base
         # @return [Array<AutomaticOnloadModal>]
         def automatic_onload_modals
-          raise NotImplementedError
+          @adapter.automatic_onload_modals
         end
 
         # @return [Array<Symbol>]
         def automatic_screen_changes
-          raise NotImplementedError
+          @adapter.automatic_screen_changes
         end
 
         # @return [Hook]
         def load
-          raise NotImplementedError
+          @adapter.load
         end
 
         # @return [Hash<Modal>]
         def modals
-          raise NotImplementedError
+          @adapter.modals
         end
 
         # @return [Hash<Element>]
         def elements
-          raise NotImplementedError
+          @adapter.elements
         end
 
         # @return [Hash<ElementArray>]
         def element_arrays
-          raise NotImplementedError
+          @adapter.element_arrays
         end
 
         # @return [Hash<ElementHash>]
         def element_hashes
-          raise NotImplementedError
+          @adapter.element_hashes
         end
       end
     end
