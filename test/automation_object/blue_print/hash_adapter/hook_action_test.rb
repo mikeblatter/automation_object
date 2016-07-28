@@ -103,7 +103,7 @@ class TestHashAdapterHookAction < Minitest::Test
     assert_equal 2, composite.wait_for_elements.length
 
     composite.wait_for_elements.each { |hook_element_requirement|
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::HookElementRequirements, hook_element_requirement
+      assert_instance_of AutomationObject::BluePrint::Composite::HookElementRequirements, hook_element_requirement
     }
   end
 

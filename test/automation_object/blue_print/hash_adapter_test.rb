@@ -15,6 +15,6 @@ class TestBluePrintHashAdapter < Minitest::Test
   end
 
   def test_new
-    assert_instance_of AutomationObject::BluePrint::HashAdapter::Top, @hash_adapter
+    assert_instance_of AutomationObject::BluePrint::Composite::Top, @hash_adapter
   end
 end

@@ -22,7 +22,7 @@ class TestHashAdapterElementArray < Minitest::Test
 
   def test_defaults
     defaults = {
-        :load => AutomationObject::BluePrint::HashAdapter::Hook,
+        :load => AutomationObject::BluePrint::Composite::Hook,
         :custom_methods => {},
         :selector_params => nil,
         :in_iframe => nil,
@@ -36,7 +36,7 @@ class TestHashAdapterElementArray < Minitest::Test
 
   def test_load
     composite = self.create_composite({ :load => {} })
-    assert_instance_of AutomationObject::BluePrint::HashAdapter::Hook, composite.load
+    assert_instance_of AutomationObject::BluePrint::Composite::Hook, composite.load
   end
 
   def test_selector_params_css
