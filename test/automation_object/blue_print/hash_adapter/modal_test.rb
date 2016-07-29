@@ -7,6 +7,13 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/moda
 class TestHashAdapterModal < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :load => AutomationObject::BluePrint::Composite::Hook,
+      :elements => {},
+      :element_arrays => {},
+      :element_hashes => {}
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = true
   end
@@ -22,15 +29,7 @@ class TestHashAdapterModal < Minitest::Test
 
   def test_defaults
     AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = true
-
-    defaults = {
-        :load => AutomationObject::BluePrint::Composite::Hook,
-        :elements => {},
-        :element_arrays => {},
-        :element_hashes => {}
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::Modal)
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Modal)
   end
 
   def test_load

@@ -7,6 +7,11 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/cust
 class TestHashAdapterCustomMethod < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :element_method => nil,
+      :evaluate => nil
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::CustomMethod.skip_validations = true
   end
@@ -20,13 +25,16 @@ class TestHashAdapterCustomMethod < Minitest::Test
     return AutomationObject::BluePrint::HashAdapter::CustomMethod.new(hash)
   end
 
-  def test_defaults
-    defaults = {
-        :element_method => nil,
-        :evaluate => nil
-    }
+  #Test that class conforms to the composite interface
+  AutomationObject::BluePrint::Composite::CustomMethod.public_instance_methods(false).each do |method|
+    define_method("test_interface_#{method}") do
+      assert create_composite(hash).public_methods.include?(method),
+             "AutomationObject::BluePrint::HashAdapter::CustomMethod should have instance method: #{method}"
+    end
+  end
 
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::CustomMethod)
+  def test_defaults
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::CustomMethod)
   end
 
   def test_element_method

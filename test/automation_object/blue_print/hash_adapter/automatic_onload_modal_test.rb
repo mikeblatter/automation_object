@@ -1,11 +1,18 @@
 require_relative '../../../test_helper'
 require_relative 'test_helpers/test_default_helper'
 
+require_relative '../../../../lib/automation_object/blue_print/composite/automatic_onload_modal'
 require_relative '../../../../lib/automation_object/blue_print/hash_adapter/automatic_onload_modal'
 
 #Test AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal
 class TestHashAdapterAutomaticOnloadModal < Minitest::Test
   include TestDefaultHelper
+
+  DEFAULTS = {
+      :modal_name => nil,
+      :number_of_checks => 1,
+      :close => false
+  }
 
   def setup
     AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal.skip_validations = true
@@ -20,14 +27,16 @@ class TestHashAdapterAutomaticOnloadModal < Minitest::Test
     return AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal.new(hash)
   end
 
-  def test_defaults
-    defaults = {
-        :modal_name => nil,
-        :number_of_checks => 1,
-        :close => false
-    }
+  #Test that class conforms to the composite interface
+  AutomationObject::BluePrint::Composite::AutomaticOnloadModal.public_instance_methods(false).each do |method|
+    define_method("test_interface_#{method}") do
+      assert create_composite(hash).public_methods.include?(method),
+             "AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal should have instance method: #{method}"
+    end
+  end
 
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal)
+  def test_defaults
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal)
   end
 
   def test_modal_name

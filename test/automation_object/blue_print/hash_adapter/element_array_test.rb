@@ -7,6 +7,16 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/elem
 class TestHashAdapterElementArray < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :load => AutomationObject::BluePrint::Composite::Hook,
+      :custom_methods => {},
+      :selector_params => nil,
+      :in_iframe => nil,
+      :in_iframe? => false,
+      :custom_range => nil,
+      :remove_duplicates => nil
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::ElementArray.skip_validations = true
   end
@@ -20,18 +30,17 @@ class TestHashAdapterElementArray < Minitest::Test
     return AutomationObject::BluePrint::HashAdapter::ElementArray.new(hash)
   end
 
-  def test_defaults
-    defaults = {
-        :load => AutomationObject::BluePrint::Composite::Hook,
-        :custom_methods => {},
-        :selector_params => nil,
-        :in_iframe => nil,
-        :in_iframe? => false,
-        :custom_range => nil,
-        :remove_duplicates => nil
-    }
+  #Test that class conforms to the composite interface
+  AutomationObject::BluePrint::Composite::ElementArray.public_instance_methods(false).each do |method|
+    define_method("test_interface_#{method}") do
+      assert create_composite(hash).public_methods.include?(method),
+             "AutomationObject::BluePrint::HashAdapter::ElementArray should have instance method: #{method}"
+    end
+  end
 
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::ElementArray)
+
+  def test_defaults
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::ElementArray)
   end
 
   def test_load

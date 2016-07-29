@@ -7,6 +7,9 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/view
 class TestHashAdapterView < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::View.skip_validations = true
   end
@@ -21,9 +24,6 @@ class TestHashAdapterView < Minitest::Test
   end
 
   def test_defaults
-    defaults = {
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::View)
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::View)
   end
 end

@@ -7,6 +7,19 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/scre
 class TestHashAdapterScreen < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :load => AutomationObject::BluePrint::Composite::Hook,
+      :accept => AutomationObject::BluePrint::Composite::Hook,
+      :dismiss => AutomationObject::BluePrint::Composite::Hook,
+      :modals => {},
+      :elements => {},
+      :element_arrays => {},
+      :element_hashes => {},
+      :automatic_onload_modals => [],
+      :automatic_screen_changes => [],
+      :included_views => [],
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::Screen.skip_validations = true
   end
@@ -22,21 +35,7 @@ class TestHashAdapterScreen < Minitest::Test
 
   def test_defaults
     AutomationObject::BluePrint::HashAdapter::Screen.skip_validations = true
-
-    defaults = {
-        :load => AutomationObject::BluePrint::Composite::Hook,
-        :accept => AutomationObject::BluePrint::Composite::Hook,
-        :dismiss => AutomationObject::BluePrint::Composite::Hook,
-        :modals => {},
-        :elements => {},
-        :element_arrays => {},
-        :element_hashes => {},
-        :automatic_onload_modals => [],
-        :automatic_screen_changes => [],
-        :included_views => [],
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::Screen)
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Screen)
   end
 
   def test_load

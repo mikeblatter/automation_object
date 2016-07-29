@@ -7,6 +7,15 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/top'
 class TestHashAdapterTop < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :base_url => nil,
+      :default_screen => nil,
+      :screen_transition_sleep => 0,
+      :screens => {},
+      :throttle_driver_methods => {},
+      :throttle_element_methods => {}
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::Top.skip_validations = true
   end
@@ -21,16 +30,7 @@ class TestHashAdapterTop < Minitest::Test
   end
 
   def test_defaults
-    defaults = {
-        :base_url => nil,
-        :default_screen => nil,
-        :screen_transition_sleep => 0,
-        :screens => {},
-        :throttle_driver_methods => {},
-        :throttle_element_methods => {}
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::Top)
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Top)
   end
 
   def test_base_url

@@ -7,6 +7,12 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/hook
 class TestHashAdapterHook < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :before => AutomationObject::BluePrint::Composite::HookAction,
+      :live? => [],
+      :after => AutomationObject::BluePrint::Composite::HookAction
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::Hook.skip_validations = true
   end
@@ -22,14 +28,7 @@ class TestHashAdapterHook < Minitest::Test
 
   def test_defaults
     AutomationObject::BluePrint::HashAdapter::Hook.skip_validations = true
-
-    defaults = {
-        :before => AutomationObject::BluePrint::Composite::HookAction,
-        :live? => [],
-        :after => AutomationObject::BluePrint::Composite::HookAction
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::Hook)
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Hook)
   end
 
   def test_before

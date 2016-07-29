@@ -7,6 +7,20 @@ require_relative '../../../../lib/automation_object/blue_print/hash_adapter/hook
 class TestHashAdapterHookAction < Minitest::Test
   include TestDefaultHelper
 
+  DEFAULTS = {
+      :hook_order => [],
+      :change_screen => nil,
+      :change_to_previous_screen => false,
+      :close_modal => false,
+      :close_screen => false,
+      :possible_screen_changes => [],
+      :reset_screen => false,
+      :show_modal => nil,
+      :sleep => 0,
+      :wait_for_elements => [],
+      :new_screen => nil,
+  }
+
   def setup
     AutomationObject::BluePrint::HashAdapter::HookAction.skip_validations = true
   end
@@ -21,21 +35,7 @@ class TestHashAdapterHookAction < Minitest::Test
   end
 
   def test_defaults
-    defaults = {
-        :hook_order => [],
-        :change_screen => nil,
-        :change_to_previous_screen => false,
-        :close_modal => false,
-        :close_screen => false,
-        :possible_screen_changes => [],
-        :reset_screen => false,
-        :show_modal => nil,
-        :sleep => 0,
-        :wait_for_elements => [],
-        :new_screen => nil,
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::HookAction)
+    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::HookAction)
   end
 
   def test_hook_order
