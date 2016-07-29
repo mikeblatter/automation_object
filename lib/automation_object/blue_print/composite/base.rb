@@ -9,10 +9,8 @@ module AutomationObject
       class Base
         attr_accessor :adapter
 
-        def initialize(adapter_namespace, *args)
-          #Get which namespace to use, and add adapter to self
-          adapter_const = adapter_namespace.const_get(self.class.name.split('::').last)
-          self.adapter = adapter_const.new(args)
+        def initialize(adapter_object)
+          self.adapter = adapter_object
         end
       end
     end

@@ -53,10 +53,6 @@ module AutomationObject
           self.create_hash_children(children, options)
         end
 
-        def adapter_namespace
-          @module_name = self.class.to_s.split("::").first
-        end
-
         # @param name [Symbol] name of child
         # @param children [Array] hash of children
         # @param args [Hash] arguments for adding children
@@ -85,11 +81,11 @@ module AutomationObject
         end
 
         def create_composite(args, child, name, location)
+          #Get the Composite Class that corresponds with the HashAdapter Class
           class_name = args[:interface].name.split('::').last
-          namespace = AutomationObject::BluePrint::HashAdapter
-
           composite_class = AutomationObject::BluePrint::Composite.const_get(class_name)
-          composite_class.new(namespace, args[:interface].new(child, name, self, location))
+
+          composite_class.new(args[:interface].new(child, name, self, location))
         end
       end
     end
