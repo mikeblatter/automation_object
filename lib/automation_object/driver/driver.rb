@@ -2,6 +2,9 @@ require_relative 'base'
 
 module AutomationObject
   module Driver
+    Point     = Struct.new(:x, :y)
+    Dimension = Struct.new(:width, :height)
+
     #Driver adapter interface
     #Adapters should meet this interface standard
     class Driver < Base
@@ -12,6 +15,7 @@ module AutomationObject
         self.adapter.get(url)
       end
 
+      # Set timeout wait
       # @param timeout [Integer] the timeout in seconds
       # @return [void]
       def set_wait(timeout = nil)

@@ -1,3 +1,5 @@
+require_relative 'helpers/string'
+
 require_relative 'proxies/throttle_proxy'
 require_relative 'proxies/mutex_proxy'
 
@@ -32,11 +34,11 @@ module AutomationObject
     # @param driver [Object] selenium or appium driver. default nil for Nokogiri
     # @return [AutomationObject::Driver::Driver]
     def new(driver = nil)
-      adapter_instance = self.adapter.new(driver)
+      adapted_driver = Driver.new(self.adapter.new(driver))
 
       #Add throttling and mutex proxies around adapter
       return AutomationObject::Proxies::MutexProxy.new(
-                    AutomationObject::Proxies::ThrottleProxy.new(adapter_instance))
+                    AutomationObject::Proxies::ThrottleProxy.new(adapted_driver))
     end
   end
 end
