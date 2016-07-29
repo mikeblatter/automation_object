@@ -1,5 +1,4 @@
 require_relative '../test_helper'
-require_relative '../../lib/automation_object/driver/nokogiri_adapter'
 
 #Test AutomationObject::Driver
 class TestDriver < Minitest::Test
