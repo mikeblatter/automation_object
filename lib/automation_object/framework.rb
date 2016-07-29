@@ -53,9 +53,9 @@ module AutomationObject
       @state ||= State.new(blue_prints: self.blue_prints, driver: self.driver)
     end
 
-    # blue_prints get method
-    # BluePrint port contains a formatted composite object for UI descriptions
-    # Has an adapter interface
+    # BluePrints (UI configurations) wrapped in an composite
+    # Composite provides a common interface for all adapters
+    # Under AutomationObject::BluePrint::Composite::
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
     def blue_prints
       BluePrint.adapter = self.args.fetch(:blue_print_type, :hash)

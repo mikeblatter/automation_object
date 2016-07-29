@@ -1,6 +1,13 @@
 require_relative 'proxies/throttle_proxy'
 require_relative 'proxies/mutex_proxy'
 
+require_relative 'driver/driver'
+
+#Adapters
+require_relative 'driver/appium_adapter/driver'
+require_relative 'driver/nokogiri_adapter/driver'
+require_relative 'driver/selenium_adapter/driver'
+
 module AutomationObject
   #Driver Port
   module Driver
@@ -19,20 +26,17 @@ module AutomationObject
       adapter_name << '_adapter' unless adapter_name.match(/_adapter$/)
       adapter_const = adapter_name.pascalize
 
-      require_relative "driver/#{adapter_name}"
       @adapter = AutomationObject::Driver.const_get("#{adapter_const}")
     end
 
-    def new(*args)
-      adapter_instance = self.adapter.new(*args)
+    # @param driver [Object] selenium or appium driver. default nil for Nokogiri
+    # @return [AutomationObject::Driver::Driver]
+    def new(driver = nil)
+      adapter_instance = self.adapter.new(driver)
 
       #Add throttling and mutex proxies around adapter
-      throttled_adapter_instance = AutomationObject::Proxies::ThrottleProxy.new(adapter_instance)
-
-      #Will protect from IO errors on driver
-      protected_adapter_instance = AutomationObject::Proxies::MutexProxy.new(throttled_adapter_instance)
-
-      return protected_adapter_instance
+      return AutomationObject::Proxies::MutexProxy.new(
+                    AutomationObject::Proxies::ThrottleProxy.new(adapter_instance))
     end
   end
 end

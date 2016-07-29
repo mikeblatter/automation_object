@@ -22,9 +22,10 @@ module AutomationObject::Driver::SeleniumAdapter
       exists = false
 
       begin
+        original_timeout = @subject.manage.timeouts.implicit_wait
         @subject.manage.timeouts.implicit_wait = 0
         element_objects = @subject.find_elements(selector_type, selector_path)
-        @subject.manage.timeouts.implicit_wait = 30
+        @subject.manage.timeouts.implicit_wait = original_timeout
         if element_objects.length > 0
           exists = true
         end
