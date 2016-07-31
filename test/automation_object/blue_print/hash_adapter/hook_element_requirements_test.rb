@@ -1,33 +1,16 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/hook_element_requirements'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::HookElementRequirements
 class TestHashAdapterHookElementRequirements < Minitest::Test
-  include TestDefaultHelper
+  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::HookElementRequirements
+  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::HookElementRequirements
 
   DEFAULTS = {
       :hook_order => [:exists?],
       :element_name => nil
   }
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::HookElementRequirements.skip_validations = true
-  end
-
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::HookElementRequirements.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::HookElementRequirements.new(hash)
-  end
-
-  def test_defaults
-    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::HookElementRequirements)
-  end
+  include HashAdapterBase
 
   def test_hook_order
     composite = self.create_composite({ :text => 'Text should be this', :exists? => true, :element_name => 'element_name'})

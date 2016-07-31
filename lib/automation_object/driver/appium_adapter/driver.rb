@@ -1,3 +1,5 @@
+require 'appium_lib'
+
 require_relative '../../proxies/proxy'
 require_relative '../helpers/selenium_driver_helper'
 
@@ -12,9 +14,29 @@ module AutomationObject
       class Driver < AutomationObject::Proxies::Proxy
         include AutomationObject::Driver::SeleniumDriverHelper
 
-        # @param driver [Object] Appium Driver
+        # @param driver [Appium::Driver] Appium Driver
         def initialize(driver)
           @subject = driver
+        end
+
+        # Navigates current window to a given url
+        # @param url [String] navigate to the following url
+        # @return [void]
+        def get(url)
+          @subject.get(url)
+        end
+
+        # @param script [String] JS to run
+        # @return [Object, nil]
+        def execute_script(script)
+          @subject.execute_script(script)
+        end
+
+        #Set timeout wait
+        # @param timeout [Integer] the timeout in seconds
+        # @return [void]
+        def set_wait(timeout = nil)
+          @subject.set_wait(timeout)
         end
 
         # @param selector_type [Symbol] selector type (:css, :xpath, etc...)

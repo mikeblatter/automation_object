@@ -5,9 +5,21 @@ module AutomationObject
   module Driver
     class Element < Base
       # Set or Get attribute
+      # @param key [String] key of element
+      # @param value [String, nil] set value or leave blank
       # @return [String, nil]
-      def attribute(name = nil)
-        self.adapter.attribute(name)
+      def attribute(key, value = nil)
+        self.adapter.attribute(key, value)
+      end
+
+      # @return [String] id of element
+      def id
+        self.adapter.id
+      end
+
+      # @return [String] href of element
+      def href
+        self.adapter.href
       end
 
       # Text of element

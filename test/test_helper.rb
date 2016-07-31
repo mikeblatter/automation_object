@@ -40,4 +40,3 @@ module Minitest::Assertions
     #
   end
 end
-

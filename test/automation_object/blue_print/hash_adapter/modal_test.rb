@@ -1,11 +1,9 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/modal'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Modal
 class TestHashAdapterModal < Minitest::Test
-  include TestDefaultHelper
+  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::Modal
+  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::Modal
 
   DEFAULTS = {
       :load => AutomationObject::BluePrint::Composite::Hook,
@@ -14,23 +12,7 @@ class TestHashAdapterModal < Minitest::Test
       :element_hashes => {}
   }
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = true
-  end
-
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::Modal.new(hash)
-  end
-
-  def test_defaults
-    AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = true
-    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Modal)
-  end
+  include HashAdapterBase
 
   def test_load
     composite = self.create_composite({ :load => {} })

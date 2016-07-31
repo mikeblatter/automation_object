@@ -1,11 +1,9 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/top'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Top < Composite
 class TestHashAdapterTop < Minitest::Test
-  include TestDefaultHelper
+  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::Top
+  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::Top
 
   DEFAULTS = {
       :base_url => nil,
@@ -16,22 +14,7 @@ class TestHashAdapterTop < Minitest::Test
       :throttle_element_methods => {}
   }
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::Top.skip_validations = true
-  end
-
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::Top.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::Top.new(hash)
-  end
-
-  def test_defaults
-    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Top)
-  end
+  include HashAdapterBase
 
   def test_base_url
     composite = self.create_composite({ :base_url => 'test_url' })

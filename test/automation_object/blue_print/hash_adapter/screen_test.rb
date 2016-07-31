@@ -1,11 +1,9 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/screen'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Screen
 class TestHashAdapterScreen < Minitest::Test
-  include TestDefaultHelper
+  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::Screen
+  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::Screen
 
   DEFAULTS = {
       :load => AutomationObject::BluePrint::Composite::Hook,
@@ -20,23 +18,7 @@ class TestHashAdapterScreen < Minitest::Test
       :included_views => [],
   }
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::Screen.skip_validations = true
-  end
-
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::Screen.skip_validations = false
-  end
-
-  def create_composite(hash, parent = nil)
-    return AutomationObject::BluePrint::HashAdapter::Screen.new(hash, :screen, parent)
-  end
-
-  def test_defaults
-    AutomationObject::BluePrint::HashAdapter::Screen.skip_validations = true
-    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::Screen)
-  end
+  include HashAdapterBase
 
   def test_load
     composite = self.create_composite({ :load => {} })

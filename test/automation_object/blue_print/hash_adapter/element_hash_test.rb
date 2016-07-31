@@ -1,11 +1,9 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/element_hash'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::ElementHash
 class TestHashAdapterElementHash < Minitest::Test
-  include TestDefaultHelper
+  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::ElementHash
+  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::ElementHash
 
   DEFAULTS = {
       :load => AutomationObject::BluePrint::Composite::Hook,
@@ -17,31 +15,7 @@ class TestHashAdapterElementHash < Minitest::Test
       :remove_duplicates => nil
   }
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::ElementHash.skip_validations = true
-  end
-
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::ElementHash.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::ElementHash.new(hash)
-  end
-
-  #Test that class conforms to the composite interface
-  AutomationObject::BluePrint::Composite::ElementHash.public_instance_methods(false).each do |method|
-    define_method("test_interface_#{method}") do
-      assert create_composite(hash).public_methods.include?(method),
-             "AutomationObject::BluePrint::HashAdapter::ElementHash should have instance method: #{method}"
-    end
-  end
-
-  def test_defaults
-    AutomationObject::BluePrint::HashAdapter::ElementHash.skip_validations = true
-    self.defaults_test(DEFAULTS, AutomationObject::BluePrint::HashAdapter::ElementHash)
-  end
+  include HashAdapterBase
 
   def test_load
     composite = self.create_composite({ :load => {} })
