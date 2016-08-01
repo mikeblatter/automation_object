@@ -1,6 +1,6 @@
 # AutomationObject
 
-https://travis-ci.org/mikeblatter/automation_object.svg?branch=master
+[![Travis Master](https://travis-ci.org/mikeblatter/automation_object.svg?branch=master)](https://travis-ci.org/mikeblatter/automation_object/builds)
 
 Configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.
 
