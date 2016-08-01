@@ -15,12 +15,12 @@ A local rails server will launch on 3024, blue prints of the website are located
 Examples will run interactive command line that allows you to type ruby code into the command line
 and print out the output
 
-1. Full Rails Example with AutomationObject
+* Full Rails Example with AutomationObject
 ```
 ruby full_example.rb
 ```
 
-2. Selenium Driver example only
+* Selenium Driver example only
 ```
 ruby selenium_driver.rb
 ```
