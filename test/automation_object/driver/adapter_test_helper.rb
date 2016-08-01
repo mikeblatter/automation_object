@@ -25,7 +25,7 @@ module AdapterTestHelper
     def create_tests
       self.interface_class.public_instance_methods(false).each do |method|
         define_method("test_interface_#{method}") do
-          assert self.class.adapter_class.public_instance_methods(false).include?(method),
+          assert self.class.adapter_class.public_instance_methods(true).include?(method),
                  "#{self.class.adapter_class} should have instance method: #{method}"
         end
 

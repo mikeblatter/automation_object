@@ -1,7 +1,6 @@
 require 'appium_lib'
 
 require_relative '../../proxies/proxy'
-require_relative '../helpers/selenium_driver_helper'
 
 require_relative '../element'
 require_relative 'element'
@@ -13,8 +12,6 @@ module AutomationObject
       #Conform Appium driver interface to what's expected of the Driver Port
       class Driver < AutomationObject::Proxies::Proxy
         DOC_COMPLETE_SLEEP = 1
-
-        include AutomationObject::Driver::SeleniumDriverHelper
 
         # @param driver [Appium::Driver] Appium Driver
         def initialize(driver)

@@ -6,6 +6,7 @@ class TestHashAdapterScreen < Minitest::Test
 
   self.interface_class = AutomationObject::BluePrint::Composite::Screen
   self.adapter_class = AutomationObject::BluePrint::HashAdapter::Screen
+
   self.defaults = {
       :load => AutomationObject::BluePrint::Composite::Hook,
       :accept => AutomationObject::BluePrint::Composite::Hook,
@@ -18,7 +19,6 @@ class TestHashAdapterScreen < Minitest::Test
       :automatic_screen_changes => [],
       :included_views => [],
   }
-
   create_tests()
 
   def test_load
@@ -118,21 +118,21 @@ class TestHashAdapterScreen < Minitest::Test
   end
 
   def test_merge_views
-    parent_stub = stub(
-                      :hash => {
-                           :views => {
-                               :test_view => {
-                                  :view_test_value => true
-                               }
-                           }
-                      })
+    AutomationObject::BluePrint::HashAdapter::Top.skip_validations = true
+    parent = AutomationObject::BluePrint::HashAdapter::Top.new({:views => {
+        :test_view => {
+            :view_test_value => true
+        }
+    }})
 
-    composite = self.create_composite({ :included_views => [:test_view], :screen_test_value => true }, parent_stub)
+    composite = self.create_composite({:included_views => [:test_view], :screen_test_value => true}, parent)
 
     assert_includes composite.hash.keys, :screen_test_value
     assert_includes composite.hash.keys, :view_test_value
 
     assert_equal true, composite.hash[:screen_test_value]
     assert_equal true, composite.hash[:view_test_value]
+
+    AutomationObject::BluePrint::HashAdapter::Top.skip_validations = false
   end
 end

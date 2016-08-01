@@ -79,6 +79,60 @@ module AutomationObject
       def click
         self.adapter.click
       end
+
+      # @return [Numeric] x position of element
+      def x
+        self.adapter.x
+      end
+
+      # @return [Numeric] y position of element
+      def y
+        self.adapter.y
+      end
+
+      # @return [Numeric] width of element
+      def width
+        self.adapter.width
+      end
+
+      # @return [Numeric] height of element
+      def height
+        self.adapter.height
+      end
+
+      # @return [String, nil] content attribute
+      def content
+        self.adapter.content
+      end
+
+      # @return [Point] :x, :y coordinates
+      def element_center
+        self.adapter.element_center
+      end
+
+      # @return [BoxCoordinates] :x1, :x2, :y1, :y2 coordinates of a box
+      def box_coordinates
+        self.adapter.box_coordinates
+      end
+
+      # @param second_element_object [Object] element to compare to
+      # @param collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
+      # @return [Boolean] element collides with other
+      def collides_with_element?(second_element_object, collision_tolerance = false)
+        self.adapter.collides_with_element?(second_element_object, collision_tolerance)
+      end
+
+      # Hover over element
+      # @return [void]
+      def hover
+        self.adapter.hover
+      end
+
+      #Helper method to switch to this element's iframe
+      # @return [void]
+      def switch_to_iframe
+        self.adapter.switch_to_iframe
+      end
     end
   end
 end

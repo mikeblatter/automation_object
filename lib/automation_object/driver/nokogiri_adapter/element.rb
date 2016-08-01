@@ -1,3 +1,4 @@
+require_relative '../driver'
 require_relative 'error'
 
 module AutomationObject
@@ -35,6 +36,12 @@ module AutomationObject
         # Text of element
         # @return [String, nil]
         def text
+          @subject['content']
+        end
+
+        # Content of element
+        # @return [String, nil]
+        def content
           @subject['content']
         end
 
@@ -100,6 +107,54 @@ module AutomationObject
 
           #In case it's a button inside the form
           self.submit if find_form(@subject)
+        end
+
+        # @return [Numeric] x position of element
+        def x
+          0
+        end
+
+        # @return [Numeric] y position of element
+        def y
+          0
+        end
+
+        # @return [Numeric] width of element
+        def width
+          0
+        end
+
+        # @return [Numeric] height of element
+        def height
+          0
+        end
+
+        # @return [Point] :x, :y coordinates
+        def element_center
+          Point.new(:x => 0, :y => 0)
+        end
+
+        # @return [BoxCoordinates] :x1, :x2, :y1, :y2 coordinates of a box
+        def box_coordinates
+          BoxCoordinates.new(:x1 => 0, :y1 => 0, :x2 => 0, :y2 => 0)
+        end
+
+        # @param second_element_object [Object] element to compare to
+        # @param collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
+        # @return [Boolean] element collides with other
+        def collides_with_element?(second_element_object, collision_tolerance = false)
+          false
+        end
+
+        # Hover over element
+        # @return [void]
+        def hover
+        end
+
+        #Helper method to switch to this element's iframe
+        # @return [void]
+        def switch_to_iframe
+          #TODO: finish
         end
 
         private

@@ -5,6 +5,7 @@ module AutomationObject
   module Driver
     Point     = Struct.new(:x, :y)
     Dimension = Struct.new(:width, :height)
+    BoxCoordinates = Struct.new(:x1, :y1, :x2, :y2)
 
     #Driver adapter interface
     #Adapters should meet this interface standard

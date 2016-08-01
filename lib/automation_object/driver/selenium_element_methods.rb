@@ -1,8 +1,9 @@
+require_relative 'driver'
+
 module AutomationObject
   module Driver
     #Helper module for Selenium based elements
-    #for use by SeleniumAdapter::Element and AppiumAdapter::Element
-    module SeleniumElementHelper
+    module SeleniumElementMethods
       # @return [Numeric] x position of element
       def x
         @subject.location.x
@@ -33,19 +34,25 @@ module AutomationObject
         @subject.displayed? ? false : true
       end
 
-      # @return [String] id of element
+      # @return [String, nil] id of element
       def id
-        @subject.attribute('id').to_s
+        @subject.attribute('id')
       end
 
-      # @return [String] href of element
+      # @return [String, nil] href of element
       def href
-        @subject.attribute('href').to_s
+        @subject.attribute('href')
       end
 
-      # @return [Boolean] content of element
+      # Text of element
+      # @return [String, nil]
+      def text
+        @subject.text
+      end
+
+      # @return [String, nil] content of element
       def content
-        @subject.attribute('content').to_s
+        @subject.attribute('content')
       end
 
       # @param key [String] attribute key to get or set
@@ -60,24 +67,61 @@ module AutomationObject
         @subject.attribute(key)
       end
 
+      # Type into an element
+      # @return [void]
+      def send_keys(string)
+        @subject.send_keys(string)
+      end
+
+      # Clear the element field
+      # @return [void]
+      def clear
+        @subject.clear
+      end
+
+      # Get the location
+      # @return [Point]
+      def location
+        @subject.location
+      end
+
+      # Get the size of an element
+      # @return [Dimension]
+      def size
+        @subject.size
+      end
+
+      # Perform a submit action on an element
+      # @return [void]
+      def submit
+        @subject.submit
+      end
+
+      # Perform a click action on the element
+      # @return [void]
+      def click
+        self.scroll_into_view if @driver.is_browser?
+        @subject.click
+      end
+
       # @return [Hash] :x, :y coordinates
       def element_center
         element_location = @subject.location
         element_size = @subject.size
 
-        center = OpenStruct.new
+        center = Point.new
         center.x = (element_location.x.to_f + element_size.width.to_f/2).to_f
         center.y = (element_location.y.to_f + element_size.height.to_f/2).to_f
 
         return center
       end
 
-      # @return [Hash] :x1, :x2, :y1, :y2 coordinates of a box
+      # @return [BoxCoordinates] :x1, :x2, :y1, :y2 coordinates of a box
       def box_coordinates
         element_location = @subject.location
         element_size = @subject.size
 
-        box_coordinates = OpenStruct.new
+        box_coordinates = BoxCoordinates.new
         box_coordinates.x1 = element_location.x.to_f
         box_coordinates.y1 = element_location.y.to_f
         box_coordinates.x2 = element_location.x.to_f + element_size.width.to_f
@@ -117,6 +161,8 @@ module AutomationObject
       def switch_to_iframe
         @driver.switch_to.frame(self.iframe_switch_value)
       end
+
+      protected
 
       #Helper method for getting the value to switch to
       #If value doesn't exist then create one

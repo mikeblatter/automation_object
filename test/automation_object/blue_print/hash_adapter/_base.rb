@@ -17,9 +17,7 @@ module HashAdapterBase
   def create_composite(hash = nil, parent = nil)
     return self.class.adapter_class.new(self.class.adapter_class.defaults) if hash == nil
 
-    adapter = self.class.adapter_class.new(hash)
-    adapter.parent = parent
-
+    adapter = self.class.adapter_class.new(hash, self.class.to_s.downcase.to_sym, parent, self.class.to_s.downcase)
     return adapter
   end
 
