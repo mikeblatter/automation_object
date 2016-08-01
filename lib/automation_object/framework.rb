@@ -8,31 +8,25 @@ module AutomationObject
   #Framework class, the core
   #A Proxy class that will become the DSL Framework
   class Framework < Proxies::Proxy
-    #Static
-    class << self
-      attr_accessor :singleton
+    # @return [AutomationObject::BluePrint::Composite::Top]
+    attr_accessor :blue_prints
 
-      #Singleton method if using Cucumber
-      #TODO: was temporary fix for Cucumber, probably change
-      # @return [Framework] singleton of self
-      def get
-        return self.singleton
-      end
-    end
+    # @return [AutomationObject::Driver::Driver]
+    attr_accessor :driver
 
-    attr_accessor :args, :blue_prints, :driver, :state, :dsl
+    # @return [AutomationObject::State::Session]
+    attr_accessor :state
 
-    # @param args [Hash] arguments for Framework
-    # Example:
-    # args = {
-    #   :blue_print_type => :yaml,
-    #   :blue_prints => '/path/to/yaml/directory',
-    #   :driver_type => :selenium,
-    #   :driver => selenium_object
-    # }
-    def initialize(args={})
-      args.symbolize_keys_deep!
-      self.args = args
+    # @return [Dsl] workable dsl composite object
+    attr_accessor :dsl
+
+    # Will assume nil or :nokogiri is XML based and AutomationObject
+    # can also automate XML
+    # @param driver [Selenium::WebDriver::Driver,Appium::Driver,nil] selenium type driver or nil
+    # @param blue_prints [Hash] arguments for Framework
+    def initialize(driver, blue_prints)
+      self.driver = driver
+      self.blue_prints = blue_prints
 
       #Create the DSL
       #Should create all subsequent needed object
@@ -55,44 +49,53 @@ module AutomationObject
 
     # BluePrints (UI configurations) wrapped in an composite
     # Composite provides a common interface for all adapters
-    # Under AutomationObject::BluePrint::Composite::
+    # @param value [String, Hash] String to YAML files or Hash configuration
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
-    def blue_prints
-      BluePrint.adapter = self.args.fetch(:blue_print_type, :hash)
-      @blue_prints ||= BluePrint.new(self.args.fetch(:blue_prints, {}))
+    def blue_prints=(value)
+      case value
+        when String
+          BluePrint.adapter = :yaml
+        when Hash
+          BluePrint.adapter = :hash
+      end
+
+      @blue_prints = BluePrint.new(value)
     end
 
     # Driver port provides a formatted interface for interacting with different drivers
     # @return [AutomationObject::Driver::Driver] driver interface object
-    def driver
-      driver_type = self.args.fetch(:driver_type, nil)
-      driver = self.args.fetch(:driver, nil)
-
-      if driver_type
-        Driver.adapter = driver_type
-      else
-        case driver
-          when Selenium::WebDriver::Driver
-            Driver.adapter = :selenium
-          when Appium::Driver
-            Driver.adapter = :appium
-          else
-            Driver.adapter = :nokogiri
-        end
+    def driver=(value)
+      case value
+        when Selenium::WebDriver::Driver
+          Driver.adapter = :selenium
+        when Appium::Driver
+          Driver.adapter = :appium
+        else
+          Driver.adapter = :nokogiri
       end
 
-      @driver ||= Driver.new(driver)
+      @driver = Driver.new(value)
     end
 
-    #Reset the entire state, remove any values
-    #Leave the driver alone here, can be done elsewhere
+    # Reset the entire state, remove any values
+    # Leave the driver alone here, can be done elsewhere
+    # @return [void]
     def quit
       self.state.quit #Quit the state.  That way it knows to kill threads if operational
+      self.dsl, self.state, self.blue_prints, self.driver = nil
+    end
 
-      @dsl = nil
-      @state = nil
-      @blue_prints = nil
-      @driver = nil
+    # Static Hack
+    # TODO: figure a multiple instance way of using ao in Cucumber context
+    # Leaving for now to continue testing and building of whole framework
+    class << self
+      attr_accessor :singleton
+
+      #Singleton method if using Cucumber
+      # @return [Framework] singleton of self
+      def get
+        return self.singleton
+      end
     end
   end
 end

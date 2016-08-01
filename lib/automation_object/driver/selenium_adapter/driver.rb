@@ -1,5 +1,7 @@
 require_relative '../../proxies/proxy'
 require_relative '../helpers/selenium_driver_helper'
+
+require_relative '../element'
 require_relative 'element'
 
 module AutomationObject

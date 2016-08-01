@@ -29,7 +29,6 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 1.0'
   spec.add_development_dependency 'mocha'
   spec.add_development_dependency 'fakefs'
-  spec.add_development_dependency 'commander'
 
   #Misc
   spec.add_runtime_dependency 'awesome_print'
