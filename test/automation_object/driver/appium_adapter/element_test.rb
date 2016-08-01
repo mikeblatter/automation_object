@@ -1,9 +1,14 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/automation_object/driver/appium_adapter/element'
+require_relative '../adapter_test_helper'
 
-#TODO, finish unit testing
 #Test AutomationObject::Driver::AppiumAdapter::Element class
 class TestAppiumAdapterElement < Minitest::Test
+  include AdapterTestHelper
+
+  self.interface_class = AutomationObject::Driver::Element
+  self.adapter_class = AutomationObject::Driver::AppiumAdapter::Element
+
+  create_tests()
+
   def setup
   end
 end

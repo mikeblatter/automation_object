@@ -26,11 +26,12 @@ module AutomationObject
 
     # Creates/returns a new session, attaches driver, and composite adapter
     # Will use a composite to direct the other layers (ie BluePrint)
-    # @param args [Hash] arguments
+    # @param blue_prints [AutomationObject::BluePrint::Composite::Top] Top composite interface
+    # @param driver [AutomationObject::Driver::Driver] driver interface
     # @return [AutomationObject::State::Session] Session instance
-    def new(args={})
-      adapter_composite = self.adapter.build(args)
-      return Session.new(driver: args.fetch(:driver), composite: adapter_composite)
+    def new(blue_prints, driver)
+      adapter_composite = self.adapter.build(blue_prints, driver)
+      return Session.new(driver: args.fetch(driver), composite: adapter_composite)
     end
   end
 end

@@ -1,44 +1,49 @@
 #Require parent class
 require_relative 'base'
 
+require_relative 'screen'
+require_relative 'view'
+
 module AutomationObject
   module BluePrint
     module Composite
-      #Abstract Top class, adapters implemented using extend located in Base
+      #Top composite class, passing method to adapter only
+      #Hoping to improve code completion and standard interface where
+      #classes use this as a template to add additional adapters
       class Top < Base
-        # @return [Array<View>]
-        def views
-          raise NotImplementedError
+        # @return [Hash<Screen>]
+        def screens
+          self.adapter.screens
         end
 
-        # @return [Array<Screen>]
-        def screens
-          raise NotImplementedError
+        # @return [Hash<View>]
+        def views
+          self.adapter.views
         end
 
         # @return [String, nil] base url to navigate to upon framework creation
         def base_url
-          raise NotImplementedError
+          self.adapter.base_url
         end
 
         # @return [Symbol, nil] default screen to be set when framework is created
         def default_screen
-          raise NotImplementedError
+          self.adapter.default_screen
         end
 
         # @return [Numeric] sleep when transitioning screens
         def screen_transition_sleep
-          raise NotImplementedError
+          self.adapter.screen_transition_sleep
         end
 
         # @return [Hash] driver methods to throttle
         def throttle_driver_methods
-          raise NotImplementedError
+          self.adapter.throttle_driver_methods
         end
 
         # @return [Hash] element methods to throttle
         def throttle_element_methods
-          raise NotImplementedError
+          self.adapter.throttle_element_methods
         end
       end
     end

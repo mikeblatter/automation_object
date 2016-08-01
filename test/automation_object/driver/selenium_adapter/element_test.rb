@@ -1,9 +1,14 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/automation_object/driver/selenium_adapter/element'
+require_relative '../adapter_test_helper'
 
-#TODO, finish unit testing
-#Test AutomationObject::Driver::SeleniumAdapter::Element class
+#Test AutomationObject::Driver::NokogiriAdapter::Element class
 class TestSeleniumAdapterElement < Minitest::Test
+  include AdapterTestHelper
+
+  self.interface_class = AutomationObject::Driver::Element
+  self.adapter_class = AutomationObject::Driver::SeleniumAdapter::Element
+
+  create_tests()
+
   def setup
   end
 end

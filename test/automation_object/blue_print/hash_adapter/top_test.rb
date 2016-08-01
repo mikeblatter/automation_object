@@ -1,37 +1,21 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/top'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Top < Composite
 class TestHashAdapterTop < Minitest::Test
-  include TestDefaultHelper
+  include HashAdapterBase
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::Top.skip_validations = true
-  end
+  self.interface_class = AutomationObject::BluePrint::Composite::Top
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::Top
+  self.defaults = {
+      :base_url => nil,
+      :default_screen => nil,
+      :screen_transition_sleep => 0,
+      :screens => {},
+      :throttle_driver_methods => {},
+      :throttle_element_methods => {}
+  }
 
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::Top.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::Top.new(hash)
-  end
-
-  def test_defaults
-    defaults = {
-        :base_url => nil,
-        :default_screen => nil,
-        :screen_transition_sleep => 0,
-        :screens => {},
-        :throttle_driver_methods => {},
-        :throttle_element_methods => {}
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::Top)
-  end
+  create_tests()
 
   def test_base_url
     composite = self.create_composite({ :base_url => 'test_url' })
@@ -64,7 +48,7 @@ class TestHashAdapterTop < Minitest::Test
     assert_instance_of Hash, composite.screens
     composite.screens.each { |screen_name, screen_composite|
       assert_includes [:test_screen_one, :test_screen_two], screen_name
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::Screen, screen_composite
+      assert_instance_of AutomationObject::BluePrint::Composite::Screen, screen_composite
     }
   end
 

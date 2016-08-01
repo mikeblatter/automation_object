@@ -1,3 +1,6 @@
+require_relative 'blue_print/hash_adapter'
+require_relative 'blue_print/yaml_adapter'
+
 module AutomationObject
   #BluePrint Port, encapsulation of code required to parse and build composite data structure representing UI
   #Provides for loading Hash/YAML, validates the resulting structure (throws errors), and a common
@@ -7,7 +10,7 @@ module AutomationObject
 
     # Get method for BluePrint adapter const for composite BluePrint build
     # Each adapter will implement common BluePrint interface
-    # @return [AutomationObject::BluePrint::Module] returns adapter const for composite blue print build
+    # @return [AutomationObject::BluePrint::YamlAdapter, AutomationObject::BluePrint::HashAdapter]
     def adapter
       return @adapter if @adapter
       self.adapter = :hash
@@ -21,10 +24,11 @@ module AutomationObject
       adapter_name << '_adapter' unless adapter_name.match(/_adapter$/)
       adapter_const = adapter_name.pascalize
 
-      require_relative "blue_print/#{adapter_name}"
       @adapter = AutomationObject::BluePrint.const_get("#{adapter_const}")
     end
 
+    # Adapters use the composite AutomationObject::BluePrint::Composite interfaces
+    # @return [AutomationObject::BluePrint::Composite::Top]
     def new(blueprint_arg)
       case blueprint_arg
         when String

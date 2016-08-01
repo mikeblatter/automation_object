@@ -8,15 +8,40 @@ By creating YAML configurations that represents your website/app, the DSL framew
 and allow you to control the automation through the DSL framework.  Using this gem can help remove tedious tasks that are often
 repeated throughout code and help improve the scalability of code by mapping UI in YAML configuration files.
 
-## Work In Progress
+## Features
 
-This is still very much a work in progress and is not complete. Currently using this project as an experiment in design patterns
-and exploration of Ruby code. Will update README as I progress and create the gem in rubygems.org when the majority of it is done
-and stable.
+1. Creates a usable composite the automates interactions with UI
+2. Use configurations to create tree hierarchies of a website or app
 
-## Settings up Selenium/Chromedriver locally
+## Installation
 
-Edit your shell profile, typically for mac users ~/.bash_profile
+```
+gem install automation_object
+```
+
+## Public Interface Examples
+
+```
+require 'automation_object'
+
+ao = AutomationObject::Framework.new(args)
+
+ao.home_screen.contact_button.click
+puts ao.contact_screen.
+
+```
+
+## Settings up Selenium/Chromedriver locally (Mac)
+
+Downloads:
+
+http://www.seleniumhq.org/download/ - Selenium Standalone
+https://sites.google.com/a/chromium.org/chromedriver/ - Chrome driver
+
+Edit following file:  ~/.bash_profile
+
+Add the code for where you stored your various drivers. I usually put all my drivers in one folder and add it directly
+to the path.
 
 ```
 export SELENIUM_SERVER_JAR=/Users/yourusername/path/where/jar/is
@@ -24,7 +49,9 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/Users/yourusername/path/to/drivers:$PATH
 ```
 
-To test this, open a new shell session. You should see the variables in the output from the following command:
+Execute this command in your shell after you opened a new window or user session and make sure those variables are added
+in the output.
+
 
 ```
 printenv

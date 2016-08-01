@@ -33,6 +33,12 @@ module AutomationObject
         def valid?
           return true if self.class.skip_validations
 
+         # ap self.class
+          #ap self.class.name
+          self.class.validations.collect do |validation|
+           # ap validation.class.name
+          end
+
           self.class.validations.collect do |validation|
             validation.validate(self)
             unless validation.valid?
@@ -43,13 +49,11 @@ module AutomationObject
           return self.errors.empty?
         end
 
-        # @param base [Class] class to extend when included
         def self.included(base)
           base.extend(ClassMethods)
         end
 
         #Class level methods
-        #Does not need self. syntax use def blah puts 'whatever' end
         module ClassMethods
           def skip_validations=(boolean)
             @skip_validations = boolean
@@ -63,6 +67,12 @@ module AutomationObject
           # @param args [Hash] arguments for validation
           # @return [nil]
           def validates(key, args = {})
+            # ap self
+            # ap self.class.name
+            # ap key
+            # ap args
+
+
             args.each { |validator_name, validation_args|
               validator_name = 'Validate' + validator_name.to_s.pascalize
               validator = Validators.const_get(validator_name)

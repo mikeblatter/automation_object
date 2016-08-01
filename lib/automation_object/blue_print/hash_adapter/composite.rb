@@ -1,4 +1,5 @@
-require_relative '../../../../lib/automation_object/helpers/composite'
+require_relative '../../helpers/composite'
+
 require_relative 'helpers/validation_helper'
 require_relative 'helpers/validation_error'
 
@@ -38,7 +39,7 @@ module AutomationObject
           child = (self.hash[name].is_a?(Hash)) ? self.hash[name] : Hash.new
           child_location = self.location + "[#{name}]"
 
-          options[:interface].new(child, name, self, child_location)
+          create_composite(options, child, name, child_location)
         end
 
         # Overriding base get_children method
@@ -59,7 +60,8 @@ module AutomationObject
           composite_children = children.map.with_index { |child, index|
             location = (args[:location]) ? args[:location] : self.location
             child_location = location + "[#{index}]"
-            args[:interface].new(child, "#{name}[#{index}]", self, child_location)
+
+            create_composite(args, child, "#{name}[#{index}]", child_location)
           }
 
           return composite_children
@@ -71,11 +73,19 @@ module AutomationObject
           composite_children = children.inject({}) { |hash, (key, value)|
             child_location = self.location + "[#{key}]"
 
-            hash[key] = args[:interface].new(value, key, self, child_location)
+            hash[key] = create_composite(args, value, key, child_location)
             hash
           }
 
           return composite_children
+        end
+
+        def create_composite(args, child, name, location)
+          #Get the Composite Class that corresponds with the HashAdapter Class
+          class_name = args[:interface].name.split('::').last
+          composite_class = AutomationObject::BluePrint::Composite.const_get(class_name)
+
+          composite_class.new(args[:interface].new(child, name, self, location))
         end
       end
     end

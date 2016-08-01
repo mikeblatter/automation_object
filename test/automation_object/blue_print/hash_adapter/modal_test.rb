@@ -1,41 +1,23 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/modal'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Modal
 class TestHashAdapterModal < Minitest::Test
-  include TestDefaultHelper
+  include HashAdapterBase
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = true
-  end
+  self.interface_class = AutomationObject::BluePrint::Composite::Modal
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::Modal
+  self.defaults = {
+      :load => AutomationObject::BluePrint::Composite::Hook,
+      :elements => {},
+      :element_arrays => {},
+      :element_hashes => {}
+  }
 
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::Modal.new(hash)
-  end
-
-  def test_defaults
-    AutomationObject::BluePrint::HashAdapter::Modal.skip_validations = true
-
-    defaults = {
-        :load => AutomationObject::BluePrint::HashAdapter::Hook,
-        :elements => {},
-        :element_arrays => {},
-        :element_hashes => {}
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::Modal)
-  end
+  create_tests()
 
   def test_load
     composite = self.create_composite({ :load => {} })
-    assert_instance_of AutomationObject::BluePrint::HashAdapter::Hook, composite.load
+    assert_instance_of AutomationObject::BluePrint::Composite::Hook, composite.load
   end
 
   def test_elements
@@ -46,7 +28,7 @@ class TestHashAdapterModal < Minitest::Test
 
     composite.elements.each { |composite_name, composite|
       assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::Element, composite
+      assert_instance_of AutomationObject::BluePrint::Composite::Element, composite
     }
   end
 
@@ -58,7 +40,7 @@ class TestHashAdapterModal < Minitest::Test
 
     composite.element_arrays.each { |composite_name, composite|
       assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::ElementArray, composite
+      assert_instance_of AutomationObject::BluePrint::Composite::ElementArray, composite
     }
   end
 
@@ -70,7 +52,7 @@ class TestHashAdapterModal < Minitest::Test
 
     composite.element_hashes.each { |composite_name, composite|
       assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::ElementHash, composite
+      assert_instance_of AutomationObject::BluePrint::Composite::ElementHash, composite
     }
   end
 end

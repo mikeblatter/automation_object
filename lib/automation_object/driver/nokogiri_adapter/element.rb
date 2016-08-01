@@ -1,66 +1,85 @@
-require_relative 'form'
+module AutomationObject
+  module Driver
+    module NokogiriAdapter
+      #Element for nokogiri
+      #Conforms to Element interface for an XML source using Nokogiri
+      class Element
+        # Set or Get attribute
+        # @param key [String] key of element
+        # @param value [String, nil] set value or leave blank
+        # @return [String, nil]
+        def attribute(key, value = nil)
+          self.adapter.attribute(key, value)
+        end
 
-module AutomationObject::Driver::NokogiriAdapter
-  #Element class for Nokogiri/XML
-  class Element < AutomationObject::Proxies::Proxy
-    def initialize(args)
-      @driver = args.fetch :driver
-      @subject = args.fetch :element
-    end
+        # @return [String] id of element
+        def id
+          self.adapter.id
+        end
 
-    # @return [String] id of element
-    def id
-      @subject['id']
-    end
+        # @return [String] href of element
+        def href
+          self.adapter.href
+        end
 
-    # @return [String] href of element
-    def href
-      @subject['href']
-    end
+        # Text of element
+        # @return [String, nil]
+        def text
+          self.adapter.text
+        end
 
-    # @return [String] text of element
-    def text
-      @subject['content']
-    end
+        # Type into an element
+        # @return [void]
+        def send_keys(string)
+          self.adapter.send_keys(string)
+        end
 
-    # @return [String] content of element
-    def content
-      @subject['content']
-    end
+        # Clear the element field
+        # @return [void]
+        def clear
+          self.adapter.clear
+        end
 
-    def attribute(key, value = nil)
-      @subject[key] = value if value
-      return @subject[key]
-    end
+        # @return [Boolean]
+        def visible?
+          self.adapter.visible?
+        end
 
-    def click
-      url = self.href
-      if self.attribute('target') == '_blank'
-        @driver.new_window
+        # @return [Boolean]
+        def invisible?
+          self.adapter.invisible?
+        end
+
+        # Get the location
+        # @return [Point]
+        def location
+          self.adapter.location
+        end
+
+        # Get the size of an element
+        # @return [Dimension]
+        def size
+          self.adapter.size
+        end
+
+        # Perform a submit action on an element
+        # @return [void]
+        def submit
+          self.adapter.submit
+        end
+
+        # Scroll the element into view
+        # @return [void]
+        def scroll_into_view
+          self.adapter.scroll_into_view
+        end
+
+        # Perform a click action on the element
+        # @return [void]
+        def click
+          self.adapter.click
+        end
       end
-
-      @driver.get(url)
-    end
-
-    def send_keys(text)
-      @subject['value'] = text
-    end
-
-    def submit
-      form = find_form(@subject)
-      raise 'Unable to find form' unless form_element
-
-      @driver.send(form.request_method, form.params)
-    end
-
-    private
-
-    # @return [AutomationObject::Driver:NokogiriAdapter::Form]
-    def find_form(element)
-      return nil unless element
-
-      return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == 'form'
-      return find_form(element.parent)
     end
   end
 end

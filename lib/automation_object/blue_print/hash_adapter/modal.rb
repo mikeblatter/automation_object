@@ -26,6 +26,26 @@ module AutomationObject
         validates :elements, instance_of: Hash
         validates :element_arrays, instance_of: Hash
         validates :element_hashes, instance_of: Hash
+
+        # @return [Array<Symbol>] array of views this can has
+        def included_views
+          included_views_array = self.hash[:included_views] ||= Array.new
+          included_views_array.map { |view| view.to_sym }
+        end
+
+        #Method to take views and merge into this composite
+        def merge_views
+          top_hash = self.top.hash
+
+          return unless top_hash.is_a?(Hash)
+          return unless top_hash[:views].is_a?(Hash)
+          top_view_hash = top_hash[:views]
+
+          self.included_views.each { |included_view|
+            next unless top_view_hash[included_view].is_a?(Hash)
+            self.hash = self.hash.deep_merge(top_view_hash[included_view])
+          }
+        end
       end
     end
   end

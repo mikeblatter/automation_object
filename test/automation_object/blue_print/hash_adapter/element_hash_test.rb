@@ -1,44 +1,26 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/element_hash'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::ElementHash
 class TestHashAdapterElementHash < Minitest::Test
-  include TestDefaultHelper
+  include HashAdapterBase
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::ElementHash.skip_validations = true
-  end
+  self.interface_class = AutomationObject::BluePrint::Composite::ElementHash
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::ElementHash
+  self.defaults =  {
+      :load => AutomationObject::BluePrint::Composite::Hook,
+      :custom_methods => {},
+      :selector_params => nil,
+      :in_iframe => nil,
+      :in_iframe? => false,
+      :custom_range => nil,
+      :remove_duplicates => nil
+  }
 
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::ElementHash.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::ElementHash.new(hash)
-  end
-
-  def test_defaults
-    AutomationObject::BluePrint::HashAdapter::ElementHash.skip_validations = true
-
-    defaults = {
-        :load => AutomationObject::BluePrint::HashAdapter::Hook,
-        :custom_methods => {},
-        :selector_params => nil,
-        :in_iframe => nil,
-        :in_iframe? => false,
-        :custom_range => nil,
-        :remove_duplicates => nil
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::ElementHash)
-  end
+  create_tests()
 
   def test_load
     composite = self.create_composite({ :load => {} })
-    assert_instance_of AutomationObject::BluePrint::HashAdapter::Hook, composite.load
+    assert_instance_of AutomationObject::BluePrint::Composite::Hook, composite.load
   end
 
   def test_selector_params_css

@@ -1,83 +1,104 @@
-require 'nokogiri'
-require 'rest_client'
-
-require_relative 'session'
+require_relative '../element'
 require_relative 'element'
-require_relative 'helpers/driver_element_helper'
 
-module AutomationObject::Driver::NokogiriAdapter
-  #Driver proxy for Nokogiri(XML)
-  #Create driver interface that conforms to Driver port
-  #Works differently than Appium/Selenium, not a proxy, but creates the functionality of the driver
-  class Driver
-    include DriverElementHelper
+module AutomationObject
+  module Driver
+    module NokogiriAdapter
+      #Driver for Nokogiri
+      #Conforms to interface and provides Selenium type functionality for XML only functionality
+      class Driver
+        # Navigates current window to a given url
+        # @param url [String] navigate to the following url
+        # @return [void]
+        def get(url)
+          self.adapter.get(url)
+        end
 
-    attr_accessor :current_url
+        # Set timeout wait
+        # @param timeout [Integer] the timeout in seconds
+        # @return [void]
+        def set_wait(timeout = nil)
+          self.adapter.set_wait(timeout)
+        end
 
-    def initialize(*args)
-      @session = Session.new
-    end
+        # @param selector_type [Symbol] selector type (:css, :xpath, etc...)
+        # @param selector_path [String] path to element
+        # @return [Boolean] exists or not
+        def exists?(selector_type, selector_path)
+          self.adapter.exists?(selector_type, selector_path)
+        end
 
-    def navigate
-      self
-    end
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [AutomationObject::Driver::Element] element
+        def find_element(selector_type, selector_path)
+          self.adapter.find_element(selector_type, selector_path)
+        end
 
-    def to(url)
-      @session.get(url)
-    end
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [Array<AutomationObject::Driver::Element>] elements
+        def find_elements(selector_type, selector_path)
+          self.adapter.find_elements(selector_type, selector_path)
+        end
 
-    def back
-      @session.back
-    end
+        #Accept prompt either in browser or mobile
+        def accept_prompt
+          self.adapter.accept_prompt
+        end
 
-    def quit
-      @session.quit
-    end
+        #Dismiss the prompt
+        def dismiss_prompt
+          self.adapter.dismiss_prompt
+        end
 
-    def close
-      @session.close
-    end
+        # Check if browser, more useful for Appium but can be generic here
+        # @return [Boolean] whether or not browser is being used
+        def is_browser?
+          self.adapter.is_browser?
+        end
 
-    def current_url
-      @session.current_url
-    end
+        #Window Handles
+        # @return [Array<String>] array of window handle ids
+        def window_handles
+          self.adapter.window_handles
+        end
 
-    def window_handles
-      @session.window_handles
-    end
+        #Current window handle
+        # @return [String] handle id
+        def window_handle
+          self.adapter.window_handle
+        end
 
-    def window_handle
-      @session.window_handle
-    end
+        #Set current window handle to, will switch windows
+        # @param handle_value [String] window handle value
+        def window_handle=(handle_value)
+          self.adapter.window_handle(handle_value)
+        end
 
-    def window_handle=(handle_value)
-      @session.window_handle = handle_value
-    end
+        # Run script in browser to check if document in JS is complete
+        # @return [Boolean] document is complete
+        def document_complete?
+          self.adapter.document_complete?
+        end
 
-    def new_window
-      @session.new_window
-    end
+        # Wait till the document is complete
+        # @return [void]
+        def document_complete_wait
+          self.adapter.document_complete_wait
+        end
 
-    def xml
-      @session.xml
-    end
+        # @param script [String] JS to run
+        # @return [Object, nil]
+        def execute_script(script)
+          self.adapter.execute_script(script)
+        end
 
-    def title
-      title = ''
-      title_element = self.find_element(:xpath, '//title')
-      if title_element
-        title = title_element.text
+        # Destroy the driver
+        def quit
+          self.adapter.quit
+        end
       end
-
-      return title
-    end
-
-    def get(url, params = {})
-      @session.get(url, params)
-    end
-
-    def post(url, params = {})
-      @session.post(url, params)
     end
   end
 end

@@ -15,6 +15,6 @@ class TestYamlHashAdapter < Minitest::Test
   end
 
   def test_new
-    assert_instance_of AutomationObject::BluePrint::HashAdapter::Top, @yaml_adapter
+    assert_instance_of AutomationObject::BluePrint::Composite::Top, @yaml_adapter
   end
 end

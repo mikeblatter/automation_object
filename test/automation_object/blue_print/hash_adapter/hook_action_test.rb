@@ -1,42 +1,26 @@
-require_relative '../../../test_helper'
-require_relative 'test_helpers/test_default_helper'
-
-require_relative '../../../../lib/automation_object/blue_print/hash_adapter/hook_action'
+require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::HookAction
 class TestHashAdapterHookAction < Minitest::Test
-  include TestDefaultHelper
+  include HashAdapterBase
 
-  def setup
-    AutomationObject::BluePrint::HashAdapter::HookAction.skip_validations = true
-  end
+  self.interface_class = AutomationObject::BluePrint::Composite::HookAction
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::HookAction
+  self.defaults = {
+      :hook_order => [],
+      :change_screen => nil,
+      :change_to_previous_screen => false,
+      :close_modal => false,
+      :close_screen => false,
+      :possible_screen_changes => [],
+      :reset_screen => false,
+      :show_modal => nil,
+      :sleep => 0,
+      :wait_for_elements => [],
+      :new_screen => nil,
+  }
 
-  def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
-    AutomationObject::BluePrint::HashAdapter::HookAction.skip_validations = false
-  end
-
-  def create_composite(hash)
-    return AutomationObject::BluePrint::HashAdapter::HookAction.new(hash)
-  end
-
-  def test_defaults
-    defaults = {
-        :hook_order => [],
-        :change_screen => nil,
-        :change_to_previous_screen => false,
-        :close_modal => false,
-        :close_screen => false,
-        :possible_screen_changes => [],
-        :reset_screen => false,
-        :show_modal => nil,
-        :sleep => 0,
-        :wait_for_elements => [],
-        :new_screen => nil,
-    }
-
-    self.defaults_test(defaults, AutomationObject::BluePrint::HashAdapter::HookAction)
-  end
+  create_tests()
 
   def test_hook_order
     composite = self.create_composite({ :change_screen => 'test_screen', :sleep => 1 })
@@ -103,7 +87,7 @@ class TestHashAdapterHookAction < Minitest::Test
     assert_equal 2, composite.wait_for_elements.length
 
     composite.wait_for_elements.each { |hook_element_requirement|
-      assert_instance_of AutomationObject::BluePrint::HashAdapter::HookElementRequirements, hook_element_requirement
+      assert_instance_of AutomationObject::BluePrint::Composite::HookElementRequirements, hook_element_requirement
     }
   end
 

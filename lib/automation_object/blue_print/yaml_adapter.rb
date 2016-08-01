@@ -11,15 +11,14 @@ module AutomationObject::BluePrint
     extend FileHelper
 
     # @param path [String] path to YAML directory
-    # @return [AutomationObject::BluePrint::HashAdapter::Top] Composite BluePrint Object
-    def self.build(path = '')
+    # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
+    def build(path = '')
       path = File.expand_path(path)
 
       file_array = self.collect_files(path)
       merged_yaml_hash = self.load_yaml_files(file_array)
 
-      AutomationObject::BluePrint.adapter = :hash
-      return AutomationObject::BluePrint.new(merged_yaml_hash)
+      return AutomationObject::BluePrint::HashAdapter.build(merged_yaml_hash)
     end
 
     # @param file_array [Array<String>] array of file paths to load
