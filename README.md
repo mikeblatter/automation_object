@@ -10,6 +10,11 @@ By creating YAML configurations that represents your website/app, the DSL framew
 and allow you to control the automation through the DSL framework.  Using this gem can help remove tedious tasks that are often
 repeated throughout code and help improve the scalability of code by mapping UI in YAML configuration files.
 
+## Currently In Development
+
+Most of the features are unavailable and the gem is not supported at all right now. In the middle of building out most
+of the core features/code.
+
 ## Features
 
 1. Creates a usable composite the automates interactions with UI
@@ -37,8 +42,8 @@ puts ao.contact_screen.
 
 Downloads:
 
-http://www.seleniumhq.org/download/ - Selenium Standalone
-https://sites.google.com/a/chromium.org/chromedriver/ - Chrome driver
+* http://www.seleniumhq.org/download/ - Selenium Standalone
+* https://sites.google.com/a/chromium.org/chromedriver/ - Chrome driver
 
 Edit following file:  ~/.bash_profile
 

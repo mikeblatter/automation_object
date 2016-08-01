@@ -21,16 +21,6 @@ module AutomationObject
           self.adapter.screens
         end
 
-        # @return [Array<AutomaticOnloadModal>]
-        def automatic_onload_modals
-          self.adapter.automatic_onload_modals
-        end
-
-        # @return [Array<Symbol>]
-        def automatic_screen_changes
-          self.adapter.automatic_screen_changes
-        end
-
         # @return [Hook]
         def load
           self.adapter.load

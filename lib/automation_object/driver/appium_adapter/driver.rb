@@ -12,6 +12,8 @@ module AutomationObject
       #Driver proxy for Appium
       #Conform Appium driver interface to what's expected of the Driver Port
       class Driver < AutomationObject::Proxies::Proxy
+        DOC_COMPLETE_SLEEP = 1
+
         include AutomationObject::Driver::SeleniumDriverHelper
 
         # @param driver [Appium::Driver] Appium Driver
@@ -138,6 +140,15 @@ module AutomationObject
         def document_complete?
           return true unless self.is_browser? #Skip for non-browser Appium sessions
           return @subject.execute_script('return document.readyState;') == 'complete'
+        end
+
+        # Wait till the document is complete
+        # @return [void]
+        def document_complete_wait
+          30.times do
+            sleep(DOC_COMPLETE_SLEEP)
+            break if self.document_complete?
+          end
         end
 
         # @return [void]
