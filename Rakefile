@@ -8,7 +8,7 @@ Rake::TestTask.new do |t|
 end
 
 desc 'Build Gem'
-task :build => [:test] do
+task :build do
   system 'gem build automation_object.gemspec'
 end
 
@@ -19,7 +19,7 @@ end
 
 desc 'Release Gem'
 task :release => [:install] do
-  #system "gem push ./pkg/automation_object-#{AutomationObject::VERSION}.gem"
+  system "gem push ./pkg/automation_object-#{AutomationObject::VERSION}.gem"
 end
 
 task :default => :test
