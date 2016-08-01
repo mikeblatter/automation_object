@@ -8,7 +8,7 @@ module AutomationObject
     module BluePrintAdapter
       # @param args [Hash] expects :blue_prints, :driver
       # @return [AutomationObject::State::BlueAdapter::Top]
-      def self.build(args={})
+      def self.build(blue_prints, driver)
         return Top.new(args.fetch(:blue_prints), args.fetch(:driver))
       end
     end

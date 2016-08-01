@@ -1,66 +1,116 @@
-require_relative 'form'
+require_relative '../helpers/selenium_element_helper'
 
-module AutomationObject::Driver::NokogiriAdapter
-  #Element class for Nokogiri/XML
-  class Element < AutomationObject::Proxies::Proxy
-    def initialize(args)
-      @driver = args.fetch :driver
-      @subject = args.fetch :element
-    end
+module AutomationObject
+  module Driver
+    module SeleniumAdapter
+      #Element proxy for Selenium
+      #Conform Selenium element interface to what's expected of the Driver Port
+      class Element < AutomationObject::Proxies::Proxy
+        include AutomationObject::Driver::SeleniumElementHelper
 
-    # @return [String] id of element
-    def id
-      @subject['id']
-    end
+        def initialize(args)
+          @driver = args.fetch :driver
+          @subject = args.fetch :element
+        end
 
-    # @return [String] href of element
-    def href
-      @subject['href']
-    end
+        # Set or Get attribute
+        # @param key [String] key of element
+        # @param value [String, nil] set value or leave blank
+        # @return [String, nil]
+        def attribute(key, value = nil)
+          @subject.attribute(key, value)
+        end
 
-    # @return [String] text of element
-    def text
-      @subject['content']
-    end
+        # @return [String] id of element
+        def id
+          @subject.id
+        end
 
-    # @return [String] content of element
-    def content
-      @subject['content']
-    end
+        # @return [String] href of element
+        def href
+          @subject.attribute('href')
+        end
 
-    def attribute(key, value = nil)
-      @subject[key] = value if value
-      return @subject[key]
-    end
+        # Text of element
+        # @return [String, nil]
+        def text
+          @subject.text
+        end
 
-    def click
-      url = self.href
-      if self.attribute('target') == '_blank'
-        @driver.new_window
+        # Type into an element
+        # @return [void]
+        def send_keys(string)
+          @subject.send_keys(string)
+        end
+
+        # Clear the element field
+        # @return [void]
+        def clear
+          @subject.clear
+        end
+
+        # @return [Boolean]
+        def visible?
+          @subject.displayed?
+        end
+
+        # @return [Boolean]
+        def invisible?
+          !@subject.displayed?
+        end
+
+        # Get the location
+        # @return [Point]
+        def location
+          @subject.location
+        end
+
+        # Get the size of an element
+        # @return [Dimension]
+        def size
+          @subject.size
+        end
+
+        # Perform a submit action on an element
+        # @return [void]
+        def submit
+          @subject.submit
+        end
+
+        # Scroll the element into view
+        # @return [void]
+        def scroll_into_view
+          @subject.location_once_scrolled_into_view
+
+          element_location = self.location
+          scroll_position = @driver.scroll_position
+
+          middle_y_bounds = scroll_position[:y] + @driver.inner_window_height/2
+
+          if middle_y_bounds > element_location.y
+            #Add
+            y_difference = middle_y_bounds - element_location.y
+            scroll_y_position = scroll_position[:y] - y_difference
+          else
+            #Subtract
+            y_difference = element_location.y - middle_y_bounds
+            scroll_y_position = scroll_position[:y] + y_difference
+          end
+
+          #Get the element to halfway
+          scroll_x_position = element_location.x.to_f
+
+          javascript_string = "return window.scroll(#{scroll_x_position}, #{scroll_y_position});"
+          @driver.execute_script(javascript_string)
+        end
+
+        # Perform a click action on the element
+        # @return [void]
+        def click
+          self.scroll_into_view
+          @subject.click
+        end
       end
-
-      @driver.get(url)
-    end
-
-    def send_keys(text)
-      @subject['value'] = text
-    end
-
-    def submit
-      form = find_form(@subject)
-      raise 'Unable to find form' unless form_element
-
-      @driver.send(form.request_method, form.params)
-    end
-
-    private
-
-    # @return [AutomationObject::Driver:NokogiriAdapter::Form]
-    def find_form(element)
-      return nil unless element
-
-      return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == 'form'
-      return find_form(element.parent)
     end
   end
 end

@@ -1,4 +1,5 @@
 require_relative 'base'
+require_relative 'element'
 
 module AutomationObject
   module Driver
@@ -31,14 +32,14 @@ module AutomationObject
 
       # @param selector_type [Symbol] selector type, :css, :xpath, etc...
       # @param selector_path [String] path to element
-      # @return [Object] element
+      # @return [AutomationObject::Driver::Element] element
       def find_element(selector_type, selector_path)
         self.adapter.find_element(selector_type, selector_path)
       end
 
       # @param selector_type [Symbol] selector type, :css, :xpath, etc...
       # @param selector_path [String] path to element
-      # @return [Object] element
+      # @return [Array<AutomationObject::Driver::Element>] elements
       def find_elements(selector_type, selector_path)
         self.adapter.find_elements(selector_type, selector_path)
       end
@@ -81,6 +82,12 @@ module AutomationObject
       # @return [Boolean] document is complete
       def document_complete?
         self.adapter.document_complete?
+      end
+
+      # Wait till the document is complete
+      # @return [void]
+      def document_complete_wait
+        self.adapter.document_complete_wait
       end
 
       # @param script [String] JS to run

@@ -50,7 +50,7 @@ module AutomationObject
     # state get method
     # @return [State] state object which actively controls the ui state
     def state
-      @state ||= State.new(blue_prints: self.blue_prints, driver: self.driver)
+      @state ||= State.new(self.blue_prints, self.driver)
     end
 
     # BluePrints (UI configurations) wrapped in an composite
@@ -63,7 +63,7 @@ module AutomationObject
     end
 
     # Driver port provides a formatted interface for interacting with different drivers
-    # @return [Driver] driver object
+    # @return [AutomationObject::Driver::Driver] driver interface object
     def driver
       driver_type = self.args.fetch(:driver_type, nil)
       driver = self.args.fetch(:driver, nil)

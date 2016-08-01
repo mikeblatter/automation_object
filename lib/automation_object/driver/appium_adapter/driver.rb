@@ -51,7 +51,8 @@ module AutomationObject
         # @return [AutomationObject::Driver::Element] element
         def find_element(selector_type, selector_path)
           element = @subject.find_element(selector_type, selector_path)
-          return Element.new(driver: self, element: element)
+          #Wrap element in the adapter interface
+          return AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
         end
 
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
@@ -59,15 +60,19 @@ module AutomationObject
         # @return [Array<AutomationObject::Driver::Element>] element
         def find_elements(selector_type, selector_path)
           elements = @subject.find_elements(selector_type, selector_path)
-          return elements.map { |element|
-            Element.new(driver: self, element: element)
+
+          elements.map { |element|
+            #Wrap element in the adapter interface
+            AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
           }
         end
 
+        # @return [void]
         def accept_prompt
           @subject.alert_accept
         end
 
+        # @return [void]
         def dismiss_prompt
           @subject.alert_dismiss
         end
@@ -120,6 +125,7 @@ module AutomationObject
 
         #Set window handle override
         # @param handle_value [String] window handle value
+        # @return [void]
         def window_handle=(handle_value)
           if @subject.device_is_android?
             @subject.switch_to.window(handle_value)
@@ -134,6 +140,7 @@ module AutomationObject
           return @subject.execute_script('return document.readyState;') == 'complete'
         end
 
+        # @return [void]
         def quit
           @subject.driver_quit
         end
