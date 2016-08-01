@@ -1,5 +1,7 @@
 # AutomationObject
 
+https://travis-ci.org/mikeblatter/automation_object.svg?branch=master
+
 Configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.
 
 This gem provides a way to create a dynamic usable DSL framework representing your website or app. Implementing Selenium/Appium driver
