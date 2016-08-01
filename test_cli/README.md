@@ -12,21 +12,21 @@ A local rails server will launch on 3024, blue prints of the website are located
 
 ## Command for Interactive CLI
 
+Examples will run interactive command line that allows you to type ruby code into the command line
+and print out the output
+
+1. Full Rails Example with AutomationObject
 ```
-ruby main.rb cli --trace
+ruby full_example.rb
 ```
 
-### Example CMDs
-
-Runs ruby eval on input given
-
+2. Selenium Driver example only
 ```
-ao.home_screen.logo_button
-puts 'test'
+ruby selenium_driver.rb
 ```
 
 ## Command for Cucumber Tests
 
 ```
-ruby main.rb cucumber --trace
+cucumber
 ```
