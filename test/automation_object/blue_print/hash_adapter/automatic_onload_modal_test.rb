@@ -2,16 +2,17 @@ require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal
 class TestHashAdapterAutomaticOnloadModal < Minitest::Test
-  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::AutomaticOnloadModal
-  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal
-
-  DEFAULTS = {
-      :modal_name => nil,
-      :number_of_checks => 1,
-      :close => false
-  }
-
   include HashAdapterBase
+
+  self.interface_class = AutomationObject::BluePrint::Composite::AutomaticOnloadModal
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal
+  self.defaults = {
+               :modal_name => nil,
+               :number_of_checks => 1,
+               :close => false
+           }
+
+  create_tests()
 
   def test_modal_name
     composite = create_composite({:modal_name => 'test_modal'})

@@ -2,10 +2,11 @@ require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Element
 class TestHashAdapterElement < Minitest::Test
-  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::Element
-  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::Element
+  include HashAdapterBase
 
-  DEFAULTS = {
+  self.interface_class = AutomationObject::BluePrint::Composite::Element
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::Element
+  self.defaults = {
       :load => AutomationObject::BluePrint::Composite::Hook.new({}),
       :custom_methods => {},
       :selector_params => nil,
@@ -13,7 +14,7 @@ class TestHashAdapterElement < Minitest::Test
       :in_iframe? => false
   }
 
-  include HashAdapterBase
+  create_tests()
 
   def test_load
     composite = self.create_composite({ :load => {} })

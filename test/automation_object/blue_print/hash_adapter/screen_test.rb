@@ -2,10 +2,11 @@ require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Screen
 class TestHashAdapterScreen < Minitest::Test
-  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::Screen
-  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::Screen
+  include HashAdapterBase
 
-  DEFAULTS = {
+  self.interface_class = AutomationObject::BluePrint::Composite::Screen
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::Screen
+  self.defaults = {
       :load => AutomationObject::BluePrint::Composite::Hook,
       :accept => AutomationObject::BluePrint::Composite::Hook,
       :dismiss => AutomationObject::BluePrint::Composite::Hook,
@@ -18,7 +19,7 @@ class TestHashAdapterScreen < Minitest::Test
       :included_views => [],
   }
 
-  include HashAdapterBase
+  create_tests()
 
   def test_load
     composite = self.create_composite({ :load => {} })

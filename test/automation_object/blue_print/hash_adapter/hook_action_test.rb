@@ -2,10 +2,11 @@ require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::HookAction
 class TestHashAdapterHookAction < Minitest::Test
-  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::HookAction
-  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::HookAction
+  include HashAdapterBase
 
-  DEFAULTS = {
+  self.interface_class = AutomationObject::BluePrint::Composite::HookAction
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::HookAction
+  self.defaults = {
       :hook_order => [],
       :change_screen => nil,
       :change_to_previous_screen => false,
@@ -19,7 +20,7 @@ class TestHashAdapterHookAction < Minitest::Test
       :new_screen => nil,
   }
 
-  include HashAdapterBase
+  create_tests()
 
   def test_hook_order
     composite = self.create_composite({ :change_screen => 'test_screen', :sleep => 1 })

@@ -74,7 +74,7 @@ module AutomationObject
 
         #Method to take views and merge into this composite
         def merge_views
-          top_hash = self.parent.hash
+          top_hash = self.top.hash
 
           return unless top_hash.is_a?(Hash)
           return unless top_hash[:views].is_a?(Hash)

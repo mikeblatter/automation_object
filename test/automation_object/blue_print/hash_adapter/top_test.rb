@@ -2,10 +2,11 @@ require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::Top < Composite
 class TestHashAdapterTop < Minitest::Test
-  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::Top
-  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::Top
+  include HashAdapterBase
 
-  DEFAULTS = {
+  self.interface_class = AutomationObject::BluePrint::Composite::Top
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::Top
+  self.defaults = {
       :base_url => nil,
       :default_screen => nil,
       :screen_transition_sleep => 0,
@@ -14,7 +15,7 @@ class TestHashAdapterTop < Minitest::Test
       :throttle_element_methods => {}
   }
 
-  include HashAdapterBase
+  create_tests()
 
   def test_base_url
     composite = self.create_composite({ :base_url => 'test_url' })

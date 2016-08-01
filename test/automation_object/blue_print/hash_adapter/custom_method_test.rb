@@ -2,15 +2,16 @@ require_relative '_base'
 
 #Test AutomationObject::BluePrint::HashAdapter::CustomMethod
 class TestHashAdapterCustomMethod < Minitest::Test
-  INTERFACE_CLASS = AutomationObject::BluePrint::Composite::CustomMethod
-  ADAPTER_CLASS = AutomationObject::BluePrint::HashAdapter::CustomMethod
+  include HashAdapterBase
 
-  DEFAULTS = {
+  self.interface_class = AutomationObject::BluePrint::Composite::CustomMethod
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::CustomMethod
+  self.defaults = {
       :element_method => nil,
       :evaluate => nil
   }
 
-  include HashAdapterBase
+  create_tests()
 
   def test_element_method
     composite = self.create_composite({:element_method => 'element_method'})
