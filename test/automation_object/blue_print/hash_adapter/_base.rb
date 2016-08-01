@@ -14,9 +14,13 @@ module HashAdapterBase
     self.class.adapter_class.skip_validations = false
   end
 
-  def create_composite(hash = nil)
+  def create_composite(hash = nil, parent = nil)
     return self.class.adapter_class.new(self.class.adapter_class.defaults) if hash == nil
-    self.class.adapter_class.new(hash)
+
+    adapter = self.class.adapter_class.new(hash)
+    adapter.parent = parent
+
+    return adapter
   end
 
   def self.included(base)
@@ -27,7 +31,7 @@ module HashAdapterBase
     attr_accessor :adapter_class, :interface_class, :defaults
 
     def create_tests
-      self.adapter_class.public_instance_methods(false).each do |method|
+      self.interface_class.public_instance_methods(false).each do |method|
         define_method("test_interface_#{method}") do
           assert create_composite(self.class.defaults).public_methods.include?(method),
                  "#{self.class.adapter_class} should have instance method: #{method}"
