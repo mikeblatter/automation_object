@@ -7,7 +7,11 @@ module AutomationObject
     module BluePrintAdapter
       #Parent composite class
       class Composite < AutomationObject::Composite
-        attr_accessor :blue_prints, :driver
+        # @return [AutomationObject::BluePrint::Composite::]
+        attr_accessor :blue_prints
+
+        # @return [AutomationObject::Driver::Driver]
+        attr_accessor :driver
 
         # @param blue_prints [AutomationObject::BluePrint::Composite] blue print composite
         # @param driver [AutomationObject::Driver] driver

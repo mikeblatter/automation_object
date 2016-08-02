@@ -7,6 +7,8 @@ class RailsApp
   BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), 'example_rails_app/'))
 
   def initialize
+    self.create
+
     at_exit {
       self.destroy
     }

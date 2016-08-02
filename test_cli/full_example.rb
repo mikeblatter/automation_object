@@ -9,11 +9,11 @@ puts "- Example: ao.home_screen.logo_button"
 puts "- Wait for first ask to run command"
 puts "----------------------------------------------------"
 
-driver = RailsApp.new
-driver.create
+rails_app = RailsApp.new
 
 driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = 3 # seconds
+
 at_exit {
   driver.quit
 }

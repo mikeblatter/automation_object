@@ -28,23 +28,10 @@ module AutomationObject
       self.driver = driver
       self.blue_prints = blue_prints
 
-      #Create the DSL
-      #Should create all subsequent needed object
-      @subject = self.dsl
+      self.state = State.new(self.blue_prints, self.driver)
+      @subject = Dsl.new(self.blue_prints, self.state)
 
       AutomationObject::Framework.singleton = self
-    end
-
-    # Public DSL composite API
-    # @return [AutomationObject::Dsl::Top] composite object
-    def dsl
-      @dsl ||= Dsl.new(self.blue_prints, self.state)
-    end
-
-    # state get method
-    # @return [State] state object which actively controls the ui state
-    def state
-      @state ||= State.new(self.blue_prints, self.driver)
     end
 
     # BluePrints (UI configurations) wrapped in an composite
