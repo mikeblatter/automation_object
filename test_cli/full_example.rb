@@ -18,8 +18,7 @@ at_exit {
   driver.quit
 }
 
-ao = AutomationObject::Framework.new(driver: driver,
-                                     blue_prints: File.expand_path(File.join(__dir__, 'blue_prints/')))
+ao = AutomationObject::Framework.new(driver, File.expand_path(File.join(__dir__, 'blue_prints/')))
 
 loop do
   print 'Execute CMD (exit to quit): '

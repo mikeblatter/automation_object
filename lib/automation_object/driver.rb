@@ -28,7 +28,7 @@ module AutomationObject
       adapter_name << '_adapter' unless adapter_name.match(/_adapter$/)
       adapter_const = adapter_name.pascalize
 
-      @adapter = AutomationObject::Driver.const_get("#{adapter_const}")
+      @adapter = AutomationObject::Driver.const_get("#{adapter_const}")::Driver
     end
 
     # @param driver [Object] selenium or appium driver. default nil for Nokogiri

@@ -1,4 +1,7 @@
 require_relative '../proxies/proxy'
+require_relative '../helpers/string'
+
+require_relative 'error'
 require_relative 'models'
 
 module AutomationObject
@@ -18,11 +21,22 @@ module AutomationObject
         }
       end
 
+      def method_missing(method_symbol, *args, &block)
+        unless @subject[method_symbol]
+          raise NoChildNodeFound.new
+        end
+
+        type = @subject[method_symbol].class.name.split('::').last.to_underscore.to_sym
+
+        @state.load(type, method_symbol)
+        super
+      end
+
       #Has many children relationship for the composite
       # @param children_name [Symbol] name of the children, should be a BluePrint method
       # @param args [Hash] additional arguments, expects interface
       def self.has_many(children_name, args)
-        self.has_many_relationships[children_name] = args.fetch(:interface)
+        self.has_many_relationships[children_name] = args
       end
 
       # @return [Hash] relationships for the composite

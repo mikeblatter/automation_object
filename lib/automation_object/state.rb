@@ -31,7 +31,7 @@ module AutomationObject
     # @return [AutomationObject::State::Session] Session instance
     def new(blue_prints, driver)
       adapter_composite = self.adapter.build(blue_prints, driver)
-      return Session.new(driver: args.fetch(driver), composite: adapter_composite)
+      return Session.new(driver: driver, composite: adapter_composite)
     end
   end
 end
