@@ -11,21 +11,21 @@ class TestDriver < Minitest::Test
   end
 
   def test_adapter_default
-    assert_equal AutomationObject::Driver::NokogiriAdapter, AutomationObject::Driver.adapter
+    assert_equal AutomationObject::Driver::NokogiriAdapter::Driver, AutomationObject::Driver.adapter
   end
 
   def test_adapter_appium
     AutomationObject::Driver.adapter = :appium
-    assert_equal AutomationObject::Driver::AppiumAdapter, AutomationObject::Driver.adapter
+    assert_equal AutomationObject::Driver::AppiumAdapter::Driver, AutomationObject::Driver.adapter
   end
 
   def test_adapter_nokogiri
     AutomationObject::Driver.adapter = :nokogiri
-    assert_equal AutomationObject::Driver::NokogiriAdapter, AutomationObject::Driver.adapter
+    assert_equal AutomationObject::Driver::NokogiriAdapter::Driver, AutomationObject::Driver.adapter
   end
 
   def test_adapter_selenium
     AutomationObject::Driver.adapter = :selenium
-    assert_equal AutomationObject::Driver::SeleniumAdapter, AutomationObject::Driver.adapter
+    assert_equal AutomationObject::Driver::SeleniumAdapter::Driver, AutomationObject::Driver.adapter
   end
 end
