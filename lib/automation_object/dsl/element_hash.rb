@@ -6,8 +6,7 @@ module AutomationObject
       # @param [AutomationObject::BluePrint::Composite::ElementHash] blue_prints
       # @param [AutomationObject::State::Session] state
       def initialize(blue_prints, state)
-        @subject = Model::ElementHash.new
-        super
+        super(blue_prints, state, Model::ElementHash.new)
       end
     end
   end
