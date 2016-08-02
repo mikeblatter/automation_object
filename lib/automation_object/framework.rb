@@ -35,10 +35,10 @@ module AutomationObject
       AutomationObject::Framework.singleton = self
     end
 
-    # dsl get method
-    # @return [Dsl] workable dsl composite object
+    # Public DSL composite API
+    # @return [AutomationObject::Dsl::Top] composite object
     def dsl
-      @dsl ||= Dsl.new(blue_prints: self.blue_prints, state: self.state)
+      @dsl ||= Dsl.new(self.blue_prints, self.state)
     end
 
     # state get method
