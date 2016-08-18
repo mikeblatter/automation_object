@@ -5,15 +5,8 @@ require_relative 'support/parse'
 #
 # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
 # This is to make sure that the examples in the docs will actually perform as indicated
-# Please follow the format below
+# Please follow already defined below
 #
-# Examples:
-# - First example sentence
-# - Second example sentence
-# - Third example sentence
-# When(//) do
-#   # do stuff
-# end
 
 # Step to call a method on an element
 #
@@ -30,8 +23,6 @@ end
 #
 # Examples:
 # - I type "blah" into the "home_screen" "text_field" element
-# - I hover over the "home_screen" "test_link" element
-# - I tap on "home_screen" "logo_button" element
 When(/^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
