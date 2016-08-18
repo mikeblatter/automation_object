@@ -1,5 +1,4 @@
-require_relative '../selenium_element_methods'
-
+require_relative '../common_selenium/element'
 
 module AutomationObject
   module Driver
@@ -7,7 +6,7 @@ module AutomationObject
       #Element proxy for Appium
       #Conform Appium element interface to what's expected of the Driver Port
       class Element < AutomationObject::Proxies::Proxy
-        include AutomationObject::Driver::SeleniumElementMethods
+        include AutomationObject::Driver::CommonSelenium::Element
 
         def initialize(args)
           @driver = args.fetch :driver

@@ -15,7 +15,11 @@ driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = 3 # seconds
 
 at_exit {
-  driver.quit
+  begin
+    driver.quit
+  rescue Exception => e
+    ap e
+  end
 }
 
 ao = AutomationObject::Framework.new(driver, File.expand_path(File.join(__dir__, 'blue_prints/')))

@@ -1,5 +1,7 @@
 require_relative 'session'
 
+require_relative '../driver'
+
 require_relative '../element'
 require_relative 'element'
 
@@ -106,6 +108,16 @@ module AutomationObject
         # @param script [String] JS to run
         # @return [Object, nil]
         def execute_script(script)
+        end
+
+        # @return [Point] x,y scroll position
+        def scroll_position
+          Point.new(x: 0, y: 0)
+        end
+
+        # @return [Float] inner window height
+        def inner_window_height
+          0
         end
 
         # Destroy the driver

@@ -30,7 +30,13 @@ module AutomationObject
       def method_missing(method_symbol, *args, &block)
         if @subject[method_symbol]
           type = @subject[method_symbol].class.name.split('::').last.to_underscore.to_sym
-          @state.load(type, method_symbol)
+
+          case type
+            when :screen, :modal
+              @state.load(type, method_symbol)
+            else
+              @subject[method_symbol] = @state.load(type, method_symbol)
+          end
         end
 
         @subject.send(method_symbol, *args, &block)

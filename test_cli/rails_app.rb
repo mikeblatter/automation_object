@@ -10,7 +10,12 @@ class RailsApp
     self.create
 
     at_exit {
-      self.destroy
+      begin
+        self.destroy
+      rescue Exception => e
+        ap e
+      end
+
     }
   end
 

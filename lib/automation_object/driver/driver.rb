@@ -97,6 +97,16 @@ module AutomationObject
         self.adapter.execute_script(script)
       end
 
+      # @return [Point] x,y scroll position
+      def scroll_position
+        self.adapter.scroll_position
+      end
+
+      # @return [Float] inner window height
+      def inner_window_height
+        self.adapter.inner_window_height
+      end
+
       # Destroy the driver
       def quit
         self.adapter.quit

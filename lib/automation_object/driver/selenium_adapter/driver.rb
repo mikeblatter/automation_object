@@ -1,5 +1,8 @@
 require_relative '../../proxies/proxy'
 
+require_relative '../driver'
+require_relative '../common_selenium/driver'
+
 require_relative '../element'
 require_relative 'element'
 
@@ -9,7 +12,7 @@ module AutomationObject
       #Driver proxy for Selenium
       #Conform Selenium driver interface to what's expected of the Driver Port
       class Driver < AutomationObject::Proxies::Proxy
-        DOC_COMPLETE_SLEEP = 1
+        include AutomationObject::Driver::CommonSelenium::Driver
 
         # @param driver [Selenium::WebDriver::Driver] Selenium Web Driver
         def initialize(driver)
@@ -119,15 +122,9 @@ module AutomationObject
         # @return [void]
         def document_complete_wait
           30.times do
-            sleep(DOC_COMPLETE_SLEEP)
+            sleep(1)
             break if self.document_complete?
           end
-        end
-
-        # @param script [String] JS to run
-        # @return [Object, nil]
-        def execute_script(script)
-          @subject.execute_script(script)
         end
 
         # Destroy the driver
