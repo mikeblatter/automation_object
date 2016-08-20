@@ -22,6 +22,8 @@ end
 #
 # Examples:
 # - I type "blah" into the "home_screen" "text_field" element
+# - I type "test" in the "home_screen" "text_field" element
+# - I type "blah" in "home_screen" "text_field" element
 When(/^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
@@ -32,6 +34,7 @@ end
 # Examples:
 # - I scroll to the "home_screen" "logo_button" element
 # - I focus to the "home_screen" "logo_button" element
+# - I scroll to "home_screen" "logo_button" element
 When(/^I (?:scroll |focus )to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
   screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
@@ -41,6 +44,7 @@ end
 #
 # Examples:
 # - I save "text" as "unique_value" from the "home_screen" "logo_button" element
+# - I save "id" as "unique_value" from "home_screen" "logo_button" element
 When(/^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
   method, key, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   #Save value from called method/property
