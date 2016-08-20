@@ -7,7 +7,7 @@ module AutomationObject
     module BluePrintAdapter
       class CloseModal < ActionLoop
         def single_run
-          self.driver.document_complete_wait
+          return false unless self.driver.document_complete?
 
           unless self.composite.parent.is_a?(Modal)
             raise ModalParentExpected.new

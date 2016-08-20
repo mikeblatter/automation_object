@@ -136,15 +136,6 @@ module AutomationObject
           return @subject.execute_script('return document.readyState;') == 'complete'
         end
 
-        # Wait till the document is complete
-        # @return [void]
-        def document_complete_wait
-          30.times do
-            sleep(1)
-            break if self.document_complete?
-          end
-        end
-
         # @return [void]
         def quit
           @subject.driver_quit

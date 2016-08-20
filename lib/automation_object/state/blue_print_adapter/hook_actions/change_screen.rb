@@ -10,7 +10,7 @@ module AutomationObject
         end
 
         def single_run
-          self.driver.document_complete_wait
+          return false unless self.driver.document_complete?
 
           new_screen = self.composite.top.screens[@new_screen_name]
           if new_screen.load.live?

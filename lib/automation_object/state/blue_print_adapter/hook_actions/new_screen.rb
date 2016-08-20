@@ -27,7 +27,7 @@ module AutomationObject
           self.composite.top.create_screen(new_screen_name)
           self.composite.top.use_screen(new_screen_name)
 
-          self.driver.document_complete_wait
+          return false unless self.driver.document_complete?
 
           return new_screen.load.live?
         end

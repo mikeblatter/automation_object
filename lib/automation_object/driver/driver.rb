@@ -85,12 +85,6 @@ module AutomationObject
         self.adapter.document_complete?
       end
 
-      # Wait till the document is complete
-      # @return [void]
-      def document_complete_wait
-        self.adapter.document_complete_wait
-      end
-
       # @param script [String] JS to run
       # @return [Object, nil]
       def execute_script(script)

@@ -8,9 +8,6 @@ module AutomationObject
           unless self.composite.screen
             raise ScreenParentExpected.new
           end
-
-          screen_name = self.composite.screen.name
-
         end
       end
     end

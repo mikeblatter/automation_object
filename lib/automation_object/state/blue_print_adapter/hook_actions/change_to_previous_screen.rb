@@ -5,7 +5,7 @@ module AutomationObject
     module BluePrintAdapter
       class ChangeToPreviousScreen < ActionLoop
         def single_run
-          self.driver.document_complete_wait
+          return false unless self.driver.document_complete?
 
           new_screen = self.composite.top.current_window.previous_screen_name
           if new_screen.load.live?
