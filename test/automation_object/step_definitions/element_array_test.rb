@@ -1,7 +1,7 @@
 require_relative '../../test_helper'
 
-class TestElementStepDefinitions < Minitest::Test
-  FILE_PATH = File.expand_path(File.join(__dir__, '../../../lib/automation_object/step_definitions/element.rb'))
+class TestElementArrayStepDefinitions < Minitest::Test
+  FILE_PATH = File.expand_path(File.join(__dir__, '../../../lib/automation_object/step_definitions/element_array.rb'))
 
   def setup
   end

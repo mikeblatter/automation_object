@@ -5,8 +5,7 @@ require_relative 'support/parse'
 #
 # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
 # This is to make sure that the examples in the docs will actually perform as indicated
-# Please follow already defined below
-#
+# Please follow what is already defined below
 
 # Step to call a method on an element
 #
@@ -32,7 +31,8 @@ end
 #
 # Examples:
 # - I scroll to the "home_screen" "logo_button" element
-When(/^I scroll to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
+# - I focus to the "home_screen" "logo_button" element
+When(/^I (?:scroll |focus )to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
   screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
 end
@@ -72,7 +72,7 @@ end
 # - the "home_screen" "title" element "text" should equal "Home"
 # - "home_screen" "title" element "text" should not equal "About"
 # - the "home_screen" "title" element "text" shouldn't equal "%{saved_value}"
-Then(/^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element "(\w+|%\{[\w\d]+\})" should ?(n't |not )?equal "(.+)"$/) do |*args|
+Then(/^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element "(\w+|%\{[\w\d]+\})" should ?(n't |not )?equal "(\w+|%\{[\w\d]+\})"$/) do |*args|
   screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
   actual_value = AutomationObject::Framework.get.send(screen).send(element).send(method)
