@@ -1,6 +1,4 @@
-require_relative 'support/cache'
 require_relative 'support/parse'
-
 require_relative 'support/element_hash'
 
 # Element Array related step definitions

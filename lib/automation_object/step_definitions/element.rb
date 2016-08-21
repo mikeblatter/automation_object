@@ -1,4 +1,3 @@
-require_relative 'support/cache'
 require_relative 'support/parse'
 
 # Element related step definitions
