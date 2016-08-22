@@ -1,11 +1,11 @@
 require_relative '../../test_helper'
 require_relative 'mocks/mutex_proxy_mock'
 
-#Using custom mock classes, not thread-safe and hard to implement for proxies
-#Test AutomationObject::Proxies::MutexProxy
+#Using custom mock classes, not thread-safe and hard to implement for proxy
+#Test AutomationObject::Proxy::MutexProxy
 class TestMutexProxy < Minitest::Test
   def setup
-    @proxy = AutomationObject::Proxies::MutexProxy.new(MutexProxyMock.new)
+    @proxy = AutomationObject::Proxy::MutexProxy.new(MutexProxyMock.new)
   end
 
   def test_class

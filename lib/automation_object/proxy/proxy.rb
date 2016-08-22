@@ -1,5 +1,5 @@
 module AutomationObject
-  module Proxies
+  module Proxy
     #Base Proxy class for getting between another
     class Proxy
       instance_methods.each { |instance_method|
@@ -8,12 +8,16 @@ module AutomationObject
         end
       }
 
+      # @param [Object] subject
       def initialize(subject)
         @subject = subject
       end
 
-      def method_missing(method_symbol, *args, &block)
-        return @subject.send(method_symbol, *args, &block)
+      # @param [Symbol] method
+      # @param [Array, nil] args
+      # @param [Proc] block
+      def method_missing(method, *args, &block)
+        return @subject.send(method, *args, &block)
       end
     end
   end

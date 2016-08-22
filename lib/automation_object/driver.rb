@@ -1,7 +1,7 @@
 require_relative 'helpers/string'
 
-require_relative 'proxies/throttle_proxy'
-require_relative 'proxies/mutex_proxy'
+require_relative 'proxy/throttle_proxy'
+require_relative 'proxy/mutex_proxy'
 
 require_relative 'driver/driver'
 
@@ -37,8 +37,8 @@ module AutomationObject
       adapted_driver = Driver.new(self.adapter.new(driver))
 
       #Add throttling and mutex proxies around adapter
-      return AutomationObject::Proxies::MutexProxy.new(
-                    AutomationObject::Proxies::ThrottleProxy.new(adapted_driver))
+      return AutomationObject::Proxy::MutexProxy.new(
+                    AutomationObject::Proxy::ThrottleProxy.new(adapted_driver))
     end
   end
 end

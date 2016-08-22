@@ -1,7 +1,7 @@
 require_relative 'proxy'
 
 module AutomationObject
-  module Proxies
+  module Proxy
     #Proxy class to throttle methods on the subject
     class ThrottleProxy < Proxy
       def initialize(subject)

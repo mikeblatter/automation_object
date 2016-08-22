@@ -5,7 +5,7 @@ module AutomationObject
     module SeleniumAdapter
       #Element proxy for Selenium
       #Conform Selenium element interface to what's expected of the Driver Port
-      class Element < AutomationObject::Proxies::Proxy
+      class Element < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Element
 
         def initialize(args)

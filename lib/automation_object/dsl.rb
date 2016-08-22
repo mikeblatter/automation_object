@@ -9,7 +9,7 @@ module AutomationObject
     # @param [AutomationObject::State::Session] state
     # @return [AutomationObject::Dsl::Top]
     def new(blue_prints, state)
-      Top.new(blue_prints, state)
+      Top.new(blue_prints, state, :top)
     end
   end
 end

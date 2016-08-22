@@ -1,10 +1,10 @@
-require_relative '../../proxies/proxy'
+require_relative '../../proxy/proxy'
 
 module AutomationObject
   module State
     module BluePrintAdapter
       #Proxy class to allow for usage of hooks
-      class ElementProxy < AutomationObject::Proxies::Proxy
+      class ElementProxy < AutomationObject::Proxy::Proxy
         def initialize(args = {})
           @composite = args.fetch :composite
           @subject = args.fetch :element

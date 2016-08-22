@@ -1,4 +1,4 @@
-require_relative 'proxies/proxy'
+require_relative 'proxy/proxy'
 require_relative 'blue_print'
 require_relative 'driver'
 require_relative 'dsl'
@@ -7,7 +7,7 @@ require_relative 'state'
 module AutomationObject
   #Framework class, the core
   #A Proxy class that will become the DSL Framework
-  class Framework < Proxies::Proxy
+  class Framework < Proxy::Proxy
     # @return [AutomationObject::BluePrint::Composite::Top]
     attr_accessor :blue_prints
 

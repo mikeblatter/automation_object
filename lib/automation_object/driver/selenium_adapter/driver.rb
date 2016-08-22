@@ -1,4 +1,4 @@
-require_relative '../../proxies/proxy'
+require_relative '../../proxy/proxy'
 
 require_relative '../driver'
 require_relative '../common_selenium/driver'
@@ -11,7 +11,7 @@ module AutomationObject
     module SeleniumAdapter
       #Driver proxy for Selenium
       #Conform Selenium driver interface to what's expected of the Driver Port
-      class Driver < AutomationObject::Proxies::Proxy
+      class Driver < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Driver
 
         # @param driver [Selenium::WebDriver::Driver] Selenium Web Driver

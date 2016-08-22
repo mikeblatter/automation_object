@@ -1,12 +1,18 @@
-require_relative 'base'
+require_relative '_proxy'
 
 module AutomationObject
   module Dsl
-    class ElementArray < Base
-      # @param [AutomationObject::BluePrint::Composite::ElementArray] blue_prints
-      # @param [AutomationObject::State::Session] state
-      def initialize(blue_prints, state)
-        super(blue_prints, state, Model::ElementArray.new)
+    class ElementArrayProxy < Proxy
+      # @param [Symbol] method
+      # @param [Array, nil] args
+      # @param [Proc] block
+      def method_missing(method, *args, &block)
+        #If subject is null, then load it
+        if @subject == nil
+          @subject = @state.load(:element_array, @name)
+        end
+
+        super
       end
     end
   end

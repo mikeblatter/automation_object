@@ -1,11 +1,11 @@
 require_relative '../../test_helper'
 require_relative 'mocks/throttle_proxy_mock'
 
-#Using custom mock classes, not thread-safe and hard to implement for proxies
-#Test AutomationObject::Proxies::ThrottleProxy
+#Using custom mock classes, not thread-safe and hard to implement for proxy
+#Test AutomationObject::Proxy::ThrottleProxy
 class TestThrottleProxy < Minitest::Test
   def setup
-    @throttle_proxy = AutomationObject::Proxies::ThrottleProxy.new(ThrottleProxyMock.new)
+    @throttle_proxy = AutomationObject::Proxy::ThrottleProxy.new(ThrottleProxyMock.new)
   end
 
   def test_class

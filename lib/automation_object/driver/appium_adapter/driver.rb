@@ -1,6 +1,6 @@
 require 'appium_lib'
 
-require_relative '../../proxies/proxy'
+require_relative '../../proxy/proxy'
 
 require_relative '../driver'
 require_relative '../common_selenium/driver'
@@ -13,7 +13,7 @@ module AutomationObject
     module AppiumAdapter
       #Driver proxy for Appium
       #Conform Appium driver interface to what's expected of the Driver Port
-      class Driver < AutomationObject::Proxies::Proxy
+      class Driver < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Driver
 
         # @param driver [Appium::Driver] Appium Driver
