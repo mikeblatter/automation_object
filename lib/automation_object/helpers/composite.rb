@@ -1,4 +1,4 @@
-require_relative 'reflection_helper'
+require_relative 'reflection'
 require_relative 'composite_hook'
 
 module AutomationObject
@@ -6,7 +6,7 @@ module AutomationObject
   #Composite classes should inherit from this class and use the class-level methods to add the components
   class Composite
     include CompositeHook
-    include ReflectionHelper
+    include Reflection
 
     attr_accessor :name, :parent, :location, :children
 

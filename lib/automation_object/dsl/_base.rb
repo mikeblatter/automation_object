@@ -1,24 +1,20 @@
 require 'ostruct'
-
+require_relative '../../automation_object/helpers/reflection'
 module AutomationObject
   module Dsl
-    class Base < OpenStruct
+    class Base
+      include AutomationObject::Reflection
+
       # @param [AutomationObject::BluePrint::Composite::] blue_prints
       # @param [AutomationObject::State::Session] state
-      def initialize(blue_prints, state, name)
-        @blue_prints = blue_prints
-        @state = state
-        @name = name
-
-        self.add_children
+      def initialize(blue_prints, state)
+        self.add_children(blue_prints, state)
       end
 
-      def add_children
+      def add_children(blue_prints, state)
         self.class.has_many_relationships.each { |name, composite_class|
-          @blue_prints.send(name).each { |child_key, child_blue_prints|
-            ap composite_class
-            ap @subject
-            @subject[child_key] = composite_class.new(child_blue_prints, @state, child_key)
+          blue_prints.send(name).each { |child_key, child_blue_prints|
+            self.add_attribute(child_key, composite_class.new(child_blue_prints, state, child_key))
           }
         }
       end

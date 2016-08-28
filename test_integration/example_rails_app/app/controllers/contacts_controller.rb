@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
-        format.html { render :new }
+        format.html { render :build }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end

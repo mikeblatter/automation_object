@@ -25,6 +25,14 @@ module AutomationObject
           self.session.get(url)
         end
 
+        def back
+          @subject.navigate.back
+        end
+
+        def forward
+          @subject.navigate.forward
+        end
+
         # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]

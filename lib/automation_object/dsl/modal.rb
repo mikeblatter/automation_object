@@ -18,16 +18,19 @@ module AutomationObject
       # @param [AutomationObject::State::Session] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super Modal.new(blue_prints, state, name)
+        super Modal, blue_prints, state, name
       end
 
       # @param [Symbol] method
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &block)
+        #If Modal class has the method defined, then don't load
+        return super if Modal.method_defined?(method)
+
         #If trying to access children then load Modal
-        if @subject.has_key?(method)
-          @state.load(:modal, @name)
+        if @subject.respond_to?(method)
+          #@state.load(:modal, @name)
         end
 
         super

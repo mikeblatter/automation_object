@@ -12,7 +12,7 @@ class ContactsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :build
     assert_response :success
   end
 

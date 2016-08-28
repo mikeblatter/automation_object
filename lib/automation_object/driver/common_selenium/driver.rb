@@ -25,6 +25,14 @@ module AutomationObject
         def execute_script(script)
           @subject.execute_script(script)
         end
+
+        def back
+          @subject.navigate.back
+        end
+
+        def forward
+          @subject.navigate.forward
+        end
       end
     end
   end

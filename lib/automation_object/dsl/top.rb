@@ -9,12 +9,18 @@ module AutomationObject
       has_many :screens, ScreenProxy
     end
 
+    #Proxy for Top Composite
+    #Use proxy for methods trying to do a @state call
     class TopProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
       # @param [AutomationObject::State::Session] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super Top.new(blue_prints, state, name)
+        super Top, blue_prints, state, name
+      end
+
+      def active_screens
+        return @state
       end
     end
   end

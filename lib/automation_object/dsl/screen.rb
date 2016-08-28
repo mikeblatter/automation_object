@@ -20,16 +20,19 @@ module AutomationObject
       # @param [AutomationObject::State::Session] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super Screen.new(blue_prints, state, name)
+        super Screen, blue_prints, state, name
       end
 
       # @param [Symbol] method
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &block)
+        #If Screen class has the method defined, then don't load
+        return super if Screen.method_defined?(method)
+
         #If trying to access children then load Screen
-        if @subject.has_key?(method)
-          @state.load(:screen, @name)
+        if @subject.respond_to?(method)
+          #@state.load(:screen, @name)
         end
 
         super
