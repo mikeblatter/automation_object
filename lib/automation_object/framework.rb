@@ -28,7 +28,7 @@ module AutomationObject
       self.driver = driver
       self.blue_prints = blue_prints
 
-      self.state = State.new(self.blue_prints, self.driver)
+      self.state = State.new(self.driver, self.blue_prints)
       @subject = Dsl.new(self.blue_prints, self.state)
 
       AutomationObject::Framework.singleton = self

@@ -1,6 +1,6 @@
 module AutomationObject
   module Proxy
-    #Base Proxy class for getting between another
+    #CompositeBase Proxy class for getting between another
     class Proxy
       instance_methods.each { |instance_method|
         unless instance_method =~ /(^__|^send$|^object_id)/

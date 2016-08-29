@@ -1,24 +1,29 @@
 require_relative '../../helpers/composite'
-#require_relative 'top'
-#require_relative 'screen'
+require_relative 'top'
+require_relative 'screen'
 
 module AutomationObject
   module State
     module Composite
       #Parent composite class
-      class Base < AutomationObject::Composite
+      class CompositeBase < AutomationObject::Composite
+        # @return [AutomationObject::State::Session]
+        attr_accessor :state
+
         # @return [AutomationObject::BluePrint::Composite::]
         attr_accessor :blue_prints
 
         # @return [AutomationObject::Driver::Driver]
         attr_accessor :driver
 
+        # @param state [AutomationObject::State::Session] session
         # @param blue_prints [AutomationObject::BluePrint::Composite] blue print composite
         # @param driver [AutomationObject::Driver] driver
         # @param name [Symbol] name of composite element
         # @param parent [Object, nil] parent composite object
         # @param location [String] string location for error/debugging purposes
-        def initialize(blue_prints, driver, name = :top, parent = nil, location = 'top')
+        def initialize(state, blue_prints, driver, name = :top, parent = nil, location = 'top')
+          self.state = state
           self.blue_prints = blue_prints
           self.driver = driver
 

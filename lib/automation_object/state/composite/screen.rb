@@ -9,7 +9,7 @@ require_relative 'element_hash'
 module AutomationObject
   module State
     module Composite
-      class Screen < AutomationObject::State::Composite::Base
+      class Screen < AutomationObject::State::Composite::CompositeBase
         attr_accessor :modal, :current_modal
 
         has_one :load, interface: Hook

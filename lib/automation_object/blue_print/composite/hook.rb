@@ -1,9 +1,6 @@
 #Require parent class
 require_relative 'base'
 
-require_relative 'hook_action'
-require_relative 'hook_element_requirements'
-
 module AutomationObject
   module BluePrint
     module Composite

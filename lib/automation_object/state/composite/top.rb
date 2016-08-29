@@ -6,7 +6,7 @@ require_relative 'screen'
 module AutomationObject
   module State
     module Composite
-      class Top < AutomationObject::State::Composite::Base
+      class Top < AutomationObject::State::Composite::CompositeBase
         #Children for this composite
         has_many :screens, interface: Screen
 

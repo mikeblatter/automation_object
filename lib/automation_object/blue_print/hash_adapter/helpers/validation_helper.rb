@@ -67,12 +67,6 @@ module AutomationObject
           # @param args [Hash] arguments for validation
           # @return [nil]
           def validates(key, args = {})
-            # ap self
-            # ap self.class.name
-            # ap key
-            # ap args
-
-
             args.each { |validator_name, validation_args|
               validator_name = 'Validate' + validator_name.to_s.pascalize
               validator = Validators.const_get(validator_name)

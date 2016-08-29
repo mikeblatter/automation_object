@@ -4,7 +4,6 @@ require_relative 'base'
 require_relative 'automatic_onload_modal'
 require_relative 'hook'
 
-require_relative 'modal'
 require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'

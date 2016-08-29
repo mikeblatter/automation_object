@@ -6,7 +6,7 @@ require_relative 'element_proxy'
 module AutomationObject
   module State
     module Composite
-      class ElementArray < AutomationObject::State::Composite::Base
+      class ElementArray < AutomationObject::State::Composite::CompositeBase
         include CommonElement
 
         # @return [Array<AutomationObject::State::Composite::ElementProxy>] Selenium proxy
