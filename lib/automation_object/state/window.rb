@@ -15,6 +15,11 @@ module AutomationObject
         @history = [screen]
       end
 
+      # @return [Symbol] current screen
+      def screen
+        @history[@position]
+      end
+
       def use
         return if @driver.window_handle == @handle
         @driver.window_handle = @handle
