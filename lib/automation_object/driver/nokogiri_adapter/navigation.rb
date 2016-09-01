@@ -2,10 +2,6 @@ module AutomationObject
   module Driver
     module NokogiriAdapter
       module Navigation
-        def history
-          @history ||= []
-        end
-
         # Navigates current window to a given url
         # @param url [String] navigate to the following url
         # @return [void]
@@ -13,13 +9,16 @@ module AutomationObject
           self.session.get(url)
         end
 
-
         def back
           self.session.back
         end
 
         def forward
           self.session.forward
+        end
+
+        def close
+
         end
       end
     end

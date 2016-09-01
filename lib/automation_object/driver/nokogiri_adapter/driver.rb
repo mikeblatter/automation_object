@@ -26,11 +26,11 @@ module AutomationObject
         end
 
         def back
-          @subject.navigate.back
+          self.session.back
         end
 
         def forward
-          @subject.navigate.forward
+          self.session.forward
         end
 
         # Set timeout wait
