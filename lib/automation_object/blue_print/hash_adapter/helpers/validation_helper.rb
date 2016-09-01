@@ -16,6 +16,8 @@ module AutomationObject
       module ValidationHelper
         attr_accessor :errors
 
+        #Remove getter to solve stupid Ruby warning
+        undef :errors if method_defined? :errors
         # Give errors a default empty Array
         # @return [Array<String>] errors messages
         def errors
@@ -83,7 +85,7 @@ module AutomationObject
 
           # @return [Array] list of Validators, default to empty list
           def validations
-            @validations = [] unless @validations
+            @validations = [] unless defined? @validations
             return @validations
           end
         end

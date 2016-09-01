@@ -7,6 +7,8 @@ module AutomationObject
         class Validate
           attr_accessor :error_messages
 
+          #Remove getter to solve stupid Ruby warning
+          undef :error_messages if method_defined? :error_messages
           # @return [Array<String>] array of error messages, default empty array
           def error_messages
             @error_messages ||= Array.new

@@ -25,6 +25,8 @@ module AutomationObject
       self.after_create_run
     end
 
+    #Remove getter to solve stupid Ruby warning
+    undef :children if method_defined? :children
     def children
       @children ||= {}
     end

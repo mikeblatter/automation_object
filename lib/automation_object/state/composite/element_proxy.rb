@@ -4,7 +4,7 @@ module AutomationObject
   module State
     module Composite
       #Proxy class to allow for usage of hooks
-      class ElementProxy < AutomationObject::Proxy::Proxy
+      class ElementProxy < ::AutomationObject::Proxy::Proxy
         def initialize(args = {})
           @composite = args.fetch :composite
           @subject = args.fetch :element

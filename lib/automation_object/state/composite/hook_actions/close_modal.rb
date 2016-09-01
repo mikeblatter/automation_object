@@ -1,5 +1,4 @@
 require_relative 'action_loop'
-require_relative '../modal'
 require_relative '../../error'
 
 module AutomationObject

@@ -1,12 +1,10 @@
 require_relative '../../helpers/composite'
-require_relative 'top'
-require_relative 'screen'
 
 module AutomationObject
   module State
     module Composite
       #Parent composite class
-      class Base < AutomationObject::Composite
+      class Base < ::AutomationObject::Composite
         # @return [AutomationObject::State::Session]
         attr_accessor :state
 

@@ -27,7 +27,7 @@ module AutomationObject
 
       # @return [Array<Symbol>] list of methods to call
       def after_create_hooks
-        @after_create_hooks = [] unless @after_create_hooks
+        @after_create_hooks = [] unless defined? @after_create_hooks
         return @after_create_hooks
       end
 
@@ -38,7 +38,7 @@ module AutomationObject
 
       # @return [Array<Symbol>] list of methods to call
       def before_create_hooks
-        @before_create_hooks = [] unless @before_create_hooks
+        @before_create_hooks = [] unless defined? @before_create_hooks
         return @before_create_hooks
       end
     end
