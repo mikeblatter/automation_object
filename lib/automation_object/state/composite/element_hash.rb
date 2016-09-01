@@ -6,7 +6,7 @@ require_relative 'element_proxy'
 module AutomationObject
   module State
     module Composite
-      class ElementHash < AutomationObject::State::Composite::CompositeBase
+      class ElementHash < Base
         include CommonElement
 
         # @return [Hash<String, AutomationObject::State::Composite::ElementProxy>] Selenium proxy

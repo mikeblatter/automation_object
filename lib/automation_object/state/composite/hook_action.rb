@@ -14,7 +14,8 @@ require_relative 'hook_actions/new_screen'
 module AutomationObject
   module State
     module Composite
-      class HookAction < AutomationObject::State::Composite::CompositeBase
+      class HookAction < Base
+
         # @return [Boolean] run success or not
         def run
           self.blue_prints.hook_order.each { |hook_name|

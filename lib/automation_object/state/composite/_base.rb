@@ -6,7 +6,7 @@ module AutomationObject
   module State
     module Composite
       #Parent composite class
-      class CompositeBase < AutomationObject::Composite
+      class Base < AutomationObject::Composite
         # @return [AutomationObject::State::Session]
         attr_accessor :state
 

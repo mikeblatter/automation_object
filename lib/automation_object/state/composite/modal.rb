@@ -8,7 +8,7 @@ module AutomationObject
   module State
     module Composite
       #TODO: refactor to container
-      class Modal < AutomationObject::State::Composite::CompositeBase
+      class Modal < Base
         has_one :load, interface: Hook
 
         has_many :elements, interface: Element

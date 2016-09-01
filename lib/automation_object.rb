@@ -1,9 +1,13 @@
+require_relative 'automation_object/helpers/kernel'
 #Gems
-require 'awesome_print'
-require 'ostruct'
-require 'event_emitter'
-require 'appium_lib'
-require 'selenium-webdriver'
+#Ignore warning coming from third-party libraries
+Kernel.suppress_warnings do
+  require 'awesome_print'
+  require 'ostruct'
+  require 'event_emitter'
+  require 'appium_lib'
+  require 'selenium-webdriver'
+end
 
 #Local Files
 require_relative 'automation_object/version'
