@@ -1,21 +1,20 @@
 require 'yaml'
 
+require_relative '../helpers/file'
 require_relative 'hash_adapter'
-require_relative 'helpers/file_helper'
 
 module AutomationObject
   module BluePrint
     #BluePrint YAML Adapter
     module YamlAdapter
       extend self
-      extend FileHelper
 
       # @param path [String] path to YAML directory
       # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
       def build(path = '')
         path = File.expand_path(path)
 
-        file_array = self.collect_files(path)
+        file_array = File.collect_files(path)
         merged_yaml_hash = self.load_yaml_files(file_array)
 
         return AutomationObject::BluePrint::HashAdapter.build(merged_yaml_hash)

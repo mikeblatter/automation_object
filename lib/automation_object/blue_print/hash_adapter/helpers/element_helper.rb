@@ -36,7 +36,7 @@ module AutomationObject
 
         # @return [Hash<Hook>] array of Hook that are defined under the element
         def method_hooks
-          return @method_hooks if @method_hooks
+          return @method_hooks if defined? @method_hooks
 
           children = {}
           self.hash.each { |key, value|

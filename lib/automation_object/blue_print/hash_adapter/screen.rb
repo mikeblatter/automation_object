@@ -49,7 +49,7 @@ module AutomationObject
 
         # @return [Array<AutomaticOnloadModal>] array of AutomaticOnloadModal that are defined under the screen
         def automatic_onload_modals
-          return @automatic_onload_modals if @automatic_onload_modals
+          return @automatic_onload_modals if defined? @automatic_onload_modals
 
           children = self.hash[:automatic_onload_modals]
           children = (children.is_a?(Array)) ? children : Array.new

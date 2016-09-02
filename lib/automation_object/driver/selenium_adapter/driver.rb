@@ -48,7 +48,7 @@ module AutomationObject
             if element_objects.length > 0
               exists = true
             end
-          rescue Exception => e
+          rescue Exception
           end
 
           return exists

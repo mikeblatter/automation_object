@@ -46,7 +46,7 @@ module AutomationObject
           BluePrint.adapter = :hash
       end
 
-      @blue_prints = BluePrint.new(value)
+      @blue_prints = BluePrint.build(value)
     end
 
     # Driver port provides a formatted interface for interacting with different drivers

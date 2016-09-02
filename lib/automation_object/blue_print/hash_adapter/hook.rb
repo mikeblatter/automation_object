@@ -21,7 +21,7 @@ module AutomationObject
 
         # @return [Array<HookElementRequirements>] array of element requirements
         def live?
-          return @live if @live
+          return @live if defined? @live
 
           children = self.hash[:live?]
           children = (children.is_a?(Array)) ? children : Array.new

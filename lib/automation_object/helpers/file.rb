@@ -1,10 +1,11 @@
-module AutomationObject::BluePrint
-  #Collect files in directory recursively and return Array
-  module FileHelper
+#Extend file class
+#Collect files in directory recursively and return Array
+class ::File
+  class << self
     # @param path [String] specified directory path for getting files underneath
     # @returns [Array] list of file paths that exist recursively underneath a directory
     def collect_files(path)
-      unless File.exists?(path)
+      unless File.exist?(path)
         raise "Expecting path to exist, got #{path}"
       end
 

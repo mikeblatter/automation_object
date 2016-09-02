@@ -29,7 +29,7 @@ module AutomationObject
 
     # Adapters use the composite AutomationObject::BluePrint::Composite interfaces
     # @return [AutomationObject::BluePrint::Composite::Top]
-    def new(blueprint_arg)
+    def build(blueprint_arg)
       case blueprint_arg
         when String
           self.adapter = :yaml

@@ -8,7 +8,7 @@ module AutomationObject
       name = name.to_s
       alias_name = name + '?' if name.gsub!(/\?$/, '')
 
-      self.class.send(:attr_accessor, name)
+      self.class.send(:attr_accessor, name) unless self.class.method_defined? name
       instance_variable_set("@#{name}", value)
 
       self.add_alias(alias_name, name) if alias_name
