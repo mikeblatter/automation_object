@@ -11,7 +11,15 @@
 
 RUBY_VERSION="2.3.0"
 
-#Install brew
+#Install xCode Command Line Tools
+if [ ! -f "/usr/local/bin/gcc-4.2" ]; then
+  xcode-select --install
+fi
+
+#Link GCC
+ln -s /usr/bin/gcc /usr/local/bin/gcc-4.2
+
+#Install Brew
 if which brew >/dev/null; then
   echo "Updating Brew"
   brew update
@@ -19,6 +27,7 @@ else
   echo "Installing Brew"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
+brew tap caskroom/cask
 
 #Install GPG
 if which gpg >/dev/null; then
@@ -84,5 +93,28 @@ else
   gem install bundler
 fi
 
-#Run rake script
-rake -f mac_osx.rake
+#Install Postgres + Redis
+if which postgres >/dev/null; then
+  echo "Updating Postgres"
+  brew upgrade postgres
+else
+  echo "Installing Postgress"
+  brew install postgres
+fi
+
+if which redis-server >/dev/null; then
+  echo "Updating Redis"
+  brew upgrade redis
+else
+  echo "Installing Redis"
+  brew install redis
+fi
+
+cd example_rails_app/
+bundle
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+cd ../
+
+echo "Done"

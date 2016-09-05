@@ -9,7 +9,7 @@ at_exit {
 }
 
 loop do
-  put 'Execute CMD (exit to quit): '
+  puts 'Execute CMD (exit to quit): '
   command = gets
   if command.match(/exit/) or command.match(/quit/)
     break
