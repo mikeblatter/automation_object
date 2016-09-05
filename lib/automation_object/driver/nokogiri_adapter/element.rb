@@ -84,9 +84,7 @@ module AutomationObject
         def submit
           form_element = find_form(@subject)
           raise NoSuchElementError unless form_element
-
-          @driver.session.new_window if form_element.new_window?
-          @driver.session.send(form.request_method, form.params)
+          @driver.session.request(form.request_method, form.url, form.params, form_element.new_window?)
         end
 
         # Scroll the element into view
@@ -98,11 +96,7 @@ module AutomationObject
         # @return [void]
         def click
           if self.href and @subject['tag'] == 'a'
-            if self.attribute('target') == '_blank'
-              @driver.session.new_window
-            end
-
-            @driver.session.get(self.href)
+            @driver.session.request(:get, self.href, {}, self.attribute('target') == '_blank')
           end
 
           #In case it's a button inside the form

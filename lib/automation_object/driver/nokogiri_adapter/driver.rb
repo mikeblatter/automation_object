@@ -1,7 +1,5 @@
 require_relative 'session'
 
-require_relative '../driver'
-
 require_relative '../element'
 require_relative 'element'
 
@@ -31,6 +29,11 @@ module AutomationObject
 
         def forward
           self.session.forward
+        end
+
+        # Destroy the driver
+        def quit
+          self.session.quit
         end
 
         # Set timeout wait
@@ -108,11 +111,6 @@ module AutomationObject
         def document_complete?
         end
 
-        # Wait till the document is complete
-        # @return [void]
-        def document_complete_wait
-        end
-
         # @param script [String] JS to run
         # @return [Object, nil]
         def execute_script(script)
@@ -126,11 +124,6 @@ module AutomationObject
         # @return [Float] inner window height
         def inner_window_height
           0
-        end
-
-        # Destroy the driver
-        def quit
-          self.session.quit
         end
 
         protected

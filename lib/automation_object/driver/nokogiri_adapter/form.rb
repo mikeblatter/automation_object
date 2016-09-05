@@ -11,6 +11,10 @@ module AutomationObject
           self.node = node
         end
 
+        def url
+          self.node['action']
+        end
+
         def new_window?
           self.attribute('target') == '_blank'
         end

@@ -17,6 +17,12 @@ module AutomationObject
         self.adapter.get(url)
       end
 
+      # Refreshes current window
+      # @return [void]
+      def refresh
+        self.adapter.get(url)
+      end
+
       # Set timeout wait
       # @param timeout [Integer] the timeout in seconds
       # @return [void]

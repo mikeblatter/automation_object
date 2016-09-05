@@ -1,6 +1,8 @@
 require 'rest-client'
+require 'nokogiri'
 
 require_relative 'request'
+require_relative 'error'
 
 module AutomationObject
   module Driver
@@ -19,26 +21,11 @@ module AutomationObject
         # Get url, will set xml to current window handle
         # @param url [String] url to get xml for
         # @return [Object] nokogiri object
-        def get(url, params = {})
-          request = Request.new(:get, url, params)
-          self.request(request)
+        def request(type, url, params = {})
+          request = Request.new(type, url, params)
+          self.make_request(request)
 
           self.update_history(request)
-        end
-
-        # Post url, will set xml to current window handle
-        # @param url [String] url to get xml for
-        # @return [Object] nokogiri object
-        def post(url, params = {})
-          request = Request.new(:post, url, params)
-          self.request(request)
-
-          self.update_history(request)
-        end
-
-        def update_history(request)
-          @history.push(request)
-          @position = @history.length - 1
         end
 
         def current_url
@@ -46,9 +33,34 @@ module AutomationObject
           return request.url
         end
 
+        def back
+          raise UnableToNavigateBackward.new if @position == 0
+          @position -= 1
+
+          self.make_request(@history.at(@position))
+        end
+
+        def forward
+          raise UnableToNavigateForward.new if @position >= @history.length - 2
+          @position += 1
+
+          self.make_request(@history.at(@position))
+        end
+
+        def refresh
+          self.make_request(@history.at(@position))
+        end
+
+        protected
+
+        def update_history(request)
+          @history.push(request)
+          @position = @history.length - 1
+        end
+
         # Request url, will set xml to current window handle
         # @param request [Request] request object
-        def request(request)
+        def make_request(request)
           parsed_url = request.url
 
           if parsed_url.valid_url? == false and self.current_url == nil
@@ -61,14 +73,6 @@ module AutomationObject
           response = client_resource.send(request.type, {:params => request.params})
 
           self.xml = Nokogiri::HTML.parse(response)
-        end
-
-        def back
-
-        end
-
-        def forward
-
         end
       end
     end

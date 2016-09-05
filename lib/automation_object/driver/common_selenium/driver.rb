@@ -33,6 +33,10 @@ module AutomationObject
         def forward
           @subject.navigate.forward
         end
+
+        def refresh
+          @subject.navigate.refresh
+        end
       end
     end
   end
