@@ -31,6 +31,10 @@ module AutomationObject
           self.session.forward
         end
 
+        def refresh
+          self.session.refresh
+        end
+
         # Destroy the driver
         def quit
           self.session.quit

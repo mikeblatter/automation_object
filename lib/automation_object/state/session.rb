@@ -12,7 +12,7 @@ module AutomationObject
       # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
       def initialize(driver, blue_prints)
         self.driver = driver
-        self.composite = AutomationObject::State::Composite::Top.new(self, driver, blue_prints)
+        self.composite = Composite::Top.new(self, driver, blue_prints)
 
         self.create(self.composite.create)
       end

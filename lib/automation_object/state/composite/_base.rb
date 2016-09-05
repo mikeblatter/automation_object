@@ -15,15 +15,15 @@ module AutomationObject
         attr_accessor :driver
 
         # @param state [AutomationObject::State::Session] session
-        # @param blue_prints [AutomationObject::BluePrint::Composite] blue print composite
         # @param driver [AutomationObject::Driver] driver
+        # @param blue_prints [AutomationObject::BluePrint::Composite] blue print composite
         # @param name [Symbol] name of composite element
         # @param parent [Object, nil] parent composite object
         # @param location [String] string location for error/debugging purposes
-        def initialize(state, blue_prints, driver, name = :top, parent = nil, location = 'top')
+        def initialize(state, driver, blue_prints, name = :top, parent = nil, location = 'top')
           self.state = state
-          self.blue_prints = blue_prints
           self.driver = driver
+          self.blue_prints = blue_prints
 
           super(name, parent, location)
         end
@@ -34,7 +34,10 @@ module AutomationObject
         def get_child(name, args)
           child_location = self.location + "[#{name}]"
 
-          return args.fetch(:interface).new(self.blue_prints.send(name), self.driver, name, self, child_location)
+          return args.fetch(:interface).new(self.state,
+                                            self.driver,
+                                            self.blue_prints.send(name),
+                                            name, self, child_location)
         end
 
         # Overriding base get_children method
@@ -47,11 +50,10 @@ module AutomationObject
           self.blue_prints.send(name).each { |child_key, child_blue_prints|
             child_location = self.location + "[#{child_key}]"
 
-            children_hash[child_key] = args.fetch(:interface).new(child_blue_prints,
+            children_hash[child_key] = args.fetch(:interface).new(self.state,
                                                                   self.driver,
-                                                                  name,
-                                                                  self,
-                                                                  child_location)
+                                                                  child_blue_prints,
+                                                                  name, self, child_location)
           }
 
           return children_hash

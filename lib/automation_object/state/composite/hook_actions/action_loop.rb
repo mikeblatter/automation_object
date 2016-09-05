@@ -4,10 +4,11 @@ module AutomationObject
       class ActionLoop
         attr_accessor :composite, :blue_prints, :loops
 
-        def initialize(args = {})
-          self.blue_prints = args.fetch(:blue_prints)
-          self.composite = args.fetch(:composite)
-          self.loops = args.fetch(:loops, 30)
+        def initialize(blue_prints, driver, composite, loops = 30)
+          self.blue_prints = blue_prints
+          self.driver = driver
+          self.composite = composite
+          self.loops = loops
         end
 
         def driver
