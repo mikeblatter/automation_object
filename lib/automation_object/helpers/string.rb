@@ -25,12 +25,15 @@ class ::String
     self.split('_').map { |part| part.capitalize }.join
   end
 
-  # ruby mutation methods have the expectation to return self if a mutation occurred, nil otherwise. (see http://www.ruby-doc.org/core-1.9.3/String.html#method-i-gsub-21)
+  # Convert string to underscore
+  # @return [String] underscored self string
   def to_underscore!
     gsub!(/(.)([A-Z])/,'\1_\2')
     downcase!
   end
 
+  # Convert string to underscore
+  # @return [String] underscored string
   def to_underscore
     dup.tap { |s| s.to_underscore! }
   end

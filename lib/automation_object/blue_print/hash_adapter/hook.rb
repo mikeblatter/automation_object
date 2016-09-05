@@ -26,7 +26,11 @@ module AutomationObject
           children = self.hash[:live?]
           children = (children.is_a?(Array)) ? children : Array.new
 
-          @live = self.create_array_children(:live, children, {interface: HookElementRequirements, location: self.location + '[live?]'})
+          @live = self.create_array_children(:live, children,
+                                             {
+                                                 interface: HookElementRequirements,
+                                                 location: self.location + '[live?]'
+                                             })
           return @live
         end
       end

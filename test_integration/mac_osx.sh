@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# Install dependencies via a rake script
+# Installs/Updates Ruby, RVM, GPG, GCC, Brew, Java, Rake, Bundle, Postgres, Redis
+# Also all the rails gems in example_rails_app
 #
-#
-# Installing rvm/ruby before hand since it's required for running the rake script
-# Thought do as much as possible with the rake script without having to need the
-# prerequisites of ruby
-#
-#
+# Dependencies are for running a Selenium Server and a Rails app
 
 RUBY_VERSION="2.3.0"
+RVM_GPG_KEY="409B6B1796C275462A1703113804BB82D39DC0E3"
 
 #Install xCode Command Line Tools
 if [ ! -f "/usr/local/bin/gcc-4.2" ]; then
@@ -41,11 +38,11 @@ fi
 #Install RVM
 if which rvm >/dev/null; then
   echo "Updating RVM"
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys $RVM_GPG_KEY
   rvm get head
 else
   echo "Installing RVM"
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys $RVM_GPG_KEY
   \curl -sSL https://get.rvm.io | bash -s stable --ruby=$RUBY_VERSION
 fi
 
@@ -98,7 +95,7 @@ if which postgres >/dev/null; then
   echo "Updating Postgres"
   brew upgrade postgres
 else
-  echo "Installing Postgress"
+  echo "Installing Postgres"
   brew install postgres
 fi
 

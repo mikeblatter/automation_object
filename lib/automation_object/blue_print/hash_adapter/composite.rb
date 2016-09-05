@@ -1,4 +1,5 @@
 require_relative '../../helpers/composite'
+require_relative '../../helpers/string'
 
 require_relative 'helpers/validation_helper'
 require_relative 'helpers/validation_error'
@@ -83,6 +84,8 @@ module AutomationObject
         def create_composite(args, child, name, location)
           #Get the Composite Class that corresponds with the HashAdapter Class
           class_name = args[:interface].name.split('::').last
+
+          require_relative "../composite/#{class_name.to_underscore}"
           composite_class = AutomationObject::BluePrint::Composite.const_get(class_name)
 
           composite_class.new(args[:interface].new(child, name, self, location))
