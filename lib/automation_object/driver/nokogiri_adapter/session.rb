@@ -10,9 +10,6 @@ module AutomationObject
         # @return [Array<String>] window handle ids
         attr_accessor :window_handles
 
-        # @return [String] current window handle
-        attr_accessor :window_handle
-
         # @return [String] current window url
         attr_accessor :current_url
 

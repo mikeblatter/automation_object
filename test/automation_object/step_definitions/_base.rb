@@ -33,7 +33,7 @@ module StepDefinitionsTestBase
             when line.match(/^#\s*-\s*/)
               examples.push(line.gsub(/^#\s*-\s*/, ''))
             when line.match(/^(?:Given|When|Then|But|And)\s*\(\s*\/(.+)\/\s*\)/)
-              regex = Regexp.new(line.match(/^(?:Given|When|Then|But|And)\s*\(\s*\/(.+)\/\s*\)/)[1])
+              regex = Regexp.new(line.match(/^(?:Given|When|Then|But|And)[\s\(\/]+(.+)\/[\s\)]+/)[1])
 
               #Iterate through examples and test the regex matches the example
               #This way we know the documentation is accurate and if any updates will break existing implmentations

@@ -26,7 +26,8 @@ class TestBluePrintFileHelper < Minitest::Test
   end
 
   def teardown
-    DIRS + FILES.each { |path|
+    all_entities = DIRS + FILES
+    all_entities.each { |path|
       FileUtils.rm_r(path) if File.exist?(path)
     }
 

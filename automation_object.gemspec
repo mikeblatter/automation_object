@@ -22,8 +22,8 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.test_files = spec.files.grep(%r{^(docs|test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.12'
-  spec.add_development_dependency 'rake', '~> 11.2'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'minitest', '~> 5.9'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 2.0'
   spec.add_development_dependency 'mocha', '~> 1.1'
