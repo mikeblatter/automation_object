@@ -1,11 +1,7 @@
 #Some of this used from: https://github.com/appium/ruby_console/blob/master/osx_install.rake
 
 def installed?(program)
-  puts "`which #{program}`"
-  #output = system "which #{program}"
-  #puts output
-
-  return true
+  output = `which #{program}`
   return output.match(/\S+/) != nil
 end
 
@@ -41,19 +37,34 @@ task :gcc do
   end
 end
 
-task :java do
-  #command "brew cask #{(installed?('java') ? 'upgrade' : 'install')} java"
+task :cask do
+  command "brew tap caskroom/cask"
+end
+
+task :java => [:cask] do
+  unless installed?('java')
+    command "brew install java"
+  end
 end
 
 task :postgres do
-  #command "brew #{(installed?('postgres') ? 'upgrade' : 'install')} postgres"
+  command "brew #{(installed?('postgres') ? 'upgrade' : 'install')} postgres"
 end
 
 task :redis do
-  #command "brew #{(installed?('redis-server') ? 'upgrade' : 'install')} redis"
+  command "brew #{(installed?('redis-server') ? 'upgrade' : 'install')} redis"
 end
 
-task :install => [:redis, :postgres, :gcc] do
+task :rails_server do
+  command "cd example_rails_app"
+  command "bundle install"
+  command "bundle exec rake db:create"
+  command "bundle exec rake db:migrate"
+  command "bundle exec rake db:seed"
+  #command "cd ../"
+end
+
+task :install => [:redis, :postgres, :gcc, :java, :rails_server] do
   puts 'Done...'
 end
 
