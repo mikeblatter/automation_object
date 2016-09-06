@@ -28,11 +28,8 @@ module AutomationObject
         #If Modal class has the method defined, then don't load
         return super if Modal.method_defined?(method)
 
-        #If trying to access children then load Modal
-        if @subject.respond_to?(method)
-          puts "@state.load(:modal, #{@name})"
-          #@state.load(:modal, @name)
-        end
+        puts "@state.load(:modal, #{@name})"
+        @state.load(:modal, @name)
 
         super
       end

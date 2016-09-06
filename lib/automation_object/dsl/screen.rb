@@ -30,13 +30,8 @@ module AutomationObject
         #If Screen class has the method defined, then don't load
         return super if Screen.method_defined?(method)
 
-        puts "test"
-
-        #If trying to access children then load Screen
-        if @subject.respond_to?(method)
-          puts "@state.load(:screen, #{@name})"
-          #@state.load(:screen, @name)
-        end
+        puts "@state.load(:screen, #{@name})"
+        @state.load(:screen, @name)
 
         super
       end
