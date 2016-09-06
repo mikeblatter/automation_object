@@ -1,4 +1,6 @@
 require_relative 'window_manager'
+require_relative 'error'
+
 require_relative 'composite/top'
 
 module AutomationObject
