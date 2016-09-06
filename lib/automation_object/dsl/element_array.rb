@@ -16,6 +16,7 @@ module AutomationObject
       def method_missing(method, *args, &block)
         #If subject is null, then load it
         if @subject == nil
+          puts "@state.load(:element_array, #{@name})"
           #@subject = @state.load(:element_array, @name)
         end
 

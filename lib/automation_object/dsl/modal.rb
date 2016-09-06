@@ -30,6 +30,7 @@ module AutomationObject
 
         #If trying to access children then load Modal
         if @subject.respond_to?(method)
+          puts "@state.load(:modal, #{@name})"
           #@state.load(:modal, @name)
         end
 
