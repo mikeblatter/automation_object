@@ -29,7 +29,7 @@ module AutomationObject
         def before
           return nil if self.blue_prints.before.empty?
 
-          hook_action = HookAction.new(self.state,
+          hook_action = HookAction.new(self.session,
                                        self.driver,
                                        self.blue_prints.before,
                                        :hook_action, self, self.location + '[hook_action]')
@@ -42,7 +42,7 @@ module AutomationObject
         def after
           return nil if self.blue_prints.after.empty?
 
-          hook_action = HookAction.new(self.state,
+          hook_action = HookAction.new(self.session,
                                        self.driver,
                                        self.blue_prints.after,
                                        :hook_action, self, self.location + '[hook_action]')

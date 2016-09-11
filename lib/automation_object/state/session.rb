@@ -8,7 +8,14 @@ module AutomationObject
     class Session
       include WindowManager
 
-      attr_accessor :driver, :blue_prints, :composite
+      # @return [AutomationObject::Driver::Driver]
+      attr_accessor :driver
+
+      # @return [AutomationObject::BluePrint::Composite::Top]
+      attr_accessor :blue_prints
+
+      # @return [AutomationObject::State::Composite::Top]
+      attr_accessor :composite
 
       # @param [AutomationObject::Driver::Driver] driver
       # @param [AutomationObject::BluePrint::Composite::Top] blue_prints

@@ -6,7 +6,7 @@ module AutomationObject
       #Parent composite class
       class Base < ::AutomationObject::Composite
         # @return [AutomationObject::State::Session]
-        attr_accessor :state
+        attr_accessor :session
 
         # @return [AutomationObject::BluePrint::Composite::]
         attr_accessor :blue_prints
@@ -14,14 +14,14 @@ module AutomationObject
         # @return [AutomationObject::Driver::Driver]
         attr_accessor :driver
 
-        # @param state [AutomationObject::State::Session] session
+        # @param session [AutomationObject::State::Session] session
         # @param driver [AutomationObject::Driver] driver
         # @param blue_prints [AutomationObject::BluePrint::Composite] blue print composite
         # @param name [Symbol] name of composite element
         # @param parent [Object, nil] parent composite object
         # @param location [String] string location for error/debugging purposes
-        def initialize(state, driver, blue_prints, name = :top, parent = nil, location = 'top')
-          self.state = state
+        def initialize(session, driver, blue_prints, name = :top, parent = nil, location = 'top')
+          self.session = session
           self.driver = driver
           self.blue_prints = blue_prints
 
@@ -34,7 +34,7 @@ module AutomationObject
         def get_child(name, args)
           child_location = self.location + "[#{name}]"
 
-          return args.fetch(:interface).new(self.state,
+          return args.fetch(:interface).new(self.session,
                                             self.driver,
                                             self.blue_prints.send(name),
                                             name, self, child_location)
@@ -50,7 +50,7 @@ module AutomationObject
           self.blue_prints.send(name).each { |child_key, child_blue_prints|
             child_location = self.location + "[#{child_key}]"
 
-            children_hash[child_key] = args.fetch(:interface).new(self.state,
+            children_hash[child_key] = args.fetch(:interface).new(self.session,
                                                                   self.driver,
                                                                   child_blue_prints,
                                                                   name, self, child_location)
