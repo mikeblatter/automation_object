@@ -1,5 +1,6 @@
 require 'bundler/gem_tasks'
 require 'rake/testtask'
+require 'fileutils'
 
 Rake::TestTask.new do |t|
   t.libs << 'lib/automation_object'
@@ -8,8 +9,9 @@ Rake::TestTask.new do |t|
 end
 
 desc 'Build Gem'
-task :build do
+task :build => [:test] do
   system 'gem build automation_object.gemspec'
+  FileUtils.rm(File.expand_path(File.join(__dir__, "automation_object-#{AutomationObject::VERSION}.gem")))
 end
 
 desc 'Install Gem'

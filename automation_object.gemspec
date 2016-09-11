@@ -22,13 +22,21 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.test_files = spec.files.grep(%r{^(docs|test|spec|features)/})
   spec.require_paths = ['lib']
 
+  #Installation
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
+
+  #Testing and debugging
   spec.add_development_dependency 'minitest', '~> 5.9'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 2.0'
+
   spec.add_development_dependency 'mocha', '~> 1.1'
   spec.add_development_dependency 'fakefs', '~> 0.9'
+
   spec.add_development_dependency 'awesome_print', '~> 1.7'
+
+  #Runtime dependencies
+  spec.add_runtime_dependency 'colorize', '~> 0.8'
 
   #Events
   spec.add_runtime_dependency 'event_emitter', '~> 0.2'
@@ -40,7 +48,7 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_runtime_dependency 'rest-client', '~> 2.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.6'
 
-  #Drivers, TODO: maybe remove these as dependencies
+  #Supported Drivers
   spec.add_runtime_dependency 'appium_lib', '~> 8.0'
   spec.add_runtime_dependency 'selenium-webdriver', '~> 2.53'
 end

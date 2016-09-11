@@ -1,4 +1,5 @@
 require 'ostruct'
+require 'colorize'
 
 module AutomationObject
   module Dsl
@@ -20,9 +21,18 @@ module AutomationObject
 
       # @return [String]
       def inspect(indent = 5)
-        string = "#<#{self.class}:0x#{object_id.to_s(16)}"
+        string = "#{self.class}"
         self.to_h.each { |key, value|
-          string += "\n#{' ' * indent} #{key}:"
+          case value.class.to_s
+            when /Screen/
+              string += "\n#{' ' * indent} #{key}:".colorize(:magenta)
+            when /Modal/
+              string += "\n#{' ' * indent} #{key}:".colorize(:light_magenta)
+            when /(Element|ElementHash|ElementArray)/
+              string += "\n#{' ' * indent} #{key}:".colorize(:light_blue)
+            else
+              string += "\n#{' ' * indent} #{key}:".colorize(:red)
+          end
 
           if value.is_a?(Base)
             string += " #{value.inspect(indent + 10)}"
@@ -30,7 +40,7 @@ module AutomationObject
             string += " #{value.inspect}"
           end
         }
-        string += '>'
+        string += ''
 
         return string
       end
