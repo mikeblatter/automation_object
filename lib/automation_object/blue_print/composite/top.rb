@@ -1,4 +1,4 @@
-#Require parent class
+# Require parent class
 require_relative 'base'
 
 require_relative 'screen'
@@ -7,9 +7,9 @@ require_relative 'view'
 module AutomationObject
   module BluePrint
     module Composite
-      #Top composite class, passing method to adapter only
-      #Hoping to improve code completion and standard interface where
-      #classes use this as a template to add additional adapters
+      # Top composite class, passing method to adapter only
+      # Hoping to improve code completion and standard interface where
+      # classes use this as a template to add additional adapters
       class Top < Base
         # @return [Hash<Screen>]
         def screens

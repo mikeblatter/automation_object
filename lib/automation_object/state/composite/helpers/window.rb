@@ -11,7 +11,7 @@ module AutomationObject
           @driver = driver
           @handle = handle
 
-          #Use to control history
+          # Use to control history
           @position = 0
           @history = [screen]
         end
@@ -44,7 +44,7 @@ module AutomationObject
           !@driver.window_handles.include?(self.window_handle)
         end
 
-        #Close the window
+        # Close the window
         def close
           @driver.close
         end

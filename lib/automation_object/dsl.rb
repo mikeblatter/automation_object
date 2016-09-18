@@ -1,7 +1,7 @@
 require_relative 'dsl/top'
 
 module AutomationObject
-  #Dsl Port
+  # Dsl Port
   module Dsl
     extend self
 

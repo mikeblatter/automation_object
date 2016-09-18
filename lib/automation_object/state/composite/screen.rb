@@ -14,7 +14,7 @@ module AutomationObject
 
         has_one :load, interface: Hook
 
-        #Children for this composite
+        # Children for this composite
         has_many :modals, interface: Modal
 
         has_many :elements, interface: Element

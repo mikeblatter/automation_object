@@ -1,7 +1,7 @@
 module AutomationObject
   module BluePrint
     module Composite
-      #Helper module for Element composite classes
+      # Helper module for Element composite classes
       module ElementHelper
         # @return [Array<Symbol, String>, nil] params as an array for driver find_element args
         def selector_params
@@ -30,4 +30,3 @@ module AutomationObject
     end
   end
 end
-

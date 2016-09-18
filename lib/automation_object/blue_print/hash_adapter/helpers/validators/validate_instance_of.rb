@@ -4,12 +4,12 @@ module AutomationObject
   module BluePrint
     module HashAdapter
       module Validators
-        #Validator that tests that a element is defined when it is called elsewhere through a hook
+        # Validator that tests that a element is defined when it is called elsewhere through a hook
         class ValidateInstanceOf < Validate
           # @param args [Hash] arguments for the validation class
           def initialize(args)
             @key = args.fetch :key
-            #Convert to array of instances for consistency
+            # Convert to array of instances for consistency
             @should_be_instances_of = (args.fetch(:args).is_a?(Array)) ? args.fetch(:args) : [args.fetch(:args)]
           end
 
@@ -17,10 +17,10 @@ module AutomationObject
           # @param composite_object [Object] Composite object to be tested.
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
-            #Get the hash value from the composite object
+            # Get the hash value from the composite object
             target_value = composite_object.hash[@key]
 
-            #Skip empty or non-existent
+            # Skip empty or non-existent
             return unless target_value
 
             @should_be_instances_of.each { |should_be_instance_of|

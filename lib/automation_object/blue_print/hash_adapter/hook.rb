@@ -1,4 +1,4 @@
-#Require parent class
+# Require parent class
 require_relative 'composite'
 
 require_relative 'hook_action'
@@ -7,16 +7,16 @@ require_relative 'hook_element_requirements'
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Hook composite
+      # Hook composite
       class Hook < Composite
-        #Call the live? method so that it creates the needed Array of ElementRequirement interfaces
+        # Call the live? method so that it creates the needed Array of ElementRequirement interfaces
         before_create :live?
 
-        #Relationships
+        # Relationships
         has_one :before, interface: HookAction
         has_one :after, interface: HookAction
 
-        #Validations
+        # Validations
         validates_keys allowed_keys: [:before, :live?, :after]
 
         # @return [Array<HookElementRequirements>] array of element requirements

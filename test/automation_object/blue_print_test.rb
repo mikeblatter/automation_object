@@ -1,10 +1,10 @@
 require_relative '../test_helper'
 require_relative '../../lib/automation_object/blue_print/hash_adapter'
 
-#Test BluePrint Port
+# Test BluePrint Port
 class TestBluePrint < Minitest::Test
   def setup
-    #Reset Adapter
+    # Reset Adapter
     AutomationObject::BluePrint.instance_variable_set(:@adapter, nil)
   end
 

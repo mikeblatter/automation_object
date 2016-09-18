@@ -127,7 +127,7 @@ module AutomationObject
         self.adapter.hover
       end
 
-      #Helper method to switch to this element's iframe
+      # Helper method to switch to this element's iframe
       # @return [void]
       def switch_to_iframe
         self.adapter.switch_to_iframe

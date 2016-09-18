@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 
-#Test AutomationObject::BluePrint::YamlAdapter
+# Test AutomationObject::BluePrint::YamlAdapter
 class TestYamlHashAdapter < Minitest::Test
   def setup
     AutomationObject::BluePrint.adapter = :yaml

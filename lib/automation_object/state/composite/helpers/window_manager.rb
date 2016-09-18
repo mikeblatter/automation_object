@@ -35,7 +35,7 @@ module AutomationObject
           driver_handles = self.driver.window_handles
           diff_handles = driver_handles - self.window_handles
 
-          #Should only have one extra window
+          # Should only have one extra window
           if diff_handles.length > 1
             raise UnexpectedExtraWindowError.new
           end

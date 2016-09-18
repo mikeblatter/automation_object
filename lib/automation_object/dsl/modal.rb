@@ -25,7 +25,7 @@ module AutomationObject
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &block)
-        #If Modal class has the method defined, then don't load
+        # If Modal class has the method defined, then don't load
         return super if Modal.method_defined?(method)
 
         puts "@state.load(:modal, #{@name})"

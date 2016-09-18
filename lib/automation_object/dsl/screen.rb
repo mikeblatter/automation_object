@@ -27,7 +27,7 @@ module AutomationObject
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &block)
-        #If Screen class has the method defined, then don't load
+        # If Screen class has the method defined, then don't load
         return super if Screen.method_defined?(method)
 
         puts "@state.load(:screen, #{@name})"

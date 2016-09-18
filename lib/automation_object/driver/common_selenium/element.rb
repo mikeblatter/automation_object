@@ -3,7 +3,7 @@ require_relative '../driver'
 module AutomationObject
   module Driver
     module CommonSelenium
-      #Helper module for Selenium based elements
+      # Helper module for Selenium based elements
       module Element
         # @return [Numeric] x position of element
         def x
@@ -152,21 +152,21 @@ module AutomationObject
           end
         end
 
-        #Hover over element
+        # Hover over element
         def hover
           self.scroll_into_view
           @driver.action.move_to(@subject).perform
         end
 
-        #Helper method to switch to this element's iframe
+        # Helper method to switch to this element's iframe
         def switch_to_iframe
           @driver.switch_to.frame(self.iframe_switch_value)
         end
 
         protected
 
-        #Helper method for getting the value to switch to
-        #If value doesn't exist then create one
+        # Helper method for getting the value to switch to
+        # If value doesn't exist then create one
         # @return [String] iframe value to switch to
         def iframe_switch_value
           iframe_switch_value = self.attribute('id')

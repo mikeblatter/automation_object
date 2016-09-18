@@ -1,7 +1,7 @@
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Helper module for multiple element composite classes
+      # Helper module for multiple element composite classes
       module MultipleElementsHelper
         # @return [Range, nil] gives range for limiting multiple elements or nil
         def custom_range

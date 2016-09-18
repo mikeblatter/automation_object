@@ -2,8 +2,8 @@ require_relative 'reflection'
 require_relative 'composite_hook'
 
 module AutomationObject
-  #Composite is a super class that helps build composite objects based of a Hash
-  #Composite classes should inherit from this class and use the class-level methods to add the components
+  # Composite is a super class that helps build composite objects based of a Hash
+  # Composite classes should inherit from this class and use the class-level methods to add the components
   class Composite
     include CompositeHook
     include Reflection
@@ -25,7 +25,7 @@ module AutomationObject
       self.after_create_run
     end
 
-    #Remove getter to solve stupid Ruby warning
+    # Remove getter to solve stupid Ruby warning
     undef :children if method_defined? :children
     def children
       @children ||= {}
@@ -34,7 +34,7 @@ module AutomationObject
     # Get top composite Object
     # @return [AutomationObject::Composite]
     def top
-      #Should recursively call top until parent is nil
+      # Should recursively call top until parent is nil
       return (self.parent == nil) ? self : self.parent.top
     end
 
@@ -70,7 +70,7 @@ module AutomationObject
     end
 
     class << self
-      #Has many children relationship for the composite
+      # Has many children relationship for the composite
       # @param children_name [Symbol] name of the children, should be a BluePrint method
       # @param args [Hash] additional arguments, expects interface
       def has_many(children_name, args)

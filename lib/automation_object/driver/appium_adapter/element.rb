@@ -3,8 +3,8 @@ require_relative '../common_selenium/element'
 module AutomationObject
   module Driver
     module AppiumAdapter
-      #Element proxy for Appium
-      #Conform Appium element interface to what's expected of the Driver Port
+      # Element proxy for Appium
+      # Conform Appium element interface to what's expected of the Driver Port
       class Element < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Element
 
@@ -18,7 +18,7 @@ module AutomationObject
         def scroll_into_view
           @subject.location_once_scrolled_into_view
 
-          #Only scroll better if this is a browser and not an app
+          # Only scroll better if this is a browser and not an app
           return unless @driver.is_browser?
 
           element_center = self.element_center
@@ -32,7 +32,7 @@ module AutomationObject
           end
 
           @driver.execute_script("window.scroll(#{element_center[:x]},#{ideal_y_position});")
-          #Just in case in close to the top or bottom bounds of the window
+          # Just in case in close to the top or bottom bounds of the window
           element_location = @subject.location_once_scrolled_into_view
 
           if element_location[:y] < 0

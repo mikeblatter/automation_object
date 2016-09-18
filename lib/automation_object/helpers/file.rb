@@ -1,5 +1,5 @@
-#Extend file class
-#Collect files in directory recursively and return Array
+# Extend file class
+# Collect files in directory recursively and return Array
 class ::File
   class << self
     # @param path [String] specified directory path for getting files underneath

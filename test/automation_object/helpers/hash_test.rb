@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 
-#Test Hash
+# Test Hash
 class TestHash < Minitest::Test
   def setup
     @first_hash = {

@@ -1,10 +1,10 @@
-#Class for caching values between steps
+# Class for caching values between steps
 module AutomationObject
   module StepDefinitions
     module Cache
       extend self
 
-      #Singleton hash, create new if needed
+      # Singleton hash, create new if needed
       # @return [Hash] hash of values saved or new hash
       def values
         return @values if @values

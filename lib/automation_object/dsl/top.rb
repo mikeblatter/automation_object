@@ -9,8 +9,8 @@ module AutomationObject
       has_many :screens, ScreenProxy
     end
 
-    #Proxy for Top Composite
-    #Use proxy for methods trying to do a @state call
+    # Proxy for Top Composite
+    # Use proxy for methods trying to do a @state call
     class TopProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
       # @param [AutomationObject::State::Session] state

@@ -2,9 +2,9 @@ require_relative 'blue_print/hash_adapter'
 require_relative 'blue_print/yaml_adapter'
 
 module AutomationObject
-  #BluePrint Port, encapsulation of code required to parse and build composite data structure representing UI
-  #Provides for loading Hash/YAML, validates the resulting structure (throws errors), and a common
-  #interface for the rest of the code base to use.
+  # BluePrint Port, encapsulation of code required to parse and build composite data structure representing UI
+  # Provides for loading Hash/YAML, validates the resulting structure (throws errors), and a common
+  # interface for the rest of the code base to use.
   module BluePrint
     extend self
 

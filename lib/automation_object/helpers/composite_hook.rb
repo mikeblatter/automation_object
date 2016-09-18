@@ -1,5 +1,5 @@
 module AutomationObject
-  #Hooks for composites
+  # Hooks for composites
   module CompositeHook
     def before_create_run
       self.class.before_create_hooks.each { |before_create_hook|
@@ -18,7 +18,7 @@ module AutomationObject
       base.extend(ClassMethods)
     end
 
-    #Class level methods
+    # Class level methods
     module ClassMethods
       # @param instance_method [Symbol] method to call
       def after_create(instance_method)

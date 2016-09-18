@@ -1,29 +1,29 @@
-#Require parent class
+# Require parent class
 require_relative 'composite'
 
-#Require child classes
+# Require child classes
 require_relative 'hook'
 require_relative 'custom_method'
 
-#Require helpers
+# Require helpers
 require_relative 'helpers/element_helper'
 require_relative 'helpers/multiple_elements_helper'
 
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Element hash composite
+      # Element hash composite
       class ElementHash < Composite
         include ElementHelper
         include MultipleElementsHelper
 
         before_create :method_hooks
 
-        #Relationships
+        # Relationships
         has_one :load, interface: Hook
         has_many :custom_methods, interface: CustomMethod
 
-        #Validations
+        # Validations
         validates :load, instance_of: Hash
 
         validates :define_elements_by, instance_of: [String, Symbol], presence_of: true

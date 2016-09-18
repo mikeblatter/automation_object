@@ -25,7 +25,7 @@ module AutomationObject
         # @raise [AutomationObject::State::NoInitialScreenError] if no initial screen
         # @return [Symbol] screen name
         def initial_screen
-          #If default screen then check if its live and set it
+          # If default screen then check if its live and set it
           if self.blue_prints.default_screen
             screen_name = self.blue_prints.default_screen
             default_screen_live = self.screens[screen_name].load.live?

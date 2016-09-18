@@ -1,8 +1,8 @@
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #ValidatorError exception class
-      #Allows for multiple errors at one time to allow for better debugging
+      # ValidatorError exception class
+      # Allows for multiple errors at one time to allow for better debugging
       class ValidationError < Exception
         attr_accessor :errors
 

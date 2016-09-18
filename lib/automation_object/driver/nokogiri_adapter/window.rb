@@ -13,7 +13,7 @@ module AutomationObject
         def initialize
           self.handle = SecureRandom.hex(16)
 
-          #Use to control history
+          # Use to control history
           @position = 0
           @history = []
         end

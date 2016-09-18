@@ -1,11 +1,11 @@
 require_relative '../../../../../test_helper'
 require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_presence_of'
 
-#Test AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf
-#Test for presence success and error
+# Test AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf
+# Test for presence success and error
 class TestValidatePresenceOf < Minitest::Test
   def setup
-    #Shorten it up
+    # Shorten it up
     @validator = AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf
     @validation_stub = stub(
         :location => 'test',

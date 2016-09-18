@@ -2,7 +2,7 @@ require_relative 'hook'
 
 module AutomationObject
   module State
-    #Helper module for Element composite classes
+    # Helper module for Element composite classes
     module Composite
       module CommonElement
         def method_hook?(name)
@@ -28,4 +28,3 @@ module AutomationObject
     end
   end
 end
-

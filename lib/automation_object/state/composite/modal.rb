@@ -7,7 +7,7 @@ require_relative 'element_hash'
 module AutomationObject
   module State
     module Composite
-      #TODO: refactor to container
+      # TODO: refactor to container
       class Modal < Base
         has_one :load, interface: Hook
 

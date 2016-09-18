@@ -4,12 +4,12 @@ require_relative 'window'
 module AutomationObject
   module Driver
     module NokogiriAdapter
-      #Class for creating/maintaining XML session
-      #Trying to replicate some functionality of Selenium like multiple windows, etc...
+      # Class for creating/maintaining XML session
+      # Trying to replicate some functionality of Selenium like multiple windows, etc...
       class Session
         def initialize
           @windows = [Window.new]
-          @current_window = 0 #Position
+          @current_window = 0 # Position
         end
 
         # @return [Array<String>] window handles
@@ -27,7 +27,7 @@ module AutomationObject
           return @windows[@current_window].current_url
         end
 
-        #Switch window handles
+        # Switch window handles
         # @param handle_value [String] handle value of window to switch to
         def window_handle=(handle_value)
           unless self.window_handles.include?(handle_value)
@@ -68,14 +68,14 @@ module AutomationObject
         end
 
         def close
-          #Reset session if only one window
+          # Reset session if only one window
           self.quit if @windows.length == 1
 
           @windows.delete_at(@position)
           @position -= 1 if @position > 0
         end
 
-        #Just reset the session
+        # Just reset the session
         def quit
           @windows = [Window.new]
         end

@@ -21,14 +21,19 @@ end
 desc 'Update files to help meet rubocops standards'
 task :lint_files do
   LINTABLE_PATHS.each do |path|
-    Dir.glob(path) do |file|
-      file_content = File.read(file)
+    Dir.glob(path) do |file_path|
+      content_array = IO.readlines(file_path)
 
-      file_content.gsub!(/\n+$/, '')
-      file_content += "\n"
-      
+      content_array.each { |line|
+        # Add space to comment if there isn't one
+        line.gsub!(/#\s*([\s\w]*)(?=(?:[^"]|"[^"]*")*$)/) { |m| "# #{$1}" }
+      }
+
+      # Rejoin and strip with additional line for consistent formatting
+      content = content_array.join('').strip + "\n"
+
       # Overwrite file
-      File.write(file, file_content)
+      File.write(file_path, content)
     end
   end
 end

@@ -1,6 +1,6 @@
 require_relative '_base'
 
-#Test AutomationObject::BluePrint::HashAdapter::ElementHash
+# Test AutomationObject::BluePrint::HashAdapter::ElementHash
 class TestHashAdapterElementHash < Minitest::Test
   include HashAdapterBase
 
@@ -24,8 +24,8 @@ class TestHashAdapterElementHash < Minitest::Test
   end
 
   def test_selector_params_css
-    composite_stub = self.create_composite({ :css => 'div#path .to .logo' })
-    assert_equal [:css, 'div#path .to .logo'], composite_stub.selector_params
+    composite_stub = self.create_composite({ :css => 'div# path .to .logo' })
+    assert_equal [:css, 'div# path .to .logo'], composite_stub.selector_params
   end
 
   def test_selector_params_xpath

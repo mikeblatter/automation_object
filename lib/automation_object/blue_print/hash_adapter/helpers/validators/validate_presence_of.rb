@@ -4,7 +4,7 @@ module AutomationObject
   module BluePrint
     module HashAdapter
       module Validators
-        #Validates tests the a key exists on a composite hash
+        # Validates tests the a key exists on a composite hash
         class ValidatePresenceOf < Validate
           # @param args [Hash] arguments for the validation class
           def initialize(args)
@@ -19,10 +19,10 @@ module AutomationObject
           # @param composite_object [Object] Composite object to be tested.
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
-            #Get the hash value from the composite object
+            # Get the hash value from the composite object
             return if composite_object.hash.has_key?(@key)
 
-            #Do unless_presence_of check
+            # Do unless_presence_of check
             if @unless_presence_of
               return if composite_object.hash.has_key?(@unless_presence_of)
             end

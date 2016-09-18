@@ -5,7 +5,7 @@ require_relative 'hash_adapter'
 
 module AutomationObject
   module BluePrint
-    #BluePrint YAML Adapter
+    # BluePrint YAML Adapter
     module YamlAdapter
       extend self
 

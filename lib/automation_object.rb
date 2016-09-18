@@ -1,6 +1,6 @@
 require_relative 'automation_object/helpers/kernel'
-#Gems
-#Ignore warning coming from third-party libraries
+# Gems
+# Ignore warning coming from third-party libraries
 Kernel.suppress_warnings do
   require 'awesome_print'
   require 'ostruct'
@@ -9,17 +9,17 @@ Kernel.suppress_warnings do
   require 'selenium-webdriver'
 end
 
-#Local Files
+# Local Files
 require_relative 'automation_object/version'
 
-#Class method additions
+# Class method additions
 require_relative 'automation_object/helpers/string'
 require_relative 'automation_object/helpers/hash'
 
-#Core Framework
+# Core Framework
 require_relative 'automation_object/framework'
 
-#Cucumber Step Definitions
+# Cucumber Step Definitions
 require_relative 'automation_object/step_definitions'
 
 module AutomationObject

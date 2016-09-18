@@ -1,7 +1,7 @@
-#Require parent class
+# Require parent class
 require_relative 'composite'
 
-#Require child classes
+# Require child classes
 require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'
@@ -10,16 +10,16 @@ require_relative 'hook'
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Modal-level composite, ActiveRecord style composite implementation inheriting from Composite
+      # Modal-level composite, ActiveRecord style composite implementation inheriting from Composite
       class Modal < Composite
-        #Relationships
+        # Relationships
         has_one :load, interface: Hook
 
         has_many :elements, interface: Element
         has_many :element_arrays, interface: ElementArray
         has_many :element_hashes, interface: ElementHash
 
-        #Validations
+        # Validations
         validates_keys allowed_keys: [:load, :elements, :element_arrays, :element_hashes]
 
         validates :load, instance_of: Hash
@@ -33,7 +33,7 @@ module AutomationObject
           included_views_array.map { |view| view.to_sym }
         end
 
-        #Method to take views and merge into this composite
+        # Method to take views and merge into this composite
         def merge_views
           top_hash = self.top.hash
 

@@ -24,7 +24,7 @@ module AutomationObject
           return true
         end
 
-        #Runs the before hook
+        # Runs the before hook
         # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
         def before
           return nil if self.blue_prints.before.empty?
@@ -37,7 +37,7 @@ module AutomationObject
           return hook_action.run
         end
 
-        #Runs the after hook
+        # Runs the after hook
         # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
         def after
           return nil if self.blue_prints.after.empty?

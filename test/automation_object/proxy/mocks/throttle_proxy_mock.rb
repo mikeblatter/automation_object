@@ -1,4 +1,4 @@
-#Mock for ThrottleProxy
+# Mock for ThrottleProxy
 class ThrottleProxyMock
   attr_accessor :test_attribute
 

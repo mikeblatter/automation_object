@@ -1,7 +1,7 @@
 require_relative '../../../../test_helper'
 require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/helpers/element_helper'
 
-#Test AutomationObject::BluePrint::HashAdapter::ElementHelper
+# Test AutomationObject::BluePrint::HashAdapter::ElementHelper
 class TestElementHelper < Minitest::Test
   def setup
   end
@@ -11,10 +11,10 @@ class TestElementHelper < Minitest::Test
   end
 
   def test_selector_params_css
-    composite_stub = stub(:hash => { :css => 'div#path .to .logo' })
+    composite_stub = stub(:hash => { :css => 'div# path .to .logo' })
     extended_stub = self.extend_stub(composite_stub)
 
-    assert_equal [:css, 'div#path .to .logo'], extended_stub.selector_params
+    assert_equal [:css, 'div# path .to .logo'], extended_stub.selector_params
   end
 
   def test_selector_params_xpath

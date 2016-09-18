@@ -9,8 +9,8 @@ require_relative 'element'
 module AutomationObject
   module Driver
     module SeleniumAdapter
-      #Driver proxy for Selenium
-      #Conform Selenium driver interface to what's expected of the Driver Port
+      # Driver proxy for Selenium
+      # Conform Selenium driver interface to what's expected of the Driver Port
       class Driver < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Driver
 
@@ -59,7 +59,7 @@ module AutomationObject
         # @return [Object] element
         def find_element(selector_type, selector_path)
           element = @subject.find_element(selector_type, selector_path)
-          #Wrap in adapter interface
+          # Wrap in adapter interface
           return AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
         end
 
@@ -74,14 +74,14 @@ module AutomationObject
           }
         end
 
-        #Accept prompt either in browser or mobile
+        # Accept prompt either in browser or mobile
         def accept_prompt
           alert = @subject.switch_to.alert
           alert.accept
           @subject.switch_to.default_content
         end
 
-        #Dismiss the prompt
+        # Dismiss the prompt
         def dismiss_prompt
           alert = @subject.switch_to.alert
           alert.dismiss
@@ -94,19 +94,19 @@ module AutomationObject
           true
         end
 
-        #Window Handles
+        # Window Handles
         # @return [Array<String>] array of window handle ids
         def window_handles
           @subject.window_handles
         end
 
-        #Current window handle
+        # Current window handle
         # @return [String] handle id
         def window_handle
           @subject.window_handle
         end
 
-        #Set current window handle to, will switch windows
+        # Set current window handle to, will switch windows
         # @param handle_value [String] window handle value
         def window_handle=(handle_value)
           @subject.switch_to.window(handle_value)

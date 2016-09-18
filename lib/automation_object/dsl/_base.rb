@@ -9,7 +9,7 @@ module AutomationObject
       def initialize(blue_prints, state)
         ostruct_hash = {}
 
-        #Add attributes the call super
+        # Add attributes the call super
         self.class.has_many_relationships.each { |name, composite_class|
           blue_prints.send(name).each { |child_key, child_blue_prints|
             ostruct_hash[child_key] = composite_class.new(child_blue_prints, state, child_key)
@@ -46,7 +46,7 @@ module AutomationObject
       end
 
       class << self
-        #Has many children relationship for the composite
+        # Has many children relationship for the composite
         # @param children_name [Symbol] name of the children, should be a BluePrint method
         # @param composite_class [Class] interface
         def has_many(children_name, composite_class)

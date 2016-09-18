@@ -1,4 +1,4 @@
-#Mock for Proxy
+# Mock for Proxy
 class ProxyMock
   attr_accessor :test_attribute
 

@@ -1,7 +1,7 @@
 require_relative '../../../../../test_helper'
 require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_instance_of'
 
-#Class to use for unit testing
+# Class to use for unit testing
 class MockForTestValidateInstanceOf
   attr_accessor :location
 
@@ -25,14 +25,14 @@ class MockForTestValidateInstanceOf
   end
 end
 
-#Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf
-#Each test method below tests each @hash key of MockForTestValidateInstanceOf for success and failure
+# Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf
+# Each test method below tests each @hash key of MockForTestValidateInstanceOf for success and failure
 class TestValidateInstanceOf < Minitest::Test
   def setup
-    #Shorten it up
+    # Shorten it up
     @validator = AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf
 
-    #Make Mock
+    # Make Mock
     @mock = MockForTestValidateInstanceOf.new
   end
 
@@ -42,7 +42,7 @@ class TestValidateInstanceOf < Minitest::Test
       validator.validate(@mock)
       assert_empty validator.error_messages
 
-      #Test them all in an array of classes
+      # Test them all in an array of classes
       validator = @validator.new(key: key_to_test, args: @mock.hash_classes.values)
       validator.validate(@mock)
 
@@ -53,18 +53,18 @@ class TestValidateInstanceOf < Minitest::Test
 
   def test_error
     @mock.hash.each_key { |key_to_test|
-      #Need to remove the should be in order to continue and test raises
+      # Need to remove the should be in order to continue and test raises
       class_should_be = @mock.hash_classes[key_to_test]
       classes_should_not_be = @mock.hash_classes.values - [class_should_be]
 
-      #Use a random class it should not be and assert raises
+      # Use a random class it should not be and assert raises
       classes_should_not_be.each { | class_should_not_be|
         validator = @validator.new(key: key_to_test, args: class_should_not_be)
         validator.validate(@mock)
         assert_equal 1, validator.error_messages.length
       }
 
-      #Test them all in an array of classes
+      # Test them all in an array of classes
       validator = @validator.new(key: key_to_test, args: classes_should_not_be)
       validator.validate(@mock)
 

@@ -1,6 +1,6 @@
 require_relative '../adapter_test_helper'
 
-#Test AutomationObject::Driver::NokogiriAdapter::Driver class
+# Test AutomationObject::Driver::NokogiriAdapter::Driver class
 class TestSeleniumAdapterDriver < Minitest::Test
   include AdapterTestHelper
 

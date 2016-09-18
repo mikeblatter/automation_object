@@ -2,7 +2,7 @@ require_relative 'proxy'
 
 module AutomationObject
   module Proxy
-    #Proxy class for protecting object with Mutex
+    # Proxy class for protecting object with Mutex
     class MutexProxy < Proxy
       def initialize(subject)
         super

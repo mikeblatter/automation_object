@@ -1,7 +1,7 @@
 require_relative '../../../../../test_helper'
 require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_modal_presence_of'
 
-#Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf
+# Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf
 class TestValidateModalPresenceOf < Minitest::Test
   def setup
     @validator = AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf

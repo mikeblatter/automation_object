@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 
-#Test AutomationObject::BluePrint::HashAdapter
+# Test AutomationObject::BluePrint::HashAdapter
 class TestBluePrintHashAdapter < Minitest::Test
   def setup
     AutomationObject::BluePrint.adapter = :hash

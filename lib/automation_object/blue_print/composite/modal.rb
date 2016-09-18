@@ -1,4 +1,4 @@
-#Require parent class
+# Require parent class
 require_relative 'base'
 
 require_relative 'automatic_onload_modal'
@@ -11,9 +11,9 @@ require_relative 'element_hash'
 module AutomationObject
   module BluePrint
     module Composite
-      #Modal composite class, passing method to adapter only
-      #Hoping to improve code completion and standard interface where
-      #classes use this as a template to add additional adapters
+      # Modal composite class, passing method to adapter only
+      # Hoping to improve code completion and standard interface where
+      # classes use this as a template to add additional adapters
       class Modal < Base
         # @return [Array<Symbol>]
         def included_views

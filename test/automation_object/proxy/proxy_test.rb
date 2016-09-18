@@ -1,8 +1,8 @@
 require_relative '../../test_helper'
 require_relative 'mocks/proxy_mock'
 
-#Using custom mock classes, not thread-safe and hard to implement for proxy
-#Test AutomationObject::Proxy::Proxy
+# Using custom mock classes, not thread-safe and hard to implement for proxy
+# Test AutomationObject::Proxy::Proxy
 class TestProxy < Minitest::Test
   def setup
     @proxy = AutomationObject::Proxy::Proxy.new(ProxyMock.new)

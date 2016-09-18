@@ -2,8 +2,8 @@ require_relative '../../test_helper'
 
 Dir['../../../lib/automation_object/driver/**/*.rb'].each { |f| load(f) }
 
-#Common Tests AutomationObject::BluePrint::HashAdapter::
-#Using dynamic method addition to make one assertion per function test
+# Common Tests AutomationObject::BluePrint::HashAdapter::
+# Using dynamic method addition to make one assertion per function test
 module AdapterTestHelper
   def setup
   end
@@ -30,10 +30,10 @@ module AdapterTestHelper
         end
 
         # define_method("test_interface_#{method}_arguments") do
-        #   adapter = create_adapter
-        #   if adapter.public_methods.include?(method) and self.class.interface_class.method_defined?(method)
-        #     assert_equal self.class.interface_class.instance_method(method).arity, self.class.adapter_class.instance_method(method).arity
-        #   end
+        # adapter = create_adapter
+        # if adapter.public_methods.include?(method) and self.class.interface_class.method_defined?(method)
+        # assert_equal self.class.interface_class.instance_method(method).arity, self.class.adapter_class.instance_method(method).arity
+        # end
         # end
       end
     end

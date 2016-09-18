@@ -1,12 +1,12 @@
-#Require parent class
+# Require parent class
 require_relative 'composite'
 
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Automatic Onload Modal Composite
+      # Automatic Onload Modal Composite
       class AutomaticOnloadModal < Composite
-        #Validations
+        # Validations
         validates :modal_name, instance_of: [String, Symbol], modal_presence_of: true, presence_of: true
         validates :number_of_checks, instance_of: Numeric
         validates :close, instance_of: TrueClass

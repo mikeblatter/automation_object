@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 
-#Test String
+# Test String
 class TestString < Minitest::Test
   def setup
     @url_valid_hash = {

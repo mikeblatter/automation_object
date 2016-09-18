@@ -1,7 +1,7 @@
 module AutomationObject
   module Driver
     module NokogiriAdapter
-      #Class to wrap a form node
+      # Class to wrap a form node
       class Form
         # @return [Nokogiri::XML::Node]
         attr_accessor :node

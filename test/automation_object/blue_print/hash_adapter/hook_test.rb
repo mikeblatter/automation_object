@@ -1,6 +1,6 @@
 require_relative '_base'
 
-#Test AutomationObject::BluePrint::HashAdapter::Hook
+# Test AutomationObject::BluePrint::HashAdapter::Hook
 class TestHashAdapterHook < Minitest::Test
   include HashAdapterBase
 

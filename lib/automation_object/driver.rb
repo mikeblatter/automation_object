@@ -5,13 +5,13 @@ require_relative 'proxy/mutex_proxy'
 
 require_relative 'driver/driver'
 
-#Adapters
+# Adapters
 require_relative 'driver/appium_adapter/driver'
 require_relative 'driver/nokogiri_adapter/driver'
 require_relative 'driver/selenium_adapter/driver'
 
 module AutomationObject
-  #Driver Port
+  # Driver Port
   module Driver
     extend self
 
@@ -36,7 +36,7 @@ module AutomationObject
     def new(driver = nil)
       adapted_driver = Driver.new(self.adapter.new(driver))
 
-      #Add throttling and mutex proxies around adapter
+      # Add throttling and mutex proxies around adapter
       return AutomationObject::Proxy::MutexProxy.new(
                     AutomationObject::Proxy::ThrottleProxy.new(adapted_driver))
     end

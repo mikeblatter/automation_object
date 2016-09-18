@@ -6,8 +6,8 @@ require_relative 'element'
 module AutomationObject
   module Driver
     module NokogiriAdapter
-      #Driver for Nokogiri
-      #Conforms to interface and provides Selenium type functionality for XML only functionality
+      # Driver for Nokogiri
+      # Conforms to interface and provides Selenium type functionality for XML only functionality
       class Driver
         # @return [AutomationObject::Driver::NokogiriAdapter::Session]
         attr_accessor :session
@@ -78,11 +78,11 @@ module AutomationObject
           }
         end
 
-        #Accept prompt either in browser or mobile
+        # Accept prompt either in browser or mobile
         def accept_prompt
         end
 
-        #Dismiss the prompt
+        # Dismiss the prompt
         def dismiss_prompt
         end
 
@@ -92,19 +92,19 @@ module AutomationObject
           true
         end
 
-        #Window Handles
+        # Window Handles
         # @return [Array<String>] array of window handle ids
         def window_handles
           self.session.window_handles
         end
 
-        #Current window handle
+        # Current window handle
         # @return [String] handle id
         def window_handle
           self.session.window_handle
         end
 
-        #Set current window handle to, will switch windows
+        # Set current window handle to, will switch windows
         # @param handle_value [String] window handle value
         def window_handle=(handle_value)
           self.session.window_handle = handle_value

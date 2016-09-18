@@ -2,15 +2,15 @@ require_relative '../../../test_helper'
 
 Dir[File.join(File.dirname(__FILE__), '../../../../lib/automation_object/blue_print/**/*.rb')].each { |f| load(f) }
 
-#Common Tests AutomationObject::BluePrint::HashAdapter::
-#Using dynamic method addition to make one assertion per function test
+# Common Tests AutomationObject::BluePrint::HashAdapter::
+# Using dynamic method addition to make one assertion per function test
 module HashAdapterBase
   def setup
     self.class.adapter_class.skip_validations = true
   end
 
   def teardown
-    #Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
+    # Reset skip validations just in case.  Don't want to cause issues when we expect validation exceptions
     self.class.adapter_class.skip_validations = false
   end
 

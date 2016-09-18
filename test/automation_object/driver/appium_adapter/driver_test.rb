@@ -1,6 +1,6 @@
 require_relative '../adapter_test_helper'
 
-#Test AutomationObject::Driver::AppiumAdapter::Driver class
+# Test AutomationObject::Driver::AppiumAdapter::Driver class
 class TestAppiumAdapterDriver < Minitest::Test
   include AdapterTestHelper
 

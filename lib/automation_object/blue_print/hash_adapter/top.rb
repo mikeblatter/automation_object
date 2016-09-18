@@ -1,20 +1,20 @@
-#Require parent class
+# Require parent class
 require_relative 'composite'
 
-#Require child classes
+# Require child classes
 require_relative 'screen'
 require_relative 'view'
 
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Top composite
+      # Top composite
       class Top < Composite
-        #Relationships
+        # Relationships
         has_many :screens, interface: Screen
         has_many :views, interface: View
 
-        #Validations
+        # Validations
         validates_keys allowed_keys: [:base_url, :default_screen, :screen_transition_sleep, :screens,
                                       :throttle_driver_methods, :throttle_element_methods, :views]
 

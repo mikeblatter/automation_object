@@ -2,7 +2,7 @@ require_relative 'proxy'
 
 module AutomationObject
   module Proxy
-    #Proxy class to throttle methods on the subject
+    # Proxy class to throttle methods on the subject
     class ThrottleProxy < Proxy
       def initialize(subject)
         super
@@ -35,13 +35,13 @@ module AutomationObject
         self.throttle_methods[method_symbol] = time
       end
 
-      #Delete throttle that exists
+      # Delete throttle that exists
       # @param method_symbol [Symbol] method symbol to remove throttle from
       def delete_method_throttle(method_symbol)
         self.throttle_methods.delete(method_symbol)
       end
 
-      #Method to sleep the difference between actual and throttle time
+      # Method to sleep the difference between actual and throttle time
       # @param method_symbol [Symbol] method that is to be throttled
       # @param start_time [Float] start time as float
       # @return [nil]

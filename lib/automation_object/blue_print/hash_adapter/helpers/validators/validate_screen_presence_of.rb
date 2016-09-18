@@ -4,7 +4,7 @@ module AutomationObject
   module BluePrint
     module HashAdapter
       module Validators
-        #Validator that tests that a screen is defined when it is called elsewhere through a hook
+        # Validator that tests that a screen is defined when it is called elsewhere through a hook
         class ValidateScreenPresenceOf < Validate
           # @param args [Hash] arguments for the validation class
           def initialize(args)
@@ -15,7 +15,7 @@ module AutomationObject
           # @param composite_object [Object] Composite object to be tested.
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
-            #Get the hash value from the composite object
+            # Get the hash value from the composite object
             target_value = composite_object.hash[@key]
 
             return unless target_value
@@ -34,14 +34,14 @@ module AutomationObject
             }
           end
 
-          #Traverses up a composite tree to find :screens in a hash
+          # Traverses up a composite tree to find :screens in a hash
           # @param composite_object [Object] composite object to traverse up
           # @return [Array<Symbol>] array of screen names
           def find_screens(composite_object)
-            #Using the hash instead of the method because lower nodes will get validated
-            #before composite is finished building
+            # Using the hash instead of the method because lower nodes will get validated
+            # before composite is finished building
             if composite_object.hash[:screens].is_a?(Hash)
-              return composite_object.hash[:screens].keys #Should be Hash with screen names as the keys
+              return composite_object.hash[:screens].keys # Should be Hash with screen names as the keys
             elsif composite_object.parent
               return self.find_screens(composite_object.parent)
             end

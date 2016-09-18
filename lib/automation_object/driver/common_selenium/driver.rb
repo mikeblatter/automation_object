@@ -3,7 +3,7 @@ require_relative '../driver'
 module AutomationObject
   module Driver
     module CommonSelenium
-      #Common Selenium/AppiumMethods
+      # Common Selenium/AppiumMethods
       module Driver
         # @return [Point] x,y scroll position
         def scroll_position

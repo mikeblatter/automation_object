@@ -11,8 +11,8 @@ require_relative 'element'
 module AutomationObject
   module Driver
     module AppiumAdapter
-      #Driver proxy for Appium
-      #Conform Appium driver interface to what's expected of the Driver Port
+      # Driver proxy for Appium
+      # Conform Appium driver interface to what's expected of the Driver Port
       class Driver < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Driver
 
@@ -28,7 +28,7 @@ module AutomationObject
           @subject.get(url)
         end
 
-        #Set timeout wait
+        # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]
         def set_wait(timeout = nil)
@@ -47,7 +47,7 @@ module AutomationObject
         # @return [AutomationObject::Driver::Element] element
         def find_element(selector_type, selector_path)
           element = @subject.find_element(selector_type, selector_path)
-          #Wrap element in the adapter interface
+          # Wrap element in the adapter interface
           return AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
         end
 
@@ -58,7 +58,7 @@ module AutomationObject
           elements = @subject.find_elements(selector_type, selector_path)
 
           elements.map { |element|
-            #Wrap element in the adapter interface
+            # Wrap element in the adapter interface
             AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
           }
         end
@@ -78,7 +78,7 @@ module AutomationObject
           return @is_browser unless @is_browser == nil
           @is_browser = false
 
-          #Now we need to check Appium's contexts to see if WEBVIEW is in available_contexts
+          # Now we need to check Appium's contexts to see if WEBVIEW is in available_contexts
           available_contexts = @subject.available_contexts
           available_contexts.each { |context|
             if context.match(/^WEBVIEW_\d+$/)
@@ -90,7 +90,7 @@ module AutomationObject
           return @is_browser
         end
 
-        #Window Handles Override
+        # Window Handles Override
         # @return [Array<String>] array of window handles
         def window_handles
           if @subject.device_is_android? and self.is_browser?
@@ -107,7 +107,7 @@ module AutomationObject
           return window_handles
         end
 
-        #Get window handle override
+        # Get window handle override
         # @return [String] current window handle
         def window_handle
           return @subject.current_context unless self.is_browser?
@@ -119,7 +119,7 @@ module AutomationObject
           end
         end
 
-        #Set window handle override
+        # Set window handle override
         # @param handle_value [String] window handle value
         # @return [void]
         def window_handle=(handle_value)
@@ -132,7 +132,7 @@ module AutomationObject
 
         # @return [Boolean] document is complete
         def document_complete?
-          return true unless self.is_browser? #Skip for non-browser Appium sessions
+          return true unless self.is_browser? # Skip for non-browser Appium sessions
           return @subject.execute_script('return document.readyState;') == 'complete'
         end
 

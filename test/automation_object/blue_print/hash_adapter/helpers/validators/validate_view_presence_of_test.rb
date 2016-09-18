@@ -1,10 +1,10 @@
 require_relative '../../../../../test_helper'
 require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_view_presence_of'
 
-#Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateViewPresenceOf
+# Test AutomationObject::BluePrint::HashAdapter::Validators::ValidateViewPresenceOf
 class TestValidateViewPresenceOf < Minitest::Test
   def setup
-    #Shorten it up
+    # Shorten it up
     @validator = AutomationObject::BluePrint::HashAdapter::Validators::ValidateViewPresenceOf
   end
 

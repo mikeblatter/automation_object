@@ -17,13 +17,13 @@ module AutomationObject
         # @param parent [Object, nil] parent composite object
         # @param location [String] string location for error/debugging purposes
         def initialize(hash = {}, name = :top, parent = nil, location = 'top')
-          #Add hash before calling super
+          # Add hash before calling super
           self.hash = (hash.is_a?(Hash)) ? hash : {}
           self.hash.symbolize_keys_deep!
 
           super(name, parent, location)
 
-          #Validate using ValidationHelper
+          # Validate using ValidationHelper
           unless self.valid?
             if self.parent
               self.parent.add_errors(self.errors)
@@ -82,7 +82,7 @@ module AutomationObject
         end
 
         def create_composite(args, child, name, location)
-          #Get the Composite Class that corresponds with the HashAdapter Class
+          # Get the Composite Class that corresponds with the HashAdapter Class
           class_name = args[:interface].name.split('::').last
 
           require_relative "../composite/#{class_name.to_underscore}"

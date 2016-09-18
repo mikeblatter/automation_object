@@ -4,8 +4,8 @@ require_relative 'error'
 module AutomationObject
   module Driver
     module NokogiriAdapter
-      #Element for nokogiri
-      #Conforms to Element interface for an XML source using Nokogiri
+      # Element for nokogiri
+      # Conforms to Element interface for an XML source using Nokogiri
       class Element
         # @param [AutomationObject::Driver::NokogiriAdapter::Driver] driver
         # @param [Nokogiri::XML::Node] element
@@ -99,7 +99,7 @@ module AutomationObject
             @driver.session.request(:get, self.href, {}, self.attribute('target') == '_blank')
           end
 
-          #In case it's a button inside the form
+          # In case it's a button inside the form
           self.submit if find_form(@subject)
         end
 
@@ -145,10 +145,10 @@ module AutomationObject
         def hover
         end
 
-        #Helper method to switch to this element's iframe
+        # Helper method to switch to this element's iframe
         # @return [void]
         def switch_to_iframe
-          #TODO: finish
+          # TODO: finish
         end
 
         private

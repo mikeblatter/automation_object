@@ -4,7 +4,7 @@ module AutomationObject
   module BluePrint
     module HashAdapter
       module Validators
-        #Validator that tests the composite hash for bad keys
+        # Validator that tests the composite hash for bad keys
         class ValidateAllowedKeys < Validate
           # @param args [Hash] arguments for the validation class
           def initialize(args)
@@ -15,7 +15,7 @@ module AutomationObject
           # @param composite_object [Object] Composite object to be tested.
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
-            #Get the hash from the composite object
+            # Get the hash from the composite object
             target_hash = composite_object.hash
 
             target_hash.each_key { |key|

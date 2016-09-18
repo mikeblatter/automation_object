@@ -1,8 +1,8 @@
 require_relative '../../../../test_helper'
 require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validation_helper'
 
-#TODO, finish unit testing
-#Test AutomationObject::BluePrint::HashAdapter::ValidationHelper
+# TODO, finish unit testing
+# Test AutomationObject::BluePrint::HashAdapter::ValidationHelper
 class TestBluePrintHashAdapterValidationHelper < Minitest::Test
   def setup
     @composite_stub = stub()

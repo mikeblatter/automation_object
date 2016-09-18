@@ -7,8 +7,8 @@ module AutomationObject
     Dimension = Struct.new(:width, :height)
     BoxCoordinates = Struct.new(:x1, :y1, :x2, :y2)
 
-    #Driver adapter interface
-    #Adapters should meet this interface standard
+    # Driver adapter interface
+    # Adapters should meet this interface standard
     class Driver < Base
       # Navigates current window to a given url
       # @param url [String] navigate to the following url
@@ -51,12 +51,12 @@ module AutomationObject
         self.adapter.find_elements(selector_type, selector_path)
       end
 
-      #Accept prompt either in browser or mobile
+      # Accept prompt either in browser or mobile
       def accept_prompt
         self.adapter.accept_prompt
       end
 
-      #Dismiss the prompt
+      # Dismiss the prompt
       def dismiss_prompt
         self.adapter.dismiss_prompt
       end
@@ -67,19 +67,19 @@ module AutomationObject
         self.adapter.is_browser?
       end
 
-      #Window Handles
+      # Window Handles
       # @return [Array<String>] array of window handle ids
       def window_handles
         self.adapter.window_handles
       end
 
-      #Current window handle
+      # Current window handle
       # @return [String] handle id
       def window_handle
         self.adapter.window_handle
       end
 
-      #Set current window handle to, will switch windows
+      # Set current window handle to, will switch windows
       # @param handle_value [String] window handle value
       def window_handle=(handle_value)
         self.adapter.window_handle(handle_value)

@@ -3,7 +3,7 @@ require_relative '../../helpers/composite'
 module AutomationObject
   module State
     module Composite
-      #Parent composite class
+      # Parent composite class
       class Base < ::AutomationObject::Composite
         # @return [AutomationObject::State::Session]
         attr_accessor :session
@@ -65,7 +65,7 @@ module AutomationObject
         def screen
           return nil if self.is_a?(Top)
 
-          #Should recursively call top until parent is nil
+          # Should recursively call top until parent is nil
           return (self.is_a?(Screen)) ? self : self.parent.screen
         end
       end

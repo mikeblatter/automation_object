@@ -1,7 +1,7 @@
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Helper module for Element composite classes
+      # Helper module for Element composite classes
       module ElementHelper
         # @return [Array<Symbol, String>, nil] params as an array for driver find_element args
         def selector_params
@@ -40,8 +40,8 @@ module AutomationObject
 
           children = {}
           self.hash.each { |key, value|
-            #Skip possible keys that elements can have
-            #Otherwise should be a method hook
+            # Skip possible keys that elements can have
+            # Otherwise should be a method hook
             next if [:load, :custom_methods, :in_iframe, :css, :xpath, :define_elements_by, :custom_range].include?(key)
             children[key] = value
           }
@@ -56,4 +56,3 @@ module AutomationObject
     end
   end
 end
-

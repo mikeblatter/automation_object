@@ -1,7 +1,7 @@
 require_relative '../../../../test_helper'
 require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/helpers/multiple_elements_helper'
 
-#Test AutomationObject::BluePrint::HashAdapter::MultipleElementsHelper
+# Test AutomationObject::BluePrint::HashAdapter::MultipleElementsHelper
 class TestMultipleElementsHelper < Minitest::Test
   def setup
   end

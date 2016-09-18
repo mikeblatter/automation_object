@@ -1,6 +1,6 @@
 module AutomationObject
-  #Helper module for adding attributes/alias to classes dynamically
-  #Reflection/MetaProgramming
+  # Helper module for adding attributes/alias to classes dynamically
+  # Reflection/MetaProgramming
   module Reflection
     # @param name [String, Symbol] name of attribute to add
     # @param value [Object] value of attribute

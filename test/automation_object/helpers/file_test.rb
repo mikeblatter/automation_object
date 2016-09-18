@@ -1,14 +1,14 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/automation_object/helpers/file'
 
-#Work around for collect_files, since we are extending File
-#FakeFS interferes with the methods called on the File class causing an error
+# Work around for collect_files, since we are extending File
+# FakeFS interferes with the methods called on the File class causing an error
 FileCopy = File
 
-#fakess - Fake file system gem
+# fakess - Fake file system gem
 require 'fakefs/safe'
 
-#Test AutomationObject::BluePrint::FileHelper
+# Test AutomationObject::BluePrint::FileHelper
 class TestBluePrintFileHelper < Minitest::Test
   DIRS = %w(/test /test/first_dir /test/second_dir)
   FILES = %w(/test/test_file /test/test_file_two /test/first_dir/test_file_three /test/second_dir/test_file_four /test/second_dir/test_file_five)
@@ -34,7 +34,7 @@ class TestBluePrintFileHelper < Minitest::Test
     FakeFS.deactivate!
   end
 
-  #Test FakeFS to make sure it is working properly
+  # Test FakeFS to make sure it is working properly
   DIRS.each { |directory|
     define_method("test_fs_directory_#{directory.gsub(/\W/, '').downcase}") do
       assert File.directory?(directory)
@@ -57,7 +57,7 @@ class TestBluePrintFileHelper < Minitest::Test
     assert_equal collected_files.length, 5
   end
 
-  #Test collected files
+  # Test collected files
   FILES.each { |file|
     define_method("test_collected_files_included_#{file.gsub(/\W/, '').downcase}") do
       collected_files = FileCopy.collect_files('/test')

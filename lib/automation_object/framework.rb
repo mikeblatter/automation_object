@@ -5,8 +5,8 @@ require_relative 'dsl'
 require_relative 'state'
 
 module AutomationObject
-  #Framework class, the core
-  #A Proxy class that will become the DSL Framework
+  # Framework class, the core
+  # A Proxy class that will become the DSL Framework
   class Framework < Proxy::Proxy
     # @return [AutomationObject::BluePrint::Composite::Top]
     attr_accessor :blue_prints
@@ -68,7 +68,7 @@ module AutomationObject
     # Leave the driver alone here, can be done elsewhere
     # @return [void]
     def quit
-      self.state.quit #Quit the state.  That way it knows to kill threads if operational
+      self.state.quit # Quit the state.  That way it knows to kill threads if operational
       self.dsl, self.state, self.blue_prints, self.driver = nil
     end
 
@@ -78,7 +78,7 @@ module AutomationObject
     class << self
       attr_accessor :singleton
 
-      #Singleton method if using Cucumber
+      # Singleton method if using Cucumber
       # @return [Framework] singleton of self
       def get
         return self.singleton

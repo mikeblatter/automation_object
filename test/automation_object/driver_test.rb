@@ -1,9 +1,9 @@
 require_relative '../test_helper'
 
-#Test AutomationObject::Driver
+# Test AutomationObject::Driver
 class TestDriver < Minitest::Test
   def setup
-    #Reset Adapter
+    # Reset Adapter
     AutomationObject::Driver.instance_variable_set(:@adapter, nil)
   end
 

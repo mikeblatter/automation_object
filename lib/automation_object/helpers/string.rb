@@ -1,4 +1,4 @@
-#String class method additions
+# String class method additions
 class ::String
   def valid_url?
     uri = URI.parse(self)

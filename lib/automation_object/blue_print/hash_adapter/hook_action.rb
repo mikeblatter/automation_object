@@ -1,16 +1,16 @@
-#Require parent class
+# Require parent class
 require_relative 'composite'
 require_relative 'hook_element_requirements'
 
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Hook action composite
+      # Hook action composite
       class HookAction < Composite
-        #Call the wait_for_elements method to generate the children
+        # Call the wait_for_elements method to generate the children
         before_create :wait_for_elements
 
-        #Validations
+        # Validations
         validates_keys allowed_keys: [:new_screen, :show_modal, :close_screen, :change_screen,
                                       :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
                                       :possible_screen_changes]
@@ -26,19 +26,19 @@ module AutomationObject
         validates :sleep, instance_of: Numeric
         validates :wait_for_elements, instance_of: Array
 
-        #Get the order to run the hook in
+        # Get the order to run the hook in
         # @return [Array<Symbol>] list of hook methods to run in given order
         def hook_order
           return self.hash.keys
         end
 
-        #Get length of hook actions
+        # Get length of hook actions
         # @return [Integer] length of hook actions
         def length
           return self.hash.keys.length
         end
 
-        #See if hook actions are empty
+        # See if hook actions are empty
         # @return [Boolean] if hook actions are empty
         def empty?
           return !(self.hash.keys.length > 0)
@@ -104,17 +104,17 @@ module AutomationObject
           end
         end
 
-        #@return [Boolean] reset the screen?
+        # @return [Boolean] reset the screen?
         def reset_screen
           return self.hash[:reset_screen] ||= false
         end
 
-        #@return [Numeric] amount of time to sleep
+        # @return [Numeric] amount of time to sleep
         def sleep
           return self.hash[:sleep] ||= 0
         end
 
-        #Custom method for array of children instead of Hash
+        # Custom method for array of children instead of Hash
         # @return [Array<HookElementRequirements>] array of wait for element children
         def wait_for_elements
           return @wait_for_elements if defined? @wait_for_elements

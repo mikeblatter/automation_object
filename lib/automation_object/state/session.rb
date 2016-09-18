@@ -28,7 +28,7 @@ module AutomationObject
               raise AutomationObject::State::ScreenNotActiveError.new(name)
             end
 
-            #Set the current window by name
+            # Set the current window by name
             self.composite.window = name
           when :modal
             unless self.composite.window.modal == name

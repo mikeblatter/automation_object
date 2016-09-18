@@ -1,4 +1,4 @@
-#Require all the validators
+# Require all the validators
 require_relative 'validators/validate_instance_of'
 require_relative 'validators/validate_allowed_keys'
 require_relative 'validators/validate_screen_presence_of'
@@ -12,11 +12,11 @@ require_relative '../../../helpers/string'
 module AutomationObject
   module BluePrint
     module HashAdapter
-      #Validation helper for the composite structure, will allow Rails style validations on the composite
+      # Validation helper for the composite structure, will allow Rails style validations on the composite
       module ValidationHelper
         attr_accessor :errors
 
-        #Remove getter to solve stupid Ruby warning
+        # Remove getter to solve stupid Ruby warning
         undef :errors if method_defined? :errors
         # Give errors a default empty Array
         # @return [Array<String>] errors messages
@@ -36,7 +36,7 @@ module AutomationObject
           return true if self.class.skip_validations
 
          # ap self.class
-          #ap self.class.name
+          # ap self.class.name
           self.class.validations.collect do |validation|
            # ap validation.class.name
           end
@@ -55,7 +55,7 @@ module AutomationObject
           base.extend(ClassMethods)
         end
 
-        #Class level methods
+        # Class level methods
         module ClassMethods
           def skip_validations=(boolean)
             @skip_validations = boolean
