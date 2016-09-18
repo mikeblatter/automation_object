@@ -41,7 +41,7 @@ module AutomationObject
         # See if hook actions are empty
         # @return [Boolean] if hook actions are empty
         def empty?
-          !(hash.keys.length > 0)
+          !(!hash.keys.empty?)
         end
 
         # @return [Symbol, nil] screen to change to
@@ -50,9 +50,9 @@ module AutomationObject
 
           case change_screen
           when Symbol, String
-              return change_screen.to_sym
-            else
-              return nil
+            return change_screen.to_sym
+          else
+            return nil
           end
         end
 
@@ -62,9 +62,9 @@ module AutomationObject
 
           case new_screen
           when Symbol, String
-              return new_screen.to_sym
-            else
-              return nil
+            return new_screen.to_sym
+          else
+            return nil
           end
         end
 
@@ -89,9 +89,9 @@ module AutomationObject
 
           case show_modal
           when Symbol, String
-              return show_modal.to_sym
-            else
-              return nil
+            return show_modal.to_sym
+          else
+            return nil
           end
         end
 
@@ -122,8 +122,8 @@ module AutomationObject
 
           children = wait_for_elements.is_a?(Array) ? wait_for_elements : []
           @wait_for_elements = create_array_children(:wait_for_elements, children,
-                                                          interface: HookElementRequirements,
-                                                           location: location + '[wait_for_elements]')
+                                                     interface: HookElementRequirements,
+                                                     location: location + '[wait_for_elements]')
 
           @wait_for_elements
         end

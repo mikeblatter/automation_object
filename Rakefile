@@ -10,9 +10,11 @@ require 'rubocop/rake_task'
 THIS_DIRECTORY = File.expand_path(__dir__).freeze
 LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
                   File.join(THIS_DIRECTORY, 'test/**/*.rb')].freeze
+GEM_NAME = 'automation_object'.freeze
+
 # Testing Tasks
 Rake::TestTask.new do |t|
-  t.libs << 'lib/automation_object'
+  t.libs << "lib/#{GEM_NAME}"
   t.test_files = FileList['test/**/*_test.rb', 'spec/**/*_spec.rb']
   t.verbose = true
 end
@@ -32,18 +34,20 @@ end
 # Building
 desc 'Build Gem'
 task build: [:test, :lint_files, :rubocop, :yard] do
-  system 'gem build automation_object.gemspec'
-  FileUtils.rm(File.expand_path(File.join(__dir__, "automation_object-#{AutomationObject::VERSION}.gem")))
+  system "gem build #{GEM_NAME}.gemspec"
+
+  remove_gem = File.expand_path(File.join(__dir__, "#{GEM_NAME}-#{AutomationObject::VERSION}.gem"))
+  FileUtils.rm(remove_gem)
 end
 
 desc 'Install Gem'
 task install: :build do
-  system "gem install ./pkg/automation_object-#{AutomationObject::VERSION}.gem"
+  system "gem install ./pkg/#{GEM_NAME}-#{AutomationObject::VERSION}.gem"
 end
 
 desc 'Release Gem'
 task release: [:install] do
-  system "gem push ./pkg/automation_object-#{AutomationObject::VERSION}.gem"
+  system "gem push ./pkg/#{GEM_NAME}-#{AutomationObject::VERSION}.gem"
 end
 
 task default: :test
