@@ -5,7 +5,7 @@ require 'minitest/unit'
 require 'mocha/mini_test'
 require 'minitest-bonus-assertions'
 
-#Coveralls unit test coverage
+# Coveralls unit test coverage
 require 'coveralls'
 Coveralls.wear!
 
