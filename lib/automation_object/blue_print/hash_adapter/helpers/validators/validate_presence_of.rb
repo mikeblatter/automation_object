@@ -11,7 +11,7 @@ module AutomationObject
             @key = args.fetch :key
 
             options = args.fetch :args, {}
-            options = (options.is_a?(Hash)) ? options : {}
+            options = options.is_a?(Hash) ? options : {}
             @unless_presence_of = options.fetch :unless_presence_of, nil
           end
 
@@ -20,14 +20,14 @@ module AutomationObject
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
             # Get the hash value from the composite object
-            return if composite_object.hash.has_key?(@key)
+            return if composite_object.hash.key?(@key)
 
             # Do unless_presence_of check
             if @unless_presence_of
-              return if composite_object.hash.has_key?(@unless_presence_of)
+              return if composite_object.hash.key?(@unless_presence_of)
             end
 
-            self.error_messages.push("Required Key Missing: #{@key}, at: #{composite_object.location}.")
+            error_messages.push("Required Key Missing: #{@key}, at: #{composite_object.location}.")
           end
         end
       end

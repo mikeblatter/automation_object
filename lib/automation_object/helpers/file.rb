@@ -5,13 +5,11 @@ class ::File
     # @param path [String] specified directory path for getting files underneath
     # @returns [Array] list of file paths that exist recursively underneath a directory
     def collect_files(path)
-      unless File.exist?(path)
-        raise "Expecting path to exist, got #{path}"
-      end
+      raise "Expecting path to exist, got #{path}" unless File.exist?(path)
 
       if File.directory?(path)
-        @file_array = Array.new
-        self.recursive_collection(path)
+        @file_array = []
+        recursive_collection(path)
       else
         @file_array = [path]
       end
@@ -25,11 +23,11 @@ class ::File
     # @param path [String] specified directory path for getting files underneath
     def recursive_collection(path)
       Dir.foreach(path) do |item|
-        next if item == '.' or item == '..'
+        next if item == '.' || item == '..'
 
-        file_path = File.join(path, "#{item}")
+        file_path = File.join(path, item.to_s)
         if File.directory?(file_path)
-          self.recursive_collection(file_path)
+          recursive_collection(file_path)
         else
           @file_array.push(file_path)
         end

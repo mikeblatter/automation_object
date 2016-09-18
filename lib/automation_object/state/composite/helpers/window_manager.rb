@@ -8,12 +8,12 @@ module AutomationObject
         attr_accessor :window, :modal
 
         def window=(name)
-          self.windows.each { |window|
+          windows.each do |window|
             next if window.name != name
             return if window == self.window
 
             self.window.use
-          }
+          end
         end
 
         # @return [Array<Window>]
@@ -23,25 +23,23 @@ module AutomationObject
 
         # @return [Array<String>] list of stored window handles
         def window_handles
-          windows.map { |window| window.handle }
+          windows.map(&:handle)
         end
 
         # @return [Array<String>] list of stored screen names
         def live_screens
-          windows.map { |window| window.name }
+          windows.map(&:name)
         end
 
         def new_window(name)
-          driver_handles = self.driver.window_handles
-          diff_handles = driver_handles - self.window_handles
+          driver_handles = driver.window_handles
+          diff_handles = driver_handles - window_handles
 
           # Should only have one extra window
-          if diff_handles.length > 1
-            raise UnexpectedExtraWindowError.new
-          end
+          raise UnexpectedExtraWindowError if diff_handles.length > 1
 
-          self.window = Window.new(self.driver, diff_handles.first, name)
-          self.windows << self.window
+          self.window = Window.new(driver, diff_handles.first, name)
+          windows << window
         end
       end
     end

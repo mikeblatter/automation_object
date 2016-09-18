@@ -17,27 +17,27 @@ module AutomationObject
       class Modal < Base
         # @return [Array<Symbol>]
         def included_views
-          self.adapter.screens
+          adapter.screens
         end
 
         # @return [Hook]
         def load
-          self.adapter.load
+          adapter.load
         end
 
         # @return [Hash<Element>]
         def elements
-          self.adapter.elements
+          adapter.elements
         end
 
         # @return [Hash<ElementArray>]
         def element_arrays
-          self.adapter.element_arrays
+          adapter.element_arrays
         end
 
         # @return [Hash<ElementHash>]
         def element_hashes
-          self.adapter.element_hashes
+          adapter.element_hashes
         end
       end
     end

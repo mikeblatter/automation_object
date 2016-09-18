@@ -23,32 +23,32 @@ module AutomationObject
         # @return [Object] nokogiri object
         def request(type, url, params = {})
           request = Request.new(type, url, params)
-          self.make_request(request)
+          make_request(request)
 
-          self.update_history(request)
+          update_history(request)
         end
 
         def current_url
           request = @history.at(@position)
-          return request.url
+          request.url
         end
 
         def back
-          raise UnableToNavigateBackward.new if @position == 0
+          raise UnableToNavigateBackward if @position.zero?
           @position -= 1
 
-          self.make_request(@history.at(@position))
+          make_request(@history.at(@position))
         end
 
         def forward
-          raise UnableToNavigateForward.new if @position >= @history.length - 2
+          raise UnableToNavigateForward if @position >= @history.length - 2
           @position += 1
 
-          self.make_request(@history.at(@position))
+          make_request(@history.at(@position))
         end
 
         def refresh
-          self.make_request(@history.at(@position))
+          make_request(@history.at(@position))
         end
 
         protected
@@ -63,14 +63,14 @@ module AutomationObject
         def make_request(request)
           parsed_url = request.url
 
-          if parsed_url.valid_url? == false and self.current_url == nil
+          if parsed_url.valid_url? == false && current_url.nil?
             raise ArgumentError, "Expecting get argument url to be a valid_url?, got #{url}"
-          elsif url.valid_url? == false and self.current_url
-            parsed_url = self.current_url.join_url(request.url)
+          elsif url.valid_url? == false && current_url
+            parsed_url = current_url.join_url(request.url)
           end
 
-          client_resource = RestClient::Resource.new(parsed_url, :ssl_version => 'SSLv23_client')
-          response = client_resource.send(request.type, {:params => request.params})
+          client_resource = RestClient::Resource.new(parsed_url, ssl_version: 'SSLv23_client')
+          response = client_resource.send(request.type, params: request.params)
 
           self.xml = Nokogiri::HTML.parse(response)
         end

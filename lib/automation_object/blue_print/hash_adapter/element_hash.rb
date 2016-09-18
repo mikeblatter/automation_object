@@ -30,12 +30,12 @@ module AutomationObject
         validates :custom_range, instance_of: [Hash, String]
         validates :in_iframe, instance_of: String, element_presence_of: true
         validates :custom_methods, instance_of: Hash
-        validates :css, instance_of: String, presence_of: {:unless_presence_of => :xpath}
-        validates :xpath, instance_of: String, presence_of: {:unless_presence_of => :css}
+        validates :css, instance_of: String, presence_of: { unless_presence_of: :xpath }
+        validates :xpath, instance_of: String, presence_of: { unless_presence_of: :css }
 
         # @return [Symbol] element method to define element keys by
         def define_elements_by
-          return self.hash[:define_elements_by].to_sym
+          hash[:define_elements_by].to_sym
         end
       end
     end

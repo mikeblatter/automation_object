@@ -5,7 +5,9 @@ module AutomationObject
         attr_accessor :type, :url, :params
 
         def initialize(type, url, params)
-          self.type, self.url, self.params = type, url, params
+          self.type = type
+          self.url = url
+          self.params = params
         end
       end
     end

@@ -14,7 +14,7 @@ module AutomationObject
 
         # @return [Array<String>] window handles
         def window_handles
-          @windows.map { |window| window.handle }
+          @windows.map(&:handle)
         end
 
         # @return [String] current window handle
@@ -24,20 +24,18 @@ module AutomationObject
 
         # @return [String] current URL
         def current_url
-          return @windows[@current_window].current_url
+          @windows[@current_window].current_url
         end
 
         # Switch window handles
         # @param handle_value [String] handle value of window to switch to
         def window_handle=(handle_value)
-          unless self.window_handles.include?(handle_value)
-            raise NoSuchWindowError
-          end
+          raise NoSuchWindowError unless window_handles.include?(handle_value)
 
           @position = 0
-          @windows.each_with_index { |index, window|
+          @windows.each_with_index do |index, window|
             @position = index if window.handle == handle_value
-          }
+          end
         end
 
         # Request url, will set xml to current window handle
@@ -69,7 +67,7 @@ module AutomationObject
 
         def close
           # Reset session if only one window
-          self.quit if @windows.length == 1
+          quit if @windows.length == 1
 
           @windows.delete_at(@position)
           @position -= 1 if @position > 0

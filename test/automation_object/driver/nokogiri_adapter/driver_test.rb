@@ -7,7 +7,7 @@ class TestNokogiriAdapterDriver < Minitest::Test
   self.interface_class = AutomationObject::Driver::Driver
   self.adapter_class = AutomationObject::Driver::NokogiriAdapter::Driver
 
-  create_tests()
+  create_tests
 
   def setup
   end

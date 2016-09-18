@@ -11,7 +11,7 @@ class TestValidationError < Minitest::Test
     validation_error = @validation_error_class.new('test')
     assert_equal ['test'], validation_error.errors
 
-    validation_error = @validation_error_class.new(['test', 'test_two'])
-    assert_equal ['test', 'test_two'], validation_error.errors
+    validation_error = @validation_error_class.new(%w(test test_two))
+    assert_equal %w(test test_two), validation_error.errors
   end
 end

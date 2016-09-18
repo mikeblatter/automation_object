@@ -12,11 +12,11 @@ module AutomationObject
       end
 
       def get(key)
-        return self.values[key]
+        values[key]
       end
 
       def set(key, value)
-        self.values[key] = value
+        values[key] = value
       end
     end
   end

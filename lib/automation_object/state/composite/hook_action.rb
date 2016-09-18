@@ -15,18 +15,17 @@ module AutomationObject
   module State
     module Composite
       class HookAction < Base
-
         # @return [Boolean] run success or not
         def run
-          self.blue_prints.hook_order.each { |hook_name|
+          blue_prints.hook_order.each do |hook_name|
             hook_action_class = AutomationObject::State::Composite.const_get(hook_name.to_s.pascalize)
             blue_prints = self.blue_prints.send(hook_name)
 
             hook_action = hook_action_class.new(blue_prints: blue_prints, composite: self)
             return false if hook_action.run == false
-          }
+          end
 
-          return true
+          true
         end
       end
     end

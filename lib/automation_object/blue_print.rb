@@ -21,20 +21,20 @@ module AutomationObject
     # @param adapter_name [String] name of adapter wanted for composite creation
     def adapter=(adapter_name)
       adapter_name = adapter_name.to_s
-      adapter_name << '_adapter' unless adapter_name.match(/_adapter$/)
+      adapter_name << '_adapter' unless adapter_name =~ /_adapter$/
       adapter_const = adapter_name.pascalize
 
-      @adapter = AutomationObject::BluePrint.const_get("#{adapter_const}")
+      @adapter = AutomationObject::BluePrint.const_get(adapter_const.to_s)
     end
 
     # Adapters use the composite AutomationObject::BluePrint::Composite interfaces
     # @return [AutomationObject::BluePrint::Composite::Top]
     def build(blueprint_arg)
       case blueprint_arg
-        when String
-          self.adapter = :yaml
-        when Hash
-          self.adapter = :hash
+      when String
+        self.adapter = :yaml
+      when Hash
+        self.adapter = :hash
       end
 
       adapter.build(blueprint_arg)

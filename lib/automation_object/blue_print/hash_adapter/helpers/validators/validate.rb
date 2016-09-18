@@ -11,12 +11,12 @@ module AutomationObject
           undef :error_messages if method_defined? :error_messages
           # @return [Array<String>] array of error messages, default empty array
           def error_messages
-            @error_messages ||= Array.new
+            @error_messages ||= []
           end
 
           # @return [Boolean] whether or not validation passed or failed
           def valid?
-            return (self.error_messages.length == 0) ? true : false
+            error_messages.length.zero? ? true : false
           end
         end
       end

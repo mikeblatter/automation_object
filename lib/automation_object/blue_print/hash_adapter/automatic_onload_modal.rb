@@ -12,22 +12,22 @@ module AutomationObject
         validates :close, instance_of: TrueClass
 
         def modal_name
-          modal_name = self.hash[:modal_name]
+          modal_name = hash[:modal_name]
 
           case modal_name
-            when Symbol, String
-              return modal_name.to_sym
-            else
-              return nil
+          when Symbol, String
+            return modal_name.to_sym
+          else
+            return nil
           end
         end
 
         def number_of_checks
-          return self.hash[:number_of_checks] ||= 1
+          hash[:number_of_checks] ||= 1
         end
 
         def close
-          return self.hash[:close] ||= false
+          hash[:close] ||= false
         end
       end
     end

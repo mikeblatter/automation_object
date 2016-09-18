@@ -11,18 +11,18 @@ module AutomationObject
         validates :evaluate, instance_of: [String], presence_of: true
 
         def element_method
-          element_method = self.hash[:element_method]
+          element_method = hash[:element_method]
 
           case element_method
-            when Symbol, String
-              return element_method.to_sym
-            else
-              return nil
+          when Symbol, String
+            return element_method.to_sym
+          else
+            return nil
           end
         end
 
         def evaluate
-          return self.hash[:evaluate] ||= nil
+          hash[:evaluate] ||= nil
         end
       end
     end

@@ -10,17 +10,17 @@ module AutomationObject
       class Hook < Base
         # @return [HookAction]
         def before
-          self.adapter.before
+          adapter.before
         end
 
         # @return [HookAction]
         def after
-          self.adapter.after
+          adapter.after
         end
 
         # @return [Array<HookElementRequirements>] array of element requirements
         def live?
-          self.adapter.live?
+          adapter.live?
         end
       end
     end

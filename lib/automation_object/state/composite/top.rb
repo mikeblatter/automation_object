@@ -17,8 +17,8 @@ module AutomationObject
         def initialize(*args)
           super(*args)
 
-          self.driver.get(self.blue_prints.base_url) if self.blue_prints.base_url
-          self.new_window(self.initial_screen)
+          driver.get(blue_prints.base_url) if blue_prints.base_url
+          new_window(initial_screen)
         end
 
         # Get the initial screen
@@ -26,22 +26,22 @@ module AutomationObject
         # @return [Symbol] screen name
         def initial_screen
           # If default screen then check if its live and set it
-          if self.blue_prints.default_screen
-            screen_name = self.blue_prints.default_screen
-            default_screen_live = self.screens[screen_name].load.live?
+          if blue_prints.default_screen
+            screen_name = blue_prints.default_screen
+            default_screen_live = screens[screen_name].load.live?
 
-            if default_screen_live == nil or default_screen_live == true
+            if default_screen_live.nil? || default_screen_live == true
               return screen_name
             else
-              raise AutomationObject::State::NoInitialScreenError.new
+              raise AutomationObject::State::NoInitialScreenError
             end
           end
 
-          self.screens.each { |screen_name, screen|
+          screens.each do |screen_name, screen|
             return screen_name if screen.load.live?
-          }
+          end
 
-          raise AutomationObject::State::NoInitialScreenError.new
+          raise AutomationObject::State::NoInitialScreenError
         end
       end
     end

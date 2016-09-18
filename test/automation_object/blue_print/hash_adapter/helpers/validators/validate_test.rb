@@ -16,7 +16,7 @@ class TestValidate < Minitest::Test
     validator = AutomationObject::BluePrint::HashAdapter::Validators::Validate.new
     assert_equal true, validator.valid?
 
-    validator.error_messages = [1,2,3,4,5]
+    validator.error_messages = [1, 2, 3, 4, 5]
     assert_equal false, validator.valid?
   end
 end

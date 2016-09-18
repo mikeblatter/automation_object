@@ -10,8 +10,8 @@ require 'fakefs/safe'
 
 # Test AutomationObject::BluePrint::FileHelper
 class TestBluePrintFileHelper < Minitest::Test
-  DIRS = %w(/test /test/first_dir /test/second_dir)
-  FILES = %w(/test/test_file /test/test_file_two /test/first_dir/test_file_three /test/second_dir/test_file_four /test/second_dir/test_file_five)
+  DIRS = %w(/test /test/first_dir /test/second_dir).freeze
+  FILES = %w(/test/test_file /test/test_file_two /test/first_dir/test_file_three /test/second_dir/test_file_four /test/second_dir/test_file_five).freeze
 
   def setup
     FakeFS.activate!
@@ -27,25 +27,25 @@ class TestBluePrintFileHelper < Minitest::Test
 
   def teardown
     all_entities = DIRS + FILES
-    all_entities.each { |path|
+    all_entities.each do |path|
       FileUtils.rm_r(path) if File.exist?(path)
-    }
+    end
 
     FakeFS.deactivate!
   end
 
   # Test FakeFS to make sure it is working properly
-  DIRS.each { |directory|
+  DIRS.each do |directory|
     define_method("test_fs_directory_#{directory.gsub(/\W/, '').downcase}") do
       assert File.directory?(directory)
     end
-  }
+  end
 
-  FILES.each { |file|
+  FILES.each do |file|
     define_method("test_fs_file_#{file.gsub(/\W/, '').downcase}") do
       assert File.exist?(file)
     end
-  }
+  end
 
   def test_collect_files_type
     collected_files = FileCopy.collect_files('/test')
@@ -58,10 +58,10 @@ class TestBluePrintFileHelper < Minitest::Test
   end
 
   # Test collected files
-  FILES.each { |file|
+  FILES.each do |file|
     define_method("test_collected_files_included_#{file.gsub(/\W/, '').downcase}") do
       collected_files = FileCopy.collect_files('/test')
       assert_includes collected_files, '/test/test_file'
     end
-  }
+  end
 end

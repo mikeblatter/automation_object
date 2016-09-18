@@ -5,11 +5,11 @@ module AutomationObject
     module Composite
       class ChangeToPreviousScreen < ActionLoop
         def single_run
-          return false unless self.driver.document_complete?
+          return false unless driver.document_complete?
 
-          new_screen = self.composite.top.current_window.previous_screen_name
+          new_screen = composite.top.current_window.previous_screen_name
           if new_screen.load.live?
-            self.composite.top.set_screen(new_screen)
+            composite.top.set_screen(new_screen)
             return true
           else
             return false

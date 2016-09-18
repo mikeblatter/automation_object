@@ -18,11 +18,11 @@ module AutomationObject
             # Get the hash from the composite object
             target_hash = composite_object.hash
 
-            target_hash.each_key { |key|
+            target_hash.each_key do |key|
               unless @allowed_keys.include?(key)
-                self.error_messages.push("Invalid Key: #{key}, at: #{composite_object.location}. Allowed keys: #{@allowed_keys}.")
+                error_messages.push("Invalid Key: #{key}, at: #{composite_object.location}. Allowed keys: #{@allowed_keys}.")
               end
-            }
+            end
           end
         end
       end

@@ -45,13 +45,11 @@ module AutomationObject
             @subject.manage.timeouts.implicit_wait = 0
             element_objects = @subject.find_elements(selector_type, selector_path)
             @subject.manage.timeouts.implicit_wait = original_timeout
-            if element_objects.length > 0
-              exists = true
-            end
+            exists = true unless element_objects.empty?
           rescue Exception
           end
 
-          return exists
+          exists
         end
 
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
@@ -60,7 +58,7 @@ module AutomationObject
         def find_element(selector_type, selector_path)
           element = @subject.find_element(selector_type, selector_path)
           # Wrap in adapter interface
-          return AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
+          AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
         end
 
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
@@ -69,9 +67,9 @@ module AutomationObject
         def find_elements(selector_type, selector_path)
           elements = @subject.find_elements(selector_type, selector_path)
 
-          elements.map { |element|
+          elements.map do |element|
             AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
-          }
+          end
         end
 
         # Accept prompt either in browser or mobile
@@ -115,7 +113,7 @@ module AutomationObject
         # Run script in browser to check if document in JS is complete
         # @return [Boolean] document is complete
         def document_complete?
-          return @subject.execute_script('return document.readyState;') == 'complete'
+          @subject.execute_script('return document.readyState;') == 'complete'
         end
 
         # Destroy the driver

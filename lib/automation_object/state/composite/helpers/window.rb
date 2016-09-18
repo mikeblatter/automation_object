@@ -27,21 +27,21 @@ module AutomationObject
         end
 
         def back
-          raise CannotNavigateBack.new if @position == 0
+          raise CannotNavigateBack if @position.zero?
 
           @driver.back
           @position -= 1
         end
 
         def forward
-          raise CannotNavigateForward.new if @position >= @history.length
+          raise CannotNavigateForward if @position >= @history.length
 
           @driver.forward
           @position += 1
         end
 
         def closed?
-          !@driver.window_handles.include?(self.window_handle)
+          !@driver.window_handles.include?(window_handle)
         end
 
         # Close the window

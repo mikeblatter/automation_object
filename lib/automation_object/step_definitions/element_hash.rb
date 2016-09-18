@@ -13,7 +13,8 @@ When(/^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|
   method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
-      screen, element, key, low_range, high_range) do |element|
+    screen, element, key, low_range, high_range
+  ) do |element|
     element.send(method)
   end
 end
@@ -25,7 +26,8 @@ When(/^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|rand
   text, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
-      screen, element, key, low_range, high_range) do |element|
+    screen, element, key, low_range, high_range
+  ) do |element|
     element.send_keys(text)
   end
 end
@@ -37,9 +39,8 @@ When(/^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|las
   key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
-      screen, element, key, low_range, high_range) do |element|
-    element.scroll_into_view
-  end
+    screen, element, key, low_range, high_range, &:scroll_into_view
+  )
 end
 
 # Step to save something from an element array
@@ -49,7 +50,8 @@ When(/^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|ra
   method, value_key, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
-      screen, element, key, low_range, high_range) do |element|
+    screen, element, key, low_range, high_range
+  ) do |element|
     value = element.send(method)
     AutomationObject::StepDefinitions::Cache.set(value_key, value)
   end
@@ -64,25 +66,24 @@ Then(/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash shoul
   element_hash = AutomationObject::Framework.get.send(screen).send(element)
   assert element_hash.is_a?(Hash)
 
-  case
-    when comparison.match(/larger th[ae]n|greater th[ae]n/)
-      if negative
-        refute expected_value < element_hash.keys.length
-      else
-        assert expected_value < element_hash.keys.length
-      end
-    when comparison.match(/smaller th[ae]n|less th[ae]n/)
-      if negative
-        refute expected_value > element_hash.keys.length
-      else
-        assert expected_value > element_hash.keys.length
-      end
-    when comparison.match(/equals?/)
-      if negative
-        refute_equals expected_value, element_hash.keys.length
-      else
-        assert_equals expected_value, element_hash.keys.length
-      end
+  if comparison =~ /larger th[ae]n|greater th[ae]n/
+    if negative
+      refute expected_value < element_hash.keys.length
+    else
+      assert expected_value < element_hash.keys.length
+    end
+  elsif comparison =~ /smaller th[ae]n|less th[ae]n/
+    if negative
+      refute expected_value > element_hash.keys.length
+    else
+      assert expected_value > element_hash.keys.length
+    end
+  elsif comparison =~ /equals?/
+    if negative
+      refute_equals expected_value, element_hash.keys.length
+    else
+      assert_equals expected_value, element_hash.keys.length
+    end
   end
 end
 
@@ -94,7 +95,8 @@ Then(/^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})"
   key, low_range, high_range, screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
-      screen, element, key, low_range, high_range) do |element|
+    screen, element, key, low_range, high_range
+  ) do |element|
     value = element.send(method)
 
     if negative
@@ -115,9 +117,9 @@ Then(/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "
   assert element_hash.is_a?(Hash)
 
   values = []
-  element_hash.each_value { |element|
+  element_hash.each_value do |element|
     values.push(element.send(method))
-  }
+  end
 
   if negative
     refute_equals values.uniq, values

@@ -10,12 +10,12 @@ module AutomationObject
       class CustomMethod < Base
         # @return [Symbol, nil]
         def element_method
-          self.adapter.element_method
+          adapter.element_method
         end
 
         # @return [String, nil]
         def evaluate
-          self.adapter.evaluate
+          adapter.evaluate
         end
       end
     end

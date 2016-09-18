@@ -25,20 +25,21 @@ module AutomationObject
     # @param adapter_name [String] name of adapter wanted for composite creation
     def adapter=(adapter_name)
       adapter_name = adapter_name.to_s
-      adapter_name << '_adapter' unless adapter_name.match(/_adapter$/)
+      adapter_name << '_adapter' unless adapter_name =~ /_adapter$/
       adapter_const = adapter_name.pascalize
 
-      @adapter = AutomationObject::Driver.const_get("#{adapter_const}")::Driver
+      @adapter = AutomationObject::Driver.const_get(adapter_const.to_s)::Driver
     end
 
     # @param driver [Object] selenium or appium driver. default nil for Nokogiri
     # @return [AutomationObject::Driver::Driver]
     def new(driver = nil)
-      adapted_driver = Driver.new(self.adapter.new(driver))
+      adapted_driver = Driver.new(adapter.new(driver))
 
       # Add throttling and mutex proxies around adapter
-      return AutomationObject::Proxy::MutexProxy.new(
-                    AutomationObject::Proxy::ThrottleProxy.new(adapted_driver))
+      AutomationObject::Proxy::MutexProxy.new(
+        AutomationObject::Proxy::ThrottleProxy.new(adapted_driver)
+      )
     end
   end
 end

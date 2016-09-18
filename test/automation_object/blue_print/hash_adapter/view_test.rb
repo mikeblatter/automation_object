@@ -8,5 +8,5 @@ class TestHashAdapterView < Minitest::Test
   self.adapter_class = AutomationObject::BluePrint::HashAdapter::View
   self.defaults = {}
 
-  create_tests()
+  create_tests
 end

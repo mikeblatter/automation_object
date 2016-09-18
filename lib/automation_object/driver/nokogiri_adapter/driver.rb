@@ -20,24 +20,24 @@ module AutomationObject
         # @param url [String] navigate to the following url
         # @return [void]
         def get(url)
-          self.session.get(url)
+          session.get(url)
         end
 
         def back
-          self.session.back
+          session.back
         end
 
         def forward
-          self.session.forward
+          session.forward
         end
 
         def refresh
-          self.session.refresh
+          session.refresh
         end
 
         # Destroy the driver
         def quit
-          self.session.quit
+          session.quit
         end
 
         # Set timeout wait
@@ -50,19 +50,19 @@ module AutomationObject
         # @param selector_path [String] path to element
         # @return [Boolean] element exists?
         def exists?(selector_type, selector_path)
-          elements = self.get_elements(selector_type, selector_path)
-          return (elements.length > 0) ? true : false
+          elements = get_elements(selector_type, selector_path)
+          !elements.empty? ? true : false
         end
 
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
         # @return [AutomationObject::Driver::Element] element
         def find_element(selector_type, selector_path)
-          elements = self.get_elements(selector_type, selector_path)
-          raise NoSuchElementError if elements.length == 0
+          elements = get_elements(selector_type, selector_path)
+          raise NoSuchElementError if elements.length.zero?
 
-          return AutomationObject::Driver::Element.new(
-              AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: elements.first)
+          AutomationObject::Driver::Element.new(
+            AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: elements.first)
           )
         end
 
@@ -70,12 +70,12 @@ module AutomationObject
         # @param selector_path [String] path to element
         # @return [Array<AutomationObject::Driver::Element>] elements
         def find_elements(selector_type, selector_path)
-          elements = self.get_elements(selector_type, selector_path)
-          return elements.map { |element|
+          elements = get_elements(selector_type, selector_path)
+          elements.map do |element|
             AutomationObject::Driver::Element.new(
               AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: element)
             )
-          }
+          end
         end
 
         # Accept prompt either in browser or mobile
@@ -95,19 +95,19 @@ module AutomationObject
         # Window Handles
         # @return [Array<String>] array of window handle ids
         def window_handles
-          self.session.window_handles
+          session.window_handles
         end
 
         # Current window handle
         # @return [String] handle id
         def window_handle
-          self.session.window_handle
+          session.window_handle
         end
 
         # Set current window handle to, will switch windows
         # @param handle_value [String] window handle value
         def window_handle=(handle_value)
-          self.session.window_handle = handle_value
+          session.window_handle = handle_value
         end
 
         # Run script in browser to check if document in JS is complete
@@ -134,15 +134,15 @@ module AutomationObject
 
         def get_elements(selector_type, selector_path)
           case selector_type
-            when :xpath
-              elements = self.session.xml.xpath(selector_path)
-            when :css
-              elements = self.session.xml.css(selector_path)
-            else
-              raise ArgumentError, "#{selector_type} selector type not implemented. Only :css, :xpath"
+          when :xpath
+            elements = session.xml.xpath(selector_path)
+          when :css
+            elements = session.xml.css(selector_path)
+          else
+            raise ArgumentError, "#{selector_type} selector type not implemented. Only :css, :xpath"
           end
 
-          return elements
+          elements
         end
       end
     end

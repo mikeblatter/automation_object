@@ -9,14 +9,14 @@ class TestValidateScreenPresenceOf < Minitest::Test
   end
 
   def test_success
-    validation_stub = stub(:hash => {
-                               :default_screen => :existent_screen,
-                               :screens => {
-                                   :existent_screen => {}
-                               }
+    validation_stub = stub(hash: {
+                             default_screen: :existent_screen,
+                             screens: {
+                               existent_screen: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :default_screen)
     validator.validate(validation_stub)
@@ -26,18 +26,18 @@ class TestValidateScreenPresenceOf < Minitest::Test
   end
 
   def test_success_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :screens => {
-                                          :existent_screen => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    screens: {
+                                      existent_screen: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :default_screen => :existent_screen,
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             default_screen: :existent_screen
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :default_screen)
     validator.validate(validation_stub)
@@ -47,14 +47,14 @@ class TestValidateScreenPresenceOf < Minitest::Test
   end
 
   def test_error
-    validation_stub = stub(:hash => {
-                               :default_screen => :nonexistent_screen,
-                               :screens => {
-                                   :existent_screen => {}
-                               }
+    validation_stub = stub(hash: {
+                             default_screen: :nonexistent_screen,
+                             screens: {
+                               existent_screen: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :default_screen)
     validator.validate(validation_stub)
@@ -64,18 +64,18 @@ class TestValidateScreenPresenceOf < Minitest::Test
   end
 
   def test_error_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :screens => {
-                                          :existent_screen => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    screens: {
+                                      existent_screen: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :default_screen => :nonexistent_screen,
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             default_screen: :nonexistent_screen
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :default_screen)
     validator.validate(validation_stub)

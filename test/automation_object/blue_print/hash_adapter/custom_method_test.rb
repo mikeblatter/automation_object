@@ -7,19 +7,19 @@ class TestHashAdapterCustomMethod < Minitest::Test
   self.interface_class = AutomationObject::BluePrint::Composite::CustomMethod
   self.adapter_class = AutomationObject::BluePrint::HashAdapter::CustomMethod
   self.defaults = {
-      :element_method => nil,
-      :evaluate => nil
+    element_method: nil,
+    evaluate: nil
   }
 
-  create_tests()
+  create_tests
 
   def test_element_method
-    composite = self.create_composite({:element_method => 'element_method'})
+    composite = create_composite(element_method: 'element_method')
     assert_equal :element_method, composite.element_method
   end
 
   def test_evaluate
-    composite = self.create_composite({:evaluate => 'test'})
+    composite = create_composite(evaluate: 'test')
     assert_equal 'test', composite.evaluate
   end
 end

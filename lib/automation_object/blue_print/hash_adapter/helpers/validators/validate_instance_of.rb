@@ -10,7 +10,7 @@ module AutomationObject
           def initialize(args)
             @key = args.fetch :key
             # Convert to array of instances for consistency
-            @should_be_instances_of = (args.fetch(:args).is_a?(Array)) ? args.fetch(:args) : [args.fetch(:args)]
+            @should_be_instances_of = args.fetch(:args).is_a?(Array) ? args.fetch(:args) : [args.fetch(:args)]
           end
 
           # Validates the composite object and throws errors on failure
@@ -23,14 +23,14 @@ module AutomationObject
             # Skip empty or non-existent
             return unless target_value
 
-            @should_be_instances_of.each { |should_be_instance_of|
+            @should_be_instances_of.each do |should_be_instance_of|
               return if target_value.is_a?(should_be_instance_of)
-            }
+            end
 
             error_message = "Invalid Type: #{target_value.class}, at: #{composite_object.location}[#{@key}]."
             error_message << " Allowed Type(s): #{@should_be_instances_of}"
 
-            self.error_messages.push(error_message)
+            error_messages.push(error_message)
           end
         end
       end

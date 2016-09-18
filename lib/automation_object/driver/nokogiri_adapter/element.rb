@@ -20,7 +20,7 @@ module AutomationObject
         # @return [String, nil]
         def attribute(key, value = nil)
           @subject[key] = value if value
-          return @subject[key]
+          @subject[key]
         end
 
         # @return [String] id of element
@@ -95,12 +95,12 @@ module AutomationObject
         # Perform a click action on the element
         # @return [void]
         def click
-          if self.href and @subject['tag'] == 'a'
-            @driver.session.request(:get, self.href, {}, self.attribute('target') == '_blank')
+          if href && @subject['tag'] == 'a'
+            @driver.session.request(:get, href, {}, attribute('target') == '_blank')
           end
 
           # In case it's a button inside the form
-          self.submit if find_form(@subject)
+          submit if find_form(@subject)
         end
 
         # @return [Numeric] x position of element
@@ -125,18 +125,18 @@ module AutomationObject
 
         # @return [Point] :x, :y coordinates
         def element_center
-          Point.new(:x => 0, :y => 0)
+          Point.new(x: 0, y: 0)
         end
 
         # @return [BoxCoordinates] :x1, :x2, :y1, :y2 coordinates of a box
         def box_coordinates
-          BoxCoordinates.new(:x1 => 0, :y1 => 0, :x2 => 0, :y2 => 0)
+          BoxCoordinates.new(x1: 0, y1: 0, x2: 0, y2: 0)
         end
 
         # @param second_element_object [Object] element to compare to
         # @param collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
         # @return [Boolean] element collides with other
-        def collides_with_element?(second_element_object, collision_tolerance = false)
+        def collides_with_element?(_second_element_object, _collision_tolerance = false)
           false
         end
 
@@ -158,7 +158,7 @@ module AutomationObject
           return nil unless element
 
           return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == 'form'
-          return find_form(element.parent)
+          find_form(element.parent)
         end
       end
     end

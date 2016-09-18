@@ -17,20 +17,20 @@ module AutomationObject
           def validate(composite_object)
             # Get the hash value from the composite object
             target_value = composite_object.hash[@key]
-            target_values = (target_value.is_a?(Array)) ? target_value : [target_value]
+            target_values = target_value.is_a?(Array) ? target_value : [target_value]
 
             return unless target_value
 
-            valid_views = self.find_views(composite_object)
+            valid_views = find_views(composite_object)
 
-            target_values.each { |view|
+            target_values.each do |view|
               view = view.to_sym
               next if valid_views.include?(view)
 
               error_message = "Invalid View: #{view}, at: #{composite_object.location}[#{@key}]."
               error_message << " Valid Views(s): #{valid_views}"
-              self.error_messages.push(error_message)
-            }
+              error_messages.push(error_message)
+            end
           end
 
           # Need to traverse up the composite tree and find views
@@ -40,10 +40,10 @@ module AutomationObject
             if composite_object.hash[:views].is_a?(Hash)
               return composite_object.hash[:views].keys # Should be Hash with view names as the keys
             elsif composite_object.parent
-              return self.find_views(composite_object.parent)
+              return find_views(composite_object.parent)
             end
 
-            return []
+            []
           end
         end
       end

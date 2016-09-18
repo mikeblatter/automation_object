@@ -18,10 +18,10 @@ module AutomationObject
         def scroll_into_view
           @subject.location_once_scrolled_into_view
 
-          element_location = self.location
+          element_location = location
           scroll_position = @driver.scroll_position
 
-          middle_y_bounds = scroll_position[:y] + @driver.inner_window_height/2
+          middle_y_bounds = scroll_position[:y] + @driver.inner_window_height / 2
 
           if middle_y_bounds > element_location.y
             # Add

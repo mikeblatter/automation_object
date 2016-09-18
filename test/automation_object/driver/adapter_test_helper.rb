@@ -12,7 +12,7 @@ module AdapterTestHelper
   end
 
   def create_adapter
-    self.class.adapter_class.new(stub())
+    self.class.adapter_class.new(stub)
   end
 
   def self.included(base)
@@ -23,7 +23,7 @@ module AdapterTestHelper
     attr_accessor :adapter_class, :interface_class
 
     def create_tests
-      self.interface_class.public_instance_methods(false).each do |method|
+      interface_class.public_instance_methods(false).each do |method|
         define_method("test_interface_#{method}") do
           assert self.class.adapter_class.public_instance_methods(true).include?(method),
                  "#{self.class.adapter_class} should have instance method: #{method}"

@@ -15,48 +15,46 @@ module AutomationObject
         def hook_order
           hook_order = [:exists?] # Always put exists? first
 
-          self.hash.keys.each { |hook_name|
+          hash.keys.each do |hook_name|
             hook_order.push(hook_name) unless [:element_name, :exists?].include?(hook_name)
-          }
+          end
 
-          return hook_order
+          hook_order
         end
 
         # Get element requirement
         # @param name [Symbol] name of requested requirement
         def requirement(name)
-          return self.hash[name] ||= nil
+          hash[name] ||= nil
         end
 
         # Get name of the element
         # @return [Symbol] name of element
         def element_name
-          element_name = self.hash[:element_name]
+          element_name = hash[:element_name]
 
           case element_name
-            when Symbol, String
-              return element_name.to_sym
-            else
-              return nil
+          when Symbol, String
+            return element_name.to_sym
+          else
+            return nil
           end
         end
 
         # Convience for getting element blueprints
         # @return [AutomationObject::BluePrint::HashAdapter::Element]
         def element_blueprints(composite_object = nil)
-          unless composite_object
-            composite_object = self
-          end
+          composite_object = self unless composite_object
 
           # Traverse!
           if composite_object.hash[:elements].is_a?(Hash)
 
-            return composite_object.elements[self.element_name]
+            return composite_object.elements[element_name]
           elsif composite_object.parent
-            return self.element_blueprints(composite_object.parent)
+            return element_blueprints(composite_object.parent)
           end
 
-          return nil
+          nil
         end
       end
     end

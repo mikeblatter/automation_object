@@ -22,10 +22,10 @@ module AutomationObject
           return unless @driver.is_browser?
 
           element_center = self.element_center
-          window_height = self.inner_window_height
+          window_height = inner_window_height
           scroll_position = @driver.scroll_position
 
-          if element_center[:y] < (window_height/2)
+          if element_center[:y] < (window_height / 2)
             ideal_y_position = (scroll_position[:y] + element_center[:y] - (window_height.to_f / 2.0)).abs
           else
             ideal_y_position = (scroll_position[:y] - element_center[:y] + (window_height.to_f / 2.0)).abs

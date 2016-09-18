@@ -12,11 +12,7 @@ module AutomationObject
         @state = state
         @name = name
 
-        if subject
-          @subject = subject.new(blue_prints, state)
-        else
-          @subject = nil
-        end
+        @subject = (subject.new(blue_prints, state) if subject)
       end
     end
   end

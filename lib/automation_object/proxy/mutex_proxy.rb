@@ -28,35 +28,35 @@ module AutomationObject
       end
 
       def method_missing(method_symbol, *args, &block)
-        exec_procedures = Array.new
-        exec_procedures.push(lambda {
+        exec_procedures = []
+        exec_procedures.push(lambda do
           execution_return = @subject.send(method_symbol, *args, &block)
-          return self.protect_object(execution_return)
-        })
+          return protect_object(execution_return)
+        end)
 
         index = 0
-        @mutexes.each { |mutex|
+        @mutexes.each do |mutex|
           index += 1
-          exec_procedures.push(lambda {
+          exec_procedures.push(lambda do
             mutex.synchronize do
               index -= 1
               exec_procedures[index].call
             end
-          })
-        }
+          end)
+        end
 
-        return exec_procedures.last.call
+        exec_procedures.last.call
       end
 
       def protect_object(object)
         return object if @skip_protection_classes.include?(object.class)
         protected_object = MutexProxy.new(object)
 
-        @mutexes.each { |mutex|
+        @mutexes.each do |mutex|
           protected_object.add_mutex(mutex)
-        }
+        end
 
-        return protected_object
+        protected_object
       end
     end
   end

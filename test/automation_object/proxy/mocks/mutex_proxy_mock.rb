@@ -8,17 +8,17 @@ class MutexProxyMock
   end
 
   def test_method
-    return true
+    true
   end
 
   def test_mutex
-    return false if self.thread_working
+    return false if thread_working
 
     self.thread_working = true
     # Sleep is fine, tested without Mutex protection and it fails consistently
     sleep(0.001)
     self.thread_working = false
 
-    return true
+    true
   end
 end

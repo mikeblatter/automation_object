@@ -32,12 +32,12 @@ module AutomationObject
         # @param name [Symbol] name of child
         # @param args [Hash] args
         def get_child(name, args)
-          child_location = self.location + "[#{name}]"
+          child_location = location + "[#{name}]"
 
-          return args.fetch(:interface).new(self.session,
-                                            self.driver,
-                                            self.blue_prints.send(name),
-                                            name, self, child_location)
+          args.fetch(:interface).new(session,
+                                     driver,
+                                     blue_prints.send(name),
+                                     name, self, child_location)
         end
 
         # Overriding base get_children method
@@ -45,28 +45,28 @@ module AutomationObject
         # @param args [Hash] args
         # @return children [Array<Composite>] return children and names
         def get_children(name, args)
-          children_hash = Hash.new
+          children_hash = {}
 
-          self.blue_prints.send(name).each { |child_key, child_blue_prints|
-            child_location = self.location + "[#{child_key}]"
+          blue_prints.send(name).each do |child_key, child_blue_prints|
+            child_location = location + "[#{child_key}]"
 
-            children_hash[child_key] = args.fetch(:interface).new(self.session,
-                                                                  self.driver,
+            children_hash[child_key] = args.fetch(:interface).new(session,
+                                                                  driver,
                                                                   child_blue_prints,
                                                                   name, self, child_location)
-          }
+          end
 
-          return children_hash
+          children_hash
         end
 
         # Recursive function to reach parent screen
         # Can return nil if above a screen!
         # @return [AutomationObject::State::BluePrintAdapter::Screen,nil]
         def screen
-          return nil if self.is_a?(Top)
+          return nil if is_a?(Top)
 
           # Should recursively call top until parent is nil
-          return (self.is_a?(Screen)) ? self : self.parent.screen
+          is_a?(Screen) ? self : parent.screen
         end
       end
     end

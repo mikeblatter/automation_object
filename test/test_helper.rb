@@ -8,7 +8,7 @@ require 'minitest-bonus-assertions'
 # Extension of Assertions
 module Minitest
   module Assertions
-    def refute_raises *exp
+    def refute_raises(*exp)
       msg = "#{exp.pop}.\n" if String === exp.last
 
       begin
@@ -17,19 +17,19 @@ module Minitest
         return e if exp.include? Minitest::Skip
         raise e
       rescue Exception => e
-        expected = exp.any? { |ex|
-          if ex.instance_of? Module then
-            e.kind_of? ex
+        expected = exp.any? do |ex|
+          if ex.instance_of? Module
+            e.is_a? ex
           else
             e.instance_of? ex
           end
-        }
+        end
 
         assert expected, proc {
           exception_details(e, "#{msg}#{mu_pp(exp)} exception not expected, not")
         }
 
-        exp = exp.first if exp.size == 0
+        exp = exp.first if exp.size.zero?
         flunk "#{msg}#{mu_pp(exp)} not expected but was raised."
 
         return e

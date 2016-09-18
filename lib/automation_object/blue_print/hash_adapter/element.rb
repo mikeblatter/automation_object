@@ -26,8 +26,8 @@ module AutomationObject
         validates :custom_methods, instance_of: Hash
 
         validates :in_iframe, instance_of: String, element_presence_of: true
-        validates :css, instance_of: String, presence_of: {:unless_presence_of => :xpath}
-        validates :xpath, instance_of: String, presence_of: {:unless_presence_of => :css}
+        validates :css, instance_of: String, presence_of: { unless_presence_of: :xpath }
+        validates :xpath, instance_of: String, presence_of: { unless_presence_of: :css }
       end
     end
   end

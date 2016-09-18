@@ -3,7 +3,7 @@ module AutomationObject
     class Base
       attr_accessor :adapter
 
-      def initialize(adapter_object, *args)
+      def initialize(adapter_object, *_args)
         self.adapter = adapter_object
       end
     end

@@ -20,7 +20,7 @@ module AutomationObject
         # If Screen class has the method defined, then don't load
         return super if ElementHash.method_defined?(method)
 
-        if @subject == nil
+        if @subject.nil?
           puts "@state.load(:element_hash, #{@name})"
           @subject = @state.load(:element_hash, @name)
         end

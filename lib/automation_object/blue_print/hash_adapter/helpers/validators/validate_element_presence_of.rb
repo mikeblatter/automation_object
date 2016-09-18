@@ -20,18 +20,18 @@ module AutomationObject
 
             return unless target_value
 
-            target_values = (target_value.is_a?(Array)) ? target_value : [target_value]
+            target_values = target_value.is_a?(Array) ? target_value : [target_value]
 
-            valid_elements = self.find_elements(composite_object)
+            valid_elements = find_elements(composite_object)
 
-            target_values.each { |element|
+            target_values.each do |element|
               element = element.to_sym
               next if valid_elements.include?(element)
 
               error_message = "Invalid Element: #{element}, at: #{composite_object.location}[#{@key}]."
               error_message << " Valid Elements(s): #{valid_elements}"
-              self.error_messages.push(error_message)
-            }
+              error_messages.push(error_message)
+            end
           end
 
           # Traverses up a composite tree to find :elements in a hash
@@ -43,10 +43,10 @@ module AutomationObject
             if composite_object.hash[:elements].is_a?(Hash)
               return composite_object.hash[:elements].keys # Should be Hash with element names as the keys
             elsif composite_object.parent
-              return self.find_elements(composite_object.parent)
+              return find_elements(composite_object.parent)
             end
 
-            return []
+            []
           end
         end
       end

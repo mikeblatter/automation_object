@@ -29,27 +29,27 @@ module AutomationObject
         # Get the order to run the hook in
         # @return [Array<Symbol>] list of hook methods to run in given order
         def hook_order
-          return self.hash.keys
+          hash.keys
         end
 
         # Get length of hook actions
         # @return [Integer] length of hook actions
         def length
-          return self.hash.keys.length
+          hash.keys.length
         end
 
         # See if hook actions are empty
         # @return [Boolean] if hook actions are empty
         def empty?
-          return !(self.hash.keys.length > 0)
+          !(hash.keys.length > 0)
         end
 
         # @return [Symbol, nil] screen to change to
         def change_screen
-          change_screen = self.hash[:change_screen]
+          change_screen = hash[:change_screen]
 
           case change_screen
-            when Symbol, String
+          when Symbol, String
               return change_screen.to_sym
             else
               return nil
@@ -58,10 +58,10 @@ module AutomationObject
 
         # @return [Symbol, nil] new screen
         def new_screen
-          new_screen = self.hash[:new_screen]
+          new_screen = hash[:new_screen]
 
           case new_screen
-            when Symbol, String
+          when Symbol, String
               return new_screen.to_sym
             else
               return nil
@@ -70,25 +70,25 @@ module AutomationObject
 
         # @return [Boolean]
         def close_screen
-          return self.hash[:close_screen] ||= false
+          hash[:close_screen] ||= false
         end
 
         # @return [Boolean]
         def close_modal
-          return self.hash[:close_modal] ||= false
+          hash[:close_modal] ||= false
         end
 
         # @return [Boolean]
         def change_to_previous_screen
-          return self.hash[:change_to_previous_screen] ||= false
+          hash[:change_to_previous_screen] ||= false
         end
 
         # @return [Symbol, nil]
         def show_modal
-          show_modal = self.hash[:show_modal]
+          show_modal = hash[:show_modal]
 
           case show_modal
-            when Symbol, String
+          when Symbol, String
               return show_modal.to_sym
             else
               return nil
@@ -97,36 +97,35 @@ module AutomationObject
 
         # @return [Array]
         def possible_screen_changes
-          if self.hash[:possible_screen_changes].is_a?(Array)
-            return self.hash[:possible_screen_changes].map { |value| value.to_sym }
+          if hash[:possible_screen_changes].is_a?(Array)
+            return hash[:possible_screen_changes].map(&:to_sym)
           else
-            return Array.new
+            return []
           end
         end
 
         # @return [Boolean] reset the screen?
         def reset_screen
-          return self.hash[:reset_screen] ||= false
+          hash[:reset_screen] ||= false
         end
 
         # @return [Numeric] amount of time to sleep
         def sleep
-          return self.hash[:sleep] ||= 0
+          hash[:sleep] ||= 0
         end
 
         # Custom method for array of children instead of Hash
         # @return [Array<HookElementRequirements>] array of wait for element children
         def wait_for_elements
           return @wait_for_elements if defined? @wait_for_elements
-          wait_for_elements = self.hash[:wait_for_elements]
+          wait_for_elements = hash[:wait_for_elements]
 
-          children = (wait_for_elements.is_a?(Array)) ? wait_for_elements : Array.new
-          @wait_for_elements = self.create_array_children(:wait_for_elements, children,
-                                                          {interface: HookElementRequirements,
-                                                           location: self.location + '[wait_for_elements]'
-                                                          })
+          children = wait_for_elements.is_a?(Array) ? wait_for_elements : []
+          @wait_for_elements = create_array_children(:wait_for_elements, children,
+                                                          interface: HookElementRequirements,
+                                                           location: location + '[wait_for_elements]')
 
-          return @wait_for_elements
+          @wait_for_elements
         end
       end
     end

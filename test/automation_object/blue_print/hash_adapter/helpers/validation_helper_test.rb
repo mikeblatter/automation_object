@@ -5,7 +5,7 @@ require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/h
 # Test AutomationObject::BluePrint::HashAdapter::ValidationHelper
 class TestBluePrintHashAdapterValidationHelper < Minitest::Test
   def setup
-    @composite_stub = stub()
+    @composite_stub = stub
     @composite_stub.class.send(:include, AutomationObject::BluePrint::HashAdapter::ValidationHelper)
   end
 

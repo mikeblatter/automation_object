@@ -7,7 +7,7 @@ class TestAppiumAdapterElement < Minitest::Test
   self.interface_class = AutomationObject::Driver::Element
   self.adapter_class = AutomationObject::Driver::AppiumAdapter::Element
 
-  create_tests()
+  create_tests
 
   def setup
   end

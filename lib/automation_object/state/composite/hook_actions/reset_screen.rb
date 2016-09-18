@@ -5,9 +5,7 @@ module AutomationObject
     module Composite
       class ResetScreen < ActionLoop
         def single_run
-          unless self.composite.screen
-            raise ScreenParentExpected.new
-          end
+          raise ScreenParentExpected unless composite.screen
         end
       end
     end

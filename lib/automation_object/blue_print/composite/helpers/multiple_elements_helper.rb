@@ -5,12 +5,12 @@ module AutomationObject
       module MultipleElementsHelper
         # @return [Range, nil] gives range for limiting multiple elements or nil
         def custom_range
-          self.adapter.custom_range
+          adapter.custom_range
         end
 
         # @return [Symbol, nil] gives element method to remove duplicates on or nil
         def remove_duplicates
-          self.adapter.remove_duplicates
+          adapter.remove_duplicates
         end
       end
     end

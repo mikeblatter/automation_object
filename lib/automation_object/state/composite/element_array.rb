@@ -11,13 +11,13 @@ module AutomationObject
 
         # @return [Array<AutomationObject::State::Composite::ElementProxy>] Selenium proxy
         def load
-          elements = self.driver.find_elements(*self.blue_prints.selector_params)
+          elements = driver.find_elements(*blue_prints.selector_params)
 
-          wrapped_elements = elements.map { |element|
+          wrapped_elements = elements.map do |element|
             ElementProxy.new(composite: self, element: element)
-          }
+          end
 
-          return wrapped_elements
+          wrapped_elements
         end
       end
     end

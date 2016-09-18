@@ -21,7 +21,7 @@ module AutomationObject
         # Give errors a default empty Array
         # @return [Array<String>] errors messages
         def errors
-          @errors ||= Array.new
+          @errors ||= []
         end
 
         # Give errors a default empty Array
@@ -35,20 +35,18 @@ module AutomationObject
         def valid?
           return true if self.class.skip_validations
 
-         # ap self.class
+          # ap self.class
           # ap self.class.name
           self.class.validations.collect do |validation|
-           # ap validation.class.name
+            # ap validation.class.name
           end
 
           self.class.validations.collect do |validation|
             validation.validate(self)
-            unless validation.valid?
-              self.add_errors(validation.error_messages)
-            end
+            add_errors(validation.error_messages) unless validation.valid?
           end
 
-          return self.errors.empty?
+          self.errors.empty?
         end
 
         def self.included(base)
@@ -69,24 +67,24 @@ module AutomationObject
           # @param args [Hash] arguments for validation
           # @return [nil]
           def validates(key, args = {})
-            args.each { |validator_name, validation_args|
+            args.each do |validator_name, validation_args|
               validator_name = 'Validate' + validator_name.to_s.pascalize
               validator = Validators.const_get(validator_name)
 
-              self.validations.push(validator.new({:key => key, :args => validation_args}))
-            }
+              validations.push(validator.new(key: key, args: validation_args))
+            end
           end
 
           # @param args [Hash] arguments for validation
           # @return [nil]
           def validates_keys(args = {})
-            self.validations.push(Validators::ValidateAllowedKeys.new(args))
+            validations.push(Validators::ValidateAllowedKeys.new(args))
           end
 
           # @return [Array] list of Validators, default to empty list
           def validations
             @validations = [] unless defined? @validations
-            return @validations
+            @validations
           end
         end
       end

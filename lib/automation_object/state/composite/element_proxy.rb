@@ -20,7 +20,7 @@ module AutomationObject
           # Run after hook if needed
           @composite.method_hooks[method_symbol].after if @composite.method_hook?(method_symbol)
 
-          return subject_return
+          subject_return
         end
       end
     end

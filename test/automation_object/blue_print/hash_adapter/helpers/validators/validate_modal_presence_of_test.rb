@@ -8,14 +8,14 @@ class TestValidateModalPresenceOf < Minitest::Test
   end
 
   def test_success
-    validation_stub = stub(:hash => {
-                               :link_to_modal => :existent_modal,
-                               :modals => {
-                                   :existent_modal => {}
-                               }
+    validation_stub = stub(hash: {
+                             link_to_modal: :existent_modal,
+                             modals: {
+                               existent_modal: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :link_to_modal)
     validator.validate(validation_stub)
@@ -25,18 +25,18 @@ class TestValidateModalPresenceOf < Minitest::Test
   end
 
   def test_success_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :modals => {
-                                          :existent_modal => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    modals: {
+                                      existent_modal: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :link_to_modal => :existent_modal,
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             link_to_modal: :existent_modal
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :link_to_modal)
     validator.validate(validation_stub)
@@ -46,14 +46,14 @@ class TestValidateModalPresenceOf < Minitest::Test
   end
 
   def test_error
-    validation_stub = stub(:hash => {
-                               :link_to_modal => :nonexistent_modal,
-                               :modals => {
-                                   :existent_modal => {}
-                               }
+    validation_stub = stub(hash: {
+                             link_to_modal: :nonexistent_modal,
+                             modals: {
+                               existent_modal: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :link_to_modal)
     validator.validate(validation_stub)
@@ -63,18 +63,18 @@ class TestValidateModalPresenceOf < Minitest::Test
   end
 
   def test_error_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :modals => {
-                                          :existent_modal => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    modals: {
+                                      existent_modal: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :link_to_modal => :nonexistent_modal,
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             link_to_modal: :nonexistent_modal
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :link_to_modal)
     validator.validate(validation_stub)

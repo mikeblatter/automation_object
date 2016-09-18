@@ -4,6 +4,6 @@ module Kernel
     $VERBOSE = nil
     result = yield
     $VERBOSE = original_verbosity
-    return result
+    result
   end
 end

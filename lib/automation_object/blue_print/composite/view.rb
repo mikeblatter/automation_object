@@ -10,37 +10,37 @@ module AutomationObject
       class View < Base
         # @return [Array<AutomaticOnloadModal>]
         def automatic_onload_modals
-          self.adapter.automatic_onload_modals
+          adapter.automatic_onload_modals
         end
 
         # @return [Array<Symbol>]
         def automatic_screen_changes
-          self.adapter.automatic_screen_changes
+          adapter.automatic_screen_changes
         end
 
         # @return [Hook]
         def load
-          self.adapter.load
+          adapter.load
         end
 
         # @return [Hash<Modal>]
         def modals
-          self.adapter.modals
+          adapter.modals
         end
 
         # @return [Hash<Element>]
         def elements
-          self.adapter.elements
+          adapter.elements
         end
 
         # @return [Hash<ElementArray>]
         def element_arrays
-          self.adapter.element_arrays
+          adapter.element_arrays
         end
 
         # @return [Hash<ElementHash>]
         def element_hashes
-          self.adapter.element_hashes
+          adapter.element_hashes
         end
       end
     end

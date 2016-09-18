@@ -12,7 +12,7 @@ module AutomationObject
           position.x = @subject.execute_script('var doc = document.documentElement; return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);').to_f
           position.y = @subject.execute_script('var doc = document.documentElement; return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);').to_f
 
-          return position
+          position
         end
 
         # @return [Float] inner window height

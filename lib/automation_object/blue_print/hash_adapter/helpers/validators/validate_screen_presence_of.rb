@@ -20,18 +20,18 @@ module AutomationObject
 
             return unless target_value
 
-            target_values = (target_value.is_a?(Array)) ? target_value : [target_value]
+            target_values = target_value.is_a?(Array) ? target_value : [target_value]
 
-            valid_screens = self.find_screens(composite_object)
+            valid_screens = find_screens(composite_object)
 
-            target_values.each { |screen|
+            target_values.each do |screen|
               screen = screen.to_sym
               next if valid_screens.include?(screen)
 
               error_message = "Invalid Screen: #{screen}, at: #{composite_object.location}[#{@key}]."
               error_message << " Valid Screen(s): #{valid_screens}"
-              self.error_messages.push(error_message)
-            }
+              error_messages.push(error_message)
+            end
           end
 
           # Traverses up a composite tree to find :screens in a hash
@@ -43,10 +43,10 @@ module AutomationObject
             if composite_object.hash[:screens].is_a?(Hash)
               return composite_object.hash[:screens].keys # Should be Hash with screen names as the keys
             elsif composite_object.parent
-              return self.find_screens(composite_object.parent)
+              return find_screens(composite_object.parent)
             end
 
-            return []
+            []
           end
         end
       end

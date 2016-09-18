@@ -13,37 +13,37 @@ module AutomationObject
       class Top < Base
         # @return [Hash<Screen>]
         def screens
-          self.adapter.screens
+          adapter.screens
         end
 
         # @return [Hash<View>]
         def views
-          self.adapter.views
+          adapter.views
         end
 
         # @return [String, nil] base url to navigate to upon framework creation
         def base_url
-          self.adapter.base_url
+          adapter.base_url
         end
 
         # @return [Symbol, nil] default screen to be set when framework is created
         def default_screen
-          self.adapter.default_screen
+          adapter.default_screen
         end
 
         # @return [Numeric] sleep when transitioning screens
         def screen_transition_sleep
-          self.adapter.screen_transition_sleep
+          adapter.screen_transition_sleep
         end
 
         # @return [Hash] driver methods to throttle
         def throttle_driver_methods
-          self.adapter.throttle_driver_methods
+          adapter.throttle_driver_methods
         end
 
         # @return [Hash] element methods to throttle
         def throttle_element_methods
-          self.adapter.throttle_element_methods
+          adapter.throttle_element_methods
         end
       end
     end

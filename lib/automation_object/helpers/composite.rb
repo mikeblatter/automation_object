@@ -13,16 +13,16 @@ module AutomationObject
     # @param name [Symbol] name of the object
     # @param parent [Object, nil] parent composite object
     # @param location [String] string location for error/debugging purposes
-    def initialize(name = :top, parent = nil, location = 'top')
+    def initialize(_name = :top, parent = nil, location = 'top')
       self.parent = parent
       self.location = location
 
-      self.before_create_run
+      before_create_run
 
-      self.add_has_one_relationships
-      self.add_has_many_relationships
+      add_has_one_relationships
+      add_has_many_relationships
 
-      self.after_create_run
+      after_create_run
     end
 
     # Remove getter to solve stupid Ruby warning
@@ -35,14 +35,14 @@ module AutomationObject
     # @return [AutomationObject::Composite]
     def top
       # Should recursively call top until parent is nil
-      return (self.parent == nil) ? self : self.parent.top
+      parent.nil? ? self : parent.top
     end
 
     # Abstract argument, override
     # @param name [Symbol] name of child
     # @param options [Hash] options for child
     # @return child [Object] return child composite object
-    def get_child(name, options)
+    def get_child(_name, _options)
       raise 'Abstract method'
     end
 
@@ -50,23 +50,23 @@ module AutomationObject
     # @param name [Symbol] name of child
     # @param options [Hash] options for child
     # @return children [Hash] return children and names
-    def get_children(name, options)
+    def get_children(_name, _options)
       raise 'Abstract method'
     end
 
     def add_has_one_relationships
-      self.class.has_one_relationships.each { |name, options|
-        self.children[name] = get_child(name, options)
-        self.add_attribute(name, self.children[name])
-      }
+      self.class.has_one_relationships.each do |name, options|
+        children[name] = get_child(name, options)
+        add_attribute(name, children[name])
+      end
     end
 
     def add_has_many_relationships
-      self.class.has_many_relationships.each { |name, options|
+      self.class.has_many_relationships.each do |name, options|
         composite_children = get_children(name, options)
-        self.children[name] = composite_children
-        self.add_attribute(name, self.children[name])
-      }
+        children[name] = composite_children
+        add_attribute(name, children[name])
+      end
     end
 
     class << self
@@ -74,23 +74,23 @@ module AutomationObject
       # @param children_name [Symbol] name of the children, should be a BluePrint method
       # @param args [Hash] additional arguments, expects interface
       def has_many(children_name, args)
-        self.has_many_relationships[children_name] = args
+        has_many_relationships[children_name] = args
       end
 
       # @return [Hash] relationships for the composite
       def has_many_relationships
-        @has_many_relationships ||= Hash.new
+        @has_many_relationships ||= {}
       end
 
       # @param child_name [Symbol] name of key
       # @param args [Hash] arguments
       def has_one(child_name, args)
-        self.has_one_relationships[child_name] = args
+        has_one_relationships[child_name] = args
       end
 
       # @return [Hash] hash of relationships
       def has_one_relationships
-        @has_one_relationships ||= Hash.new
+        @has_one_relationships ||= {}
       end
     end
   end

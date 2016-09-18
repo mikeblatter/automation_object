@@ -29,22 +29,22 @@ module AutomationObject
 
         # @return [Array<Symbol>] array of views this can has
         def included_views
-          included_views_array = self.hash[:included_views] ||= Array.new
-          included_views_array.map { |view| view.to_sym }
+          included_views_array = hash[:included_views] ||= []
+          included_views_array.map(&:to_sym)
         end
 
         # Method to take views and merge into this composite
         def merge_views
-          top_hash = self.top.hash
+          top_hash = top.hash
 
           return unless top_hash.is_a?(Hash)
           return unless top_hash[:views].is_a?(Hash)
           top_view_hash = top_hash[:views]
 
-          self.included_views.each { |included_view|
+          included_views.each do |included_view|
             next unless top_view_hash[included_view].is_a?(Hash)
-            self.hash = self.hash.deep_merge(top_view_hash[included_view])
-          }
+            self.hash = hash.deep_merge(top_view_hash[included_view])
+          end
         end
       end
     end

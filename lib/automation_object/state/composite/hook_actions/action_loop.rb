@@ -12,18 +12,16 @@ module AutomationObject
         end
 
         def driver
-          return self.composite.driver
+          composite.driver
         end
 
         # @return [Boolean] run success or not
         def run
-          self.loops.times do
-            if self.single_run
-              return true
-            end
+          loops.times do
+            return true if single_run
           end
 
-          return false
+          false
         end
 
         # @return [Boolean] success or not

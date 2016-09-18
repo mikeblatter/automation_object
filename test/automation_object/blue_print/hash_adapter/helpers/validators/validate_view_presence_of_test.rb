@@ -9,14 +9,14 @@ class TestValidateViewPresenceOf < Minitest::Test
   end
 
   def test_success
-    validation_stub = stub(:hash => {
-                               :included_views => [:existent_view],
-                               :views => {
-                                   :existent_view => {}
-                               }
+    validation_stub = stub(hash: {
+                             included_views: [:existent_view],
+                             views: {
+                               existent_view: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :included_views)
     validator.validate(validation_stub)
@@ -26,18 +26,18 @@ class TestValidateViewPresenceOf < Minitest::Test
   end
 
   def test_success_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :views => {
-                                          :existent_view => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    views: {
+                                      existent_view: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :included_views => [:existent_view],
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             included_views: [:existent_view]
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :included_views)
     validator.validate(validation_stub)
@@ -47,14 +47,14 @@ class TestValidateViewPresenceOf < Minitest::Test
   end
 
   def test_error
-    validation_stub = stub(:hash => {
-                               :included_views => [:nonexistent_view],
-                               :views => {
-                                   :existent_view => {}
-                               }
+    validation_stub = stub(hash: {
+                             included_views: [:nonexistent_view],
+                             views: {
+                               existent_view: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :included_views)
     validator.validate(validation_stub)
@@ -64,18 +64,18 @@ class TestValidateViewPresenceOf < Minitest::Test
   end
 
   def test_error_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :views => {
-                                          :existent_view => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    views: {
+                                      existent_view: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :included_views => [:nonexistent_view],
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             included_views: [:nonexistent_view]
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :included_views)
     validator.validate(validation_stub)

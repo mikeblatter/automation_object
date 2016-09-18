@@ -12,7 +12,7 @@ module AutomationObject
     # @param blue_prints [AutomationObject::BluePrint::Composite::Top] Top composite interface
     # # @return [AutomationObject::State::Session] Session instance
     def new(driver, blue_prints)
-      return Session.new(driver, blue_prints)
+      Session.new(driver, blue_prints)
     end
   end
 end

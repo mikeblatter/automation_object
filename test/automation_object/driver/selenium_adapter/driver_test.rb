@@ -7,7 +7,7 @@ class TestSeleniumAdapterDriver < Minitest::Test
   self.interface_class = AutomationObject::Driver::Driver
   self.adapter_class = AutomationObject::Driver::SeleniumAdapter::Driver
 
-  create_tests()
+  create_tests
 
   def setup
   end

@@ -15,18 +15,18 @@ module AutomationObject
         path = File.expand_path(path)
 
         file_array = File.collect_files(path)
-        merged_yaml_hash = self.load_yaml_files(file_array)
+        merged_yaml_hash = load_yaml_files(file_array)
 
-        return AutomationObject::BluePrint::HashAdapter.build(merged_yaml_hash)
+        AutomationObject::BluePrint::HashAdapter.build(merged_yaml_hash)
       end
 
       # @param file_array [Array<String>] array of file paths to load
       # @return [Hash] merged YAML Hash
       def load_yaml_files(file_array)
-        merged_yaml_hash = Hash.new
+        merged_yaml_hash = {}
 
-        file_array.each { |file_path|
-          next unless self.is_yaml_file?(file_path)
+        file_array.each do |file_path|
+          next unless is_yaml_file?(file_path)
 
           file_hash = YAML.load_file(file_path)
 
@@ -35,15 +35,15 @@ module AutomationObject
           end
 
           merged_yaml_hash = merged_yaml_hash.deep_merge(file_hash)
-        }
+        end
 
-        return merged_yaml_hash
+        merged_yaml_hash
       end
 
       # @param file_path [String] file path
       # @return [Boolean] whether or not it is a YAML file
       def is_yaml_file?(file_path)
-        return (file_path.match(/\.ya?ml$/)) ? true : false
+        file_path =~ /\.ya?ml$/ ? true : false
       end
     end
   end

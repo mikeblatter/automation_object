@@ -9,15 +9,14 @@ class TestValidateElementPresenceOf < Minitest::Test
   end
 
   def test_success
-    validation_stub = stub(:hash => {
-                               :link_to_element => :existent_element,
-                               :elements => {
-                                   :existent_element => {}
-                               }
+    validation_stub = stub(hash: {
+                             link_to_element: :existent_element,
+                             elements: {
+                               existent_element: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
-
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :link_to_element)
     validator.validate(validation_stub)
@@ -27,18 +26,18 @@ class TestValidateElementPresenceOf < Minitest::Test
   end
 
   def test_success_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :elements => {
-                                          :existent_element => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    elements: {
+                                      existent_element: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :link_to_element => :existent_element,
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             link_to_element: :existent_element
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :link_to_element)
     validator.validate(validation_stub)
@@ -48,14 +47,14 @@ class TestValidateElementPresenceOf < Minitest::Test
   end
 
   def test_error
-    validation_stub = stub(:hash => {
-                               :link_to_element => :nonexistent_element,
-                               :elements => {
-                                   :existent_element => {}
-                               }
+    validation_stub = stub(hash: {
+                             link_to_element: :nonexistent_element,
+                             elements: {
+                               existent_element: {}
+                             }
                            },
-                           :parent => nil,
-                           :location => '')
+                           parent: nil,
+                           location: '')
 
     validator = @validator.new(key: :link_to_element)
     validator.validate(validation_stub)
@@ -65,18 +64,18 @@ class TestValidateElementPresenceOf < Minitest::Test
   end
 
   def test_error_with_parent
-    parent_validation_stub = stub(:hash => {
-                                      :elements => {
-                                          :existent_element => {}
-                                      }
+    parent_validation_stub = stub(hash: {
+                                    elements: {
+                                      existent_element: {}
+                                    }
                                   },
-                                  :parent => nil,
-                                  :location => '')
-    validation_stub = stub(:hash => {
-                               :link_to_element => :nonexistent_element,
+                                  parent: nil,
+                                  location: '')
+    validation_stub = stub(hash: {
+                             link_to_element: :nonexistent_element
                            },
-                           :parent => parent_validation_stub,
-                           :location => '')
+                           parent: parent_validation_stub,
+                           location: '')
 
     validator = @validator.new(key: :link_to_element)
     validator.validate(validation_stub)

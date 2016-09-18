@@ -10,17 +10,17 @@ module AutomationObject
       class AutomaticOnloadModal < Base
         # @return [Symbol, nil]
         def modal_name
-          self.adapter.modal_name
+          adapter.modal_name
         end
 
         # @return [Integer]
         def number_of_checks
-          self.adapter.number_of_checks
+          adapter.number_of_checks
         end
 
         # @return [Boolean]
         def close
-          self.adapter.close
+          adapter.close
         end
       end
     end

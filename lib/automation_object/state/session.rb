@@ -23,21 +23,21 @@ module AutomationObject
 
       def load(type, name)
         case type
-          when :screen
-            unless self.composite.live_screens.include?(name)
-              raise AutomationObject::State::ScreenNotActiveError.new(name)
-            end
+        when :screen
+          unless composite.live_screens.include?(name)
+            raise AutomationObject::State::ScreenNotActiveError, name
+          end
 
-            # Set the current window by name
-            self.composite.window = name
-          when :modal
-            unless self.composite.window.modal == name
-              raise AutomationObject::State::ModalNotActiveError.new(name)
-            end
-          when :element, :element_array, :element_hash
-            return self.composite.get_object(type, name)
-          else
-            raise AutomationObject::State::UndefinedLoadTypeError.new
+          # Set the current window by name
+          composite.window = name
+        when :modal
+          unless composite.window.modal == name
+            raise AutomationObject::State::ModalNotActiveError, name
+          end
+        when :element, :element_array, :element_hash
+          return composite.get_object(type, name)
+        else
+          raise AutomationObject::State::UndefinedLoadTypeError
         end
       end
     end

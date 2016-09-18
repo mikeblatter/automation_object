@@ -14,7 +14,7 @@ module AutomationObject
           parsed_args.push(parse(arg))
         end
 
-        return parsed_args
+        parsed_args
       end
 
       private
@@ -25,14 +25,14 @@ module AutomationObject
       def parse(string)
         parsed_string = string
 
-        string.scan(/%\{(\w+)\}/) { |cache_key|
+        string.scan(/%\{(\w+)\}/) do |cache_key|
           cached_value = AutomationObject::StepDefinitions::Cache.get(cache_key)
           next unless cached_value
 
           parsed_string.gsub("%{#{cache_key}}", cached_value)
-        }
+        end
 
-        return parsed_string
+        parsed_string
       end
     end
   end

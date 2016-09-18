@@ -5,10 +5,10 @@ require_relative '../../../../../../lib/automation_object/blue_print/hash_adapte
 class TestValidateAllowedKeys < Minitest::Test
   def setup
     @validator = AutomationObject::BluePrint::HashAdapter::Validators::ValidateAllowedKeys
-    @validation_stub = stub(:hash => {
-                               :test_key_one => 1,
-                               :test_key_two => 2
-                           }, :location => 'composite_location.friendly_format')
+    @validation_stub = stub(hash: {
+                              test_key_one: 1,
+                              test_key_two: 2
+                            }, location: 'composite_location.friendly_format')
   end
 
   def test_success

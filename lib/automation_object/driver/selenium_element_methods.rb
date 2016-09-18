@@ -100,7 +100,7 @@ module AutomationObject
       # Perform a click action on the element
       # @return [void]
       def click
-        self.scroll_into_view if @driver.is_browser?
+        scroll_into_view if @driver.is_browser?
         @subject.click
       end
 
@@ -110,10 +110,10 @@ module AutomationObject
         element_size = @subject.size
 
         center = Point.new
-        center.x = (element_location.x.to_f + element_size.width.to_f/2).to_f
-        center.y = (element_location.y.to_f + element_size.height.to_f/2).to_f
+        center.x = (element_location.x.to_f + element_size.width.to_f / 2).to_f
+        center.y = (element_location.y.to_f + element_size.height.to_f / 2).to_f
 
-        return center
+        center
       end
 
       # @return [BoxCoordinates] :x1, :x2, :y1, :y2 coordinates of a box
@@ -127,21 +127,21 @@ module AutomationObject
         box_coordinates.x2 = element_location.x.to_f + element_size.width.to_f
         box_coordinates.y2 = element_location.y.to_f + element_size.height.to_f
 
-        return box_coordinates
+        box_coordinates
       end
 
       # @param second_element_object [Object] element to compare to
       # @param collision_tolerance [Numeric] pixel tolerance of collisions
       # @return [Boolean] element collides with other
       def collides_with_element?(second_element_object, collision_tolerance = false)
-        box_one = self.box_coordinates
+        box_one = box_coordinates
         box_two = second_element_object.box_coordinates
 
         collision_tolerance = 0 unless collision_tolerance.is_a?(Numeric)
 
-        if box_one.x2 > box_two.x1 and box_one.x1 < box_two.x2 and box_one.y2 > box_two.y1 and box_one.y1 < box_two.y2
-          if box_one.x2 > (box_two.x1 + collision_tolerance) and (box_one.x1 + collision_tolerance) < box_two.x2 and
-              box_one.y2 > (box_two.y1 + collision_tolerance) and (box_one.y1 + collision_tolerance) < box_two.y2
+        if box_one.x2 > box_two.x1 && box_one.x1 < box_two.x2 && box_one.y2 > box_two.y1 && box_one.y1 < box_two.y2
+          if box_one.x2 > (box_two.x1 + collision_tolerance) && (box_one.x1 + collision_tolerance) < box_two.x2 &&
+             box_one.y2 > (box_two.y1 + collision_tolerance) && (box_one.y1 + collision_tolerance) < box_two.y2
             return true
           else
             return false
@@ -153,13 +153,13 @@ module AutomationObject
 
       # Hover over element
       def hover
-        self.scroll_into_view
+        scroll_into_view
         @driver.action.move_to(@subject).perform
       end
 
       # Helper method to switch to this element's iframe
       def switch_to_iframe
-        @driver.switch_to.frame(self.iframe_switch_value)
+        @driver.switch_to.frame(iframe_switch_value)
       end
 
       protected
@@ -168,16 +168,16 @@ module AutomationObject
       # If value doesn't exist then create one
       # @return [String] iframe value to switch to
       def iframe_switch_value
-        iframe_switch_value = self.attribute('id')
-        if iframe_switch_value.length == 0
-          iframe_switch_value = self.attribute('name')
+        iframe_switch_value = attribute('id')
+        if iframe_switch_value.length.zero?
+          iframe_switch_value = attribute('name')
         end
 
         unless iframe_switch_value
-          iframe_switch_value = self.attribute('name', SecureRandom.hex(16))
+          iframe_switch_value = attribute('name', SecureRandom.hex(16))
         end
 
-        return iframe_switch_value
+        iframe_switch_value
       end
     end
   end

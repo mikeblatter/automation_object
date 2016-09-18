@@ -4,7 +4,7 @@ require_relative '../../../../../lib/automation_object/helpers/composite_hook'
 # Test AutomationObject::BluePrint::HashAdapter::HookHelper
 class TestCompositeHook < Minitest::Test
   def setup
-    @composite_stub = stub(:test_method => true) # Use test method to make sure hooks are called
+    @composite_stub = stub(test_method: true) # Use test method to make sure hooks are called
     @composite_stub.class.send(:include, AutomationObject::CompositeHook)
   end
 

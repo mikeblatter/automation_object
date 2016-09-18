@@ -8,10 +8,10 @@ class TestValidatePresenceOf < Minitest::Test
     # Shorten it up
     @validator = AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf
     @validation_stub = stub(
-        :location => 'test',
-        :hash => {
-            :existent => true
-        }
+      location: 'test',
+      hash: {
+        existent: true
+      }
     )
   end
 
@@ -24,7 +24,7 @@ class TestValidatePresenceOf < Minitest::Test
   end
 
   def test_success_unless_presence_of
-    validator = @validator.new(key: :nonexistent, args: { :unless_presence_of => :existent })
+    validator = @validator.new(key: :nonexistent, args: { unless_presence_of: :existent })
     validator.validate(@validation_stub)
 
     assert_empty validator.error_messages
@@ -40,7 +40,7 @@ class TestValidatePresenceOf < Minitest::Test
   end
 
   def test_error_unless_presence_of
-    validator = @validator.new(key: :nonexistent, args: { :unless_presence_of => :nonexistent_two })
+    validator = @validator.new(key: :nonexistent, args: { unless_presence_of: :nonexistent_two })
     validator.validate(@validation_stub)
 
     assert_equal 1, validator.error_messages.length

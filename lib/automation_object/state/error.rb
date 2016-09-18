@@ -20,7 +20,7 @@ module AutomationObject
           end
         end
 
-        class UndefinedLoadTypeError < StandardError;
+        class UndefinedLoadTypeError < StandardError
         end
 
         class NoInitialScreenError < StandardError

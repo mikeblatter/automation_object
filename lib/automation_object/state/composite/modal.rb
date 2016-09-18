@@ -18,7 +18,7 @@ module AutomationObject
         attr_accessor :active
         # @return [Boolean] screen is active or not
         def active
-          return @active ||= false
+          @active ||= false
         end
       end
     end

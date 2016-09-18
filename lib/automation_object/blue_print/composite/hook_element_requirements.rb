@@ -13,25 +13,25 @@ module AutomationObject
         # Get the order to run the hook in
         # @return [Array<Symbol>] list of hook methods to run in given order
         def hook_order
-          self.adapter.hook_order
+          adapter.hook_order
         end
 
         # Get element requirement
         # @param name [Symbol] name of requested requirement
         def requirement(name)
-          self.adapter.requirement(name)
+          adapter.requirement(name)
         end
 
         # Get name of the element
         # @return [Symbol] name of element
         def element_name
-          self.adapter.element_name
+          adapter.element_name
         end
 
         # Convience for getting element blueprints
         # @return [AutomationObject::BluePrint::Composite::Element]
         def element_blueprints(composite_object = nil)
-          self.adapter.element_blueprints(composite_object)
+          adapter.element_blueprints(composite_object)
         end
       end
     end

@@ -11,19 +11,19 @@ module AutomationObject
 
         # @return [Hash<String, AutomationObject::State::Composite::ElementProxy>] Selenium proxy
         def load
-          elements = self.driver.find_elements(*self.blue_prints.selector_params)
+          elements = driver.find_elements(*blue_prints.selector_params)
           elements_hash = {}
 
-          elements.each { |element|
+          elements.each do |element|
             # Want to wrap element, before sending for method!
             # That will help us include custom methods, etc...
             wrapped_element = ElementProxy.new(composite: self, element: element)
-            hash_key = wrapped_element.send(self.blue_prints.define_elements_by) # Send to wrapped state proxy
+            hash_key = wrapped_element.send(blue_prints.define_elements_by) # Send to wrapped state proxy
 
             elements_hash[hash_key] = wrapped_element
-          }
+          end
 
-          return elements_hash
+          elements_hash
         end
       end
     end

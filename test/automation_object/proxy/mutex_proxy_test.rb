@@ -23,16 +23,14 @@ class TestMutexProxy < Minitest::Test
   end
 
   def test_mutex
-    threads = Array.new
+    threads = []
 
     5.times do
-      threads.push(Thread.new {
+      threads.push(Thread.new do
         assert_equal @proxy.test_mutex, true
-      })
+      end)
     end
 
-    threads.each { |thread|
-      thread.join
-    }
+    threads.each(&:join)
   end
 end

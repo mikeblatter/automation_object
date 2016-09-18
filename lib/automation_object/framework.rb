@@ -29,7 +29,7 @@ module AutomationObject
       self.blue_prints = blue_prints
 
       self.state = State.new(self.driver, self.blue_prints)
-      @subject = Dsl.new(self.blue_prints, self.state)
+      @subject = Dsl.new(self.blue_prints, state)
 
       AutomationObject::Framework.singleton = self
     end
@@ -40,10 +40,10 @@ module AutomationObject
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
     def blue_prints=(value)
       case value
-        when String
-          BluePrint.adapter = :yaml
-        when Hash
-          BluePrint.adapter = :hash
+      when String
+        BluePrint.adapter = :yaml
+      when Hash
+        BluePrint.adapter = :hash
       end
 
       @blue_prints = BluePrint.build(value)
@@ -52,14 +52,14 @@ module AutomationObject
     # Driver port provides a formatted interface for interacting with different drivers
     # @return [AutomationObject::Driver::Driver] driver interface object
     def driver=(value)
-      case value
-        when Selenium::WebDriver::Driver
-          Driver.adapter = :selenium
-        when Appium::Driver
-          Driver.adapter = :appium
-        else
-          Driver.adapter = :nokogiri
-      end
+      Driver.adapter = case value
+                       when Selenium::WebDriver::Driver
+                         :selenium
+                       when Appium::Driver
+                         :appium
+                       else
+                         :nokogiri
+                       end
 
       @driver = Driver.new(value)
     end
@@ -68,7 +68,7 @@ module AutomationObject
     # Leave the driver alone here, can be done elsewhere
     # @return [void]
     def quit
-      self.state.quit # Quit the state.  That way it knows to kill threads if operational
+      state.quit # Quit the state.  That way it knows to kill threads if operational
       self.dsl, self.state, self.blue_prints, self.driver = nil
     end
 
@@ -81,7 +81,7 @@ module AutomationObject
       # Singleton method if using Cucumber
       # @return [Framework] singleton of self
       def get
-        return self.singleton
+        singleton
       end
     end
   end

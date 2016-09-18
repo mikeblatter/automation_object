@@ -28,34 +28,34 @@ module AutomationObject
 
         # @return [String, nil] base url to navigate to upon framework creation
         def base_url
-          self.hash[:base_url] ||= nil
+          hash[:base_url] ||= nil
         end
 
         # @return [Symbol, nil] default screen to be set when framework is created
         def default_screen
-          default_screen = self.hash[:default_screen]
+          default_screen = hash[:default_screen]
 
           case default_screen
-            when Symbol, String
-              return default_screen.to_sym
-            else
-              return nil
+          when Symbol, String
+            return default_screen.to_sym
+          else
+            return nil
           end
         end
 
         # @return [Numeric] sleep when transitioning screens
         def screen_transition_sleep
-          self.hash[:screen_transition_sleep] ||= 0
+          hash[:screen_transition_sleep] ||= 0
         end
 
         # @return [Hash] driver methods to throttle
         def throttle_driver_methods
-          self.hash[:throttle_driver_methods] ||= Hash.new
+          hash[:throttle_driver_methods] ||= {}
         end
 
         # @return [Hash] element methods to throttle
         def throttle_element_methods
-          self.hash[:throttle_element_methods] ||= Hash.new
+          hash[:throttle_element_methods] ||= {}
         end
       end
     end

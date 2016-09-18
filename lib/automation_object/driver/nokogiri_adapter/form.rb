@@ -12,28 +12,28 @@ module AutomationObject
         end
 
         def url
-          self.node['action']
+          node['action']
         end
 
         def new_window?
-          self.attribute('target') == '_blank'
+          attribute('target') == '_blank'
         end
 
         # @return [Hash]
         def params
           params = {}
 
-          self.node.traverse { |node|
+          node.traverse do |node|
             next unless node.name == 'input'
             params[node['name']] = node['value']
-          }
+          end
 
-          return params
+          params
         end
 
         # @return [Symbol]
         def request_method
-          (self.node['method'].upcase == 'GET') ? :get : :post
+          node['method'].casecmp('GET').zero? ? :get : :post
         end
       end
     end

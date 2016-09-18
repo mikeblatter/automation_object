@@ -6,7 +6,7 @@ module AutomationObject
     module Composite
       module CommonElement
         def method_hook?(name)
-          return self.blue_prints.method_hooks.has_key?(name)
+          blue_prints.method_hooks.key?(name)
         end
 
         # @return [Hash<Hook>] array of Hook that are defined under the element
@@ -14,15 +14,15 @@ module AutomationObject
           return @method_hooks if @method_hooks
 
           @method_hooks = {}
-          self.blue_prints.method_hooks.each { |key, blue_prints|
+          blue_prints.method_hooks.each do |key, blue_prints|
             @method_hooks[key] = Hook.new(blue_prints,
-                                          self.driver,
+                                          driver,
                                           key,
                                           self,
-                                          self.location + "[#{key}]")
-          }
+                                          location + "[#{key}]")
+          end
 
-          return @method_hooks
+          @method_hooks
         end
       end
     end

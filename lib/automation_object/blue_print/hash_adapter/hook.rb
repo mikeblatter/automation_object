@@ -23,15 +23,13 @@ module AutomationObject
         def live?
           return @live if defined? @live
 
-          children = self.hash[:live?]
-          children = (children.is_a?(Array)) ? children : Array.new
+          children = hash[:live?]
+          children = children.is_a?(Array) ? children : []
 
-          @live = self.create_array_children(:live, children,
-                                             {
-                                                 interface: HookElementRequirements,
-                                                 location: self.location + '[live?]'
-                                             })
-          return @live
+          @live = create_array_children(:live, children,
+                                        interface: HookElementRequirements,
+                                        location: location + '[live?]')
+          @live
         end
       end
     end

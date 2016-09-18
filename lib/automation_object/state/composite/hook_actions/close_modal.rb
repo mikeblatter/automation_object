@@ -6,19 +6,17 @@ module AutomationObject
     module Composite
       class CloseModal < ActionLoop
         def single_run
-          return false unless self.driver.document_complete?
+          return false unless driver.document_complete?
 
-          unless self.composite.parent.is_a?(Modal)
-            raise ModalParentExpected.new
-          end
+          raise ModalParentExpected unless composite.parent.is_a?(Modal)
 
-          modal = self.composite.parent
+          modal = composite.parent
           modal.active = modal.live?
 
           if !modal.active?
-            self.composite.screen.modal = nil
-            self.composite.screen.current_modal = nil
-            self.composite.top.destroy_modal()
+            composite.screen.modal = nil
+            composite.screen.current_modal = nil
+            composite.top.destroy_modal
             return true
           else
             return false

@@ -20,7 +20,7 @@ module AutomationObject
       end
 
       def active_screens
-        return @state
+        @state
       end
     end
   end

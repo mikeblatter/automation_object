@@ -7,6 +7,6 @@ class ProxyMock
   end
 
   def test_method
-    return true
+    true
   end
 end

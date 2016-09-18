@@ -6,12 +6,10 @@ module AutomationObject
     module Composite
       class CloseScreen < ActionLoop
         def single_run
-          unless self.composite.screen
-            raise ScreenParentExpected.new
-          end
+          raise ScreenParentExpected unless composite.screen
 
-          screen_name = self.composite.screen.name
-          return self.composite.top.window_closed?(screen_name)
+          screen_name = composite.screen.name
+          composite.top.window_closed?(screen_name)
         end
       end
     end
