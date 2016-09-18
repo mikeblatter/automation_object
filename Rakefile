@@ -7,6 +7,8 @@ require 'redcarpet'
 
 require 'rubocop/rake_task'
 
+require 'coveralls/rake/task'
+
 THIS_DIRECTORY = File.expand_path(__dir__).freeze
 LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
                   File.join(THIS_DIRECTORY, 'test/**/*.rb')].freeze

@@ -5,9 +5,13 @@ require 'minitest/unit'
 require 'mocha/mini_test'
 require 'minitest-bonus-assertions'
 
-# Coveralls unit test coverage
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter '/test'
+end
 
 # Extension of Assertions
 module Minitest
