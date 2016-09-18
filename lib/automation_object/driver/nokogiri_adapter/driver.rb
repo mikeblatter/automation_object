@@ -113,6 +113,7 @@ module AutomationObject
         # Run script in browser to check if document in JS is complete
         # @return [Boolean] document is complete
         def document_complete?
+          true
         end
 
         # @param script [String] JS to run

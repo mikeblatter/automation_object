@@ -26,14 +26,20 @@ module AutomationObject
           @subject.execute_script(script)
         end
 
+        # Go back
+        # @return [void]
         def back
           @subject.navigate.back
         end
 
+        # Go forward
+        # @return [void]
         def forward
           @subject.navigate.forward
         end
 
+        # Refresh window
+        # @return [void]
         def refresh
           @subject.navigate.refresh
         end

@@ -20,7 +20,19 @@ module AutomationObject
       # Refreshes current window
       # @return [void]
       def refresh
-        adapter.get(url)
+        adapter.refresh
+      end
+
+      # Go forward
+      # @return [void]
+      def forward
+        adapter.forward
+      end
+
+      # Go back
+      # @return [void]
+      def back
+        adapter.back
       end
 
       # Set timeout wait
