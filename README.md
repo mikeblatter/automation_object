@@ -2,6 +2,8 @@
 
 [![Travis Master](https://travis-ci.org/mikeblatter/automation_object.svg?branch=master)](https://travis-ci.org/mikeblatter/automation_object/builds)
 
+[![Coverage Status](https://coveralls.io/repos/github/mikeblatter/automation_object/badge.svg?branch=master)](https://coveralls.io/github/mikeblatter/automation_object?branch=master)
+
 Configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.
 
 This gem provides a way to create a dynamic usable DSL framework representing your website or app. Implementing Selenium/Appium driver
