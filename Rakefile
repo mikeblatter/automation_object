@@ -7,8 +7,6 @@ require 'redcarpet'
 
 require 'rubocop/rake_task'
 
-require 'coveralls/rake/task'
-
 THIS_DIRECTORY = File.expand_path(__dir__).freeze
 LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
                   File.join(THIS_DIRECTORY, 'test/**/*.rb')].freeze
@@ -20,9 +18,6 @@ Rake::TestTask.new do |t|
   t.test_files = FileList['test/**/*_test.rb', 'spec/**/*_spec.rb']
   t.verbose = true
 end
-
-# Unit Test Coverage
-Coveralls::RakeTask.new
 
 # Linting
 RuboCop::RakeTask.new do |t|

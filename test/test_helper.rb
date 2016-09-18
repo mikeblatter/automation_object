@@ -11,6 +11,7 @@ require 'coveralls'
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
   add_filter '/test'
+  add_filter '/test_integration'
 end
 
 # Extension of Assertions
