@@ -1,6 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'automation_object/version'
 
 Gem::Specification.new do |spec|
@@ -16,17 +17,24 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.homepage = 'https://github.com/mikeblatter/automation_object'
   spec.license = 'MIT'
 
-  #spec.files = `git ls-files -z`.split("\x0")
-  spec.files = Dir.glob("{lib}/**/*")
+  # spec.files = `git ls-files -z`.split("\x0")
+  spec.files = Dir.glob('{lib}/**/*')
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files = spec.files.grep(%r{^(docs|test|spec|features)/})
   spec.require_paths = ['lib']
 
-  #Installation
+  # Installation
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
 
-  #Testing and debugging
+  # Lint
+  spec.add_development_dependency 'rubocop', '~> 0.42'
+
+  # Documentation
+  spec.add_development_dependency 'yard', '~> 0.9'
+  spec.add_development_dependency 'redcarpet', '~> 3.3'
+
+  # Testing and debugging
   spec.add_development_dependency 'minitest', '~> 5.9'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 2.0'
 
@@ -35,20 +43,20 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 
   spec.add_development_dependency 'awesome_print', '~> 1.7'
 
-  #Runtime dependencies
+  # Runtime dependencies
   spec.add_runtime_dependency 'colorize', '~> 0.8'
 
-  #Events
+  # Events
   spec.add_runtime_dependency 'event_emitter', '~> 0.2'
 
-  #For step definitions
+  # For step definitions
   spec.add_runtime_dependency 'cucumber', '~> 2.4'
 
-  #XML Driver
+  # XML Driver
   spec.add_runtime_dependency 'rest-client', '~> 2.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.6'
 
-  #Supported Drivers
+  # Supported Drivers
   spec.add_runtime_dependency 'appium_lib', '~> 8.0'
   spec.add_runtime_dependency 'selenium-webdriver', '~> 2.53'
 end

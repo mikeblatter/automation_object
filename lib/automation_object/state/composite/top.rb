@@ -3,19 +3,27 @@ require_relative '../error'
 require_relative '_base'
 require_relative 'screen'
 
+require_relative 'helpers/window_manager'
+
 module AutomationObject
   module State
     module Composite
       class Top < Base
-        #Children for this composite
+        include WindowManager
+
+        # Children for this composite
         has_many :screens, interface: Screen
 
-        # @return [Symbol] symbol of the initial screen found
-        def create
+        def initialize(*args)
+          super(*args)
+
           self.driver.get(self.blue_prints.base_url) if self.blue_prints.base_url
-          return self.initial_screen
+          self.new_window(self.initial_screen)
         end
 
+        # Get the initial screen
+        # @raise [AutomationObject::State::NoInitialScreenError] if no initial screen
+        # @return [Symbol] screen name
         def initial_screen
           #If default screen then check if its live and set it
           if self.blue_prints.default_screen

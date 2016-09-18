@@ -1,4 +1,3 @@
-require_relative 'window_manager'
 require_relative 'error'
 
 require_relative 'composite/top'
@@ -6,8 +5,6 @@ require_relative 'composite/top'
 module AutomationObject
   module State
     class Session
-      include WindowManager
-
       # @return [AutomationObject::Driver::Driver]
       attr_accessor :driver
 
@@ -22,21 +19,19 @@ module AutomationObject
       def initialize(driver, blue_prints)
         self.driver = driver
         self.composite = Composite::Top.new(self, driver, blue_prints)
-
-        self.create(self.composite.create)
       end
 
       def load(type, name)
         case type
           when :screen
-            unless self.screens.include?(name)
+            unless self.composite.live_screens.include?(name)
               raise AutomationObject::State::ScreenNotActiveError.new(name)
             end
 
             #Set the current window by name
-            self.window = name
+            self.composite.window = name
           when :modal
-            unless self.window.modal == name
+            unless self.composite.window.modal == name
               raise AutomationObject::State::ModalNotActiveError.new(name)
             end
           when :element, :element_array, :element_hash
