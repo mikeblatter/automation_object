@@ -21,6 +21,9 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
+# Unit Test Coverage
+Coveralls::RakeTask.new
+
 # Linting
 RuboCop::RakeTask.new do |t|
   t.options = ['--auto-correct']
