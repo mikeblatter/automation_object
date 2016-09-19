@@ -8,12 +8,14 @@ require_relative 'element_hash'
 
 module AutomationObject
   module Dsl
+    # Modal DSL Class
     class Modal < Base
       has_many :elements, ElementProxy
       has_many :element_arrays, ElementArrayProxy
       has_many :element_hashes, ElementHashProxy
     end
 
+    # Proxy for Modal
     class ModalProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Modal] blue_prints
       # @param [AutomationObject::State::Session] state

@@ -3,9 +3,11 @@ require_relative '_proxy'
 
 module AutomationObject
   module Dsl
+    # ElementHash DSL Class
     class ElementHash < Base
     end
 
+    # Proxy for ElementHash
     class ElementHashProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::ElementHash] blue_prints
       # @param [AutomationObject::State::Session] state

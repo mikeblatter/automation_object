@@ -3,6 +3,7 @@ require_relative 'base'
 
 module AutomationObject
   module Driver
+    # Element adapter interface
     class Element < Base
       # Set or Get attribute
       # @param key [String] key of element

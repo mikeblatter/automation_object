@@ -4,6 +4,7 @@ require 'colorize'
 
 module AutomationObject
   module Dsl
+    # Base DSL Object
     class Base < OpenStruct
       # @param [AutomationObject::BluePrint::Composite::] blue_prints
       # @param [AutomationObject::State::Session] state

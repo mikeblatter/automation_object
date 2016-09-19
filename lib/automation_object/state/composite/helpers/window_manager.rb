@@ -5,6 +5,7 @@ require_relative '../../error'
 module AutomationObject
   module State
     module Composite
+      # Collection to manage Window objects
       module WindowManager
         attr_accessor :window, :modal
 

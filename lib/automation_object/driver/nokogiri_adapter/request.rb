@@ -2,6 +2,7 @@
 module AutomationObject
   module Driver
     module NokogiriAdapter
+      # Request class
       class Request
         attr_accessor :type, :url, :params
 

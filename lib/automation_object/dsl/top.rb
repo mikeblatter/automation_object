@@ -6,6 +6,7 @@ require_relative 'screen'
 
 module AutomationObject
   module Dsl
+    # Top DSL Class
     class Top < Base
       has_many :screens, ScreenProxy
     end

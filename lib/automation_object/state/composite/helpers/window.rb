@@ -4,6 +4,7 @@ require_relative '../../error'
 module AutomationObject
   module State
     module Composite
+      # Window class
       class Window
         # @param [AutomationObject::Driver::Driver] driver
         # @param [String] handle

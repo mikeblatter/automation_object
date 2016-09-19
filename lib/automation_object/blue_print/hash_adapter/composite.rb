@@ -8,6 +8,7 @@ require_relative 'helpers/validation_error'
 module AutomationObject
   module BluePrint
     module HashAdapter
+      # Base composite for blue print hash adapter
       class Composite < AutomationObject::Composite
         include ValidationHelper
 

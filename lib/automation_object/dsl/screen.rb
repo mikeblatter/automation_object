@@ -9,6 +9,7 @@ require_relative 'element_hash'
 
 module AutomationObject
   module Dsl
+    # Screen DSL Class
     class Screen < Base
       has_many :modals, ModalProxy
       has_many :elements, ElementProxy
@@ -16,6 +17,7 @@ module AutomationObject
       has_many :element_hashes, ElementHashProxy
     end
 
+    # Proxy for Screen
     class ScreenProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Screen] blue_prints
       # @param [AutomationObject::State::Session] state

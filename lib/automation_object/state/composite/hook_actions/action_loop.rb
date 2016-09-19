@@ -2,6 +2,7 @@
 module AutomationObject
   module State
     module Composite
+      # Composte action loop base class
       class ActionLoop
         attr_accessor :composite, :blue_prints, :loops
 

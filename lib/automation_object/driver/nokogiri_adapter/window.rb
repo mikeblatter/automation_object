@@ -8,6 +8,7 @@ require_relative 'error'
 module AutomationObject
   module Driver
     module NokogiriAdapter
+      # Window class
       class Window
         attr_accessor :handle, :xml
 

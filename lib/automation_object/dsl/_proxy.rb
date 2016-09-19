@@ -3,6 +3,9 @@ require_relative '../proxy/proxy'
 
 module AutomationObject
   module Dsl
+    # Base Proxy Object
+    # Proxies intercept commands and issue calls to the state
+    # Prevents inspection from picking up internal methods
     class Proxy < AutomationObject::Proxy::Proxy
       # @param [AutomationObject::Dsl::CompositeBase, nil] subject
       # @param [AutomationObject::BluePrint::Composite::CompositeBase] blue_prints

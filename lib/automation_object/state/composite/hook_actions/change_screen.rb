@@ -4,6 +4,7 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Change screen hook loop
       class ChangeScreen < ActionLoop
         def initialize(args = {})
           super
