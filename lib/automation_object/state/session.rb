@@ -5,6 +5,7 @@ require_relative 'composite/top'
 
 module AutomationObject
   module State
+    # Session manages the DSL state
     class Session
       # @return [AutomationObject::Driver::Driver]
       attr_accessor :driver

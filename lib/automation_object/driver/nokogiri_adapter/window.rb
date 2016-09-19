@@ -65,11 +65,9 @@ module AutomationObject
         def make_request(request)
           parsed_url = request.url
 
-          if parsed_url.valid_url? == false && current_url.nil?
-            raise ArgumentError, "Expecting get argument url to be a valid_url?, got #{url}"
-          elsif url.valid_url? == false && current_url
-            parsed_url = current_url.join_url(request.url)
-          end
+          raise ArgumentError, "Expecting get argument url to be a valid_url?, got #{url}" if parsed_url.valid_url? == false && current_url.nil?
+
+          parsed_url = current_url.join_url(request.url) if url.valid_url? == false && current_url
 
           client_resource = RestClient::Resource.new(parsed_url, ssl_version: 'SSLv23_client')
           response = client_resource.send(request.type, params: request.params)

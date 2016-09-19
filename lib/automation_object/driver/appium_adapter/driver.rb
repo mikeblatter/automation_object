@@ -113,11 +113,9 @@ module AutomationObject
         def window_handle
           return @subject.current_context unless is_browser?
 
-          if @subject.device_is_android?
-            return @subject.window_handle
-          else
-            return @subject.current_context
-          end
+          return @subject.window_handle if @subject.device_is_android?
+
+          @subject.current_context
         end
 
         # Set window handle override

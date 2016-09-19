@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'support/parse'
 
 # Screen related step definitions
@@ -11,7 +12,7 @@ require_relative 'support/parse'
 # - I close the screen
 # - I destroy the screen
 Then(%r(^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$/)) do |*args|
-  unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
+  _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
     AutomationObject::Framework.get.screen(name).close
@@ -25,7 +26,7 @@ end
 # - I navigate back on the screen
 # - I navigate back on the "contact" screen
 Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$/)) do
-  unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
+  _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
     AutomationObject::Framework.get.screen(name).back
@@ -50,20 +51,15 @@ end
 # - I set the screen width to 1000
 # - I set the screen height to 2000
 Then(%r(^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$/)) do |*args|
-  unparsed_screen, screen, dimension, size, width, height = AutomationObject::StepDefinitions::Parse.new(args).get
+  _unparsed_screen, screen, dimension, size, width, height = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  if screen
-    screen = AutomationObject::Framework.get.screen(screen)
-  else
-    screen = AutomationObject::Framework.get.current_screen
-  end
+  screen = if screen
+             AutomationObject::Framework.get.screen(screen)
+           else
+             AutomationObject::Framework.get.current_screen
+           end
 
-  case
-    when width and height
-      screen.size(width.to_i, height.to_i)
-    when dimension == 'width' and size
-      screen.width(size)
-    when dimension == 'height' and size
-      screen.height(size)
-  end
+  screen.size(width.to_i, height.to_i) if width && height
+  screen.width(size) if dimension == 'width' && size
+  screen.height(size) if dimension == 'height' && size
 end
