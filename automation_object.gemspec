@@ -30,7 +30,7 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 
   # Code Checking
   spec.add_development_dependency 'rubocop', '~> 0.42'
-  spec.add_development_dependency 'rubycritic', '~> 2.8'
+  spec.add_development_dependency 'rubycritic', '~> 2.9.4'
 
   # Documentation
   spec.add_development_dependency 'yard', '~> 0.9'
