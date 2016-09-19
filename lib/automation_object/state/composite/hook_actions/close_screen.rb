@@ -5,6 +5,7 @@ require_relative '../../error'
 module AutomationObject
   module State
     module Composite
+      # Close screen hook loop
       class CloseScreen < ActionLoop
         def single_run
           raise ScreenParentExpected unless composite.screen

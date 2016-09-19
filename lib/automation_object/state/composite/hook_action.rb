@@ -15,6 +15,7 @@ require_relative 'hook_actions/new_screen'
 module AutomationObject
   module State
     module Composite
+      # Hook action composite for managing state
       class HookAction < Base
         # @return [Boolean] run success or not
         def run

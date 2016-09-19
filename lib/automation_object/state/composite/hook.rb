@@ -7,6 +7,7 @@ require_relative 'hook_actions/element_requirement'
 module AutomationObject
   module State
     module Composite
+      # Hook composite for managing state
       class Hook < Base
         # @return [Boolean, nil] return nil if no live? check, otherwise boolean
         def live?

@@ -20,6 +20,10 @@ module AutomationObject
         execution_return
       end
 
+      def respond_to_missing?(method, include_private = false)
+        @subject.respond_to_missing?(method, include_private)
+      end
+
       def add_method_throttle(method_symbol, time)
         raise ArgumentError, 'Expecting method_symbol argument to be a Symbol' unless method_symbol.is_a?(Symbol)
 

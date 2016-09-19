@@ -4,9 +4,9 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Reset screen hook loop
       class ResetScreen < ActionLoop
         def single_run
-          raise ScreenParentExpected unless composite.screen
         end
       end
     end

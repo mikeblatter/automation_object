@@ -4,6 +4,7 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Show modal hook loop
       class ShowModal < ActionLoop
         def initialize(args = {})
           super

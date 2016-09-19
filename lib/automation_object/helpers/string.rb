@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 # String class method additions
-class ::String
+class String
   def valid_url?
     uri = URI.parse(self)
     if uri.is_a?(URI::HTTP)

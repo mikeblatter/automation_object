@@ -4,7 +4,7 @@ require_relative 'dsl/top'
 module AutomationObject
   # Dsl Port
   module Dsl
-    extend self
+    module_function
 
     # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
     # @param [AutomationObject::State::Session] state

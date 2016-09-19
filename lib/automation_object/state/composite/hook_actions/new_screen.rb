@@ -5,6 +5,7 @@ require_relative '../../error'
 module AutomationObject
   module State
     module Composite
+      # New screen hook loop
       class NewScreen < ActionLoop
         def initialize(args = {})
           super

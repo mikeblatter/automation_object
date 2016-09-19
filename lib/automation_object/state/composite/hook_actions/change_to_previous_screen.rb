@@ -4,6 +4,7 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Change to previous screen hook loop
       class ChangeToPreviousScreen < ActionLoop
         def single_run
           return false unless driver.document_complete?

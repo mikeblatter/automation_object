@@ -5,6 +5,7 @@ require_relative '../../error'
 module AutomationObject
   module State
     module Composite
+      # Close modal hook loop
       class CloseModal < ActionLoop
         def single_run
           return false unless driver.document_complete?
@@ -14,14 +15,13 @@ module AutomationObject
           modal = composite.parent
           modal.active = modal.live?
 
-          if !modal.active?
-            composite.screen.modal = nil
-            composite.screen.current_modal = nil
-            composite.top.destroy_modal
-            return true
-          else
-            return false
-          end
+          return false unless modal.active?
+
+          composite.screen.modal = nil
+          composite.screen.current_modal = nil
+          composite.top.destroy_modal
+
+          true
         end
       end
     end

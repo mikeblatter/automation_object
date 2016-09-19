@@ -7,6 +7,7 @@ require_relative 'element_proxy'
 module AutomationObject
   module State
     module Composite
+      # Element array composite for managing state
       class ElementArray < Base
         include CommonElement
 

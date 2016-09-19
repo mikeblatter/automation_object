@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 # Hash class method additions
-class ::Hash
+class Hash
   def deep_merge(second)
     merger = proc { |_key, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : v2 }
     merge(second, &merger)

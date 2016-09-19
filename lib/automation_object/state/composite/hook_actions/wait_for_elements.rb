@@ -4,6 +4,7 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Wait for elements hook loop
       class WaitForElements < ActionLoop
         def single_run
           blue_prints.each do |hook_element_requirement|

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # Extend file class
 # Collect files in directory recursively and return Array
-class ::File
+class File
   class << self
     # @param path [String] specified directory path for getting files underneath
     # @returns [Array] list of file paths that exist recursively underneath a directory

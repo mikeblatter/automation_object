@@ -45,6 +45,10 @@ module AutomationObject
         exec_procedures.last.call
       end
 
+      def respond_to_missing?(method, include_private = false)
+        @subject.respond_to_missing?(method, include_private)
+      end
+
       def protect_object(object)
         return object if @skip_protection_classes.include?(object.class)
         protected_object = MutexProxy.new(object)

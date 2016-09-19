@@ -9,6 +9,7 @@ require_relative 'helpers/window_manager'
 module AutomationObject
   module State
     module Composite
+      # Top composite for managing state
       class Top < Base
         include WindowManager
 
@@ -28,14 +29,12 @@ module AutomationObject
         def initial_screen
           # If default screen then check if its live and set it
           if blue_prints.default_screen
-            screen_name = blue_prints.default_screen
-            default_screen_live = screens[screen_name].load.live?
+            default_name = blue_prints.default_screen
+            default_screen_live = screens[default_name].load.live?
 
-            if default_screen_live.nil? || default_screen_live == true
-              return screen_name
-            else
-              raise AutomationObject::State::NoInitialScreenError
-            end
+            return default_name if default_screen_live.nil? || default_screen_live == true
+
+            raise AutomationObject::State::NoInitialScreenError
           end
 
           screens.each do |screen_name, screen|

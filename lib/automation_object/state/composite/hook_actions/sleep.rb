@@ -4,6 +4,7 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Sleep hook loop
       class Sleep < ActionLoop
         def initialize(args = {})
           super

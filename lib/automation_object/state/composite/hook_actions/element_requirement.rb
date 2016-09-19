@@ -4,6 +4,7 @@ require_relative 'action_loop'
 module AutomationObject
   module State
     module Composite
+      # Element requirement hook loop
       class ElementRequirement < ActionLoop
         def element
           @element ||= driver.find_element(*blue_prints.element_blueprints.selector_params)
