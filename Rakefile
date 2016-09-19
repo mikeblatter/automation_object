@@ -34,7 +34,7 @@ YARD::Rake::YardocTask.new do |task|
                   '--output-dir=docs/internal']
 end
 
-Rubycritic::RakeTask.new do |task|
+RubyCritic::RakeTask.new do |task|
   task.paths = FileList['lib/**/*.rb']
   task.options = '--no-browser --path docs/rubycritic'
 end
