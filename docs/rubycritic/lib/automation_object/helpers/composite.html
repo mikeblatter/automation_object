@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Composite</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      46 complexity
+    </div>
+    <div class="file-stat">
+      4.2 complexity per method
+    </div>
+    <div class="file-stat">
+      9 churn
+    </div>
+    <div class="file-stat">
+      11 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;reflection&#39;
+require_relative &#39;composite_hook&#39;
+
+module AutomationObject
+  # Composite is a super class that helps build composite objects based of a Hash
+  # Composite classes should inherit from this class and use the class-level methods to add the components
+  class Composite
+    include CompositeHook
+    include Reflection
+
+    attr_accessor :name, :parent, :location, :children<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Composite#children is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Composite#location is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Composite#name is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Composite#parent is a writable attribute          </span>  </li></ul>
+
+    # @param name [Symbol] name of the object
+    # @param parent [Object, nil] parent composite object
+    # @param location [String] string location for error/debugging purposes
+    def initialize(_name = :top, parent = nil, location = &#39;top&#39;)
+      self.parent = parent
+      self.location = location
+
+      before_create_run
+
+      add_has_one_relationships
+      add_has_many_relationships
+
+      after_create_run
+    end
+
+    # Remove getter to solve stupid Ruby warning
+    undef :children if method_defined? :children
+    def children
+      @children ||= {}
+    end
+
+    # Get top composite Object
+    # @return [AutomationObject::Composite]
+    def top
+      # Should recursively call top until parent is nil
+      parent.nil? ? self : parent.top<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Composite#top performs a nil-check          </span>  </li></ul>
+    end
+
+    # Abstract argument, override
+    # @param name [Symbol] name of child
+    # @param options [Hash] options for child
+    # @return child [Object] return child composite object
+    def get_child(_name, _options)
+      raise &#39;Abstract method&#39;
+    end
+
+    # Abstract argument, override
+    # @param name [Symbol] name of child
+    # @param options [Hash] options for child
+    # @return children [Hash] return children and names
+    def get_children(_name, _options)
+      raise &#39;Abstract method&#39;
+    end
+
+    def add_has_one_relationships
+      self.class.has_one_relationships.each do |name, options|
+        children[name] = get_child(name, options)
+        add_attribute(name, children[name])
+      end
+    end
+
+    def add_has_many_relationships
+      self.class.has_many_relationships.each do |name, options|
+        composite_children = get_children(name, options)
+        children[name] = composite_children
+        add_attribute(name, children[name])
+      end
+    end
+
+    class &lt;&lt; self
+      # Has many children relationship for the composite
+      # @param children_name [Symbol] name of the children, should be a BluePrint method
+      # @param args [Hash] additional arguments, expects interface
+      def has_many(children_name, args)
+        has_many_relationships[children_name] = args
+      end
+
+      # @return [Hash] relationships for the composite
+      def has_many_relationships
+        @has_many_relationships ||= {}
+      end
+
+      # @param child_name [Symbol] name of key
+      # @param args [Hash] arguments
+      def has_one(child_name, args)
+        has_one_relationships[child_name] = args
+      end
+
+      # @return [Hash] hash of relationships
+      def has_one_relationships
+        @has_one_relationships ||= {}
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::BluePrint</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      13 complexity
+    </div>
+    <div class="file-stat">
+      4.3 complexity per method
+    </div>
+    <div class="file-stat">
+      12 churn
+    </div>
+    <div class="file-stat">
+      3 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;blue_print/hash_adapter&#39;
+require_relative &#39;blue_print/yaml_adapter&#39;
+
+module AutomationObject
+  # BluePrint Port, encapsulation of code required to parse and build composite data structure representing UI
+  # Provides for loading Hash/YAML, validates the resulting structure (throws errors), and a common
+  # interface for the rest of the code base to use.
+  module BluePrint
+    module_function
+
+    # Get method for BluePrint adapter const for composite BluePrint build
+    # Each adapter will implement common BluePrint interface
+    # @return [AutomationObject::BluePrint::YamlAdapter, AutomationObject::BluePrint::HashAdapter]
+    def adapter
+      return @adapter if @adapter
+      self.adapter = :hash
+      @adapter
+    end
+
+    # Sets adapter const will append _adapter if needed
+    # @param adapter_name [String] name of adapter wanted for composite creation
+    def adapter=(adapter_name)
+      adapter_name = adapter_name.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_const = adapter_name.pascalize<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
+
+      @adapter = AutomationObject::BluePrint.const_get(adapter_const.to_s)
+    end
+
+    # Adapters use the composite AutomationObject::BluePrint::Composite interfaces
+    # @return [AutomationObject::BluePrint::Composite::Top]
+    def build(blueprint_arg)
+      case blueprint_arg
+      when String
+        self.adapter = :yaml
+      when Hash
+        self.adapter = :hash
+      end
+
+      adapter.build(blueprint_arg)
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+  </body>
+</html>

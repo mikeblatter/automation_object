@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Dsl::Base</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      51 complexity
+    </div>
+    <div class="file-stat">
+      12.8 complexity per method
+    </div>
+    <div class="file-stat">
+      8 churn
+    </div>
+    <div class="file-stat">
+      4 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require &#39;ostruct&#39;
+require &#39;colorize&#39;
+
+module AutomationObject
+  module Dsl
+    # Base DSL Object
+    class Base &lt; OpenStruct
+      # @param [AutomationObject::BluePrint::Composite::] blue_prints
+      # @param [AutomationObject::State::Session] state
+      def initialize(blue_prints, state)
+        ostruct_hash = {}
+
+        # Add attributes the call super
+        self.class.has_many_relationships.each do |name, composite_class|
+          blue_prints.send(name).each do |child_key, child_blue_prints|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nested-Iterators.md" target="_blank">NestedIterators</a>)      AutomationObject::Dsl::Base#initialize contains iterators nested 2 deep          </span>  </li></ul>
+            ostruct_hash[child_key] = composite_class.new(child_blue_prints, state, child_key)
+          end
+        end
+
+        super ostruct_hash
+      end
+
+      # @return [String]
+      def inspect(indent = 5)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::Dsl::Base#inspect has a flog score of 35          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Dsl::Base#inspect has approx 10 statements          </span>  </li></ul>
+        string = self.class.to_s
+        to_h.each do |key, value|
+          string += case value.class.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    when /Screen/
+                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:magenta)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    when /Modal/
+                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:light_magenta)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    when /(Element|ElementHash|ElementArray)/
+                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:light_blue)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    else
+                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:red)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    end
+
+          string += if value.is_a?(Base)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
+                      &quot; #{value.inspect(indent + 10)}&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    else
+                      &quot; #{value.inspect}&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
+                    end
+        end
+        string += &#39;&#39;
+
+        string
+      end
+
+      class &lt;&lt; self
+        # Has many children relationship for the composite
+        # @param children_name [Symbol] name of the children, should be a BluePrint method
+        # @param composite_class [Class] interface
+        def has_many(children_name, composite_class)
+          has_many_relationships[children_name] = composite_class
+        end
+
+        # @return [Hash] relationships for the composite
+        def has_many_relationships
+          @has_many_relationships ||= {}
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

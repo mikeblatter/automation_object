@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Framework</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      26 complexity
+    </div>
+    <div class="file-stat">
+      5.2 complexity per method
+    </div>
+    <div class="file-stat">
+      16 churn
+    </div>
+    <div class="file-stat">
+      5 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;proxy/proxy&#39;
+require_relative &#39;blue_print&#39;
+require_relative &#39;driver&#39;
+require_relative &#39;dsl&#39;
+require_relative &#39;state&#39;
+
+module AutomationObject
+  # Framework class, the core
+  # A Proxy class that will become the DSL Framework
+  class Framework &lt; Proxy::Proxy
+    # @return [AutomationObject::BluePrint::Composite::Top]
+    attr_accessor :blue_prints<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Framework#blue_prints is a writable attribute          </span>  </li></ul>
+
+    # @return [AutomationObject::Driver::Driver]
+    attr_accessor :driver<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Framework#driver is a writable attribute          </span>  </li></ul>
+
+    # @return [AutomationObject::State::Session]
+    attr_accessor :state<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Framework#state is a writable attribute          </span>  </li></ul>
+
+    # @return [Dsl] workable dsl composite object
+    attr_accessor :dsl<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Framework#dsl is a writable attribute          </span>  </li></ul>
+
+    # Will assume nil or :nokogiri is XML based and AutomationObject
+    # can also automate XML
+    # @param driver [Selenium::WebDriver::Driver,Appium::Driver,nil] selenium type driver or nil
+    # @param blue_prints [Hash] arguments for Framework
+    def initialize(driver, blue_prints)
+      self.driver = driver
+      self.blue_prints = blue_prints
+
+      self.state = State.new(self.driver, self.blue_prints)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Framework#initialize calls self.blue_prints 2 times                        <a href="framework.html#L32" class="js-smell-location">0</a>                  <a href="framework.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+      @subject = Dsl.new(self.blue_prints, state)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Framework#initialize calls self.blue_prints 2 times                        <a href="framework.html#L32" class="js-smell-location">0</a>                  <a href="framework.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+      AutomationObject::Framework.singleton = self
+    end
+
+    # BluePrints (UI configurations) wrapped in an composite
+    # Composite provides a common interface for all adapters
+    # @param value [String, Hash] String to YAML files or Hash configuration
+    # @return [AutomationObject::BluePrint::Composite::Top] top composite object
+    def blue_prints=(value)
+      case value
+      when String
+        BluePrint.adapter = :yaml
+      when Hash
+        BluePrint.adapter = :hash
+      end
+
+      @blue_prints = BluePrint.build(value)
+    end
+
+    # Driver port provides a formatted interface for interacting with different drivers
+    # @return [AutomationObject::Driver::Driver] driver interface object
+    def driver=(value)
+      Driver.adapter = case value
+                       when Selenium::WebDriver::Driver
+                         :selenium
+                       when Appium::Driver
+                         :appium
+                       else
+                         :nokogiri
+                       end
+
+      @driver = Driver.new(value)
+    end
+
+    # Reset the entire state, remove any values
+    # Leave the driver alone here, can be done elsewhere
+    # @return [void]
+    def quit
+      state.quit # Quit the state.  That way it knows to kill threads if operational
+      self.dsl, self.state, self.blue_prints, self.driver = nil
+    end
+
+    # Static Hack
+    # TODO: figure a multiple instance way of using ao in Cucumber context
+    # Leaving for now to continue testing and building of whole framework
+    class &lt;&lt; self
+      attr_accessor :singleton<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Framework#singleton is a writable attribute          </span>  </li></ul>
+
+      # Singleton method if using Cucumber
+      # @return [Framework] singleton of self
+      def get
+        singleton
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+  </body>
+</html>

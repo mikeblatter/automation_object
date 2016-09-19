@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::State::Composite::WindowManager</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      39 complexity
+    </div>
+    <div class="file-stat">
+      7.8 complexity per method
+    </div>
+    <div class="file-stat">
+      5 churn
+    </div>
+    <div class="file-stat">
+      5 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;window&#39;
+require_relative &#39;../../error&#39;
+
+module AutomationObject
+  module State
+    module Composite
+      # Collection to manage Window objects
+      module WindowManager
+        attr_accessor :window, :modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#modal is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#window is a writable attribute          </span>  </li></ul>
+
+        def window=(name)
+          windows.each do |window|
+            next if window.name != name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::State::Composite::WindowManager#window= is controlled by argument name          </span>  </li></ul>
+            return if window == self.window<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#window= calls self.window 2 times                        <a href="window_manager.html#L15" class="js-smell-location">0</a>                  <a href="window_manager.html#L17" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+            self.window.use<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#window= calls self.window 2 times                        <a href="window_manager.html#L15" class="js-smell-location">0</a>                  <a href="window_manager.html#L17" class="js-smell-location">1</a>                  </span>  </li></ul>
+          end
+        end
+
+        # @return [Array&lt;Window&gt;]
+        def windows
+          @windows ||= []
+        end
+
+        # @return [Array&lt;String&gt;] list of stored window handles
+        def window_handles
+          windows.map(&amp;:handle)
+        end
+
+        # @return [Array&lt;String&gt;] list of stored screen names
+        def live_screens
+          windows.map(&amp;:name)
+        end
+
+        def new_window(name)
+          driver_handles = driver.window_handles
+          diff_handles = driver_handles - window_handles
+
+          # Should only have one extra window
+          raise UnexpectedExtraWindowError if diff_handles.length &gt; 1
+
+          self.window = Window.new(driver, diff_handles.first, name)
+          windows &lt;&lt; window
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-c circled-text circle">
+    C
+  </span>
+  <h2 class="file-name">AutomationObject::Driver::AppiumAdapter::Driver</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      52 complexity
+    </div>
+    <div class="file-stat">
+      3.7 complexity per method
+    </div>
+    <div class="file-stat">
+      16 churn
+    </div>
+    <div class="file-stat">
+      14 methods
+    </div>
+    <div class="file-stat">
+      40 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require &#39;appium_lib&#39;
+
+require_relative &#39;../../proxy/proxy&#39;
+
+require_relative &#39;../driver&#39;
+require_relative &#39;../common_selenium/driver&#39;
+
+require_relative &#39;../element&#39;
+require_relative &#39;element&#39;
+
+module AutomationObject
+  module Driver
+    module AppiumAdapter
+      # Driver proxy for Appium
+      # Conform Appium driver interface to what&#39;s expected of the Driver Port
+      class Driver &lt; AutomationObject::Proxy::Proxy
+        include AutomationObject::Driver::CommonSelenium::Driver
+
+        # @param driver [Appium::Driver] Appium Driver
+        def initialize(driver)
+          @subject = driver
+        end
+
+        # Navigates current window to a given url
+        # @param url [String] navigate to the following url
+        # @return [void]
+        def get(url)
+          @subject.get(url)
+        end
+
+        # Set timeout wait
+        # @param timeout [Integer] the timeout in seconds
+        # @return [void]
+        def wait(timeout = nil)
+          @subject.set_wait(timeout)
+        end
+
+        # @param selector_type [Symbol] selector type (:css, :xpath, etc...)
+        # @param selector_path [String] path to element
+        # @return [Boolean] exists or not
+        def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::AppiumAdapter::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L42" class="js-smell-location">0</a>                  <a href="driver.html#L49" class="js-smell-location">1</a>                  <a href="driver.html#L58" class="js-smell-location">2</a>                  </span>  </li></ul>
+          @subject.exists { @subject.find_element(selector_type, selector_path) }
+        end
+
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [AutomationObject::Driver::Element] element
+        def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Identical code found in 2 nodes                        <a href="driver.html#L49" class="js-smell-location">0</a>                  <a href="../selenium_adapter/driver.html#L63" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::AppiumAdapter::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L42" class="js-smell-location">0</a>                  <a href="driver.html#L49" class="js-smell-location">1</a>                  <a href="driver.html#L58" class="js-smell-location">2</a>                  </span>  </li></ul>
+          element = @subject.find_element(selector_type, selector_path)
+          # Wrap element in the adapter interface
+          AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
+        end
+
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [Array&lt;AutomationObject::Driver::Element&gt;] element
+        def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Identical code found in 2 nodes                        <a href="driver.html#L58" class="js-smell-location">0</a>                  <a href="../selenium_adapter/driver.html#L72" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::AppiumAdapter::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L42" class="js-smell-location">0</a>                  <a href="driver.html#L49" class="js-smell-location">1</a>                  <a href="driver.html#L58" class="js-smell-location">2</a>                  </span>  </li></ul>
+          elements = @subject.find_elements(selector_type, selector_path)
+
+          elements.map do |element|
+            # Wrap element in the adapter interface
+            AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
+          end
+        end
+
+        # @return [void]
+        def accept_prompt
+          @subject.alert_accept
+        end
+
+        # @return [void]
+        def dismiss_prompt
+          @subject.alert_dismiss
+        end
+
+        # @return [Boolean] whether or not browser is being used
+        def browser?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::AppiumAdapter::Driver#browser? has approx 7 statements          </span>  </li></ul>
+          return @browser unless @browser.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::AppiumAdapter::Driver#browser? performs a nil-check          </span>  </li></ul>
+          @browser = false
+
+          # Now we need to check Appium&#39;s contexts to see if WEBVIEW is in available_contexts
+          available_contexts = @subject.available_contexts
+          available_contexts.each do |context|
+            if context =~ /^WEBVIEW_\d+$/
+              @browser = true
+              break
+            end
+          end
+
+          @browser
+        end
+
+        # Window Handles Override
+        # @return [Array&lt;String&gt;] array of window handles
+        def window_handles<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::AppiumAdapter::Driver#window_handles has approx 6 statements          </span>  </li></ul>
+          if @subject.device_is_android? &amp;&amp; is_browser?
+            window_handles = @subject.window_handles
+          else
+            return @subject.available_contexts unless is_browser?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::AppiumAdapter::Driver#window_handles calls @subject.available_contexts 2 times                        <a href="driver.html#L100" class="js-smell-location">0</a>                  <a href="driver.html#L103" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::AppiumAdapter::Driver tests is_browser? at least 3 times                        <a href="driver.html#L100" class="js-smell-location">0</a>                  <a href="driver.html#L114" class="js-smell-location">1</a>                  <a href="driver.html#L134" class="js-smell-location">2</a>                  </span>  </li></ul>
+
+            window_handles = []
+            @subject.available_contexts.each do |context|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::AppiumAdapter::Driver#window_handles calls @subject.available_contexts 2 times                        <a href="driver.html#L100" class="js-smell-location">0</a>                  <a href="driver.html#L103" class="js-smell-location">1</a>                  </span>  </li></ul>
+              window_handles.push(context) if context =~ /^WEBVIEW_\d+$/
+            end
+          end
+
+          window_handles
+        end
+
+        # Get window handle override
+        # @return [String] current window handle
+        def window_handle
+          return @subject.current_context unless is_browser?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::AppiumAdapter::Driver#window_handle calls @subject.current_context 2 times                        <a href="driver.html#L114" class="js-smell-location">0</a>                  <a href="driver.html#L118" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::AppiumAdapter::Driver tests is_browser? at least 3 times                        <a href="driver.html#L100" class="js-smell-location">0</a>                  <a href="driver.html#L114" class="js-smell-location">1</a>                  <a href="driver.html#L134" class="js-smell-location">2</a>                  </span>  </li></ul>
+
+          return @subject.window_handle if @subject.device_is_android?
+
+          @subject.current_context<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::AppiumAdapter::Driver#window_handle calls @subject.current_context 2 times                        <a href="driver.html#L114" class="js-smell-location">0</a>                  <a href="driver.html#L118" class="js-smell-location">1</a>                  </span>  </li></ul>
+        end
+
+        # Set window handle override
+        # @param handle_value [String] window handle value
+        # @return [void]
+        def window_handle=(handle_value)
+          if @subject.device_is_android?
+            @subject.switch_to.window(handle_value)
+          else
+            @subject.set_context(handle_value)
+          end
+        end
+
+        # @return [Boolean] document is complete
+        def document_complete?
+          return true unless is_browser? # Skip for non-browser Appium sessions<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::AppiumAdapter::Driver tests is_browser? at least 3 times                        <a href="driver.html#L100" class="js-smell-location">0</a>                  <a href="driver.html#L114" class="js-smell-location">1</a>                  <a href="driver.html#L134" class="js-smell-location">2</a>                  </span>  </li></ul>
+          @subject.execute_script(&#39;return document.readyState;&#39;) == &#39;complete&#39;
+        end
+
+        # @return [void]
+        def quit
+          @subject.driver_quit
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

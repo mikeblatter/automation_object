@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-f circled-text circle">
+    F
+  </span>
+  <h2 class="file-name">ElementHash</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      151 complexity
+    </div>
+    <div class="file-stat">
+      N/A complexity per method
+    </div>
+    <div class="file-stat">
+      7 churn
+    </div>
+    <div class="file-stat">
+      0 methods
+    </div>
+    <div class="file-stat">
+      238 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;support/parse&#39;
+require_relative &#39;support/element_hash&#39;
+
+# Element Array related step definitions
+# # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
+# This is to make sure that the examples in the docs will actually perform as indicated
+# Please follow what is already defined below
+
+# Step to call a method on an element
+# # Examples:
+# - I click on the first &quot;home_screen&quot; &quot;about_button&quot; element hash
+When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L16" class="js-smell-location">0</a>                  <a href="element_array.html#L29" class="js-smell-location">1</a>                  <a href="element_hash.html#L13" class="js-smell-location">2</a>                  <a href="element_hash.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+  method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
+    screen, element, key, low_range, high_range
+  ) do |sub_element|
+    sub_element.send(method)
+  end
+end
+
+# Step to type into a field element array
+# # Examples:
+# - I type &quot;blah&quot; into the first &quot;home_screen&quot; &quot;text_field&quot; element hash
+When(%r(^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L16" class="js-smell-location">0</a>                  <a href="element_array.html#L29" class="js-smell-location">1</a>                  <a href="element_hash.html#L13" class="js-smell-location">2</a>                  <a href="element_hash.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+  text, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
+    screen, element, key, low_range, high_range
+  ) do |sub_element|
+    sub_element.send_keys(text)
+  end
+end
+
+# Step to scroll to an element array
+# # Examples:
+# - I scroll to the first &quot;home_screen&quot; &quot;logo_button&quot; element hash
+When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L42" class="js-smell-location">0</a>                  <a href="element_hash.html#L39" class="js-smell-location">1</a>                  </span>  </li></ul>
+  key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
+    screen, element, key, low_range, high_range, &amp;:scroll_into_view
+  )
+end
+
+# Step to save something from an element array
+# # Examples:
+# - I save &quot;text&quot; as &quot;unique_value&quot; from the first &quot;home_screen&quot; &quot;logo_button&quot; element hash
+When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L53" class="js-smell-location">0</a>                  <a href="element_hash.html#L50" class="js-smell-location">1</a>                  </span>  </li></ul>
+  method, value_key, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
+    screen, element, key, low_range, high_range
+  ) do |sub_element|
+    value = sub_element.send(method)
+    AutomationObject::StepDefinitions::Cache.set(value_key, value)
+  end
+end
+
+# Step to test if element array length
+# # Examples:
+# - the &quot;home_screen&quot; &quot;title&quot; element hash should be greater than 0
+Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash should(n&#39;t|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$\// has a flog score of 56          </span>  </li></ul>
+  screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  element_hash = AutomationObject::Framework.get.send(screen).send(element)
+  assert element_hash.is_a?(Hash)
+
+  if comparison =~ /larger th[ae]n|greater th[ae]n/
+    if negative
+      refute expected_value &lt; element_hash.keys.length
+    else
+      assert expected_value &lt; element_hash.keys.length
+    end
+  elsif comparison =~ /smaller th[ae]n|less th[ae]n/
+    if negative
+      refute expected_value &gt; element_hash.keys.length
+    else
+      assert expected_value &gt; element_hash.keys.length
+    end
+  elsif comparison =~ /equals?/
+    if negative
+      refute_equals expected_value, element_hash.keys.length
+    else
+      assert_equals expected_value, element_hash.keys.length
+    end
+  end
+end
+
+# Step to test element(s) of an array value to a given value
+# If trying to carry over from any other object, use cache mechanism
+# # Examples:
+# - the first &quot;home_screen&quot; &quot;title&quot; element hash &quot;text&quot; should equal &quot;Home&quot;
+Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash &quot;(\w+|%\{[\w\d]+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{[\w\d]+\})&quot;$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L102" class="js-smell-location">0</a>                  <a href="element_hash.html#L95" class="js-smell-location">1</a>                  </span>  </li></ul>
+  key, low_range, high_range, screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
+    screen, element, key, low_range, high_range
+  ) do |sub_element|
+    value = sub_element.send(method)
+
+    if negative
+      refute_equals expected_value, value
+    else
+      assert_equals expected_value, value
+    end
+  end
+end
+
+# Step to test element array element values for uniqueness
+# # Examples:
+# - the &quot;home_screen&quot; &quot;title&quot; element hash &quot;text&quot; should be unique
+Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;([\w\d]+|%\{[\w\d]+\})&quot; element hash &quot;([\w\d]+|%\{[\w\d]+\})&quot; should(n&#39;t|not)? be unique$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L123" class="js-smell-location">0</a>                  <a href="element_hash.html#L114" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "([\w\d]+|%\{[\w\d]+\})" should(n't|not)? be unique$\// has a flog score of 30          </span>  </li></ul>
+  screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  element_hash = AutomationObject::Framework.get.send(screen).send(element)
+  assert element_hash.is_a?(Hash)
+
+  values = []
+  element_hash.each_value do |sub_element|
+    values.push(sub_element.send(method))
+  end
+
+  if negative
+    refute_equals values.uniq, values
+  else
+    assert_equals values.uniq, values
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

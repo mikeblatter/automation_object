@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-d circled-text circle">
+    D
+  </span>
+  <h2 class="file-name">AutomationObject::BluePrint::HashAdapter::HookAction</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      49 complexity
+    </div>
+    <div class="file-stat">
+      3.8 complexity per method
+    </div>
+    <div class="file-stat">
+      14 churn
+    </div>
+    <div class="file-stat">
+      13 methods
+    </div>
+    <div class="file-stat">
+      81 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+# Require parent class
+require_relative &#39;composite&#39;
+require_relative &#39;hook_element_requirements&#39;
+
+module AutomationObject
+  module BluePrint
+    module HashAdapter
+      # Hook action composite
+      class HookAction &lt; Composite
+        # Call the wait_for_elements method to generate the children
+        before_create :wait_for_elements
+
+        # Validations
+        validates_keys allowed_keys: [:new_screen, :show_modal, :close_screen, :change_screen,
+                                      :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
+                                      :possible_screen_changes]
+
+        validates :change_screen, instance_of: [String, Symbol], screen_presence_of: true
+        validates :new_screen, instance_of: [String, Symbol], screen_presence_of: true
+        validates :change_to_previous_screen, instance_of: TrueClass
+        validates :close_modal, instance_of: TrueClass
+        validates :close_screen, instance_of: TrueClass
+        validates :possible_screen_changes, instance_of: String, screen_presence_of: true
+        validates :reset_screen, instance_of: TrueClass
+        validates :show_modal, instance_of: String, modal_presence_of: true
+        validates :sleep, instance_of: Numeric
+        validates :wait_for_elements, instance_of: Array
+
+        # Get the order to run the hook in
+        # @return [Array&lt;Symbol&gt;] list of hook methods to run in given order
+        def hook_order
+          hash.keys
+        end
+
+        # Get length of hook actions
+        # @return [Integer] length of hook actions
+        def length
+          hash.keys.length
+        end
+
+        # See if hook actions are empty
+        # @return [Boolean] if hook actions are empty
+        def empty?
+          hash.keys.empty?
+        end
+
+        # @return [Symbol, nil] screen to change to
+        def change_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 8 nodes                        <a href="automatic_onload_modal.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </span>  </li></ul>
+          change_screen = hash[:change_screen]
+
+          case change_screen
+          when Symbol, String
+            return change_screen.to_sym
+          else
+            return nil
+          end
+        end
+
+        # @return [Symbol, nil] new screen
+        def new_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 8 nodes                        <a href="automatic_onload_modal.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </span>  </li></ul>
+          new_screen = hash[:new_screen]
+
+          case new_screen
+          when Symbol, String
+            return new_screen.to_sym
+          else
+            return nil
+          end
+        end
+
+        # @return [Boolean]
+        def close_screen
+          hash[:close_screen] ||= false
+        end
+
+        # @return [Boolean]
+        def close_modal
+          hash[:close_modal] ||= false
+        end
+
+        # @return [Boolean]
+        def change_to_previous_screen
+          hash[:change_to_previous_screen] ||= false
+        end
+
+        # @return [Symbol, nil]
+        def show_modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 8 nodes                        <a href="automatic_onload_modal.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </span>  </li></ul>
+          show_modal = hash[:show_modal]
+
+          case show_modal
+          when Symbol, String
+            return show_modal.to_sym
+          else
+            return nil
+          end
+        end
+
+        # @return [Array]
+        def possible_screen_changes
+          return hash[:possible_screen_changes].map(&amp;:to_sym) if hash[:possible_screen_changes].is_a?(Array)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::HookAction#possible_screen_changes calls hash[:possible_screen_changes] 2 times          </span>  </li></ul>
+
+          []
+        end
+
+        # @return [Boolean] reset the screen?
+        def reset_screen
+          hash[:reset_screen] ||= false
+        end
+
+        # @return [Numeric] amount of time to sleep
+        def sleep
+          hash[:sleep] ||= 0
+        end
+
+        # Custom method for array of children instead of Hash
+        # @return [Array&lt;HookElementRequirements&gt;] array of wait for element children
+        def wait_for_elements<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::HookAction#wait_for_elements has approx 6 statements          </span>  </li></ul>
+          return @wait_for_elements if defined? @wait_for_elements
+          wait_for_elements = hash[:wait_for_elements]
+
+          children = wait_for_elements.is_a?(Array) ? wait_for_elements : []
+          @wait_for_elements = create_array_children(:wait_for_elements, children,
+                                                     interface: HookElementRequirements,
+                                                     location: location + &#39;[wait_for_elements]&#39;)
+
+          @wait_for_elements
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

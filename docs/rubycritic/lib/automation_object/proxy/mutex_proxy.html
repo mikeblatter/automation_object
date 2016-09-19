@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Proxy::MutexProxy</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      45 complexity
+    </div>
+    <div class="file-stat">
+      7.5 complexity per method
+    </div>
+    <div class="file-stat">
+      8 churn
+    </div>
+    <div class="file-stat">
+      6 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;proxy&#39;
+
+module AutomationObject
+  module Proxy
+    # Proxy class for protecting object with Mutex
+    class MutexProxy &lt; Proxy
+      def initialize(subject)
+        super
+
+        @mutexes = [Mutex.new]
+        @skip_protection_classes = [TrueClass, FalseClass, String, Numeric, Array, Hash, Class, NilClass, Symbol]
+      end
+
+      def add_mutex(mutex_object)
+        raise ArgumentError, &#39;Expecting mutex_object argument to be a Mutex object&#39; unless mutex_object.is_a?(Mutex)
+
+        @mutexes &lt;&lt; mutex_object
+      end
+
+      def delete_mutex(mutex_object)
+        raise ArgumentError, &#39;Expecting mutex_object argument to be a Mutex object&#39; unless mutex_object.is_a?(Mutex)
+
+        @mutexes.delete(mutex_object)
+      end
+
+      def method_missing(method_symbol, *args, &amp;block)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::Proxy::MutexProxy#method_missing has a flog score of 27          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Proxy::MutexProxy#method_missing has approx 12 statements          </span>  </li></ul>
+        exec_procedures = []
+        exec_procedures.push(lambda do
+          execution_return = @subject.send(method_symbol, *args, &amp;block)
+          return protect_object(execution_return)
+        end)
+
+        index = 0
+        @mutexes.each do |mutex|
+          index += 1
+          exec_procedures.push(lambda do
+            mutex.synchronize do
+              index -= 1
+              exec_procedures[index].call
+            end
+          end)
+        end
+
+        exec_procedures.last.call
+      end
+
+      def respond_to_missing?(method, include_private = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Proxy::MutexProxy#respond_to_missing? has boolean parameter 'include_private'          </span>  </li></ul>
+        @subject.respond_to_missing?(method, include_private)
+      end
+
+      def protect_object(object)
+        return object if @skip_protection_classes.include?(object.class)
+        protected_object = MutexProxy.new(object)
+
+        @mutexes.each do |mutex|
+          protected_object.add_mutex(mutex)
+        end
+
+        protected_object
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::BluePrint::HashAdapter::Composite</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      66 complexity
+    </div>
+    <div class="file-stat">
+      11.0 complexity per method
+    </div>
+    <div class="file-stat">
+      14 churn
+    </div>
+    <div class="file-stat">
+      6 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;../../helpers/composite&#39;
+require_relative &#39;../../helpers/string&#39;
+
+require_relative &#39;helpers/validation_helper&#39;
+require_relative &#39;helpers/validation_error&#39;
+
+module AutomationObject
+  module BluePrint
+    module HashAdapter
+      # Base composite for blue print hash adapter
+      class Composite &lt; AutomationObject::Composite
+        include ValidationHelper
+
+        attr_accessor :hash<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::BluePrint::HashAdapter::Composite#hash is a writable attribute          </span>  </li></ul>
+
+        # @param hash [Hash] hash for the composite to build of off
+        # @param name [Symbol] name of composite element
+        # @param parent [Object, nil] parent composite object
+        # @param location [String] string location for error/debugging purposes
+        def initialize(hash = {}, name = :top, parent = nil, location = &#39;top&#39;)
+          # Add hash before calling super
+          self.hash = hash.is_a?(Hash) ? hash : {}
+          self.hash.symbolize_keys_deep!
+
+          super(name, parent, location)
+
+          # Validate using ValidationHelper
+          return if valid?
+
+          raise ValidationError, errors.uniq.reverse unless self.parent<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Composite#initialize calls self.parent 2 times                        <a href="composite.html#L31" class="js-smell-location">0</a>                  <a href="composite.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+          self.parent.add_errors(errors)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Composite#initialize calls self.parent 2 times                        <a href="composite.html#L31" class="js-smell-location">0</a>                  <a href="composite.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+        end
+
+        # Overriding base get_child method
+        # @param name [Symbol] name of child
+        # @param options [Hash] options for child
+        def get_child(name, options)
+          child = hash[name].is_a?(Hash) ? hash[name] : {}<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Composite#get_child calls hash[name] 2 times          </span>  </li></ul>
+          child_location = location + &quot;[#{name}]&quot;
+
+          create_composite(options, child, name, child_location)
+        end
+
+        # Overriding base get_children method
+        # @param name [Symbol] name of child
+        # @param options [Hash] options for child
+        # @return children [Hash] return children and names
+        def get_children(name, options)
+          children = hash[name]
+          children = children.is_a?(Hash) ? children : {}
+
+          create_hash_children(children, options)
+        end
+
+        # @param name [Symbol] name of child
+        # @param children [Array] hash of children
+        # @param args [Hash] arguments for adding children
+        def create_array_children(name, children, args)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Composite#create_array_children has approx 6 statements          </span>  </li></ul>
+          composite_children = children.map.with_index do |child, index|
+            location = args[:location] ? args[:location] : self.location<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Composite#create_array_children calls args[:location] 2 times          </span>  </li></ul>
+            child_location = location + &quot;[#{index}]&quot;
+
+            create_composite(args, child, &quot;#{name}[#{index}]&quot;, child_location)
+          end
+
+          composite_children
+        end
+
+        # @param children [Hash] hash of children
+        # @param args [Hash] arguments for adding children
+        def create_hash_children(children, args)
+          composite_children = children.each_with_object({}) do |(key, value), hash|
+            child_location = location + &quot;[#{key}]&quot;
+
+            hash[key] = create_composite(args, value, key, child_location)
+            hash
+          end
+
+          composite_children
+        end
+
+        def create_composite(args, child, name, location)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank">LongParameterList</a>)      AutomationObject::BluePrint::HashAdapter::Composite#create_composite has 4 parameters          </span>  </li></ul>
+          # Get the Composite Class that corresponds with the HashAdapter Class
+          class_name = args[:interface].name.split(&#39;::&#39;).last<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Composite#create_composite calls args[:interface] 2 times                        <a href="composite.html#L86" class="js-smell-location">0</a>                  <a href="composite.html#L91" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+          require_relative &quot;../composite/#{class_name.to_underscore}&quot;
+          composite_class = AutomationObject::BluePrint::Composite.const_get(class_name)
+
+          composite_class.new(args[:interface].new(child, name, self, location))<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Composite#create_composite calls args[:interface] 2 times                        <a href="composite.html#L86" class="js-smell-location">0</a>                  <a href="composite.html#L91" class="js-smell-location">1</a>                  </span>  </li></ul>
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

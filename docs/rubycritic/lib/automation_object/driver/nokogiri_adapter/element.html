@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Driver::NokogiriAdapter::Element</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      56 complexity
+    </div>
+    <div class="file-stat">
+      2.2 complexity per method
+    </div>
+    <div class="file-stat">
+      13 churn
+    </div>
+    <div class="file-stat">
+      25 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;../driver&#39;
+require_relative &#39;error&#39;
+
+module AutomationObject
+  module Driver
+    module NokogiriAdapter
+      # Element for nokogiri
+      # Conforms to Element interface for an XML source using Nokogiri
+      class Element<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::NokogiriAdapter::Element has at least 25 methods          </span>  </li></ul>
+        # @param [AutomationObject::Driver::NokogiriAdapter::Driver] driver
+        # @param [Nokogiri::XML::Node] element
+        def initialize(driver, element)
+          @driver = driver
+          @subject = element
+        end
+
+        # Set or Get attribute
+        # @param key [String] key of element
+        # @param value [String, nil] set value or leave blank
+        # @return [String, nil]
+        def attribute(key, value = nil)
+          @subject[key] = value if value
+          @subject[key]
+        end
+
+        # @return [String] id of element
+        def id
+          @subject[&#39;id&#39;]
+        end
+
+        # @return [String] href of element
+        def href
+          @subject[&#39;href&#39;]
+        end
+
+        # Text of element
+        # @return [String, nil]
+        def text
+          @subject[&#39;content&#39;]
+        end
+
+        # Content of element
+        # @return [String, nil]
+        def content
+          @subject[&#39;content&#39;]
+        end
+
+        # Type into an element
+        # @return [void]
+        def send_keys(string)
+          @subject[&#39;value&#39;] = @subject[key] + string if @subject[&#39;value&#39;].is_a?(String)
+
+          @subject[&#39;value&#39;] = value
+        end
+
+        # Clear the element field
+        # @return [void]
+        def clear
+          @subject[&#39;value&#39;] = &#39;&#39;
+        end
+
+        # @return [Boolean]
+        def visible?
+        end
+
+        # @return [Boolean]
+        def invisible?
+        end
+
+        # Get the location
+        # @return [Point]
+        def location
+        end
+
+        # Get the size of an element
+        # @return [Dimension]
+        def size
+        end
+
+        # Perform a submit action on an element
+        # @return [void]
+        def submit
+          form_element = find_form(@subject)
+          raise NoSuchElementError unless form_element
+          @driver.session.request(form.request_method, form.url, form.params, form_element.new_window?)
+        end
+
+        # Scroll the element into view
+        # @return [void]
+        def scroll_into_view
+        end
+
+        # Perform a click action on the element
+        # @return [void]
+        def click
+          @driver.session.request(:get, href, {}, attribute(&#39;target&#39;) == &#39;_blank&#39;) if href &amp;&amp; @subject[&#39;tag&#39;] == &#39;a&#39;
+
+          # In case it&#39;s a button inside the form
+          submit if find_form(@subject)
+        end
+
+        # @return [Numeric] x position of element
+        def x<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Method-Name.md" target="_blank">UncommunicativeMethodName</a>)      AutomationObject::Driver::NokogiriAdapter::Element#x has the name 'x'          </span>  </li></ul>
+          0
+        end
+
+        # @return [Numeric] y position of element
+        def y<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Method-Name.md" target="_blank">UncommunicativeMethodName</a>)      AutomationObject::Driver::NokogiriAdapter::Element#y has the name 'y'          </span>  </li></ul>
+          0
+        end
+
+        # @return [Numeric] width of element
+        def width
+          0
+        end
+
+        # @return [Numeric] height of element
+        def height
+          0
+        end
+
+        # @return [Point] :x, :y coordinates
+        def element_center<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::Driver::NokogiriAdapter::Element#element_center doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
+          Point.new(x: 0, y: 0)
+        end
+
+        # @return [BoxCoordinates] :x1, :x2, :y1, :y2 coordinates of a box
+        def box_coordinates<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::Driver::NokogiriAdapter::Element#box_coordinates doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
+          BoxCoordinates.new(x1: 0, y1: 0, x2: 0, y2: 0)
+        end
+
+        # @param second_element_object [Object] element to compare to
+        # @param collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
+        # @return [Boolean] element collides with other
+        def collides_with_element?(_second_element_object, _collision_tolerance = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Driver::NokogiriAdapter::Element#collides_with_element? has boolean parameter '_collision_tolerance'          </span>  </li></ul>
+          false
+        end
+
+        # Hover over element
+        # @return [void]
+        def hover
+        end
+
+        # Helper method to switch to this element&#39;s iframe
+        # @return [void]
+        def switch_to_iframe
+          # TODO: finish
+        end
+
+        private
+
+        # @return [AutomationObject::Driver:NokogiriAdapter::Form]
+        def find_form(element)
+          return nil unless element
+
+          return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == &#39;form&#39;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to element more than self (maybe move it to another class?)                        <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </span>  </li></ul>
+          find_form(element.parent)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to element more than self (maybe move it to another class?)                        <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </span>  </li></ul>
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

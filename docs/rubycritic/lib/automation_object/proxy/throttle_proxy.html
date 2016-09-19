@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Proxy::ThrottleProxy</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      35 complexity
+    </div>
+    <div class="file-stat">
+      5.0 complexity per method
+    </div>
+    <div class="file-stat">
+      8 churn
+    </div>
+    <div class="file-stat">
+      7 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;proxy&#39;
+
+module AutomationObject
+  module Proxy
+    # Proxy class to throttle methods on the subject
+    class ThrottleProxy &lt; Proxy
+      def initialize(subject)
+        super
+      end
+
+      def throttle_methods
+        @throttle_methods ||= {}
+      end
+
+      def method_missing(method_symbol, *args, &amp;block)
+        start_time = Time.new.to_f
+        execution_return = @subject.send(method_symbol, *args, &amp;block)
+        throttle_speed(method_symbol, start_time)
+        execution_return
+      end
+
+      def respond_to_missing?(method, include_private = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Proxy::ThrottleProxy#respond_to_missing? has boolean parameter 'include_private'          </span>  </li></ul>
+        @subject.respond_to_missing?(method, include_private)
+      end
+
+      def add_method_throttle(method_symbol, time)
+        raise ArgumentError, &#39;Expecting method_symbol argument to be a Symbol&#39; unless method_symbol.is_a?(Symbol)
+
+        raise ArgumentError, &#39;Expecting time argument to be Numeric&#39; unless time.is_a?(Numeric)
+
+        raise ArgumentError, &quot;Expecting object to respond_to? #{method_symbol}&quot; unless @subject.respond_to?(method_symbol)
+
+        throttle_methods[method_symbol] = time
+      end
+
+      # Delete throttle that exists
+      # @param method_symbol [Symbol] method symbol to remove throttle from
+      def delete_method_throttle(method_symbol)
+        throttle_methods.delete(method_symbol)
+      end
+
+      # Method to sleep the difference between actual and throttle time
+      # @param method_symbol [Symbol] method that is to be throttled
+      # @param start_time [Float] start time as float
+      # @return [nil]
+      def throttle_speed(method_symbol, start_time)
+        return unless throttle_methods.key?(method_symbol)
+        total_time_taken = Time.new.to_f - start_time
+
+        sleep_time = throttle_methods[method_symbol] - total_time_taken
+        sleep(sleep_time) if sleep_time.positive?
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

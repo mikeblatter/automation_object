@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Driver::NokogiriAdapter::Window</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      59 complexity
+    </div>
+    <div class="file-stat">
+      7.4 complexity per method
+    </div>
+    <div class="file-stat">
+      7 churn
+    </div>
+    <div class="file-stat">
+      8 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require &#39;rest-client&#39;
+require &#39;nokogiri&#39;
+
+require_relative &#39;request&#39;
+require_relative &#39;error&#39;
+
+module AutomationObject
+  module Driver
+    module NokogiriAdapter
+      # Window class
+      class Window
+        attr_accessor :handle, :xml<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Driver::NokogiriAdapter::Window#handle is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Driver::NokogiriAdapter::Window#xml is a writable attribute          </span>  </li></ul>
+
+        def initialize
+          self.handle = SecureRandom.hex(16)
+
+          # Use to control history
+          @position = 0
+          @history = []
+        end
+
+        # Get url, will set xml to current window handle
+        # @param url [String] url to get xml for
+        # @return [Object] nokogiri object
+        def request(type, url, params = {})
+          request = Request.new(type, url, params)
+          make_request(request)
+
+          update_history(request)
+        end
+
+        def current_url
+          request = @history.at(@position)
+          request.url
+        end
+
+        def back
+          raise UnableToNavigateBackward if @position.zero?
+          @position -= 1
+
+          make_request(@history.at(@position))
+        end
+
+        def forward
+          raise UnableToNavigateForward if @position &gt;= @history.length - 2
+          @position += 1
+
+          make_request(@history.at(@position))
+        end
+
+        def refresh
+          make_request(@history.at(@position))
+        end
+
+        protected
+
+        def update_history(request)
+          @history.push(request)
+          @position = @history.length - 1
+        end
+
+        # Request url, will set xml to current window handle
+        # @param request [Request] request object
+        def make_request(request)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request has a flog score of 27          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request has approx 6 statements          </span>  </li></ul>
+          parsed_url = request.url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls request.url 2 times                        <a href="window.html#L66" class="js-smell-location">0</a>                  <a href="window.html#L70" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+          raise ArgumentError, &quot;Expecting get argument url to be a valid_url?, got #{url}&quot; if parsed_url.valid_url? == false &amp;&amp; current_url.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request performs a nil-check          </span>  </li></ul>
+
+          parsed_url = current_url.join_url(request.url) if url.valid_url? == false &amp;&amp; current_url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls request.url 2 times                        <a href="window.html#L66" class="js-smell-location">0</a>                  <a href="window.html#L70" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+          client_resource = RestClient::Resource.new(parsed_url, ssl_version: &#39;SSLv23_client&#39;)
+          response = client_resource.send(request.type, params: request.params)
+
+          self.xml = Nokogiri::HTML.parse(response)
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

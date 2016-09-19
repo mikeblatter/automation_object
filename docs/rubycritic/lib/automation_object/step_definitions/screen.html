@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">Screen</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      57 complexity
+    </div>
+    <div class="file-stat">
+      N/A complexity per method
+    </div>
+    <div class="file-stat">
+      5 churn
+    </div>
+    <div class="file-stat">
+      0 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;support/parse&#39;
+
+# Screen related step definitions
+# # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
+# This is to make sure that the examples in the docs will actually perform as indicated
+# Please follow what is already defined below
+
+# Close the given or current screen
+# # Examples:
+# - I close the &quot;contact&quot; screen
+# - I close the screen
+# - I destroy the screen
+Then(%r(^I (?:close|destroy) the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen$/)) do |*args|
+  _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  if name
+    AutomationObject::Framework.get.screen(name).close
+  else
+    AutomationObject::Framework.get.current_screen.close
+  end
+end
+
+# Navigate back on a given or current screen
+# # Examples:
+# - I navigate back on the screen
+# - I navigate back on the &quot;contact&quot; screen
+Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?(&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen$/)) do
+  _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  if name
+    AutomationObject::Framework.get.screen(name).back
+  else
+    AutomationObject::Framework.get.current_screen.back
+  end
+end
+
+# Switch/Focus screen
+# # Examples:
+# - I switch to the &quot;home&quot; screen
+# - I focus the &quot;contact&quot; screen
+Then(%r(^I (?:switch|focus) (?:to )?(?:the )?&quot;([\w\s]+|%\{[\w\d]+\})&quot; screen$/)) do |*args|
+  screen = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.focus(screen)
+end
+
+# Set the current screen&#39;s width or given screen
+# # Examples:
+# - I set the screen size to 1000x2000
+# - I set the &quot;home&quot; screen size to 1000x2000
+# - I set the screen width to 1000
+# - I set the screen height to 2000
+Then(%r(^I set the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$/)) do |*args|
+  _unparsed_screen, screen, dimension, size, width, height = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  screen = if screen
+             AutomationObject::Framework.get.screen(screen)
+           else
+             AutomationObject::Framework.get.current_screen
+           end
+
+  screen.size(width.to_i, height.to_i) if width &amp;&amp; height
+  screen.width(size) if dimension == &#39;width&#39; &amp;&amp; size
+  screen.height(size) if dimension == &#39;height&#39; &amp;&amp; size
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

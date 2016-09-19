@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-c circled-text circle">
+    C
+  </span>
+  <h2 class="file-name">AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      31 complexity
+    </div>
+    <div class="file-stat">
+      7.8 complexity per method
+    </div>
+    <div class="file-stat">
+      8 churn
+    </div>
+    <div class="file-stat">
+      4 methods
+    </div>
+    <div class="file-stat">
+      97 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;validate&#39;
+
+module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="validate_modal_presence_of.html#L4" class="js-smell-location">0</a>                  <a href="validate_view_presence_of.html#L4" class="js-smell-location">1</a>                  </span>  </li></ul>
+  module BluePrint
+    module HashAdapter
+      module Validators
+        # Validator that tests that a modal is defined when it is called elsewhere through a hook
+        class ValidateModalPresenceOf &lt; Validate
+          # @param args [Hash] arguments for the validation class
+          def initialize(args)
+            @key = args.fetch :key
+          end
+
+          # Validates the composite object and throws errors on failure
+          # @param composite_object [Object] Composite object to be tested.
+          # @return [nil] no return on exceptions on failure
+          def validate(composite_object)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#validate has approx 6 statements          </span>  </li></ul>
+            # Get the hash value from the composite object
+            target_value = composite_object.hash[@key]
+            target_values = target_value.is_a?(Array) ? target_value : [target_value]
+
+            return unless target_value
+
+            valid_modals = find_modals(composite_object)
+            populate_errors(target_values, valid_modals, composite_object)
+          end
+
+          private
+
+          # Traverses up a composite tree to find :modals in a hash
+          # @param composite_object [Object] composite object to traverse up
+          # @return [Array&lt;Symbol&gt;] array of modal names
+          def find_modals(composite_object)
+            # Using the hash instead of the method because lower nodes will get validated
+            # before composite is finished building
+            return composite_object.hash[:modals].keys if composite_object.hash[:modals].is_a?(Hash)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#find_modals calls composite_object.hash 2 times          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#find_modals calls composite_object.hash[:modals] 2 times          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#find_modals refers to composite_object more than self (maybe move it to another class?)                        <a href="validate_modal_presence_of.html#L37" class="js-smell-location">0</a>                  <a href="validate_modal_presence_of.html#L39" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+            return find_modals(composite_object.parent) if composite_object.parent<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#find_modals calls composite_object.parent 2 times          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#find_modals refers to composite_object more than self (maybe move it to another class?)                        <a href="validate_modal_presence_of.html#L37" class="js-smell-location">0</a>                  <a href="validate_modal_presence_of.html#L39" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+            []
+          end
+
+          def populate_errors(target_values, valid_modals, composite_object)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateModalPresenceOf#populate_errors has approx 6 statements          </span>  </li></ul>
+            target_values.each do |modal|
+              modal = modal.to_sym
+              next if valid_modals.include?(modal)
+
+              error_message = &quot;Invalid Modal: #{modal}, at: #{composite_object.location}[#{@key}].&quot;
+              error_message += &quot; Valid Modal(s): #{valid_modals}&quot;
+              error_messages.push(error_message)
+            end
+          end
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

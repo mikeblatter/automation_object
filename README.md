@@ -33,6 +33,11 @@ of the core features/code.
 gem install automation_object
 ```
 
+## Generated Documentation
+
+1. [Code Documentation (YARD Generated)](https://mikeblatter.github.io/automation_object/docs/yard)
+2. [RubyCritic Report](https://mikeblatter.github.io/automation_object/docs/rubycritic)
+
 ## Fully working example
 
 [Test Integration](/test_integration) contains examples for automation using AutomationObject. Fully contained
@@ -100,7 +105,3 @@ ao.home_screen.search_input.send_keys('automation_object gem')
 ao.home_screen.search_input.submit # On search_screen again
 
 ```
-
-## [Code Documentation (YARD Generated)](https://mikeblatter.github.io/automation_object/docs/generated)
-
-Contains all the internal code documentation generated using YARD.

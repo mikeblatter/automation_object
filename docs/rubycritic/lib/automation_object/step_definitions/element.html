@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-c circled-text circle">
+    C
+  </span>
+  <h2 class="file-name">Element</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      114 complexity
+    </div>
+    <div class="file-stat">
+      N/A complexity per method
+    </div>
+    <div class="file-stat">
+      7 churn
+    </div>
+    <div class="file-stat">
+      0 methods
+    </div>
+    <div class="file-stat">
+      52 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;support/parse&#39;
+
+# Element related step definitions
+# # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
+# This is to make sure that the examples in the docs will actually perform as indicated
+# Please follow what is already defined below
+
+# Step to call a method on an element
+# # Examples:
+# - I click on the &quot;home_screen&quot; &quot;about_button&quot; element
+# - I hover over the &quot;home_screen&quot; &quot;test_link&quot; element
+# - I tap on &quot;home_screen&quot; &quot;logo_button&quot; element
+When(/^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L14" class="js-smell-location">0</a>                  <a href="element.html#L24" class="js-smell-location">1</a>                  </span>  </li></ul>
+  method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.send(screen).send(element).send(method)
+end
+
+# Step to type into a field element
+# # Examples:
+# - I type &quot;blah&quot; into the &quot;home_screen&quot; &quot;text_field&quot; element
+# - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;text_field&quot; element
+# - I type &quot;blah&quot; in &quot;home_screen&quot; &quot;text_field&quot; element
+When(/^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L14" class="js-smell-location">0</a>                  <a href="element.html#L24" class="js-smell-location">1</a>                  </span>  </li></ul>
+  text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
+end
+
+# Step to scroll to an element
+# # Examples:
+# - I scroll to the &quot;home_screen&quot; &quot;logo_button&quot; element
+# - I focus to the &quot;home_screen&quot; &quot;logo_button&quot; element
+# - I scroll to &quot;home_screen&quot; &quot;logo_button&quot; element
+When(/^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|
+  screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
+end
+
+# Step to save something from an element
+# # Examples:
+# - I save &quot;text&quot; as &quot;unique_value&quot; from the &quot;home_screen&quot; &quot;logo_button&quot; element
+# - I save &quot;id&quot; as &quot;unique_value&quot; from &quot;home_screen&quot; &quot;logo_button&quot; element
+When(/^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|
+  method, key, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  # Save value from called method/property
+  value = AutomationObject::Framework.get.send(screen).send(element).send(method)
+  AutomationObject::StepDefinitions::Cache.set(key, value)
+end
+
+# Step to test element exists
+# # Examples:
+# - the &quot;home_screen&quot; &quot;title&quot; element should exist
+# - the &quot;home_screen&quot; &quot;title&quot; element shouldn&#39;t exist
+# - &quot;home_screen&quot; &quot;title&quot; element should not exist
+Then(/^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element should ?(n&#39;t |not )?exist$/) do |*args|
+  screen, element, negative = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  exists = AutomationObject::Framework.get.send(screen).send(element).exists?
+  if negative
+    assert_equal false, exists
+  else
+    assert_equal true, exists
+  end
+end
+
+# Step to test element value to a given value
+# If trying to carry over from any other object, use cache mechanism
+# # Examples:
+# - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should equal &quot;Home&quot;
+# - &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should not equal &quot;About&quot;
+# - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; shouldn&#39;t equal &quot;%{saved_value}&quot;
+Then(/^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element &quot;(\w+|%\{[\w\d]+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{[\w\d]+\})&quot;$/) do |*args|
+  screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  actual_value = AutomationObject::Framework.get.send(screen).send(element).send(method)
+  if negative
+    refute_equal expected_value, actual_value
+  else
+    assert_equal expected_value, actual_value
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

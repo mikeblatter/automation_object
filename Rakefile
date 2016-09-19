@@ -3,10 +3,12 @@ require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'fileutils'
 require 'awesome_print'
+
+# Auto documentation
 require 'yard'
 require 'redcarpet'
-
 require 'rubocop/rake_task'
+require "rubycritic/rake_task"
 
 THIS_DIRECTORY = File.expand_path(__dir__).freeze
 LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
@@ -14,27 +16,42 @@ LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
 GEM_NAME = 'automation_object'
 
 # Testing Tasks
-Rake::TestTask.new do |t|
-  t.libs << "lib/#{GEM_NAME}"
-  t.test_files = FileList['test/**/*_test.rb', 'spec/**/*_spec.rb']
-  t.verbose = true
+Rake::TestTask.new do |task|
+  task.libs << "lib/#{GEM_NAME}"
+  task.test_files = FileList['test/**/*_test.rb', 'spec/**/*_spec.rb']
+  task.verbose = true
 end
 
 # Linting
-RuboCop::RakeTask.new do |t|
-  t.options = ['--auto-correct']
+RuboCop::RakeTask.new do |task|
+  task.options = ['--auto-correct']
 end
 
 # Documentation
-YARD::Rake::YardocTask.new do |t|
-  t.files   = ['lib/**/*.rb']
-  t.options = ['--markup-provider=redcarpet', '--markup=markdown',
+YARD::Rake::YardocTask.new do |task|
+  task.files   = ['lib/**/*.rb']
+  task.options = ['--markup-provider=redcarpet', '--markup=markdown',
                '--output-dir=docs/internal']
+end
+
+Rubycritic::RakeTask.new do |task|
+  task.paths = FileList['lib/**/*.rb']
+  task.options = '--no-browser --path docs/rubycritic'
+end
+
+Rake::Task[:rubycritic].enhance do
+  rubycritic_dir = File.join(THIS_DIRECTORY, 'docs/rubycritic')
+
+  rubycritic_overview = File.join(rubycritic_dir, 'overview.html')
+  rubycritic_index = File.join(rubycritic_dir, 'index.html')
+
+  # Need to change overview.html to index
+  FileUtils.mv(rubycritic_overview, rubycritic_index)
 end
 
 # Building
 desc 'Build Gem'
-task build: [:rubocop, :test, :yard] do
+task build: [:rubocop, :test, :yard, :rubycritic] do
   system "gem build #{GEM_NAME}.gemspec"
 
   remove_gem = File.expand_path(File.join(__dir__, "#{GEM_NAME}-#{AutomationObject::VERSION}.gem"))

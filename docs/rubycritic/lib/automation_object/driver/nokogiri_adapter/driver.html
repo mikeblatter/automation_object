@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Driver::NokogiriAdapter::Driver</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      51 complexity
+    </div>
+    <div class="file-stat">
+      2.4 complexity per method
+    </div>
+    <div class="file-stat">
+      17 churn
+    </div>
+    <div class="file-stat">
+      21 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;session&#39;
+
+require_relative &#39;../element&#39;
+require_relative &#39;element&#39;
+
+module AutomationObject
+  module Driver
+    module NokogiriAdapter
+      # Driver for Nokogiri
+      # Conforms to interface and provides Selenium type functionality for XML only functionality
+      class Driver<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::NokogiriAdapter::Driver has at least 21 methods          </span>  </li></ul>
+        # @return [AutomationObject::Driver::NokogiriAdapter::Session]
+        attr_accessor :session<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#session is a writable attribute          </span>  </li></ul>
+
+        def initialize
+          self.session = Session.new
+        end
+
+        # Navigates current window to a given url
+        # @param url [String] navigate to the following url
+        # @return [void]
+        def get(url)
+          session.get(url)
+        end
+
+        def back
+          session.back
+        end
+
+        def forward
+          session.forward
+        end
+
+        def refresh
+          session.refresh
+        end
+
+        # Destroy the driver
+        def quit
+          session.quit
+        end
+
+        # Set timeout wait
+        # @param timeout [Integer] the timeout in seconds
+        # @return [void]
+        def wait(timeout = nil)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md" target="_blank">UnusedParameters</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#wait has unused parameter 'timeout'          </span>  </li></ul>
+        end
+
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [Boolean] element exists?
+        def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters [selector_path, selector_type] to 4 methods                        <a href="driver.html#L53" class="js-smell-location">0</a>                  <a href="driver.html#L61" class="js-smell-location">1</a>                  <a href="driver.html#L73" class="js-smell-location">2</a>                  <a href="driver.html#L137" class="js-smell-location">3</a>                  </span>  </li></ul>
+          elements = get_elements(selector_type, selector_path)
+          !elements.empty? ? true : false
+        end
+
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [AutomationObject::Driver::Element] element
+        def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters [selector_path, selector_type] to 4 methods                        <a href="driver.html#L53" class="js-smell-location">0</a>                  <a href="driver.html#L61" class="js-smell-location">1</a>                  <a href="driver.html#L73" class="js-smell-location">2</a>                  <a href="driver.html#L137" class="js-smell-location">3</a>                  </span>  </li></ul>
+          elements = get_elements(selector_type, selector_path)
+          raise NoSuchElementError if elements.length.zero?
+
+          AutomationObject::Driver::Element.new(
+            AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: elements.first)
+          )
+        end
+
+        # @param selector_type [Symbol] selector type, :css, :xpath, etc...
+        # @param selector_path [String] path to element
+        # @return [Array&lt;AutomationObject::Driver::Element&gt;] elements
+        def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters [selector_path, selector_type] to 4 methods                        <a href="driver.html#L53" class="js-smell-location">0</a>                  <a href="driver.html#L61" class="js-smell-location">1</a>                  <a href="driver.html#L73" class="js-smell-location">2</a>                  <a href="driver.html#L137" class="js-smell-location">3</a>                  </span>  </li></ul>
+          elements = get_elements(selector_type, selector_path)
+          elements.map do |element|
+            AutomationObject::Driver::Element.new(
+              AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: element)
+            )
+          end
+        end
+
+        # Accept prompt either in browser or mobile
+        def accept_prompt
+        end
+
+        # Dismiss the prompt
+        def dismiss_prompt
+        end
+
+        # Check if browser, more useful for Appium but can be generic here
+        # @return [Boolean] whether or not browser is being used
+        def browser?
+          true
+        end
+
+        # Window Handles
+        # @return [Array&lt;String&gt;] array of window handle ids
+        def window_handles
+          session.window_handles
+        end
+
+        # Current window handle
+        # @return [String] handle id
+        def window_handle
+          session.window_handle
+        end
+
+        # Set current window handle to, will switch windows
+        # @param handle_value [String] window handle value
+        def window_handle=(handle_value)
+          session.window_handle = handle_value
+        end
+
+        # Run script in browser to check if document in JS is complete
+        # @return [Boolean] document is complete
+        def document_complete?
+          true
+        end
+
+        # @param script [String] JS to run
+        # @return [Object, nil]
+        def execute_script(script)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md" target="_blank">UnusedParameters</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#execute_script has unused parameter 'script'          </span>  </li></ul>
+        end
+
+        # @return [Point] x,y scroll position
+        def scroll_position<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#scroll_position doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
+          Point.new(x: 0, y: 0)
+        end
+
+        # @return [Float] inner window height
+        def inner_window_height
+          0
+        end
+
+        protected
+
+        def get_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters [selector_path, selector_type] to 4 methods                        <a href="driver.html#L53" class="js-smell-location">0</a>                  <a href="driver.html#L61" class="js-smell-location">1</a>                  <a href="driver.html#L73" class="js-smell-location">2</a>                  <a href="driver.html#L137" class="js-smell-location">3</a>                  </span>  </li></ul>
+          case selector_type
+          when :xpath
+            elements = session.xml.xpath(selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#get_elements calls session.xml 2 times                        <a href="driver.html#L140" class="js-smell-location">0</a>                  <a href="driver.html#L142" class="js-smell-location">1</a>                  </span>  </li></ul>
+          when :css
+            elements = session.xml.css(selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#get_elements calls session.xml 2 times                        <a href="driver.html#L140" class="js-smell-location">0</a>                  <a href="driver.html#L142" class="js-smell-location">1</a>                  </span>  </li></ul>
+          else
+            raise ArgumentError, &quot;#{selector_type} selector type not implemented. Only :css, :xpath&quot;
+          end
+
+          elements
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

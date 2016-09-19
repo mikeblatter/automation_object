@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-c circled-text circle">
+    C
+  </span>
+  <h2 class="file-name">AutomationObject::Dsl::ElementHash</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      9 complexity
+    </div>
+    <div class="file-stat">
+      3.0 complexity per method
+    </div>
+    <div class="file-stat">
+      11 churn
+    </div>
+    <div class="file-stat">
+      3 methods
+    </div>
+    <div class="file-stat">
+      44 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;_proxy&#39;
+
+module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 3 nodes                        <a href="element.html#L4" class="js-smell-location">0</a>                  <a href="element_array.html#L4" class="js-smell-location">1</a>                  <a href="element_hash.html#L4" class="js-smell-location">2</a>                  </span>  </li></ul>
+  module Dsl
+    # ElementHash DSL Class
+    class ElementHash &lt; Base
+    end
+
+    # Proxy for ElementHash
+    class ElementHashProxy &lt; Proxy
+      # @param [AutomationObject::BluePrint::Composite::ElementHash] blue_prints
+      # @param [AutomationObject::State::Session] state
+      # @param [Symbol] name
+      def initialize(blue_prints, state, name)
+        super ElementHash, blue_prints, state, name
+      end
+
+      # @param [Symbol] method
+      # @param [Array, nil] args
+      # @param [Proc] block
+      def method_missing(method, *args, &amp;block)
+        # If Screen class has the method defined, then don&#39;t load
+        return super if ElementHash.method_defined?(method)
+
+        if @subject.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Dsl::ElementHashProxy#method_missing performs a nil-check          </span>  </li></ul>
+          puts &quot;@state.load(:element_hash, #{@name})&quot;
+          @subject = @state.load(:element_hash, @name)
+        end
+
+        super
+      end
+
+      def respond_to_missing?(method, include_private = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Dsl::ElementHashProxy#respond_to_missing? has boolean parameter 'include_private'          </span>  </li></ul>
+        @subject.respond_to_missing?(method, include_private)
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

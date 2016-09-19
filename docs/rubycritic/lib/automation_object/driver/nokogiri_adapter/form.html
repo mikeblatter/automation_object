@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::Driver::NokogiriAdapter::Form</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      19 complexity
+    </div>
+    <div class="file-stat">
+      3.8 complexity per method
+    </div>
+    <div class="file-stat">
+      8 churn
+    </div>
+    <div class="file-stat">
+      5 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+module AutomationObject
+  module Driver
+    module NokogiriAdapter
+      # Class to wrap a form node
+      class Form
+        # @return [Nokogiri::XML::Node]
+        attr_accessor :node<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Driver::NokogiriAdapter::Form#node is a writable attribute          </span>  </li></ul>
+
+        # @param node [Nokogiri::XML::Node]
+        def initialize(node)
+          self.node = node
+        end
+
+        def url
+          node[&#39;action&#39;]
+        end
+
+        def new_window?
+          attribute(&#39;target&#39;) == &#39;_blank&#39;
+        end
+
+        # @return [Hash]
+        def params
+          params = {}
+
+          node.traverse do |node|
+            next unless node.name == &#39;input&#39;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Form#params refers to node more than self (maybe move it to another class?)                        <a href="form.html#L28" class="js-smell-location">0</a>                  <a href="form.html#L29" class="js-smell-location">1</a>                  </span>  </li></ul>
+            params[node[&#39;name&#39;]] = node[&#39;value&#39;]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Form#params refers to node more than self (maybe move it to another class?)                        <a href="form.html#L28" class="js-smell-location">0</a>                  <a href="form.html#L29" class="js-smell-location">1</a>                  </span>  </li></ul>
+          end
+
+          params
+        end
+
+        # @return [Symbol]
+        def request_method
+          node[&#39;method&#39;].casecmp(&#39;GET&#39;).zero? ? :get : :post
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

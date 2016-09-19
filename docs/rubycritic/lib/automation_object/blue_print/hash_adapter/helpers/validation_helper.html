@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::BluePrint::HashAdapter::ValidationHelper::ClassMethods</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      42 complexity
+    </div>
+    <div class="file-stat">
+      4.7 complexity per method
+    </div>
+    <div class="file-stat">
+      12 churn
+    </div>
+    <div class="file-stat">
+      9 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+# Require all the validators
+require_relative &#39;validators/validate_instance_of&#39;
+require_relative &#39;validators/validate_allowed_keys&#39;
+require_relative &#39;validators/validate_screen_presence_of&#39;
+require_relative &#39;validators/validate_modal_presence_of&#39;
+require_relative &#39;validators/validate_view_presence_of&#39;
+require_relative &#39;validators/validate_element_presence_of&#39;
+require_relative &#39;validators/validate_presence_of&#39;
+
+require_relative &#39;../../../helpers/string&#39;
+
+module AutomationObject
+  module BluePrint
+    module HashAdapter
+      # Validation helper for the composite structure, will allow Rails style validations on the composite
+      module ValidationHelper
+        attr_accessor :errors<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#errors is a writable attribute          </span>  </li></ul>
+
+        # Remove getter to solve stupid Ruby warning
+        undef :errors if method_defined? :errors
+        # Give errors a default empty Array
+        # @return [Array&lt;String&gt;] errors messages
+        def errors
+          @errors ||= []
+        end
+
+        # Give errors a default empty Array
+        # @params [Array&lt;String&gt;] error messages
+        # @return [Array&lt;String&gt;] error messages
+        def add_errors(errors)
+          self.errors += errors
+        end
+
+        # @return [Boolean] composite valid?
+        def valid?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? has approx 6 statements          </span>  </li></ul>
+          return true if self.class.skip_validations<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class 3 times                        <a href="validation_helper.html#L37" class="js-smell-location">0</a>                  <a href="validation_helper.html#L41" class="js-smell-location">1</a>                  <a href="validation_helper.html#L45" class="js-smell-location">2</a>                  </span>  </li></ul>
+
+          # ap self.class
+          # ap self.class.name
+          self.class.validations.collect do |validation|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class 3 times                        <a href="validation_helper.html#L37" class="js-smell-location">0</a>                  <a href="validation_helper.html#L41" class="js-smell-location">1</a>                  <a href="validation_helper.html#L45" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class.validations 2 times                        <a href="validation_helper.html#L41" class="js-smell-location">0</a>                  <a href="validation_helper.html#L45" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class.validations.collect 2 times                        <a href="validation_helper.html#L41" class="js-smell-location">0</a>                  <a href="validation_helper.html#L45" class="js-smell-location">1</a>                  </span>  </li></ul>
+            # ap validation.class.name
+          end
+
+          self.class.validations.collect do |validation|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class 3 times                        <a href="validation_helper.html#L37" class="js-smell-location">0</a>                  <a href="validation_helper.html#L41" class="js-smell-location">1</a>                  <a href="validation_helper.html#L45" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class.validations 2 times                        <a href="validation_helper.html#L41" class="js-smell-location">0</a>                  <a href="validation_helper.html#L45" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::ValidationHelper#valid? calls self.class.validations.collect 2 times                        <a href="validation_helper.html#L41" class="js-smell-location">0</a>                  <a href="validation_helper.html#L45" class="js-smell-location">1</a>                  </span>  </li></ul>
+            validation.validate(self)
+            add_errors(validation.error_messages) unless validation.valid?
+          end
+
+          self.errors.empty?
+        end
+
+        def self.included(base)
+          base.extend(ClassMethods)
+        end
+
+        # Class level methods
+        module ClassMethods
+          def skip_validations=(boolean)
+            @skip_validations = boolean
+          end
+
+          def skip_validations
+            @skip_validations ||= false
+          end
+
+          # @param key [Symbol] hash key to test
+          # @param args [Hash] arguments for validation
+          # @return [nil]
+          def validates(key, args = {})
+            args.each do |validator_name, validation_args|
+              validator_name = &#39;Validate&#39; + validator_name.to_s.pascalize
+              validator = Validators.const_get(validator_name)
+
+              validations.push(validator.new(key: key, args: validation_args))
+            end
+          end
+
+          # @param args [Hash] arguments for validation
+          # @return [nil]
+          def validates_keys(args = {})
+            validations.push(Validators::ValidateAllowedKeys.new(args))
+          end
+
+          # @return [Array] list of Validators, default to empty list
+          def validations
+            @validations = [] unless defined? @validations
+            @validations
+          end
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

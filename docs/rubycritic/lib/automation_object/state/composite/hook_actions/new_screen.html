@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::State::Composite::NewScreen</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      38 complexity
+    </div>
+    <div class="file-stat">
+      19.0 complexity per method
+    </div>
+    <div class="file-stat">
+      11 churn
+    </div>
+    <div class="file-stat">
+      2 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;action_loop&#39;
+require_relative &#39;../../error&#39;
+
+module AutomationObject
+  module State
+    module Composite
+      # New screen hook loop
+      class NewScreen &lt; ActionLoop
+        def initialize(args = {})
+          super
+        end
+
+        def single_run<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::State::Composite::NewScreen#single_run has a flog score of 37          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::State::Composite::NewScreen#single_run has approx 10 statements          </span>  </li></ul>
+          new_screen_name = blue_prints
+          new_screen = composite.top.screens[new_screen_name]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls composite.top 4 times                        <a href="new_screen.html#L16" class="js-smell-location">0</a>                  <a href="new_screen.html#L18" class="js-smell-location">1</a>                  <a href="new_screen.html#L25" class="js-smell-location">2</a>                  <a href="new_screen.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+
+          stored_window_handles = composite.top.window_handles<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls composite.top 4 times                        <a href="new_screen.html#L16" class="js-smell-location">0</a>                  <a href="new_screen.html#L18" class="js-smell-location">1</a>                  <a href="new_screen.html#L25" class="js-smell-location">2</a>                  <a href="new_screen.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+          driver_handles = driver.window_handles
+
+          return false if driver_handles.length &lt;= stored_window_handles.length<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls driver_handles.length 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L23" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls stored_window_handles.length 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L23" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+          raise MoreThenOneScreenCreated if (driver_handles.length - stored_window_handles.length) &gt; 1<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls driver_handles.length 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L23" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls stored_window_handles.length 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L23" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+          composite.top.create_screen(new_screen_name)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls composite.top 4 times                        <a href="new_screen.html#L16" class="js-smell-location">0</a>                  <a href="new_screen.html#L18" class="js-smell-location">1</a>                  <a href="new_screen.html#L25" class="js-smell-location">2</a>                  <a href="new_screen.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+          composite.top.use_screen(new_screen_name)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::NewScreen#single_run calls composite.top 4 times                        <a href="new_screen.html#L16" class="js-smell-location">0</a>                  <a href="new_screen.html#L18" class="js-smell-location">1</a>                  <a href="new_screen.html#L25" class="js-smell-location">2</a>                  <a href="new_screen.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+
+          return false unless driver.document_complete?
+
+          new_screen.load.live?
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

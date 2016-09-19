@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::State::Composite::ShowModal</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      18 complexity
+    </div>
+    <div class="file-stat">
+      9.0 complexity per method
+    </div>
+    <div class="file-stat">
+      14 churn
+    </div>
+    <div class="file-stat">
+      2 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;action_loop&#39;
+
+module AutomationObject
+  module State
+    module Composite
+      # Show modal hook loop
+      class ShowModal &lt; ActionLoop
+        def initialize(args = {})
+          super
+          @new_modal_name = args.fetch :blue_prints
+        end
+
+        def single_run
+          new_modal = composite.screen.modals[@new_modal_name]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::ShowModal#single_run calls composite.screen 3 times                        <a href="show_modal.html#L15" class="js-smell-location">0</a>                  <a href="show_modal.html#L18" class="js-smell-location">1</a>                  <a href="show_modal.html#L19" class="js-smell-location">2</a>                  </span>  </li></ul>
+
+          if new_modal.load.live? != false
+            composite.screen.current_modal = @new_modal_name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::ShowModal#single_run calls composite.screen 3 times                        <a href="show_modal.html#L15" class="js-smell-location">0</a>                  <a href="show_modal.html#L18" class="js-smell-location">1</a>                  <a href="show_modal.html#L19" class="js-smell-location">2</a>                  </span>  </li></ul>
+            composite.screen.modal = new_modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::ShowModal#single_run calls composite.screen 3 times                        <a href="show_modal.html#L15" class="js-smell-location">0</a>                  <a href="show_modal.html#L18" class="js-smell-location">1</a>                  <a href="show_modal.html#L19" class="js-smell-location">2</a>                  </span>  </li></ul>
+            return true
+          else
+            return false
+          end
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::StepDefinitions::ElementArray</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      44 complexity
+    </div>
+    <div class="file-stat">
+      22.0 complexity per method
+    </div>
+    <div class="file-stat">
+      4 churn
+    </div>
+    <div class="file-stat">
+      2 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+module AutomationObject
+  module StepDefinitions
+    # Element array module for iterating through an array
+    module ElementArray
+      module_function
+
+      def iterate_and_do(screen, element, key, low_range, high_range)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do has a flog score of 34          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank">LongParameterList</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do has 5 parameters          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do has approx 9 statements          </span>  </li></ul>
+        element_array = AutomationObject::Framework.get.send(screen).send(element)
+        assert element_array.is_a?(Array)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </span>  </li></ul>
+
+        return range(element_array, low_range, high_range) if low_range &amp;&amp; high_range
+
+        case key
+        when &#39;all&#39;
+          element_array.each do |sub_element|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </span>  </li></ul>
+            yield sub_element
+          end
+        when &#39;random&#39;
+          yield element_array[rand(0..(element_array.length - 1))]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do calls element_array.length - 1 2 times                        <a href="element_array.html#L20" class="js-smell-location">0</a>                  <a href="element_array.html#L24" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do calls element_array.length 2 times                        <a href="element_array.html#L20" class="js-smell-location">0</a>                  <a href="element_array.html#L24" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </span>  </li></ul>
+        when &#39;first&#39;
+          yield element_array[0]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </span>  </li></ul>
+        when &#39;last&#39;
+          yield element_array[element_array.length - 1]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do calls element_array.length - 1 2 times                        <a href="element_array.html#L20" class="js-smell-location">0</a>                  <a href="element_array.html#L24" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do calls element_array.length 2 times                        <a href="element_array.html#L20" class="js-smell-location">0</a>                  <a href="element_array.html#L24" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </span>  </li></ul>
+        else
+          yield element_array[key.to_i]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </span>  </li></ul>
+        end
+      end
+
+      private
+
+      def range(element_array, low_range, high_range)
+        low_range.to_i..high_range.to_i.each do |i|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank">UncommunicativeVariableName</a>)      AutomationObject::StepDefinitions::ElementArray#range has the variable name 'i'          </span>  </li></ul>
+          assert element_array.length &gt; i<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#range refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L34" class="js-smell-location">0</a>                  <a href="element_array.html#L35" class="js-smell-location">1</a>                  </span>  </li></ul>
+          yield element_array[i]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::StepDefinitions::ElementArray#range refers to element_array more than self (maybe move it to another class?)                        <a href="element_array.html#L34" class="js-smell-location">0</a>                  <a href="element_array.html#L35" class="js-smell-location">1</a>                  </span>  </li></ul>
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

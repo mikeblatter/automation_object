@@ -28,8 +28,9 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
 
-  # Lint
+  # Code Checking
   spec.add_development_dependency 'rubocop', '~> 0.42'
+  spec.add_development_dependency 'rubycritic', '~> 2.8'
 
   # Documentation
   spec.add_development_dependency 'yard', '~> 0.9'

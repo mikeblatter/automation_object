@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      18 complexity
+    </div>
+    <div class="file-stat">
+      9.0 complexity per method
+    </div>
+    <div class="file-stat">
+      8 churn
+    </div>
+    <div class="file-stat">
+      2 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;validate&#39;
+
+module AutomationObject
+  module BluePrint
+    module HashAdapter
+      module Validators
+        # Validator that tests that a element is defined when it is called elsewhere through a hook
+        class ValidateInstanceOf &lt; Validate
+          # @param args [Hash] arguments for the validation class
+          def initialize(args)
+            @key = args.fetch :key<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf#initialize refers to args more than self (maybe move it to another class?)                        <a href="validate_instance_of.html#L12" class="js-smell-location">0</a>                  <a href="validate_instance_of.html#L14" class="js-smell-location">1</a>                  </span>  </li></ul>
+            # Convert to array of instances for consistency
+            @should_be_instances_of = args.fetch(:args).is_a?(Array) ? args.fetch(:args) : [args.fetch(:args)]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf#initialize calls args.fetch(:args) 3 times          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf#initialize refers to args more than self (maybe move it to another class?)                        <a href="validate_instance_of.html#L12" class="js-smell-location">0</a>                  <a href="validate_instance_of.html#L14" class="js-smell-location">1</a>                  </span>  </li></ul>
+          end
+
+          # Validates the composite object and adds errors on failure
+          # @param composite_object [Object] Composite object to be tested.
+          # @return [nil] no return on exceptions on failure
+          def validate(composite_object)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Validators::ValidateInstanceOf#validate has approx 7 statements          </span>  </li></ul>
+            # Get the hash value from the composite object
+            target_value = composite_object.hash[@key]
+
+            # Skip empty or non-existent
+            return unless target_value
+
+            @should_be_instances_of.each do |should_be_instance_of|
+              return if target_value.is_a?(should_be_instance_of)
+            end
+
+            error_message = &quot;Invalid Type: #{target_value.class}, at: #{composite_object.location}[#{@key}].&quot;
+            error_message += &quot; Allowed Type(s): #{@should_be_instances_of}&quot;
+
+            error_messages.push(error_message)
+          end
+        end
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>
