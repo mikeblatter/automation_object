@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validate'
 
 module AutomationObject
@@ -19,9 +20,7 @@ module AutomationObject
             target_hash = composite_object.hash
 
             target_hash.each_key do |key|
-              unless @allowed_keys.include?(key)
-                error_messages.push("Invalid Key: #{key}, at: #{composite_object.location}. Allowed keys: #{@allowed_keys}.")
-              end
+              error_messages.push("Invalid Key: #{key}, at: #{composite_object.location}. Allowed keys: #{@allowed_keys}.") unless @allowed_keys.include?(key)
             end
           end
         end

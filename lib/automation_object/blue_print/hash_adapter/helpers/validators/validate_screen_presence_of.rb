@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validate'
 
 module AutomationObject
@@ -29,7 +30,7 @@ module AutomationObject
               next if valid_screens.include?(screen)
 
               error_message = "Invalid Screen: #{screen}, at: #{composite_object.location}[#{@key}]."
-              error_message << " Valid Screen(s): #{valid_screens}"
+              error_message += " Valid Screen(s): #{valid_screens}"
               error_messages.push(error_message)
             end
           end

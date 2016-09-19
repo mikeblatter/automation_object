@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'action_loop'
 
 module AutomationObject
@@ -16,13 +17,9 @@ module AutomationObject
 
             case requirement_name
             when :exists?
-              if requirement_value != driver.exists?(*blue_prints.element_blueprints.selector_params)
-                return false
-              end
+              return false if requirement_value != driver.exists?(*blue_prints.element_blueprints.selector_params)
             else
-              if requirement_value != element.send(requirement_name)
-                return false
-              end
+              return false if requirement_value != element.send(requirement_name)
             end
           end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'yaml'
 
 require_relative '../helpers/file'
@@ -30,9 +31,7 @@ module AutomationObject
 
           file_hash = YAML.load_file(file_path)
 
-          unless file_hash.is_a?(Hash)
-            raise "Expecting file #{file_path} to be a hash when loaded"
-          end
+          raise "Expecting file #{file_path} to be a hash when loaded" unless file_hash.is_a?(Hash)
 
           merged_yaml_hash = merged_yaml_hash.deep_merge(file_hash)
         end

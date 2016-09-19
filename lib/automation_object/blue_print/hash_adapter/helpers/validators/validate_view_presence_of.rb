@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validate'
 
 module AutomationObject
@@ -28,7 +29,7 @@ module AutomationObject
               next if valid_views.include?(view)
 
               error_message = "Invalid View: #{view}, at: #{composite_object.location}[#{@key}]."
-              error_message << " Valid Views(s): #{valid_views}"
+              error_message += " Valid Views(s): #{valid_views}"
               error_messages.push(error_message)
             end
           end

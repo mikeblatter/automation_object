@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'automation_object/helpers/kernel'
 # Gems
 # Ignore warning coming from third-party libraries

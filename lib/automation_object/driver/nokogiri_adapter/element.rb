@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../driver'
 require_relative 'error'
 
@@ -48,9 +49,7 @@ module AutomationObject
         # Type into an element
         # @return [void]
         def send_keys(string)
-          if @subject['value'].is_a?(String)
-            @subject['value'] = @subject[key] + string
-          end
+          @subject['value'] = @subject[key] + string if @subject['value'].is_a?(String)
 
           @subject['value'] = value
         end
@@ -95,9 +94,7 @@ module AutomationObject
         # Perform a click action on the element
         # @return [void]
         def click
-          if href && @subject['tag'] == 'a'
-            @driver.session.request(:get, href, {}, attribute('target') == '_blank')
-          end
+          @driver.session.request(:get, href, {}, attribute('target') == '_blank') if href && @subject['tag'] == 'a'
 
           # In case it's a button inside the form
           submit if find_form(@subject)

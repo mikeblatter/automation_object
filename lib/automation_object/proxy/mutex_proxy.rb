@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'proxy'
 
 module AutomationObject
@@ -12,17 +13,13 @@ module AutomationObject
       end
 
       def add_mutex(mutex_object)
-        unless mutex_object.is_a?(Mutex)
-          raise ArgumentError, 'Expecting mutex_object argument to be a Mutex object'
-        end
+        raise ArgumentError, 'Expecting mutex_object argument to be a Mutex object' unless mutex_object.is_a?(Mutex)
 
         @mutexes << mutex_object
       end
 
       def delete_mutex(mutex_object)
-        unless mutex_object.is_a?(Mutex)
-          raise ArgumentError, 'Expecting mutex_object argument to be a Mutex object'
-        end
+        raise ArgumentError, 'Expecting mutex_object argument to be a Mutex object' unless mutex_object.is_a?(Mutex)
 
         @mutexes.delete(mutex_object)
       end

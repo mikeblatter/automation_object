@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Require parent class
 require_relative 'composite'
 require_relative 'hook_element_requirements'

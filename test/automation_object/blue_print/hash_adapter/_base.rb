@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../../../test_helper'
 
 Dir[File.join(File.dirname(__FILE__), '../../../../lib/automation_object/blue_print/**/*.rb')].each { |f| load(f) }

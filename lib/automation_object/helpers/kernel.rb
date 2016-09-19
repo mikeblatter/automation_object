@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Kernel
   def suppress_warnings
     original_verbosity = $VERBOSE

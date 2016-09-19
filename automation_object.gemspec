@@ -1,4 +1,5 @@
 # coding: utf-8
+# frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -36,6 +37,7 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 
   # Testing and debugging
   spec.add_development_dependency 'coveralls', '~> 0.8'
+  spec.add_development_dependency 'simplecov', '~> 0.8'
   spec.add_development_dependency 'minitest', '~> 5.9'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 2.0'
 

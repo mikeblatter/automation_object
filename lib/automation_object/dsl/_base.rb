@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'ostruct'
 require 'colorize'
 
@@ -23,16 +24,16 @@ module AutomationObject
       def inspect(indent = 5)
         string = self.class.to_s
         to_h.each do |key, value|
-          case value.class.to_s
-          when /Screen/
-            string += "\n#{' ' * indent} #{key}:".colorize(:magenta)
-          when /Modal/
-            string += "\n#{' ' * indent} #{key}:".colorize(:light_magenta)
-          when /(Element|ElementHash|ElementArray)/
-            string += "\n#{' ' * indent} #{key}:".colorize(:light_blue)
-          else
-            string += "\n#{' ' * indent} #{key}:".colorize(:red)
-          end
+          string += case value.class.to_s
+                    when /Screen/
+                      "\n#{' ' * indent} #{key}:".colorize(:magenta)
+                    when /Modal/
+                      "\n#{' ' * indent} #{key}:".colorize(:light_magenta)
+                    when /(Element|ElementHash|ElementArray)/
+                      "\n#{' ' * indent} #{key}:".colorize(:light_blue)
+                    else
+                      "\n#{' ' * indent} #{key}:".colorize(:red)
+                    end
 
           string += if value.is_a?(Base)
                       " #{value.inspect(indent + 10)}"

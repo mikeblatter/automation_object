@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validate'
 
 module AutomationObject
@@ -29,7 +30,7 @@ module AutomationObject
               next if valid_elements.include?(element)
 
               error_message = "Invalid Element: #{element}, at: #{composite_object.location}[#{@key}]."
-              error_message << " Valid Elements(s): #{valid_elements}"
+              error_message += " Valid Elements(s): #{valid_elements}"
               error_messages.push(error_message)
             end
           end

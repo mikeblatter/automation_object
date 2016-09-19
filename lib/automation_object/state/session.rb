@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'error'
 
 require_relative 'composite/top'
@@ -24,16 +25,12 @@ module AutomationObject
       def load(type, name)
         case type
         when :screen
-          unless composite.live_screens.include?(name)
-            raise AutomationObject::State::ScreenNotActiveError, name
-          end
+          raise AutomationObject::State::ScreenNotActiveError, name unless composite.live_screens.include?(name)
 
           # Set the current window by name
           composite.window = name
         when :modal
-          unless composite.window.modal == name
-            raise AutomationObject::State::ModalNotActiveError, name
-          end
+          raise AutomationObject::State::ModalNotActiveError, name unless composite.window.modal == name
         when :element, :element_array, :element_hash
           return composite.get_object(type, name)
         else

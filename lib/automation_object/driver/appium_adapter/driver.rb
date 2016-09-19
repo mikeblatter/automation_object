@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'appium_lib'
 
 require_relative '../../proxy/proxy'

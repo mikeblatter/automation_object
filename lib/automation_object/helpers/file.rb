@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Extend file class
 # Collect files in directory recursively and return Array
 class ::File

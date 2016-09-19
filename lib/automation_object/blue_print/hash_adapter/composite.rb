@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../../helpers/composite'
 require_relative '../../helpers/string'
 
@@ -24,12 +25,12 @@ module AutomationObject
           super(name, parent, location)
 
           # Validate using ValidationHelper
-          unless valid?
-            if self.parent
-              self.parent.add_errors(errors)
-            else
-              raise ValidationError, errors.uniq.reverse
-            end
+          return if valid?
+
+          if self.parent
+            self.parent.add_errors(errors)
+          else
+            raise ValidationError, errors.uniq.reverse
           end
         end
 

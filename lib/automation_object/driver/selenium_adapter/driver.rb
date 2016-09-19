@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../../proxy/proxy'
 
 require_relative '../driver'

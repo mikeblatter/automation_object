@@ -1,11 +1,10 @@
+# frozen_string_literal: true
 module AutomationObject
   module Proxy
     # CompositeBase Proxy class for getting between another
     class Proxy
       instance_methods.each do |instance_method|
-        unless instance_method =~ /(^__|^send$|^object_id)/
-          undef_method instance_method
-        end
+        undef_method instance_method unless instance_method =~ /(^__|^send$|^object_id)/
       end
 
       # @param [Object] subject

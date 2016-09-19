@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'fileutils'
@@ -10,7 +11,7 @@ require 'rubocop/rake_task'
 THIS_DIRECTORY = File.expand_path(__dir__).freeze
 LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
                   File.join(THIS_DIRECTORY, 'test/**/*.rb')].freeze
-GEM_NAME = 'automation_object'.freeze
+GEM_NAME = 'automation_object'
 
 # Testing Tasks
 Rake::TestTask.new do |t|

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # require_relative '../../../test_helper'
 # require_relative '../../../../lib/automation_object/driver/helpers/selenium_element_helper'
 # # # TODO, review

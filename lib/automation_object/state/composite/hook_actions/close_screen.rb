@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'action_loop'
 require_relative '../../error'
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../driver'
 
 module AutomationObject
@@ -170,13 +171,9 @@ module AutomationObject
         # @return [String] iframe value to switch to
         def iframe_switch_value
           iframe_switch_value = attribute('id')
-          if iframe_switch_value.length.zero?
-            iframe_switch_value = attribute('name')
-          end
+          iframe_switch_value = attribute('name') if iframe_switch_value.length.zero?
 
-          unless iframe_switch_value
-            iframe_switch_value = attribute('name', SecureRandom.hex(16))
-          end
+          iframe_switch_value = attribute('name', SecureRandom.hex(16)) unless iframe_switch_value
 
           iframe_switch_value
         end

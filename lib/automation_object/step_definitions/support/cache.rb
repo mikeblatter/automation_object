@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Class for caching values between steps
 module AutomationObject
   module StepDefinitions

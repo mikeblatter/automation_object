@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../adapter_test_helper'
 
 # Test AutomationObject::Driver::AppiumAdapter::Element class

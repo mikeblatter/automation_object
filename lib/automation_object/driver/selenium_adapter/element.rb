@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../common_selenium/element'
 
 module AutomationObject

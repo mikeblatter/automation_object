@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'action_loop'
 require_relative '../../error'
 
@@ -18,9 +19,7 @@ module AutomationObject
 
           return false if driver_handles.length <= stored_window_handles.length
 
-          if (driver_handles.length - stored_window_handles.length) > 1
-            raise MoreThenOneScreenCreated
-          end
+          raise MoreThenOneScreenCreated if (driver_handles.length - stored_window_handles.length) > 1
 
           composite.top.create_screen(new_screen_name)
           composite.top.use_screen(new_screen_name)

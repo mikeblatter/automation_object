@@ -2,3 +2,13 @@ AllCops:
   Exclude:
     - 'test_integration/**/*'
     - 'docs/**/*'
+  TargetRubyVersion: 2.3
+
+Style/IfUnlessModifier:
+  MaxLineLength: 200
+
+Style/WhileUntilModifier:
+  MaxLineLength: 200
+
+Metrics/LineLength:
+  Max: 200

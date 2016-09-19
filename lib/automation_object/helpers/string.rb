@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # String class method additions
 class ::String
   def valid_url?

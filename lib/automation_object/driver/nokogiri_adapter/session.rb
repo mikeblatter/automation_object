@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'error'
 require_relative 'window'
 
@@ -70,7 +71,7 @@ module AutomationObject
           quit if @windows.length == 1
 
           @windows.delete_at(@position)
-          @position -= 1 if @position > 0
+          @position -= 1 if @position.positive?
         end
 
         # Just reset the session

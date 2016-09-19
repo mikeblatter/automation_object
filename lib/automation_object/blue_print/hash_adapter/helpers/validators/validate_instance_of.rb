@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validate'
 
 module AutomationObject
@@ -28,7 +29,7 @@ module AutomationObject
             end
 
             error_message = "Invalid Type: #{target_value.class}, at: #{composite_object.location}[#{@key}]."
-            error_message << " Allowed Type(s): #{@should_be_instances_of}"
+            error_message += " Allowed Type(s): #{@should_be_instances_of}"
 
             error_messages.push(error_message)
           end

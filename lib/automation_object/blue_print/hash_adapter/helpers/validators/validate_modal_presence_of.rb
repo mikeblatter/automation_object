@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validate'
 
 module AutomationObject
@@ -28,7 +29,7 @@ module AutomationObject
               next if valid_modals.include?(modal)
 
               error_message = "Invalid Modal: #{modal}, at: #{composite_object.location}[#{@key}]."
-              error_message << " Valid Modal(s): #{valid_modals}"
+              error_message += " Valid Modal(s): #{valid_modals}"
               error_messages.push(error_message)
             end
           end

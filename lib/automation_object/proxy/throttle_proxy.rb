@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'proxy'
 
 module AutomationObject
@@ -20,17 +21,11 @@ module AutomationObject
       end
 
       def add_method_throttle(method_symbol, time)
-        unless method_symbol.is_a?(Symbol)
-          raise ArgumentError, 'Expecting method_symbol argument to be a Symbol'
-        end
+        raise ArgumentError, 'Expecting method_symbol argument to be a Symbol' unless method_symbol.is_a?(Symbol)
 
-        unless time.is_a?(Numeric)
-          raise ArgumentError, 'Expecting time argument to be Numeric'
-        end
+        raise ArgumentError, 'Expecting time argument to be Numeric' unless time.is_a?(Numeric)
 
-        unless @subject.respond_to?(method_symbol)
-          raise ArgumentError, "Expecting object to respond_to? #{method_symbol}"
-        end
+        raise ArgumentError, "Expecting object to respond_to? #{method_symbol}" unless @subject.respond_to?(method_symbol)
 
         throttle_methods[method_symbol] = time
       end
@@ -50,7 +45,7 @@ module AutomationObject
         total_time_taken = Time.new.to_f - start_time
 
         sleep_time = throttle_methods[method_symbol] - total_time_taken
-        sleep(sleep_time) if sleep_time > 0
+        sleep(sleep_time) if sleep_time.positive?
       end
     end
   end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Require all the validators
 require_relative 'validators/validate_instance_of'
 require_relative 'validators/validate_allowed_keys'
