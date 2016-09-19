@@ -5,7 +5,7 @@ module AutomationObject
   # State Port, following port/adapter pattern
   # Composite adapts the state to the blueprint
   module State
-    extend self
+    module_function
 
     # Creates/returns a new session, attaches driver, and composite
     # Will use a composite to help control the state

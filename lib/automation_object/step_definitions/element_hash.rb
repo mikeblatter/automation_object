@@ -15,8 +15,8 @@ When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|rando
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
     screen, element, key, low_range, high_range
-  ) do |element|
-    element.send(method)
+  ) do |sub_element|
+    sub_element.send(method)
   end
 end
 
@@ -28,8 +28,8 @@ When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|ra
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
     screen, element, key, low_range, high_range
-  ) do |element|
-    element.send_keys(text)
+  ) do |sub_element|
+    sub_element.send_keys(text)
   end
 end
 
@@ -52,8 +52,8 @@ When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
     screen, element, key, low_range, high_range
-  ) do |element|
-    value = element.send(method)
+  ) do |sub_element|
+    value = sub_element.send(method)
     AutomationObject::StepDefinitions::Cache.set(value_key, value)
   end
 end
@@ -97,8 +97,8 @@ Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\}
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
     screen, element, key, low_range, high_range
-  ) do |element|
-    value = element.send(method)
+  ) do |sub_element|
+    value = sub_element.send(method)
 
     if negative
       refute_equals expected_value, value
@@ -118,8 +118,8 @@ Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash
   assert element_hash.is_a?(Hash)
 
   values = []
-  element_hash.each_value do |element|
-    values.push(element.send(method))
+  element_hash.each_value do |sub_element|
+    values.push(sub_element.send(method))
   end
 
   if negative

@@ -32,7 +32,7 @@ module AutomationObject
         # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]
-        def set_wait(timeout = nil)
+        def wait(timeout = nil)
           @subject.set_wait(timeout)
         end
 
@@ -75,20 +75,20 @@ module AutomationObject
         end
 
         # @return [Boolean] whether or not browser is being used
-        def is_browser?
-          return @is_browser unless @is_browser.nil?
-          @is_browser = false
+        def browser?
+          return @browser unless @browser.nil?
+          @browser = false
 
           # Now we need to check Appium's contexts to see if WEBVIEW is in available_contexts
           available_contexts = @subject.available_contexts
           available_contexts.each do |context|
             if context =~ /^WEBVIEW_\d+$/
-              @is_browser = true
+              @browser = true
               break
             end
           end
 
-          @is_browser
+          @browser
         end
 
         # Window Handles Override

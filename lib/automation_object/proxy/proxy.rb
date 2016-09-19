@@ -18,6 +18,10 @@ module AutomationObject
       def method_missing(method, *args, &block)
         @subject.send(method, *args, &block)
       end
+
+      def respond_to_missing?(method, include_private = false)
+        @subject.respond_to_missing?(method, include_private)
+      end
     end
   end
 end

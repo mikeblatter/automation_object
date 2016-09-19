@@ -17,11 +17,11 @@ class TestBluePrintFileHelper < Minitest::Test
   def setup
     FakeFS.activate!
 
-    for directory in DIRS
+    DIRS.each do |directory|
       FileUtils.mkdir_p(directory)
     end
 
-    for file in FILES
+    FILES.each do |file|
       FileUtils.touch(file)
     end
   end

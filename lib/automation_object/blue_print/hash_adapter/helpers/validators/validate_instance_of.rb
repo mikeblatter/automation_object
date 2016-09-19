@@ -14,7 +14,7 @@ module AutomationObject
             @should_be_instances_of = args.fetch(:args).is_a?(Array) ? args.fetch(:args) : [args.fetch(:args)]
           end
 
-          # Validates the composite object and throws errors on failure
+          # Validates the composite object and adds errors on failure
           # @param composite_object [Object] Composite object to be tested.
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)

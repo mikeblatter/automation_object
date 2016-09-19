@@ -30,7 +30,7 @@ module AutomationObject
         # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]
-        def set_wait(timeout = nil)
+        def wait(timeout = nil)
           timeout = 0 unless timeout
           @subject.manage.timeouts.implicit_wait = timeout
         end
@@ -44,10 +44,14 @@ module AutomationObject
           begin
             original_timeout = @subject.manage.timeouts.implicit_wait
             @subject.manage.timeouts.implicit_wait = 0
+
             element_objects = @subject.find_elements(selector_type, selector_path)
+
             @subject.manage.timeouts.implicit_wait = original_timeout
+
             exists = true unless element_objects.empty?
-          rescue Exception
+          rescue StandardError
+            return false
           end
 
           exists
@@ -89,7 +93,7 @@ module AutomationObject
 
         # Check if browser, more useful for Appium but can be generic here
         # @return [Boolean] whether or not browser is being used
-        def is_browser?
+        def browser?
           true
         end
 

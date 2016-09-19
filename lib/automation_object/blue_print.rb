@@ -7,7 +7,7 @@ module AutomationObject
   # Provides for loading Hash/YAML, validates the resulting structure (throws errors), and a common
   # interface for the rest of the code base to use.
   module BluePrint
-    extend self
+    module_function
 
     # Get method for BluePrint adapter const for composite BluePrint build
     # Each adapter will implement common BluePrint interface

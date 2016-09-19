@@ -27,9 +27,9 @@ class TestHashAdapterModal < Minitest::Test
     assert_instance_of Hash, composite.elements
     assert_equal 2, composite.elements.keys.length
 
-    composite.elements.each do |composite_name, composite|
+    composite.elements.each do |composite_name, sub_composite|
       assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::Composite::Element, composite
+      assert_instance_of AutomationObject::BluePrint::Composite::Element, sub_composite
     end
   end
 
@@ -39,9 +39,9 @@ class TestHashAdapterModal < Minitest::Test
     assert_instance_of Hash, composite.element_arrays
     assert_equal 2, composite.element_arrays.keys.length
 
-    composite.element_arrays.each do |composite_name, composite|
+    composite.element_arrays.each do |composite_name, sub_composite|
       assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::Composite::ElementArray, composite
+      assert_instance_of AutomationObject::BluePrint::Composite::ElementArray, sub_composite
     end
   end
 
@@ -51,9 +51,9 @@ class TestHashAdapterModal < Minitest::Test
     assert_instance_of Hash, composite.element_hashes
     assert_equal 2, composite.element_hashes.keys.length
 
-    composite.element_hashes.each do |composite_name, composite|
+    composite.element_hashes.each do |composite_name, sub_composite|
       assert_includes [:test_one, :test_two], composite_name
-      assert_instance_of AutomationObject::BluePrint::Composite::ElementHash, composite
+      assert_instance_of AutomationObject::BluePrint::Composite::ElementHash, sub_composite
     end
   end
 end

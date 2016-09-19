@@ -22,9 +22,28 @@ module AutomationObject
             return unless target_value
 
             target_values = target_value.is_a?(Array) ? target_value : [target_value]
-
             valid_elements = find_elements(composite_object)
 
+            populate_errors(target_values, valid_elements, composite_object)
+          end
+
+          private
+
+          # Traverses up a composite tree to find :elements in a hash
+          # @param composite_object [Object] composite object to traverse up
+          # @return [Array<Symbol>] array of element names
+          def find_elements(composite_object)
+            # Using the hash instead of the method because lower nodes will get validated
+            # before composite is finished building
+            return composite_object.hash[:elements].keys if composite_object.hash[:elements].is_a?(Hash)
+
+            # Should be Hash with element names as the keys
+            return find_elements(composite_object.parent) if composite_object.parent
+
+            []
+          end
+
+          def populate_errors(target_values, valid_elements, composite_object)
             target_values.each do |element|
               element = element.to_sym
               next if valid_elements.include?(element)
@@ -33,21 +52,6 @@ module AutomationObject
               error_message += " Valid Elements(s): #{valid_elements}"
               error_messages.push(error_message)
             end
-          end
-
-          # Traverses up a composite tree to find :elements in a hash
-          # @param composite_object [Object] composite object to traverse up
-          # @return [Array<Symbol>] array of element names
-          def find_elements(composite_object)
-            # Using the hash instead of the method because lower nodes will get validated
-            # before composite is finished building
-            if composite_object.hash[:elements].is_a?(Hash)
-              return composite_object.hash[:elements].keys # Should be Hash with element names as the keys
-            elsif composite_object.parent
-              return find_elements(composite_object.parent)
-            end
-
-            []
           end
         end
       end

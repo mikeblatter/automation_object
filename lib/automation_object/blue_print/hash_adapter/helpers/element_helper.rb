@@ -10,7 +10,7 @@ module AutomationObject
             [:xpath, hash[:xpath]]
           elsif hash[:css].is_a?(String)
             [:css, hash[:css]]
-            end
+          end
         end
 
         # @return [Symbol, nil] element name of iframe element is in or nil if not
@@ -18,7 +18,7 @@ module AutomationObject
           case hash[:in_iframe]
           when Symbol, String
             hash[:in_iframe].to_sym
-            end
+          end
         end
 
         # @return [Boolean] whether or not element is in iframe

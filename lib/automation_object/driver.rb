@@ -14,7 +14,7 @@ require_relative 'driver/selenium_adapter/driver'
 module AutomationObject
   # Driver Port
   module Driver
-    extend self
+    module_function
 
     def adapter
       return @adapter if @adapter

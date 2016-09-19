@@ -39,8 +39,8 @@ module AutomationObject
       # Set timeout wait
       # @param timeout [Integer] the timeout in seconds
       # @return [void]
-      def set_wait(timeout = nil)
-        adapter.set_wait(timeout)
+      def wait(timeout = nil)
+        adapter.wait(timeout)
       end
 
       # @param selector_type [Symbol] selector type (:css, :xpath, etc...)
@@ -76,8 +76,8 @@ module AutomationObject
 
       # Check if browser, more useful for Appium but can be generic here
       # @return [Boolean] whether or not browser is being used
-      def is_browser?
-        adapter.is_browser?
+      def browser?
+        adapter.browser?
       end
 
       # Window Handles

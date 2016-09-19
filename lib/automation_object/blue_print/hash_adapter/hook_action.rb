@@ -42,7 +42,7 @@ module AutomationObject
         # See if hook actions are empty
         # @return [Boolean] if hook actions are empty
         def empty?
-          !(!hash.keys.empty?)
+          hash.keys.empty?
         end
 
         # @return [Symbol, nil] screen to change to
@@ -98,11 +98,9 @@ module AutomationObject
 
         # @return [Array]
         def possible_screen_changes
-          if hash[:possible_screen_changes].is_a?(Array)
-            return hash[:possible_screen_changes].map(&:to_sym)
-          else
-            return []
-          end
+          return hash[:possible_screen_changes].map(&:to_sym) if hash[:possible_screen_changes].is_a?(Array)
+
+          []
         end
 
         # @return [Boolean] reset the screen?

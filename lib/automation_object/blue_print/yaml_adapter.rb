@@ -8,7 +8,7 @@ module AutomationObject
   module BluePrint
     # BluePrint YAML Adapter
     module YamlAdapter
-      extend self
+      module_function
 
       # @param path [String] path to YAML directory
       # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
@@ -27,7 +27,7 @@ module AutomationObject
         merged_yaml_hash = {}
 
         file_array.each do |file_path|
-          next unless is_yaml_file?(file_path)
+          next unless yaml_file?(file_path)
 
           file_hash = YAML.load_file(file_path)
 
@@ -41,7 +41,7 @@ module AutomationObject
 
       # @param file_path [String] file path
       # @return [Boolean] whether or not it is a YAML file
-      def is_yaml_file?(file_path)
+      def yaml_file?(file_path)
         file_path =~ /\.ya?ml$/ ? true : false
       end
     end

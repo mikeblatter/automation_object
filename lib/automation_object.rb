@@ -1,6 +1,8 @@
 # frozen_string_literal: true
+
 require_relative 'automation_object/helpers/kernel'
-# Gems
+
+# Require Gems
 # Ignore warning coming from third-party libraries
 Kernel.suppress_warnings do
   require 'awesome_print'
@@ -23,5 +25,8 @@ require_relative 'automation_object/framework'
 # Cucumber Step Definitions
 require_relative 'automation_object/step_definitions'
 
+# Top level namespace
+# AutomationObject is a dynamic DSL framework created by configurations that
+# allow for UI automation using business logic
 module AutomationObject
 end

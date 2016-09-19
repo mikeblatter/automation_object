@@ -23,7 +23,23 @@ module AutomationObject
             return unless target_value
 
             valid_views = find_views(composite_object)
+            populate_errors(target_values, valid_views, composite_object)
+          end
 
+          private
+
+          # Need to traverse up the composite tree and find views
+          def find_views(composite_object)
+            # Using the hash instead of the method because lower nodes will get validated
+            # before composite is finished building
+            return composite_object.hash[:views].keys if composite_object.hash[:views].is_a?(Hash)
+
+            return find_views(composite_object.parent) if composite_object.parent
+
+            []
+          end
+
+          def populate_errors(target_values, valid_views, composite_object)
             target_values.each do |view|
               view = view.to_sym
               next if valid_views.include?(view)
@@ -32,19 +48,6 @@ module AutomationObject
               error_message += " Valid Views(s): #{valid_views}"
               error_messages.push(error_message)
             end
-          end
-
-          # Need to traverse up the composite tree and find views
-          def find_views(composite_object)
-            # Using the hash instead of the method because lower nodes will get validated
-            # before composite is finished building
-            if composite_object.hash[:views].is_a?(Hash)
-              return composite_object.hash[:views].keys # Should be Hash with view names as the keys
-            elsif composite_object.parent
-              return find_views(composite_object.parent)
-            end
-
-            []
           end
         end
       end

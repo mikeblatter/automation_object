@@ -16,7 +16,7 @@ module AutomationObject
         def hook_order
           hook_order = [:exists?] # Always put exists? first
 
-          hash.keys.each do |hook_name|
+          hash.each_key do |hook_name|
             hook_order.push(hook_name) unless [:element_name, :exists?].include?(hook_name)
           end
 
@@ -48,12 +48,9 @@ module AutomationObject
           composite_object = self unless composite_object
 
           # Traverse!
-          if composite_object.hash[:elements].is_a?(Hash)
+          return composite_object.elements[element_name] if composite_object.hash[:elements].is_a?(Hash)
 
-            return composite_object.elements[element_name]
-          elsif composite_object.parent
-            return element_blueprints(composite_object.parent)
-          end
+          return element_blueprints(composite_object.parent) if composite_object.parent
 
           nil
         end

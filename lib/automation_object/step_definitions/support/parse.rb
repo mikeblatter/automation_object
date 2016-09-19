@@ -3,6 +3,7 @@ require_relative 'cache'
 
 module AutomationObject
   module StepDefinitions
+    # Class to parse arguments passed through step definitions
     class Parse
       # @param args [Array] input args from step definition
       def initialize(args)
@@ -11,7 +12,7 @@ module AutomationObject
 
       def get
         parsed_args = []
-        for arg in @args
+        @args.each do |arg|
           parsed_args.push(parse(arg))
         end
 

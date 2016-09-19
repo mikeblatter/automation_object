@@ -1,7 +1,8 @@
 module AutomationObject
   module StepDefinitions
+    # Element array module for iterating through an array
     module ElementArray
-      extend self
+      module_function
 
       def iterate_and_do(screen, element, key, low_range, high_range, &block)
         element_array = AutomationObject::Framework.get.send(screen).send(element)

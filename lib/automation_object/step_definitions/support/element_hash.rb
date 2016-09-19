@@ -1,7 +1,8 @@
 module AutomationObject
   module StepDefinitions
+    # Element hash module for iterating through an hash
     module ElementHash
-      extend self
+      module_function
 
       def iterate_and_do(screen, element, key, low_range, high_range, &block)
         element_hash = AutomationObject::Framework.get.send(screen).send(element)

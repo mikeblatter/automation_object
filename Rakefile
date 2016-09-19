@@ -34,7 +34,7 @@ end
 
 # Building
 desc 'Build Gem'
-task build: [:test, :lint_files, :rubocop, :yard] do
+task build: [:rubocop, :test, :yard] do
   system "gem build #{GEM_NAME}.gemspec"
 
   remove_gem = File.expand_path(File.join(__dir__, "#{GEM_NAME}-#{AutomationObject::VERSION}.gem"))

@@ -28,11 +28,9 @@ module AutomationObject
           # Validate using ValidationHelper
           return if valid?
 
-          if self.parent
-            self.parent.add_errors(errors)
-          else
-            raise ValidationError, errors.uniq.reverse
-          end
+          raise ValidationError, errors.uniq.reverse unless self.parent
+
+          self.parent.add_errors(errors)
         end
 
         # Overriding base get_child method
