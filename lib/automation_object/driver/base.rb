@@ -3,7 +3,7 @@ module AutomationObject
   module Driver
     # Base class for driver and element adapter interface
     class Base
-      attr_accessor :adapter
+      attr_reader :adapter
 
       def initialize(adapter_object, *_args)
         self.adapter = adapter_object

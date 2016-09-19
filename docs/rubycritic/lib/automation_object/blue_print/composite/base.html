@@ -51,8 +51,6 @@
   </div>
 
   
-    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
-  
 </div>
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
@@ -65,7 +63,7 @@ module AutomationObject
       # Adapters should implement the same classes and methods as the composite to achieve reliability
       # with the rest of the application
       class Base
-        attr_accessor :adapter<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::BluePrint::Composite::Base#adapter is a writable attribute          </span>  </li></ul>
+        attr_reader :adapter
 
         def initialize(adapter_object)
           self.adapter = adapter_object

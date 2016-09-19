@@ -46,7 +46,7 @@ Rake::Task[:rubycritic].enhance do
   rubycritic_index = File.join(rubycritic_dir, 'index.html')
 
   # Need to change overview.html to index
-  FileUtils.mv(rubycritic_overview, rubycritic_index)
+  FileUtils.cp(rubycritic_overview, rubycritic_index)
 end
 
 # Building
