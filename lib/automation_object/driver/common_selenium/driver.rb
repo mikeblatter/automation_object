@@ -6,6 +6,16 @@ module AutomationObject
     module CommonSelenium
       # Common Selenium/AppiumMethods
       module Driver
+        # Suspend timeout for block running
+        def suspend_timeout
+          original_timeout = @subject.manage.timeouts.implicit_wait
+          @subject.manage.timeouts.implicit_wait = 0
+
+          yield
+
+          @subject.manage.timeouts.implicit_wait = original_timeout
+        end
+
         # @return [Point] x,y scroll position
         def scroll_position
           position = Point.new

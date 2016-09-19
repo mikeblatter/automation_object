@@ -8,7 +8,7 @@ require 'awesome_print'
 require 'yard'
 require 'redcarpet'
 require 'rubocop/rake_task'
-require "rubycritic/rake_task"
+require 'rubycritic/rake_task'
 
 THIS_DIRECTORY = File.expand_path(__dir__).freeze
 LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
@@ -31,7 +31,7 @@ end
 YARD::Rake::YardocTask.new do |task|
   task.files   = ['lib/**/*.rb']
   task.options = ['--markup-provider=redcarpet', '--markup=markdown',
-               '--output-dir=docs/internal']
+                  '--output-dir=docs/internal']
 end
 
 Rubycritic::RakeTask.new do |task|
