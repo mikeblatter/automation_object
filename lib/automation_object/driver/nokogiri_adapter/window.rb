@@ -30,11 +30,13 @@ module AutomationObject
           update_history(request)
         end
 
+        # @return [String]
         def current_url
           request = @history.at(@position)
           request.url
         end
 
+        # @return [void]
         def back
           raise UnableToNavigateBackward if @position.zero?
           @position -= 1
@@ -42,6 +44,7 @@ module AutomationObject
           make_request(@history.at(@position))
         end
 
+        # @return [void]
         def forward
           raise UnableToNavigateForward if @position >= @history.length - 2
           @position += 1
@@ -49,12 +52,14 @@ module AutomationObject
           make_request(@history.at(@position))
         end
 
+        # @return [void]
         def refresh
           make_request(@history.at(@position))
         end
 
         protected
 
+        # @return [void]
         def update_history(request)
           @history.push(request)
           @position = @history.length - 1
@@ -62,6 +67,7 @@ module AutomationObject
 
         # Request url, will set xml to current window handle
         # @param request [Request] request object
+        # @return [void]
         def make_request(request)
           parsed_url = request.url
 

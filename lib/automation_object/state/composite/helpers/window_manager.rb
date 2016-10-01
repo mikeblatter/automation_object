@@ -9,11 +9,14 @@ module AutomationObject
       module WindowManager
         attr_accessor :window, :modal
 
+        undef :window= if defined? :window=
+        # @param name [Symbol] name of window to use
         def window=(name)
           windows.each do |window|
             next if window.name != name
             return if window == self.window
 
+            self.window = window
             self.window.use
           end
         end

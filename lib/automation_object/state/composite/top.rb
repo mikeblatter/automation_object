@@ -30,9 +30,7 @@ module AutomationObject
           # If default screen then check if its live and set it
           if blue_prints.default_screen
             default_name = blue_prints.default_screen
-            default_screen_live = screens[default_name].load.live?
-
-            return default_name if default_screen_live.nil? || default_screen_live == true
+            return default_name if screens[default_name].load.live? != false
 
             raise AutomationObject::State::NoInitialScreenError
           end

@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require 'ostruct'
-require 'colorize'
 
 module AutomationObject
   module Dsl
@@ -22,29 +20,40 @@ module AutomationObject
       end
 
       # @return [String]
-      def inspect(indent = 5)
+      def inspect(_indent = 5)
         string = self.class.to_s
-        to_h.each do |key, value|
-          string += case value.class.to_s
-                    when /Screen/
-                      "\n#{' ' * indent} #{key}:".colorize(:magenta)
-                    when /Modal/
-                      "\n#{' ' * indent} #{key}:".colorize(:light_magenta)
-                    when /(Element|ElementHash|ElementArray)/
-                      "\n#{' ' * indent} #{key}:".colorize(:light_blue)
-                    else
-                      "\n#{' ' * indent} #{key}:".colorize(:red)
-                    end
 
-          string += if value.is_a?(Base)
-                      " #{value.inspect(indent + 10)}"
-                    else
-                      " #{value.inspect}"
-                    end
+        to_h.each_value do |value|
+          string += formatted_name(value.class.to_s)
+          string += sub_inspect(value)
         end
-        string += ''
 
         string
+      end
+
+      # @param value [Object]
+      # @return [String]
+      def formatted_name(value)
+        case value.class.to_s
+        when /Screen/
+          "\n#{' ' * indent} #{key}:".colorize(:magenta)
+        when /Modal/
+          "\n#{' ' * indent} #{key}:".colorize(:light_magenta)
+        when /(Element|ElementHash|ElementArray)/
+          "\n#{' ' * indent} #{key}:".colorize(:light_blue)
+        else
+          "\n#{' ' * indent} #{key}:".colorize(:red)
+        end
+      end
+
+      # @param value [Object]
+      # @return [String]
+      def sub_inspect(value)
+        if value.is_a?(Base)
+          " #{value.inspect(indent + 10)}"
+        else
+          " #{value.inspect}"
+        end
       end
 
       class << self

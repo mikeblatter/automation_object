@@ -15,7 +15,7 @@ module AutomationObject
           end
 
           # Validates the composite object and adds errors on failure
-          # @param composite_object [Object] Composite object to be tested.
+          # @param composite_object [AutomationObject::BluePrint::HashAdapter::Composite] composite
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
             # Get the hash value from the composite object
@@ -24,9 +24,7 @@ module AutomationObject
             # Skip empty or non-existent
             return unless target_value
 
-            @should_be_instances_of.each do |should_be_instance_of|
-              return if target_value.is_a?(should_be_instance_of)
-            end
+            return if @should_be_instances_of.any? { |should_instance| target_value.is_a?(should_instance) }
 
             error_message = "Invalid Type: #{target_value.class}, at: #{composite_object.location}[#{@key}]."
             error_message += " Allowed Type(s): #{@should_be_instances_of}"

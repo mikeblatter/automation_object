@@ -10,6 +10,7 @@ Kernel.suppress_warnings do
   require 'event_emitter'
   require 'appium_lib'
   require 'selenium-webdriver'
+  require 'colorize'
 end
 
 # Local Files

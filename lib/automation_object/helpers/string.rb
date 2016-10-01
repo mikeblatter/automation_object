@@ -1,17 +1,12 @@
 # frozen_string_literal: true
 # String class method additions
 class String
+  # Test whether a string is a valid url or not
+  # @return [Boolean]
   def valid_url?
     uri = URI.parse(self)
-    if uri.is_a?(URI::HTTP)
-      if self =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix
-        return true
-      else
-        return false
-      end
-    else
-      return false
-    end
+    return false unless uri.is_a?(URI::HTTP)
+    return !(self =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix).nil?
   rescue URI::InvalidURIError
     return false
   end

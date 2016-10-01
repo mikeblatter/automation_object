@@ -3,8 +3,8 @@ require_relative 'hook'
 
 module AutomationObject
   module State
-    # Helper module for Element composite classes
     module Composite
+      # Helper module for Element composite classes
       module CommonElement
         def method_hook?(name)
           blue_prints.method_hooks.key?(name)

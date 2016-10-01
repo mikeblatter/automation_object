@@ -39,6 +39,7 @@ module AutomationObject
     # Composite provides a common interface for all adapters
     # @param value [String, Hash] String to YAML files or Hash configuration
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
+    undef :blue_prints= if defined? :blue_prints=
     def blue_prints=(value)
       case value
       when String
@@ -52,6 +53,7 @@ module AutomationObject
 
     # Driver port provides a formatted interface for interacting with different drivers
     # @return [AutomationObject::Driver::Driver] driver interface object
+    undef :driver= if defined? :driver=
     def driver=(value)
       Driver.adapter = case value
                        when Selenium::WebDriver::Driver

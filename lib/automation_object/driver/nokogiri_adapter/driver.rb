@@ -132,7 +132,7 @@ module AutomationObject
           0
         end
 
-        protected
+        private
 
         def get_elements(selector_type, selector_path)
           case selector_type

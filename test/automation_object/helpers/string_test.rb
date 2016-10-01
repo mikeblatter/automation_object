@@ -16,12 +16,12 @@ class TestString < Minitest::Test
 
   def test_valid_url
     @url_valid_hash.each do |url, is_valid_url|
-      assert_equal(url.valid_url?, is_valid_url)
+      assert_equal is_valid_url, url.valid_url?
     end
   end
 
   def test_pascalize
-    assert_equal 'test_string'.pascalize, 'TestString'
-    assert_equal 'test_string_again'.pascalize, 'TestStringAgain'
+    assert_equal 'TestString', 'test_string'.pascalize
+    assert_equal 'TestStringAgain', 'test_string_again'.pascalize
   end
 end

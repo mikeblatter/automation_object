@@ -22,7 +22,7 @@ module StepDefinitionsTestBase
       Dir.glob(STEP_DEFINITION_FILES) do |step_def_file|
         File.open(step_def_file, 'r') do |file_handle|
           file_handle.each_line do |line|
-            all_examples.push(line.gsub(/^# \s*-\s*/, '')) if line =~ /^# \s*-\s*/
+            all_examples.push(line.gsub(/^#\s*-\s*/, '')) if line =~ /^#\s*-\s*/
           end
         end
       end
@@ -31,7 +31,7 @@ module StepDefinitionsTestBase
       File.open(File.join(STEP_DEFINITION_DIR, file_name), 'r') do |file_handle|
         file_handle.each_line do |line|
           if line =~ /^# \s*-\s*/
-            examples.push(line.gsub(/^# \s*-\s*/, ''))
+            examples.push(line.gsub(/^#\s*-\s*/, ''))
           elsif line =~ %r{^(?:Given|When|Then|But|And)\s*\(\s*\/(.+)\/\s*\)}
             regex = Regexp.new(line.match(%r{^(?:Given|When|Then|But|And)[\s\(\/]+(.+)\/[\s\)]+})[1])
 

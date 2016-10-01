@@ -67,22 +67,18 @@ module AutomationObject
         # @param second_element_object [Object] element to compare to
         # @param collision_tolerance [Numeric] pixel tolerance of collisions
         # @return [Boolean] element collides with other
-        def collides_with_element?(second_element_object, collision_tolerance = false)
+        def collides_with_element?(second_element_object, collision_tolerance = 0)
           box_one = box_coordinates
           box_two = second_element_object.box_coordinates
-
-          collision_tolerance = 0 unless collision_tolerance.is_a?(Numeric)
 
           if box_one.x2 > box_two.x1 && box_one.x1 < box_two.x2 && box_one.y2 > box_two.y1 && box_one.y1 < box_two.y2
             if box_one.x2 > (box_two.x1 + collision_tolerance) && (box_one.x1 + collision_tolerance) < box_two.x2 &&
                box_one.y2 > (box_two.y1 + collision_tolerance) && (box_one.y1 + collision_tolerance) < box_two.y2
               return true
-            else
-              return false
             end
-          else
-            return false
           end
+
+          false
         end
       end
     end
