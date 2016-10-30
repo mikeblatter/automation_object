@@ -19,7 +19,7 @@ module AutomationObject
         end
 
         # @return [Symbol] current screen
-        def screen
+        def name
           @history[@position]
         end
 

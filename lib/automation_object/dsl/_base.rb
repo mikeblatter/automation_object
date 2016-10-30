@@ -19,36 +19,31 @@ module AutomationObject
         super ostruct_hash
       end
 
+      # @param _indent [Integer]
       # @return [String]
       def inspect(_indent = 5)
         string = self.class.to_s
 
-        to_h.each_value do |value|
-          string += formatted_name(value.class.to_s)
-          string += sub_inspect(value)
+        to_h.each do |key, value|
+          string += formatted_name(key, _indent)
+          string += sub_inspect(value, _indent)
         end
 
         string
       end
 
-      # @param value [Object]
+      # @param key [String]
+      # @param indent [Integer]
       # @return [String]
-      def formatted_name(value)
-        case value.class.to_s
-        when /Screen/
-          "\n#{' ' * indent} #{key}:".colorize(:magenta)
-        when /Modal/
-          "\n#{' ' * indent} #{key}:".colorize(:light_magenta)
-        when /(Element|ElementHash|ElementArray)/
-          "\n#{' ' * indent} #{key}:".colorize(:light_blue)
-        else
-          "\n#{' ' * indent} #{key}:".colorize(:red)
-        end
+      def formatted_name(key, indent)
+        color = (self[key].alive?) ? :green : :blue
+        "\n#{' ' * indent} #{key}:".colorize(color)
       end
 
       # @param value [Object]
+      # @param indent [Integer]
       # @return [String]
-      def sub_inspect(value)
+      def sub_inspect(value, indent)
         if value.is_a?(Base)
           " #{value.inspect(indent + 10)}"
         else

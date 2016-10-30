@@ -36,8 +36,11 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'redcarpet', '~> 3.3'
 
-  # Testing and debugging
+  # Debugging
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'awesome_print', '~> 1.7'
+
+  # Testing
   spec.add_development_dependency 'coveralls', '~> 0.8'
   spec.add_development_dependency 'simplecov', '~> 0.8'
   spec.add_development_dependency 'minitest', '~> 5.9'
@@ -45,8 +48,6 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 
   spec.add_development_dependency 'mocha', '~> 1.1'
   spec.add_development_dependency 'fakefs', '~> 0.9'
-
-  spec.add_development_dependency 'awesome_print', '~> 1.7'
 
   # Runtime dependencies
   spec.add_runtime_dependency 'colorize', '~> 0.8'

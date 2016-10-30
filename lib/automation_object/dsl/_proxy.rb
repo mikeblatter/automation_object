@@ -18,6 +18,10 @@ module AutomationObject
 
         @subject = (subject.new(blue_prints, state) if subject)
       end
+
+      def alive?
+        false
+      end
     end
   end
 end

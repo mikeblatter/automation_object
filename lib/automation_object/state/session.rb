@@ -29,7 +29,7 @@ module AutomationObject
           raise AutomationObject::State::ScreenNotActiveError, name unless composite.live_screens.include?(name)
 
           # Set the current window by name
-          composite.window = name
+          composite.use(name)
         when :modal
           raise AutomationObject::State::ModalNotActiveError, name unless composite.window.modal == name
         when :element, :element_array, :element_hash
