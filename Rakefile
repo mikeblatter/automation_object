@@ -49,9 +49,14 @@ Rake::Task[:rubycritic].enhance do
   FileUtils.cp(rubycritic_overview, rubycritic_index)
 end
 
+desc 'Generate Step Definition Docs'
+task :step_definition_docs do
+  ruby File.join(THIS_DIRECTORY, "build/step_definition_docs.rb")
+end
+
 # Building
 desc 'Build Gem'
-task build: [:rubocop, :test, :yard, :rubycritic] do
+task build: [:rubocop, :test, :yard, :step_definition_docs, :rubycritic] do
   system "gem build #{GEM_NAME}.gemspec"
 
   remove_gem = File.expand_path(File.join(__dir__, "#{GEM_NAME}-#{AutomationObject::VERSION}.gem"))

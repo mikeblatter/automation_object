@@ -2,13 +2,10 @@
 require_relative 'support/parse'
 require_relative 'support/element_hash'
 
-# Element Array related step definitions
-# # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
-# This is to make sure that the examples in the docs will actually perform as indicated
-# Please follow what is already defined below
+# Description: Provides step definitions related to element hashes
 
-# Step to call a method on an element
-# # Examples:
+# For: Calling an element hash method
+# Examples:
 # - I click on the first "home_screen" "about_button" element hash
 When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash/)) do |*args|
   method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -20,8 +17,8 @@ When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|rando
   end
 end
 
-# Step to type into a field element array
-# # Examples:
+# For: Typing into element hash field
+# Examples:
 # - I type "blah" into the first "home_screen" "text_field" element hash
 When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash/)) do |*args|
   text, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -33,8 +30,8 @@ When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|ra
   end
 end
 
-# Step to scroll to an element array
-# # Examples:
+# For: Scrolling element hash item(s) into focus
+# Examples:
 # - I scroll to the first "home_screen" "logo_button" element hash
 When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash/)) do |*args|
   key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -44,8 +41,8 @@ When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|l
   )
 end
 
-# Step to save something from an element array
-# # Examples:
+# For: Saving value from element hash for use later
+# Examples:
 # - I save "text" as "unique_value" from the first "home_screen" "logo_button" element hash
 When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash/)) do |*args|
   method, value_key, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -58,8 +55,8 @@ When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|
   end
 end
 
-# Step to test if element array length
-# # Examples:
+# For: Testing the element hashes size
+# Examples:
 # - the "home_screen" "title" element hash should be greater than 0
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$/)) do |*args|
   screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -88,9 +85,8 @@ Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash sho
   end
 end
 
-# Step to test element(s) of an array value to a given value
-# If trying to carry over from any other object, use cache mechanism
-# # Examples:
+# For: Testing if the element hash value equals a given value
+# Examples:
 # - the first "home_screen" "title" element hash "text" should equal "Home"
 Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash "(\w+|%\{[\w\d]+\})" should ?(n't |not )?equal "(\w+|%\{[\w\d]+\})"$/)) do |*args|
   key, low_range, high_range, screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -108,8 +104,8 @@ Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\}
   end
 end
 
-# Step to test element array element values for uniqueness
-# # Examples:
+# For: Testing if the element hashes uniqueness
+# Examples:
 # - the "home_screen" "title" element hash "text" should be unique
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "([\w\d]+|%\{[\w\d]+\})" should(n't|not)? be unique$/)) do |*args|
   screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
