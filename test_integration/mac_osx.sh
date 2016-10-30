@@ -107,7 +107,7 @@ else
   brew install redis
 fi
 
-cd example_rails_app/
+cd rails_app/
 bundle
 bundle exec rake db:create
 bundle exec rake db:migrate

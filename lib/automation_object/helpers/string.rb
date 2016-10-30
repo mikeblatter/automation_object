@@ -16,6 +16,7 @@ class String
     full_url
   end
 
+  # Convert self to pascal case
   def pascalize
     return self if self !~ /_/ && self =~ /[A-Z]+.*/
     split('_').map(&:capitalize).join

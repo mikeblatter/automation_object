@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed navbar-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'AutomationObject Testing', root_path, :class => "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle open_interface_menu" data-toggle="dropdown" role="button" aria-expanded="false">User Interface Tests
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <%= nav_link 'New Window', user_interface_example_new_window_path %>
+            <%= nav_link 'Modals', user_interface_example_modals_path %>
+          </ul>
+        </li>
+        <%= nav_link 'Contacts', contacts_path %>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

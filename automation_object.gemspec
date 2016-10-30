@@ -37,6 +37,7 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'redcarpet', '~> 3.3'
 
   # Testing and debugging
+  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'coveralls', '~> 0.8'
   spec.add_development_dependency 'simplecov', '~> 0.8'
   spec.add_development_dependency 'minitest', '~> 5.9'

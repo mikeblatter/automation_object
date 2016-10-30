@@ -1,0 +1,11 @@
+<div class="page-header">
+  <div class="pull-right">
+    <% if edit_object_path %>
+        <%= link_to 'Edit', edit_object_path, :class => 'btn btn-warning' %>
+    <% end %>
+    <%= link_to 'All', objects_path, :class => 'btn btn-success' %>
+  </div>
+  <h2><%= title %></h2>
+
+  <div class="clearfix"></div>
+</div>

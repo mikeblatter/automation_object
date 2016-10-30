@@ -30,3 +30,8 @@ ruby selenium_driver.rb
 ```
 cucumber
 ```
+
+## Drivers
+
+- ChromeDriver: v2.25
+- Selenium: v2.53.1

@@ -4,7 +4,7 @@ require 'rest-client'
 class RailsApp
   PORT = 3024
   HOST = "http://localhost:#{PORT}"
-  BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), 'example_rails_app/'))
+  BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), 'rails_app/'))
 
   def initialize
     self.create
