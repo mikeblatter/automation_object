@@ -5,7 +5,7 @@ class String
   # @return [Boolean]
   def valid_url?
     uri = URI.parse(self)
-    return false unless uri.is_a?(URI::HTTP)
+    return true if uri.is_a?(URI::HTTP)
     return !(self =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix).nil?
   rescue URI::InvalidURIError
     return false

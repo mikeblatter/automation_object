@@ -18,6 +18,12 @@ module AutomationObject
         adapter.get(url)
       end
 
+      # Get the title of the document
+      # @return [String]
+      def title
+        adapter.title
+      end
+
       # Refreshes current window
       # @return [void]
       def refresh

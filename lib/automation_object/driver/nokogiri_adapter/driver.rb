@@ -24,6 +24,12 @@ module AutomationObject
           session.request(:get, url)
         end
 
+        # Get the title of the document
+        # @return [String]
+        def title
+          find_element(:xpath, '//title').text
+        end
+
         def back
           session.back
         end
@@ -63,7 +69,7 @@ module AutomationObject
           raise NoSuchElementError if elements.length.zero?
 
           AutomationObject::Driver::Element.new(
-            AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: elements.first)
+            AutomationObject::Driver::NokogiriAdapter::Element.new(self, elements.first)
           )
         end
 
@@ -74,7 +80,7 @@ module AutomationObject
           elements = get_elements(selector_type, selector_path)
           elements.map do |element|
             AutomationObject::Driver::Element.new(
-              AutomationObject::Driver::NokogiriAdapter::Element.new(driver: self, element: element)
+              AutomationObject::Driver::NokogiriAdapter::Element.new(self, element)
             )
           end
         end

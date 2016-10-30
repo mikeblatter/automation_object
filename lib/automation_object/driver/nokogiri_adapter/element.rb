@@ -37,13 +37,13 @@ module AutomationObject
         # Text of element
         # @return [String, nil]
         def text
-          @subject['content']
+          @subject.content
         end
 
         # Content of element
         # @return [String, nil]
         def content
-          @subject['content']
+          @subject.content
         end
 
         # Type into an element

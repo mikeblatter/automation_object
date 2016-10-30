@@ -33,7 +33,7 @@ module AutomationObject
         # @return [String]
         def current_url
           request = @history.at(@position)
-          request.url
+          (!request.nil?) ? request.url : nil
         end
 
         # @return [void]
@@ -71,9 +71,9 @@ module AutomationObject
         def make_request(request)
           parsed_url = request.url
 
-          raise ArgumentError, "Expecting get argument url to be a valid_url?, got #{url}" if parsed_url.valid_url? == false && current_url.nil?
+          raise ArgumentError, "Expecting get argument url to be a valid_url?, got #{request.url}" if !parsed_url.valid_url? && current_url.nil?
 
-          parsed_url = current_url.join_url(request.url) if url.valid_url? == false && current_url
+          parsed_url = current_url.join_url(request.url) if !request.url.valid_url? && !current_url.nil?
 
           client_resource = RestClient::Resource.new(parsed_url, ssl_version: 'SSLv23_client')
           response = client_resource.send(request.type, params: request.params)

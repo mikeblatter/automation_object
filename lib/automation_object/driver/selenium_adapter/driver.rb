@@ -27,6 +27,12 @@ module AutomationObject
           @subject.navigate.to(url)
         end
 
+        # Get the title of the document
+        # @return [String]
+        def title
+          @subject.title
+        end
+
         # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]

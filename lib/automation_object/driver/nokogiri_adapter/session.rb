@@ -13,6 +13,11 @@ module AutomationObject
           @position = 0 # Position
         end
 
+        def xml
+          return nil if @windows[@position].nil?
+          @windows[@position].xml
+        end
+
         # @return [Array<String>] window handles
         def window_handles
           @windows.map(&:handle)
@@ -20,11 +25,13 @@ module AutomationObject
 
         # @return [String] current window handle
         def window_handle
+          return nil if @windows[@position].nil?
           @windows[@position].handle
         end
 
         # @return [String] current URL
         def current_url
+          return nil if @windows[@position].nil?
           @windows[@position].current_url
         end
 
@@ -55,14 +62,17 @@ module AutomationObject
         end
 
         def back
+          return if @windows[@position].nil?
           @windows[@position].back
         end
 
         def forward
+          return if @windows[@position].nil?
           @windows[@position].forward
         end
 
         def refresh
+          return if @windows[@position].nil?
           @windows[@position].refresh
         end
 
