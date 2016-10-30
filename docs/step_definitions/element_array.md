@@ -4,7 +4,7 @@ Provides step definitions related to element arrays
 
 ---
 
- ## Table of Contents
+## Table of Contents
 
 - Calling an element array method
 - Typing into element array field
@@ -16,5 +16,5 @@ Provides step definitions related to element arrays
 
 --- 
 
- ## Steps 
+## Steps 
 

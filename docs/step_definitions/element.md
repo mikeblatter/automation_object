@@ -4,7 +4,7 @@ Provides step definitions related to elements
 
 ---
 
- ## Table of Contents
+## Table of Contents
 
 - Calling an element method
 - Typing into element field
@@ -15,5 +15,5 @@ Provides step definitions related to elements
 
 --- 
 
- ## Steps 
+## Steps 
 

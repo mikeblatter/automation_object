@@ -13,7 +13,7 @@ def file_description(line_array)
 end
 
 def file_table_of_contents(line_array)
-  text = "---\n\n ## Table of Contents\n\n"
+  text = "---\n\n## Table of Contents\n\n"
 
   line_array.each { |line|
     for_line = line.match(/For:\s*(.+)/)
@@ -26,7 +26,7 @@ def file_table_of_contents(line_array)
 end
 
 def file_steps(line_array)
-  text = "--- \n\n ## Steps \n\n"
+  text = "--- \n\n## Steps \n\n"
 end
 
 Dir.glob(STEP_DEFINITION_FILES) do |step_def_file|

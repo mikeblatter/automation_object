@@ -4,7 +4,7 @@ Provides step definitions related to screens
 
 ---
 
- ## Table of Contents
+## Table of Contents
 
 - Close the current screen or given screen
 - Navigating back on a given or current screen
@@ -13,5 +13,5 @@ Provides step definitions related to screens
 
 --- 
 
- ## Steps 
+## Steps 
 

@@ -40,10 +40,10 @@ gem install automation_object
 
 ## Cucumber Step Definition Docs
 
-- [Screen Step Definitions](docs/step_definitions/screen)
-- [Element Array Step Definitions](docs/step_definitions/element_array)
-- [Element Hash Step Definitions](docs/step_definitions/element_hash)
-- [Element Step Definitions](docs/step_definitions/element)
+- [Screen Step Definitions](docs/step_definitions/screen.md)
+- [Element Array Step Definitions](docs/step_definitions/element_array.md)
+- [Element Hash Step Definitions](docs/step_definitions/element_hash.md)
+- [Element Step Definitions](docs/step_definitions/element.md)
 
 ## Fully working example
 

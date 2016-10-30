@@ -4,7 +4,7 @@ Provides step definitions related to element hashes
 
 ---
 
- ## Table of Contents
+## Table of Contents
 
 - Calling an element hash method
 - Typing into element hash field
@@ -16,5 +16,5 @@ Provides step definitions related to element hashes
 
 --- 
 
- ## Steps 
+## Steps 
 
