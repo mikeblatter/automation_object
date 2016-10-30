@@ -33,7 +33,7 @@ module AutomationObject
         # @return [String]
         def current_url
           request = @history.at(@position)
-          (!request.nil?) ? request.url : nil
+          !request.nil? ? request.url : nil
         end
 
         # @return [void]

@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:47:10 -0500'>2016-10-30 14:47:10 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       5.0 complexity per method
     </div>
     <div class="file-stat">
-      11 churn
+      12 churn
     </div>
     <div class="file-stat">
       3 methods
@@ -82,16 +82,16 @@ module AutomationObject
     # Sets adapter const will append _adapter if needed
     # @param adapter_name [String] name of adapter wanted for composite creation
     def adapter=(adapter_name)
-      adapter_name = adapter_name.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="driver.html#L28" class="js-smell-location">0</a>                  <a href="driver.html#L29" class="js-smell-location">1</a>                  <a href="driver.html#L30" class="js-smell-location">2</a>                  </span>  </li></ul>
-      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="driver.html#L28" class="js-smell-location">0</a>                  <a href="driver.html#L29" class="js-smell-location">1</a>                  <a href="driver.html#L30" class="js-smell-location">2</a>                  </span>  </li></ul>
-      adapter_const = adapter_name.pascalize<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="driver.html#L28" class="js-smell-location">0</a>                  <a href="driver.html#L29" class="js-smell-location">1</a>                  <a href="driver.html#L30" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_name = adapter_name.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)                        <a href="driver.html#L28" class="js-smell-location">0</a>                  <a href="driver.html#L29" class="js-smell-location">1</a>                  <a href="driver.html#L30" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)                        <a href="driver.html#L28" class="js-smell-location">0</a>                  <a href="driver.html#L29" class="js-smell-location">1</a>                  <a href="driver.html#L30" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_const = adapter_name.pascalize<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)                        <a href="driver.html#L28" class="js-smell-location">0</a>                  <a href="driver.html#L29" class="js-smell-location">1</a>                  <a href="driver.html#L30" class="js-smell-location">2</a>                  </span>  </li></ul>
 
       @adapter = AutomationObject::Driver.const_get(adapter_const.to_s)::Driver
     end
 
     # @param driver [Object] selenium or appium driver. default nil for Nokogiri
     # @return [AutomationObject::Driver::Driver]
-    def new(driver = nil)
+    def create(driver = nil)
       adapted_driver = Driver.new(adapter.new(driver))
 
       # Add throttling and mutex proxies around adapter

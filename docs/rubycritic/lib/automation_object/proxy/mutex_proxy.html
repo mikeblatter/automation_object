@@ -61,7 +61,7 @@ require_relative &#39;proxy&#39;
 module AutomationObject
   module Proxy
     # Proxy class for protecting object with Mutex
-    class MutexProxy &lt; Proxy
+    class MutexProxy &lt; Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Proxy::MutexProxy assumes too much for instance variable '@subject'          </span>  </li></ul>
       def initialize(subject)
         super
 
@@ -81,7 +81,7 @@ module AutomationObject
         @mutexes.delete(mutex_object)
       end
 
-      def method_missing(method_symbol, *args, &amp;block)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::Proxy::MutexProxy#method_missing has a flog score of 27          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Proxy::MutexProxy#method_missing has approx 12 statements          </span>  </li></ul>
+      def method_missing(method_symbol, *args, &amp;block)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      AutomationObject::Proxy::MutexProxy#method_missing has a flog score of 27          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Proxy::MutexProxy#method_missing has approx 12 statements          </span>  </li></ul>
         exec_procedures = []
         exec_procedures.push(lambda do
           execution_return = @subject.send(method_symbol, *args, &amp;block)

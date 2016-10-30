@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-01 15:35:52 -0500'>2016-10-01 15:35:52 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       1.0 complexity per method
     </div>
     <div class="file-stat">
-      5 churn
+      7 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -51,6 +51,8 @@
   </div>
 
   
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
 </div>
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
@@ -58,7 +60,7 @@ module AutomationObject
   module Driver
     # Base class for driver and element adapter interface
     class Base
-      attr_reader :adapter
+      attr_accessor :adapter<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Driver::Base#adapter is a writable attribute          </span>  </li></ul>
 
       def initialize(adapter_object, *_args)
         self.adapter = adapter_object

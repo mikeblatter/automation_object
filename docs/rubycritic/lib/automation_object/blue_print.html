@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:47:10 -0500'>2016-10-30 14:47:10 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       4.3 complexity per method
     </div>
     <div class="file-stat">
-      12 churn
+      13 churn
     </div>
     <div class="file-stat">
       3 methods
@@ -78,16 +78,16 @@ module AutomationObject
     # Sets adapter const will append _adapter if needed
     # @param adapter_name [String] name of adapter wanted for composite creation
     def adapter=(adapter_name)
-      adapter_name = adapter_name.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
-      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
-      adapter_const = adapter_name.pascalize<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to adapter_name more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_name = adapter_name.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
+      adapter_const = adapter_name.pascalize<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)                        <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </span>  </li></ul>
 
       @adapter = AutomationObject::BluePrint.const_get(adapter_const.to_s)
     end
 
     # Adapters use the composite AutomationObject::BluePrint::Composite interfaces
     # @return [AutomationObject::BluePrint::Composite::Top]
-    def build(blueprint_arg)
+    def create(blueprint_arg)
       case blueprint_arg
       when String
         self.adapter = :yaml

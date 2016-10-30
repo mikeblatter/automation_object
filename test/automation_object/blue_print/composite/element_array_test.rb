@@ -5,7 +5,7 @@ require_relative '../../../../lib/automation_object/blue_print/composite/element
 # Test AutomationObject::BluePrint::Composite::ElementArray
 class TestBluePrintCompositeElementArray < Minitest::Test
   def setup
-    @mock = mock()
+    @mock = mock
     @subject = AutomationObject::BluePrint::Composite::ElementArray.new(@mock)
   end
 
@@ -25,7 +25,7 @@ class TestBluePrintCompositeElementArray < Minitest::Test
   end
 
   def test_custom_range_hash
-    @mock.expects(:custom_range).returns({ start: 0, end: 5 })
+    @mock.expects(:custom_range).returns(start: 0, end: 5)
     assert_equal({ start: 0, end: 5 }, @subject.custom_range)
   end
 

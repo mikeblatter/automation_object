@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:32:01 -0500'>2016-10-30 14:32:01 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      23 complexity
+      24 complexity
     </div>
     <div class="file-stat">
-      11.5 complexity per method
+      12.0 complexity per method
     </div>
     <div class="file-stat">
-      24 churn
+      25 churn
     </div>
     <div class="file-stat">
       2 methods
@@ -86,7 +86,7 @@ module AutomationObject
           raise AutomationObject::State::ScreenNotActiveError, name unless composite.live_screens.include?(name)
 
           # Set the current window by name
-          composite.window = name
+          composite.use(name)
         when :modal
           raise AutomationObject::State::ModalNotActiveError, name unless composite.window.modal == name
         when :element, :element_array, :element_hash

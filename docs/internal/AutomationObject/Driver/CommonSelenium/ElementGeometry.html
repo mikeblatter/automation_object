@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: AutomationObject::Driver::CommonSelenium::ElementGeometry
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "AutomationObject::Driver::CommonSelenium::ElementGeometry";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Driver.html" title="AutomationObject::Driver (module)">Driver</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../CommonSelenium.html" title="AutomationObject::Driver::CommonSelenium (module)">CommonSelenium</a></span></span>
+     &raquo; 
+    <span class="title">ElementGeometry</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="../../../class_list.html"></iframe>
+
+      <div id="content"><h1>Module: AutomationObject::Driver::CommonSelenium::ElementGeometry
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Element.html" title="AutomationObject::Driver::CommonSelenium::Element (module)">Element</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/automation_object/driver/common_selenium/element_geometry.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Helper module for Selenium based elements</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#box_coordinates-instance_method" title="#box_coordinates (instance method)">#<strong>box_coordinates</strong>  &#x21d2; BoxCoordinates </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>:x1, :x2, :y1, :y2 coordinates of a box.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#collides_with_element%3F-instance_method" title="#collides_with_element? (instance method)">#<strong>collides_with_element?</strong>(second_element_object, collision_tolerance = 0)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Element collides with other.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element_center-instance_method" title="#element_center (instance method)">#<strong>element_center</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>:x, :y coordinates.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#height-instance_method" title="#height (instance method)">#<strong>height</strong>  &#x21d2; Numeric </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Height of element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#location-instance_method" title="#location (instance method)">#<strong>location</strong>  &#x21d2; Point </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the location.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">#<strong>size</strong>  &#x21d2; Dimension </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the size of an element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#width-instance_method" title="#width (instance method)">#<strong>width</strong>  &#x21d2; Numeric </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Width of element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#x-instance_method" title="#x (instance method)">#<strong>x</strong>  &#x21d2; Numeric </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>X position of element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#y-instance_method" title="#y (instance method)">#<strong>y</strong>  &#x21d2; Numeric </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Y position of element.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="box_coordinates-instance_method">
+  
+    #<strong>box_coordinates</strong>  &#x21d2; <tt><span class='object_link'><a href="../BoxCoordinates.html" title="AutomationObject::Driver::BoxCoordinates (class)">BoxCoordinates</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns :x1, :x2, :y1, :y2 coordinates of a box</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../BoxCoordinates.html" title="AutomationObject::Driver::BoxCoordinates (class)">BoxCoordinates</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>:x1, :x2, :y1, :y2 coordinates of a box</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_box_coordinates'>box_coordinates</span>
+  <span class='id identifier rubyid_element_location'>element_location</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_location'>location</span>
+  <span class='id identifier rubyid_element_size'>element_size</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+
+  <span class='id identifier rubyid_box_coordinates'>box_coordinates</span> <span class='op'>=</span> <span class='const'>BoxCoordinates</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_box_coordinates'>box_coordinates</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>=</span> <span class='id identifier rubyid_element_location'>element_location</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_box_coordinates'>box_coordinates</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>=</span> <span class='id identifier rubyid_element_location'>element_location</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_box_coordinates'>box_coordinates</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>=</span> <span class='id identifier rubyid_element_location'>element_location</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>+</span> <span class='id identifier rubyid_element_size'>element_size</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_box_coordinates'>box_coordinates</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span> <span class='op'>=</span> <span class='id identifier rubyid_element_location'>element_location</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>+</span> <span class='id identifier rubyid_element_size'>element_size</span><span class='period'>.</span><span class='id identifier rubyid_height'>height</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+
+  <span class='id identifier rubyid_box_coordinates'>box_coordinates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="collides_with_element?-instance_method">
+  
+    #<strong>collides_with_element?</strong>(second_element_object, collision_tolerance = 0)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns element collides with other</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>second_element_object</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>element to compare to</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>collision_tolerance</span>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>pixel tolerance of collisions</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>element collides with other</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_collides_with_element?'>collides_with_element?</span><span class='lparen'>(</span><span class='id identifier rubyid_second_element_object'>second_element_object</span><span class='comma'>,</span> <span class='id identifier rubyid_collision_tolerance'>collision_tolerance</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_box_one'>box_one</span> <span class='op'>=</span> <span class='id identifier rubyid_box_coordinates'>box_coordinates</span>
+  <span class='id identifier rubyid_box_two'>box_two</span> <span class='op'>=</span> <span class='id identifier rubyid_second_element_object'>second_element_object</span><span class='period'>.</span><span class='id identifier rubyid_box_coordinates'>box_coordinates</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>+</span> <span class='id identifier rubyid_collision_tolerance'>collision_tolerance</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>+</span> <span class='id identifier rubyid_collision_tolerance'>collision_tolerance</span><span class='rparen'>)</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>&amp;&amp;</span>
+       <span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span> <span class='op'>&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>+</span> <span class='id identifier rubyid_collision_tolerance'>collision_tolerance</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_box_one'>box_one</span><span class='period'>.</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>+</span> <span class='id identifier rubyid_collision_tolerance'>collision_tolerance</span><span class='rparen'>)</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_box_two'>box_two</span><span class='period'>.</span><span class='id identifier rubyid_y2'>y2</span>
+      <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="element_center-instance_method">
+  
+    #<strong>element_center</strong>  &#x21d2; <tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns :x, :y coordinates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>:x, :y coordinates</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element_center'>element_center</span>
+  <span class='id identifier rubyid_element_location'>element_location</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_location'>location</span>
+  <span class='id identifier rubyid_element_size'>element_size</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+
+  <span class='id identifier rubyid_center'>center</span> <span class='op'>=</span> <span class='const'>Point</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_center'>center</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_element_location'>element_location</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>+</span> <span class='id identifier rubyid_element_size'>element_size</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_center'>center</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_element_location'>element_location</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>+</span> <span class='id identifier rubyid_element_size'>element_size</span><span class='period'>.</span><span class='id identifier rubyid_height'>height</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+
+  <span class='id identifier rubyid_center'>center</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="height-instance_method">
+  
+    #<strong>height</strong>  &#x21d2; <tt>Numeric</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns height of element</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>height of element</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_height'>height</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_height'>height</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="location-instance_method">
+  
+    #<strong>location</strong>  &#x21d2; <tt><span class='object_link'><a href="../Point.html" title="AutomationObject::Driver::Point (class)">Point</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the location</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Point.html" title="AutomationObject::Driver::Point (class)">Point</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_location'>location</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_location'>location</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="size-instance_method">
+  
+    #<strong>size</strong>  &#x21d2; <tt><span class='object_link'><a href="../Dimension.html" title="AutomationObject::Driver::Dimension (class)">Dimension</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the size of an element</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Dimension.html" title="AutomationObject::Driver::Dimension (class)">Dimension</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_size'>size</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="width-instance_method">
+  
+    #<strong>width</strong>  &#x21d2; <tt>Numeric</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns width of element</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>width of element</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_width'>width</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="x-instance_method">
+  
+    #<strong>x</strong>  &#x21d2; <tt>Numeric</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns x position of element</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>x position of element</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_x'>x</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_location'>location</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="y-instance_method">
+  
+    #<strong>y</strong>  &#x21d2; <tt>Numeric</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns y position of element</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>y position of element</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/element_geometry.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_y'>y</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_location'>location</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Oct 30 16:48:07 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>

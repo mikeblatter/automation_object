@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:47:10 -0500'>2016-10-30 14:47:10 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       1.0 complexity per method
     </div>
     <div class="file-stat">
-      10 churn
+      11 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -64,7 +64,7 @@ module AutomationObject
     # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
     # @param [AutomationObject::State::Session] state
     # @return [AutomationObject::Dsl::Top]
-    def new(blue_prints, state)
+    def create(blue_prints, state)
       TopProxy.new(blue_prints, state, :top)
     end
   end

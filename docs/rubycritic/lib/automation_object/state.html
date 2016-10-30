@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:47:10 -0500'>2016-10-30 14:47:10 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       1.0 complexity per method
     </div>
     <div class="file-stat">
-      14 churn
+      15 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -67,7 +67,7 @@ module AutomationObject
     # @param driver [AutomationObject::Driver::Driver] driver interface
     # @param blue_prints [AutomationObject::BluePrint::Composite::Top] Top composite interface
     # # @return [AutomationObject::State::Session] Session instance
-    def new(driver, blue_prints)
+    def create(driver, blue_prints)
       Session.new(driver, blue_prints)
     end
   end

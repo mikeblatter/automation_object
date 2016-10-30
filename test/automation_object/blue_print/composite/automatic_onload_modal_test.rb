@@ -5,7 +5,7 @@ require_relative '../../../../lib/automation_object/blue_print/composite/automat
 # Test AutomationObject::BluePrint::Composite::AutomaticOnloadModal
 class TestBluePrintCompositeAutomaticOnloadModal < Minitest::Test
   def setup
-    @mock = mock()
+    @mock = mock
     @subject = AutomationObject::BluePrint::Composite::AutomaticOnloadModal.new(@mock)
   end
 

@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:35:41 -0500'>2016-10-30 14:35:41 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       1.0 complexity per method
     </div>
     <div class="file-stat">
-      17 churn
+      19 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -80,7 +80,11 @@ module AutomationObject
         has_many :element_arrays, interface: ElementArray
         has_many :element_hashes, interface: ElementHash
 
+        # Whether or not modal is active
+        # @return [Boolean]
         attr_accessor :active<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::Screen#active is a writable attribute          </span>  </li></ul>
+
+        undef :active if defined? :active
         # @return [Boolean] screen is active or not
         def active
           @active ||= false

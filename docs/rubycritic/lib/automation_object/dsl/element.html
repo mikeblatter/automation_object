@@ -58,14 +58,14 @@
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;_proxy&#39;
 
-module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 3 nodes                        <a href="element.html#L4" class="js-smell-location">0</a>                  <a href="element_array.html#L4" class="js-smell-location">1</a>                  <a href="element_hash.html#L4" class="js-smell-location">2</a>                  </span>  </li></ul>
+module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 3 nodes                        <a href="element.html#L4" class="js-smell-location">0</a>                  <a href="element_array.html#L4" class="js-smell-location">1</a>                  <a href="element_hash.html#L4" class="js-smell-location">2</a>                  </span>  </li></ul>
   module Dsl
     # Element DSL Class
     class Element &lt; Base
     end
 
     # Proxy for Element
-    class ElementProxy &lt; Proxy
+    class ElementProxy &lt; Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ElementProxy assumes too much for instance variable '@name'          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ElementProxy assumes too much for instance variable '@state'          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ElementProxy assumes too much for instance variable '@subject'          </span>  </li></ul>
       # @param [AutomationObject::BluePrint::Composite::Element] blue_prints
       # @param [AutomationObject::State::Session] state
       # @param [Symbol] name

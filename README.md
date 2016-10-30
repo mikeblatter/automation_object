@@ -35,7 +35,7 @@ gem install automation_object
 
 ## Generated Documentation
 
-1. [Code Documentation (YARD Generated)](https://mikeblatter.github.io/automation_object/docs/yard)
+1. [Code Documentation (YARD Generated)](https://mikeblatter.github.io/automation_object/docs/internal)
 2. [RubyCritic Report](https://mikeblatter.github.io/automation_object/docs/rubycritic)
 
 ## Fully working example

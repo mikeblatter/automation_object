@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="file_list.html"></iframe>
+
+      <div id="content"><div id='filecontents'><h1>AutomationObject</h1>
+
+<p><a href="https://travis-ci.org/mikeblatter/automation_object/builds"><img src="https://travis-ci.org/mikeblatter/automation_object.svg?branch=master" alt="Travis Master"></a>
+<a href="https://coveralls.io/github/mikeblatter/automation_object?branch=master"><img src="https://coveralls.io/repos/github/mikeblatter/automation_object/badge.svg?branch=master" alt="Coverage Status"></a></p>
+
+<p>Configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.</p>
+
+<p>This gem provides a way to create a dynamic usable DSL framework representing your website or app. Implementing Selenium/Appium driver
+and YAML configurations, this API will provide a layer in between your automation code and the driver.
+By creating YAML configurations that represents your website/app, the DSL framework in turn will reflect your configuration
+and allow you to control the automation through the DSL framework.  Using this gem can help remove tedious tasks that are often
+repeated throughout code and help improve the scalability of code by mapping UI in YAML configuration files.</p>
+
+<h2>Currently In Development</h2>
+
+<p>Most of the features are unavailable and the gem is not supported at all right now. In the middle of building out most
+of the core features/code.</p>
+
+<h2>Features</h2>
+
+<ol>
+<li>Configurations represent the UI and structure of your site/app</li>
+<li>Configuration will be used to generate a usable composite that automates UI interactions</li>
+<li>Automatic validation of configuration inputs</li>
+<li>Generated composite that operates the UI automation</li>
+<li>Takes out extraneous automation code allowing you to operate purely with business logic</li>
+<li>Cucumber pre-made step definitions</li>
+<li>Encapsulates an entire layer of automation allowing for quick UI testing development</li>
+<li>Configurations allow for DRY development</li>
+</ol>
+
+<h2>Installation</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_automation_object'>automation_object</span>
+</code></pre>
+
+<h2>Generated Documentation</h2>
+
+<ol>
+<li><a href="https://mikeblatter.github.io/automation_object/docs/yard">Code Documentation (YARD Generated)</a></li>
+<li><a href="https://mikeblatter.github.io/automation_object/docs/rubycritic">RubyCritic Report</a></li>
+</ol>
+
+<h2>Fully working example</h2>
+
+<p><a href="/test_integration">Test Integration</a> contains examples for automation using AutomationObject. Fully contained
+project with a Rails app so that testing AutomationBot can be done without running into issues 
+like bot protection.</p>
+
+<p>I included the needed drivers so it is mostly free of dependencies. Also created a mac_osx.sh script contained
+that helps install any base programs you may need. If you want to do it manually can follow the script
+and download those components or use whatever you have.</p>
+
+<h2>Example Configuration YAML file</h2>
+
+<pre class="code ruby"><code class="ruby"># Example, doesn&#39;t actually work
+base_url: http://www.google.com
+screens:
+  home_screen:
+    elements:
+      search_input:
+        xpath: &#39;//input[@id=&quot;search_input]&#39;
+        submit:
+          after:
+            change_screen: &#39;search_screen&#39;
+      search_button:
+        css: &#39;#search_button&#39;
+        click:
+          after:
+            wait_for_elements:
+              - element_name: &#39;loading_spinner&#39;
+                visible?: false
+            change_screen: &#39;search_screen&#39;
+      loading_spinner:
+        css: &#39;#loading_spinner&#39;
+  search_screen:
+    load:
+      live?:
+        - element_name: &#39;search_results&#39;
+          exists?: true
+    elements:
+      home_button:
+        xpath: &#39;//button[@id=&quot;home&quot;]&#39;
+        click:
+          after:
+            change_screen: &#39;home_screen&#39;
+      search_results:
+        css: &#39;#search_results&#39;
+</code></pre>
+
+<h2>Public Interface Example</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>automation_object</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_ao'>ao</span> <span class='op'>=</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Framework</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_ao'>ao</span><span class='period'>.</span><span class='id identifier rubyid_home_screen'>home_screen</span><span class='period'>.</span><span class='id identifier rubyid_search_input'>search_input</span><span class='period'>.</span><span class='id identifier rubyid_send_keys'>send_keys</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>automation_object gem</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_ao'>ao</span><span class='period'>.</span><span class='id identifier rubyid_home_screen'>home_screen</span><span class='period'>.</span><span class='id identifier rubyid_search_button'>search_button</span><span class='period'>.</span><span class='id identifier rubyid_click'>click</span> <span class='comment'># Now moving to search screen
+</span>
+<span class='comment'># Go back to home screen
+</span><span class='id identifier rubyid_ao'>ao</span><span class='period'>.</span><span class='id identifier rubyid_search_screen'>search_screen</span><span class='period'>.</span><span class='id identifier rubyid_home_screen'>home_screen</span><span class='period'>.</span><span class='id identifier rubyid_click'>click</span>
+
+<span class='comment'># Search Again
+</span>
+<span class='id identifier rubyid_ao'>ao</span><span class='period'>.</span><span class='id identifier rubyid_home_screen'>home_screen</span><span class='period'>.</span><span class='id identifier rubyid_search_input'>search_input</span><span class='period'>.</span><span class='id identifier rubyid_send_keys'>send_keys</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>automation_object gem</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_ao'>ao</span><span class='period'>.</span><span class='id identifier rubyid_home_screen'>home_screen</span><span class='period'>.</span><span class='id identifier rubyid_search_input'>search_input</span><span class='period'>.</span><span class='id identifier rubyid_submit'>submit</span> <span class='comment'># On search_screen again
+</span>
+</code></pre>
+</div></div>
+
+      <div id="footer">
+  Generated on Sun Oct 30 16:48:07 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>

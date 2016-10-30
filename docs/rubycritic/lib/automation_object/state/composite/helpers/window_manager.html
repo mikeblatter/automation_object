@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:35:41 -0500'>2016-10-30 14:35:41 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       7.8 complexity per method
     </div>
     <div class="file-stat">
-      5 churn
+      8 churn
     </div>
     <div class="file-stat">
       5 methods
@@ -66,12 +66,15 @@ module AutomationObject
       module WindowManager
         attr_accessor :window, :modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#modal is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#window is a writable attribute          </span>  </li></ul>
 
-        def window=(name)
+        # @param name [Symbol] name of window to use
+        # @return [void]
+        def use(name)
           windows.each do |window|
-            next if window.name != name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::State::Composite::WindowManager#window= is controlled by argument name          </span>  </li></ul>
-            return if window == self.window<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#window= calls self.window 2 times                        <a href="window_manager.html#L15" class="js-smell-location">0</a>                  <a href="window_manager.html#L17" class="js-smell-location">1</a>                  </span>  </li></ul>
+            next if window.name != name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::State::Composite::WindowManager#use is controlled by argument 'name'          </span>  </li></ul>
+            return if window == self.window<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#use calls 'self.window' 2 times                        <a href="window_manager.html#L17" class="js-smell-location">0</a>                  <a href="window_manager.html#L20" class="js-smell-location">1</a>                  </span>  </li></ul>
 
-            self.window.use<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#window= calls self.window 2 times                        <a href="window_manager.html#L15" class="js-smell-location">0</a>                  <a href="window_manager.html#L17" class="js-smell-location">1</a>                  </span>  </li></ul>
+            self.window = window
+            self.window.use<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#use calls 'self.window' 2 times                        <a href="window_manager.html#L17" class="js-smell-location">0</a>                  <a href="window_manager.html#L20" class="js-smell-location">1</a>                  </span>  </li></ul>
           end
         end
 
@@ -90,6 +93,7 @@ module AutomationObject
           windows.map(&amp;:name)
         end
 
+        # @return [void]
         def new_window(name)
           driver_handles = driver.window_handles
           diff_handles = driver_handles - window_handles

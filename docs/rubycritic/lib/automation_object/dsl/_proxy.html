@@ -28,28 +28,30 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:32:01 -0500'>2016-10-30 14:32:01 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      5 complexity
+      4 complexity
     </div>
     <div class="file-stat">
-      5.0 complexity per method
+      2.0 complexity per method
     </div>
     <div class="file-stat">
-      7 churn
+      8 churn
     </div>
     <div class="file-stat">
-      1 methods
+      2 methods
     </div>
     <div class="file-stat">
       0 duplication
     </div>
   </div>
 
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
   
 </div>
 
@@ -71,7 +73,11 @@ module AutomationObject
         @state = state
         @name = name
 
-        @subject = (subject.new(blue_prints, state) if subject)
+        @subject = (subject&amp;.new(blue_prints, state))<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Dsl::Proxy#initialize performs a nil-check          </span>  </li></ul>
+      end
+
+      def alive?
+        false
       end
     end
   end

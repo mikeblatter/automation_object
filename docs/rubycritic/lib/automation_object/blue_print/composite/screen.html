@@ -21,35 +21,37 @@
     </header>
     <div class="container">
       <div class="file-header group rated">
-  <span class="rating rating-a circled-text circle">
-    A
+  <span class="rating rating-b circled-text circle">
+    B
   </span>
   <h2 class="file-name">AutomationObject::BluePrint::Composite::Screen</h2>
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 16:33:50 -0500'>2016-10-30 16:33:50 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      19 complexity
+      22 complexity
     </div>
     <div class="file-stat">
       2.4 complexity per method
     </div>
     <div class="file-stat">
-      5 churn
+      6 churn
     </div>
     <div class="file-stat">
-      8 methods
+      9 methods
     </div>
     <div class="file-stat">
-      0 duplication
+      41 duplication
     </div>
   </div>
 
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
   
 </div>
 
@@ -65,18 +67,13 @@ require_relative &#39;element&#39;
 require_relative &#39;element_array&#39;
 require_relative &#39;element_hash&#39;
 
-module AutomationObject
+module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="screen.html#L13" class="js-smell-location">0</a>                  <a href="view.html#L5" class="js-smell-location">1</a>                  </span>  </li></ul>
   module BluePrint
     module Composite
       # Screen composite class, passing method to adapter only
       # Hoping to improve code completion and standard interface where
       # classes use this as a template to add additional adapters
       class Screen &lt; Base
-        # @return [Array&lt;Symbol&gt;]
-        def included_views
-          adapter.screens
-        end
-
         # @return [Array&lt;AutomaticOnloadModal&gt;]
         def automatic_onload_modals
           adapter.automatic_onload_modals
@@ -85,6 +82,16 @@ module AutomationObject
         # @return [Array&lt;Symbol&gt;]
         def automatic_screen_changes
           adapter.automatic_screen_changes
+        end
+
+        # @return [Hook]
+        def accept
+          adapter.accept
+        end
+
+        # @return [Hook]
+        def dismiss
+          adapter.dismiss
         end
 
         # @return [Hook]

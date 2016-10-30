@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:32:01 -0500'>2016-10-30 14:32:01 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      51 complexity
+      35 complexity
     </div>
     <div class="file-stat">
-      12.8 complexity per method
+      5.8 complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      10 churn
     </div>
     <div class="file-stat">
-      4 methods
+      6 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -56,8 +56,6 @@
 </div>
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
-require &#39;ostruct&#39;
-require &#39;colorize&#39;
 
 module AutomationObject
   module Dsl
@@ -78,30 +76,36 @@ module AutomationObject
         super ostruct_hash
       end
 
+      # @param _indent [Integer]
       # @return [String]
-      def inspect(indent = 5)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::Dsl::Base#inspect has a flog score of 35          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Dsl::Base#inspect has approx 10 statements          </span>  </li></ul>
+      def inspect(_indent = 5)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank">UncommunicativeParameterName</a>)      AutomationObject::Dsl::Base#inspect has the parameter name '_indent'          </span>  </li></ul>
         string = self.class.to_s
-        to_h.each do |key, value|
-          string += case value.class.to_s<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    when /Screen/
-                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:magenta)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    when /Modal/
-                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:light_magenta)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    when /(Element|ElementHash|ElementArray)/
-                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:light_blue)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    else
-                      &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:red)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Dsl::Base#inspect calls ' ' * indent 4 times                        <a href="_base.html#L30" class="js-smell-location">0</a>                  <a href="_base.html#L32" class="js-smell-location">1</a>                  <a href="_base.html#L34" class="js-smell-location">2</a>                  <a href="_base.html#L36" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    end
 
-          string += if value.is_a?(Base)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
-                      &quot; #{value.inspect(indent + 10)}&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    else
-                      &quot; #{value.inspect}&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::Base#inspect refers to value more than self (maybe move it to another class?)                        <a href="_base.html#L28" class="js-smell-location">0</a>                  <a href="_base.html#L39" class="js-smell-location">1</a>                  <a href="_base.html#L40" class="js-smell-location">2</a>                  <a href="_base.html#L42" class="js-smell-location">3</a>                  </span>  </li></ul>
-                    end
+        to_h.each do |key, value|
+          string += formatted_name(key, _indent)
+          string += sub_inspect(value, _indent)
         end
-        string += &#39;&#39;
 
         string
+      end
+
+      # @param key [String]
+      # @param indent [Integer]
+      # @return [String]
+      def formatted_name(key, indent)
+        color = self[key].alive? ? :green : :blue
+        &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(color)
+      end
+
+      # @param value [Object]
+      # @param indent [Integer]
+      # @return [String]
+      def sub_inspect(value, indent)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::Dsl::Base#sub_inspect doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
+        if value.is_a?(Base)
+          &quot; #{value.inspect(indent + 10)}&quot;
+        else
+          &quot; #{value.inspect}&quot;
+        end
       end
 
       class &lt;&lt; self

@@ -51,6 +51,8 @@
   </div>
 
   
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
 </div>
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
@@ -68,7 +70,7 @@ module AutomationObject
 
     # Proxy for Top Composite
     # Use proxy for methods trying to do a @state call
-    class TopProxy &lt; Proxy
+    class TopProxy &lt; Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::TopProxy assumes too much for instance variable '@state'          </span>  </li></ul>
       # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
       # @param [AutomationObject::State::Session] state
       # @param [Symbol] name

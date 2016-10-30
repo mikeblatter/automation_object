@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 15:20:37 -0500'>2016-10-30 15:20:37 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       2.2 complexity per method
     </div>
     <div class="file-stat">
-      13 churn
+      14 churn
     </div>
     <div class="file-stat">
       25 methods
@@ -94,13 +94,13 @@ module AutomationObject
         # Text of element
         # @return [String, nil]
         def text
-          @subject[&#39;content&#39;]
+          @subject.content
         end
 
         # Content of element
         # @return [String, nil]
         def content
-          @subject[&#39;content&#39;]
+          @subject.content
         end
 
         # Type into an element
@@ -211,8 +211,8 @@ module AutomationObject
         def find_form(element)
           return nil unless element
 
-          return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == &#39;form&#39;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to element more than self (maybe move it to another class?)                        <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </span>  </li></ul>
-          find_form(element.parent)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to element more than self (maybe move it to another class?)                        <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </span>  </li></ul>
+          return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == &#39;form&#39;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to 'element' more than self (maybe move it to another class?)                        <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </span>  </li></ul>
+          find_form(element.parent)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to 'element' more than self (maybe move it to another class?)                        <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
       end
     end

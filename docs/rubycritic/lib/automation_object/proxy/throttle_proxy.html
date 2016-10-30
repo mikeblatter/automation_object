@@ -61,7 +61,7 @@ require_relative &#39;proxy&#39;
 module AutomationObject
   module Proxy
     # Proxy class to throttle methods on the subject
-    class ThrottleProxy &lt; Proxy
+    class ThrottleProxy &lt; Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Proxy::ThrottleProxy assumes too much for instance variable '@subject'          </span>  </li></ul>
       def initialize(subject)
         super
       end
@@ -86,7 +86,7 @@ module AutomationObject
 
         raise ArgumentError, &#39;Expecting time argument to be Numeric&#39; unless time.is_a?(Numeric)
 
-        raise ArgumentError, &quot;Expecting object to respond_to? #{method_symbol}&quot; unless @subject.respond_to?(method_symbol)
+        raise ArgumentError, &quot;Expecting object to respond_to? #{method_symbol}&quot; unless @subject.respond_to?(method_symbol)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Manual-Dispatch.md" target="_blank">ManualDispatch</a>)      AutomationObject::Proxy::ThrottleProxy#add_method_throttle manually dispatches method call          </span>  </li></ul>
 
         throttle_methods[method_symbol] = time
       end

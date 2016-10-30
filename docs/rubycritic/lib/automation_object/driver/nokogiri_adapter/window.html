@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 15:20:37 -0500'>2016-10-30 15:20:37 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      59 complexity
+      65 complexity
     </div>
     <div class="file-stat">
-      7.4 complexity per method
+      8.1 complexity per method
     </div>
     <div class="file-stat">
-      7 churn
+      9 churn
     </div>
     <div class="file-stat">
       8 methods
@@ -87,11 +87,13 @@ module AutomationObject
           update_history(request)
         end
 
+        # @return [String]
         def current_url
           request = @history.at(@position)
-          request.url
+          !request.nil? ? request.url : nil<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Window#current_url performs a nil-check          </span>  </li></ul>
         end
 
+        # @return [void]
         def back
           raise UnableToNavigateBackward if @position.zero?
           @position -= 1
@@ -99,6 +101,7 @@ module AutomationObject
           make_request(@history.at(@position))
         end
 
+        # @return [void]
         def forward
           raise UnableToNavigateForward if @position &gt;= @history.length - 2
           @position += 1
@@ -106,12 +109,14 @@ module AutomationObject
           make_request(@history.at(@position))
         end
 
+        # @return [void]
         def refresh
           make_request(@history.at(@position))
         end
 
         protected
 
+        # @return [void]
         def update_history(request)
           @history.push(request)
           @position = @history.length - 1
@@ -119,12 +124,13 @@ module AutomationObject
 
         # Request url, will set xml to current window handle
         # @param request [Request] request object
-        def make_request(request)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/High-Complexity.md" target="_blank">HighComplexity</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request has a flog score of 27          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request has approx 6 statements          </span>  </li></ul>
-          parsed_url = request.url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls request.url 2 times                        <a href="window.html#L66" class="js-smell-location">0</a>                  <a href="window.html#L70" class="js-smell-location">1</a>                  </span>  </li></ul>
+        # @return [void]
+        def make_request(request)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request has a flog score of 30          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request has approx 6 statements          </span>  </li></ul>
+          parsed_url = request.url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls 'request.url' 4 times                        <a href="window.html#L72" class="js-smell-location">0</a>                  <a href="window.html#L74" class="js-smell-location">1</a>                  <a href="window.html#L76" class="js-smell-location">2</a>                  </span>  </li></ul>
 
-          raise ArgumentError, &quot;Expecting get argument url to be a valid_url?, got #{url}&quot; if parsed_url.valid_url? == false &amp;&amp; current_url.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request performs a nil-check          </span>  </li></ul>
+          raise ArgumentError, &quot;Expecting get argument url to be a valid_url?, got #{request.url}&quot; if !parsed_url.valid_url? &amp;&amp; current_url.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls 'current_url.nil?' 2 times                        <a href="window.html#L74" class="js-smell-location">0</a>                  <a href="window.html#L76" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls 'request.url' 4 times                        <a href="window.html#L72" class="js-smell-location">0</a>                  <a href="window.html#L74" class="js-smell-location">1</a>                  <a href="window.html#L76" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request performs a nil-check                        <a href="window.html#L74" class="js-smell-location">0</a>                  <a href="window.html#L76" class="js-smell-location">1</a>                  </span>  </li></ul>
 
-          parsed_url = current_url.join_url(request.url) if url.valid_url? == false &amp;&amp; current_url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls request.url 2 times                        <a href="window.html#L66" class="js-smell-location">0</a>                  <a href="window.html#L70" class="js-smell-location">1</a>                  </span>  </li></ul>
+          parsed_url = current_url.join_url(request.url) if !request.url.valid_url? &amp;&amp; !current_url.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls 'current_url.nil?' 2 times                        <a href="window.html#L74" class="js-smell-location">0</a>                  <a href="window.html#L76" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request calls 'request.url' 4 times                        <a href="window.html#L72" class="js-smell-location">0</a>                  <a href="window.html#L74" class="js-smell-location">1</a>                  <a href="window.html#L76" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Window#make_request performs a nil-check                        <a href="window.html#L74" class="js-smell-location">0</a>                  <a href="window.html#L76" class="js-smell-location">1</a>                  </span>  </li></ul>
 
           client_resource = RestClient::Resource.new(parsed_url, ssl_version: &#39;SSLv23_client&#39;)
           response = client_resource.send(request.type, params: request.params)

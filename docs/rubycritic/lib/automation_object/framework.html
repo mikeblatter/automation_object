@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:47:10 -0500'>2016-10-30 14:47:10 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       5.2 complexity per method
     </div>
     <div class="file-stat">
-      16 churn
+      18 churn
     </div>
     <div class="file-stat">
       5 methods
@@ -86,8 +86,8 @@ module AutomationObject
       self.driver = driver
       self.blue_prints = blue_prints
 
-      self.state = State.new(self.driver, self.blue_prints)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Framework#initialize calls self.blue_prints 2 times                        <a href="framework.html#L32" class="js-smell-location">0</a>                  <a href="framework.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
-      @subject = Dsl.new(self.blue_prints, state)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Framework#initialize calls self.blue_prints 2 times                        <a href="framework.html#L32" class="js-smell-location">0</a>                  <a href="framework.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+      self.state = State.create(self.driver, self.blue_prints)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Framework#initialize calls 'self.blue_prints' 2 times                        <a href="framework.html#L32" class="js-smell-location">0</a>                  <a href="framework.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+      @subject = Dsl.create(self.blue_prints, state)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Framework#initialize calls 'self.blue_prints' 2 times                        <a href="framework.html#L32" class="js-smell-location">0</a>                  <a href="framework.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
 
       AutomationObject::Framework.singleton = self
     end
@@ -96,6 +96,7 @@ module AutomationObject
     # Composite provides a common interface for all adapters
     # @param value [String, Hash] String to YAML files or Hash configuration
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
+    undef :blue_prints= if defined? :blue_prints=
     def blue_prints=(value)
       case value
       when String
@@ -104,11 +105,12 @@ module AutomationObject
         BluePrint.adapter = :hash
       end
 
-      @blue_prints = BluePrint.build(value)
+      @blue_prints = BluePrint.create(value)
     end
 
     # Driver port provides a formatted interface for interacting with different drivers
     # @return [AutomationObject::Driver::Driver] driver interface object
+    undef :driver= if defined? :driver=
     def driver=(value)
       Driver.adapter = case value
                        when Selenium::WebDriver::Driver
@@ -119,7 +121,7 @@ module AutomationObject
                          :nokogiri
                        end
 
-      @driver = Driver.new(value)
+      @driver = Driver.create(value)
     end
 
     # Reset the entire state, remove any values

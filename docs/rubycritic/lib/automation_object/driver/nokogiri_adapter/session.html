@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 15:20:37 -0500'>2016-10-30 15:20:37 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      45 complexity
+      63 complexity
     </div>
     <div class="file-stat">
-      4.1 complexity per method
+      5.3 complexity per method
     </div>
     <div class="file-stat">
-      12 churn
+      14 churn
     </div>
     <div class="file-stat">
-      11 methods
+      12 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -67,7 +67,12 @@ module AutomationObject
       class Session
         def initialize
           @windows = [Window.new]
-          @current_window = 0 # Position
+          @position = 0 # Position
+        end
+
+        def xml
+          return nil if @windows[@position].nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#xml calls '@windows[@position]' 2 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L18" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Session#xml performs a nil-check          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::NokogiriAdapter::Session tests '@windows[@position].nil?' at least 6 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L28" class="js-smell-location">1</a>                  <a href="session.html#L34" class="js-smell-location">2</a>                  <a href="session.html#L65" class="js-smell-location">3</a>                  <a href="session.html#L70" class="js-smell-location">4</a>                  <a href="session.html#L75" class="js-smell-location">5</a>                  </span>  </li></ul>
+          @windows[@position].xml<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#xml calls '@windows[@position]' 2 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L18" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         # @return [Array&lt;String&gt;] window handles
@@ -77,12 +82,14 @@ module AutomationObject
 
         # @return [String] current window handle
         def window_handle
-          @windows[@current_window].handle
+          return nil if @windows[@position].nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#window_handle calls '@windows[@position]' 2 times                        <a href="session.html#L28" class="js-smell-location">0</a>                  <a href="session.html#L29" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Session#window_handle performs a nil-check          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::NokogiriAdapter::Session tests '@windows[@position].nil?' at least 6 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L28" class="js-smell-location">1</a>                  <a href="session.html#L34" class="js-smell-location">2</a>                  <a href="session.html#L65" class="js-smell-location">3</a>                  <a href="session.html#L70" class="js-smell-location">4</a>                  <a href="session.html#L75" class="js-smell-location">5</a>                  </span>  </li></ul>
+          @windows[@position].handle<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#window_handle calls '@windows[@position]' 2 times                        <a href="session.html#L28" class="js-smell-location">0</a>                  <a href="session.html#L29" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         # @return [String] current URL
         def current_url
-          @windows[@current_window].current_url
+          return nil if @windows[@position].nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#current_url calls '@windows[@position]' 2 times                        <a href="session.html#L34" class="js-smell-location">0</a>                  <a href="session.html#L35" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Session#current_url performs a nil-check          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::NokogiriAdapter::Session tests '@windows[@position].nil?' at least 6 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L28" class="js-smell-location">1</a>                  <a href="session.html#L34" class="js-smell-location">2</a>                  <a href="session.html#L65" class="js-smell-location">3</a>                  <a href="session.html#L70" class="js-smell-location">4</a>                  <a href="session.html#L75" class="js-smell-location">5</a>                  </span>  </li></ul>
+          @windows[@position].current_url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#current_url calls '@windows[@position]' 2 times                        <a href="session.html#L34" class="js-smell-location">0</a>                  <a href="session.html#L35" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         # Switch window handles
@@ -102,8 +109,8 @@ module AutomationObject
         # @param params [Hash&lt;String:String&gt;] params
         # @param blank [Boolean] new window
         # @return [void]
-        def request(type, url, params, blank)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank">LongParameterList</a>)      AutomationObject::Driver::NokogiriAdapter::Session#request has 4 parameters          </span>  </li></ul>
-          if blank<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::Driver::NokogiriAdapter::Session#request is controlled by argument blank          </span>  </li></ul>
+        def request(type, url, params = {}, blank = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Driver::NokogiriAdapter::Session#request has boolean parameter 'blank'          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank">LongParameterList</a>)      AutomationObject::Driver::NokogiriAdapter::Session#request has 4 parameters          </span>  </li></ul>
+          if blank<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::Driver::NokogiriAdapter::Session#request is controlled by argument 'blank'          </span>  </li></ul>
             @windows.push(Window.new)
             @position = @windows.length - 1
           end
@@ -112,15 +119,18 @@ module AutomationObject
         end
 
         def back
-          @windows[@position].back
+          return if @windows[@position].nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#back calls '@windows[@position]' 2 times                        <a href="session.html#L65" class="js-smell-location">0</a>                  <a href="session.html#L66" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Session#back performs a nil-check          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::NokogiriAdapter::Session tests '@windows[@position].nil?' at least 6 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L28" class="js-smell-location">1</a>                  <a href="session.html#L34" class="js-smell-location">2</a>                  <a href="session.html#L65" class="js-smell-location">3</a>                  <a href="session.html#L70" class="js-smell-location">4</a>                  <a href="session.html#L75" class="js-smell-location">5</a>                  </span>  </li></ul>
+          @windows[@position].back<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#back calls '@windows[@position]' 2 times                        <a href="session.html#L65" class="js-smell-location">0</a>                  <a href="session.html#L66" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         def forward
-          @windows[@position].forward
+          return if @windows[@position].nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#forward calls '@windows[@position]' 2 times                        <a href="session.html#L70" class="js-smell-location">0</a>                  <a href="session.html#L71" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Session#forward performs a nil-check          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::NokogiriAdapter::Session tests '@windows[@position].nil?' at least 6 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L28" class="js-smell-location">1</a>                  <a href="session.html#L34" class="js-smell-location">2</a>                  <a href="session.html#L65" class="js-smell-location">3</a>                  <a href="session.html#L70" class="js-smell-location">4</a>                  <a href="session.html#L75" class="js-smell-location">5</a>                  </span>  </li></ul>
+          @windows[@position].forward<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#forward calls '@windows[@position]' 2 times                        <a href="session.html#L70" class="js-smell-location">0</a>                  <a href="session.html#L71" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         def refresh
-          @windows[@position].refresh
+          return if @windows[@position].nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#refresh calls '@windows[@position]' 2 times                        <a href="session.html#L75" class="js-smell-location">0</a>                  <a href="session.html#L76" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Driver::NokogiriAdapter::Session#refresh performs a nil-check          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank">RepeatedConditional</a>)      AutomationObject::Driver::NokogiriAdapter::Session tests '@windows[@position].nil?' at least 6 times                        <a href="session.html#L17" class="js-smell-location">0</a>                  <a href="session.html#L28" class="js-smell-location">1</a>                  <a href="session.html#L34" class="js-smell-location">2</a>                  <a href="session.html#L65" class="js-smell-location">3</a>                  <a href="session.html#L70" class="js-smell-location">4</a>                  <a href="session.html#L75" class="js-smell-location">5</a>                  </span>  </li></ul>
+          @windows[@position].refresh<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Session#refresh calls '@windows[@position]' 2 times                        <a href="session.html#L75" class="js-smell-location">0</a>                  <a href="session.html#L76" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         def close

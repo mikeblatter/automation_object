@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 15:20:37 -0500'>2016-10-30 15:20:37 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      52 complexity
+      44 complexity
     </div>
     <div class="file-stat">
-      3.7 complexity per method
+      2.9 complexity per method
     </div>
     <div class="file-stat">
-      19 churn
+      21 churn
     </div>
     <div class="file-stat">
-      14 methods
+      15 methods
     </div>
     <div class="file-stat">
       40 duplication
@@ -84,6 +84,12 @@ module AutomationObject
           @subject.navigate.to(url)
         end
 
+        # Get the title of the document
+        # @return [String]
+        def title
+          @subject.title
+        end
+
         # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]
@@ -95,18 +101,14 @@ module AutomationObject
         # @param selector_type [Symbol] selector type (:css, :xpath, etc...)
         # @param selector_path [String] path to element
         # @return [Boolean] exists or not
-        def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::SeleniumAdapter::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L41" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  <a href="driver.html#L72" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? has approx 8 statements          </span>  </li></ul>
+        def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::SeleniumAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods                        <a href="driver.html#L47" class="js-smell-location">0</a>                  <a href="driver.html#L65" class="js-smell-location">1</a>                  <a href="driver.html#L74" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? has approx 6 statements          </span>  </li></ul>
           exists = false
 
           begin
-            original_timeout = @subject.manage.timeouts.implicit_wait<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? calls @subject.manage 3 times                        <a href="driver.html#L45" class="js-smell-location">0</a>                  <a href="driver.html#L46" class="js-smell-location">1</a>                  <a href="driver.html#L50" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? calls @subject.manage.timeouts 3 times                        <a href="driver.html#L45" class="js-smell-location">0</a>                  <a href="driver.html#L46" class="js-smell-location">1</a>                  <a href="driver.html#L50" class="js-smell-location">2</a>                  </span>  </li></ul>
-            @subject.manage.timeouts.implicit_wait = 0<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? calls @subject.manage 3 times                        <a href="driver.html#L45" class="js-smell-location">0</a>                  <a href="driver.html#L46" class="js-smell-location">1</a>                  <a href="driver.html#L50" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? calls @subject.manage.timeouts 3 times                        <a href="driver.html#L45" class="js-smell-location">0</a>                  <a href="driver.html#L46" class="js-smell-location">1</a>                  <a href="driver.html#L50" class="js-smell-location">2</a>                  </span>  </li></ul>
-
-            element_objects = @subject.find_elements(selector_type, selector_path)
-
-            @subject.manage.timeouts.implicit_wait = original_timeout<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? calls @subject.manage 3 times                        <a href="driver.html#L45" class="js-smell-location">0</a>                  <a href="driver.html#L46" class="js-smell-location">1</a>                  <a href="driver.html#L50" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#exists? calls @subject.manage.timeouts 3 times                        <a href="driver.html#L45" class="js-smell-location">0</a>                  <a href="driver.html#L46" class="js-smell-location">1</a>                  <a href="driver.html#L50" class="js-smell-location">2</a>                  </span>  </li></ul>
-
-            exists = true unless element_objects.empty?
+            suspend_timeout do
+              element_objects = @subject.find_elements(selector_type, selector_path)
+              exists = true unless element_objects.empty?
+            end
           rescue StandardError
             return false
           end
@@ -117,7 +119,7 @@ module AutomationObject
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
         # @return [Object] element
-        def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Identical code found in 2 nodes                        <a href="../appium_adapter/driver.html#L49" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::SeleniumAdapter::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L41" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  <a href="driver.html#L72" class="js-smell-location">2</a>                  </span>  </li></ul>
+        def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Identical code found in 2 nodes                        <a href="../appium_adapter/driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L65" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::SeleniumAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods                        <a href="driver.html#L47" class="js-smell-location">0</a>                  <a href="driver.html#L65" class="js-smell-location">1</a>                  <a href="driver.html#L74" class="js-smell-location">2</a>                  </span>  </li></ul>
           element = @subject.find_element(selector_type, selector_path)
           # Wrap in adapter interface
           AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
@@ -126,7 +128,7 @@ module AutomationObject
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
         # @return [Object] element
-        def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Identical code found in 2 nodes                        <a href="../appium_adapter/driver.html#L58" class="js-smell-location">0</a>                  <a href="driver.html#L72" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::SeleniumAdapter::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L41" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  <a href="driver.html#L72" class="js-smell-location">2</a>                  </span>  </li></ul>
+        def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Identical code found in 2 nodes                        <a href="../appium_adapter/driver.html#L64" class="js-smell-location">0</a>                  <a href="driver.html#L74" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::SeleniumAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods                        <a href="driver.html#L47" class="js-smell-location">0</a>                  <a href="driver.html#L65" class="js-smell-location">1</a>                  <a href="driver.html#L74" class="js-smell-location">2</a>                  </span>  </li></ul>
           elements = @subject.find_elements(selector_type, selector_path)
 
           elements.map do |element|
@@ -136,16 +138,16 @@ module AutomationObject
 
         # Accept prompt either in browser or mobile
         def accept_prompt
-          alert = @subject.switch_to.alert<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#accept_prompt calls @subject.switch_to 2 times                        <a href="driver.html#L82" class="js-smell-location">0</a>                  <a href="driver.html#L84" class="js-smell-location">1</a>                  </span>  </li></ul>
+          alert = @subject.switch_to.alert<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#accept_prompt calls '@subject.switch_to' 2 times                        <a href="driver.html#L84" class="js-smell-location">0</a>                  <a href="driver.html#L86" class="js-smell-location">1</a>                  </span>  </li></ul>
           alert.accept
-          @subject.switch_to.default_content<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#accept_prompt calls @subject.switch_to 2 times                        <a href="driver.html#L82" class="js-smell-location">0</a>                  <a href="driver.html#L84" class="js-smell-location">1</a>                  </span>  </li></ul>
+          @subject.switch_to.default_content<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#accept_prompt calls '@subject.switch_to' 2 times                        <a href="driver.html#L84" class="js-smell-location">0</a>                  <a href="driver.html#L86" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         # Dismiss the prompt
         def dismiss_prompt
-          alert = @subject.switch_to.alert<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#dismiss_prompt calls @subject.switch_to 2 times                        <a href="driver.html#L89" class="js-smell-location">0</a>                  <a href="driver.html#L91" class="js-smell-location">1</a>                  </span>  </li></ul>
+          alert = @subject.switch_to.alert<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#dismiss_prompt calls '@subject.switch_to' 2 times                        <a href="driver.html#L91" class="js-smell-location">0</a>                  <a href="driver.html#L93" class="js-smell-location">1</a>                  </span>  </li></ul>
           alert.dismiss
-          @subject.switch_to.default_content<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#dismiss_prompt calls @subject.switch_to 2 times                        <a href="driver.html#L89" class="js-smell-location">0</a>                  <a href="driver.html#L91" class="js-smell-location">1</a>                  </span>  </li></ul>
+          @subject.switch_to.default_content<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::SeleniumAdapter::Driver#dismiss_prompt calls '@subject.switch_to' 2 times                        <a href="driver.html#L91" class="js-smell-location">0</a>                  <a href="driver.html#L93" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         # Check if browser, more useful for Appium but can be generic here

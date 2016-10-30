@@ -66,7 +66,7 @@ module AutomationObject
   module BluePrint
     module HashAdapter
       # Hook composite
-      class Hook &lt; Composite
+      class Hook &lt; Composite<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::BluePrint::HashAdapter::Hook assumes too much for instance variable '@live'          </span>  </li></ul>
         # Call the live? method so that it creates the needed Array of ElementRequirement interfaces
         before_create :live?
 
@@ -78,7 +78,7 @@ module AutomationObject
         validates_keys allowed_keys: [:before, :live?, :after]
 
         # @return [Array&lt;HookElementRequirements&gt;] array of element requirements
-        def live?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Hook#live? has approx 6 statements          </span>  </li></ul>
+        def live?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Hook#live? has approx 6 statements          </span>  </li></ul>
           return @live if defined? @live
 
           children = hash[:live?]

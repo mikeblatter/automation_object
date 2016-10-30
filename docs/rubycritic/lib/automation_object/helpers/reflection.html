@@ -66,7 +66,7 @@ module AutomationObject
       name = name.to_s
       alias_name = name + &#39;?&#39; if name.gsub!(/\?$/, &#39;&#39;)
 
-      self.class.send(:attr_accessor, name) unless self.class.method_defined? name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Reflection#add_attribute calls self.class 2 times          </span>  </li></ul>
+      self.class.send(:attr_accessor, name) unless self.class.method_defined? name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Reflection#add_attribute calls 'self.class' 2 times          </span>  </li></ul>
       instance_variable_set(&quot;@#{name}&quot;, value)
 
       add_alias(alias_name, name) if alias_name

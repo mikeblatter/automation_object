@@ -5,7 +5,7 @@ require_relative '../../../../lib/automation_object/blue_print/composite/hook_el
 # Test AutomationObject::BluePrint::Composite::HookElementRequirements
 class TestBluePrintCompositeHookElementRequirements < Minitest::Test
   def setup
-    @mock = mock()
+    @mock = mock
     @subject = AutomationObject::BluePrint::Composite::HookElementRequirements.new(@mock)
   end
 

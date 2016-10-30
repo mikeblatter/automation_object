@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 15:20:37 -0500'>2016-10-30 15:20:37 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      46 complexity
+      48 complexity
     </div>
     <div class="file-stat">
       2.4 complexity per method
     </div>
     <div class="file-stat">
-      12 churn
+      13 churn
     </div>
     <div class="file-stat">
-      19 methods
+      20 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -67,12 +67,18 @@ module AutomationObject
 
     # Driver adapter interface
     # Adapters should meet this interface standard
-    class Driver &lt; Base<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::Driver has at least 19 methods          </span>  </li></ul>
+    class Driver &lt; Base<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::Driver has at least 20 methods          </span>  </li></ul>
       # Navigates current window to a given url
       # @param url [String] navigate to the following url
       # @return [void]
       def get(url)
         adapter.get(url)
+      end
+
+      # Get the title of the document
+      # @return [String]
+      def title
+        adapter.title
       end
 
       # Refreshes current window
@@ -103,21 +109,21 @@ module AutomationObject
       # @param selector_type [Symbol] selector type (:css, :xpath, etc...)
       # @param selector_path [String] path to element
       # @return [Boolean] exists or not
-      def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L49" class="js-smell-location">0</a>                  <a href="driver.html#L56" class="js-smell-location">1</a>                  <a href="driver.html#L63" class="js-smell-location">2</a>                  </span>  </li></ul>
+      def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods                        <a href="driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L62" class="js-smell-location">1</a>                  <a href="driver.html#L69" class="js-smell-location">2</a>                  </span>  </li></ul>
         adapter.exists?(selector_type, selector_path)
       end
 
       # @param selector_type [Symbol] selector type, :css, :xpath, etc...
       # @param selector_path [String] path to element
       # @return [AutomationObject::Driver::Element] element
-      def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L49" class="js-smell-location">0</a>                  <a href="driver.html#L56" class="js-smell-location">1</a>                  <a href="driver.html#L63" class="js-smell-location">2</a>                  </span>  </li></ul>
+      def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods                        <a href="driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L62" class="js-smell-location">1</a>                  <a href="driver.html#L69" class="js-smell-location">2</a>                  </span>  </li></ul>
         adapter.find_element(selector_type, selector_path)
       end
 
       # @param selector_type [Symbol] selector type, :css, :xpath, etc...
       # @param selector_path [String] path to element
       # @return [Array&lt;AutomationObject::Driver::Element&gt;] elements
-      def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::Driver takes parameters [selector_path, selector_type] to 3 methods                        <a href="driver.html#L49" class="js-smell-location">0</a>                  <a href="driver.html#L56" class="js-smell-location">1</a>                  <a href="driver.html#L63" class="js-smell-location">2</a>                  </span>  </li></ul>
+      def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods                        <a href="driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L62" class="js-smell-location">1</a>                  <a href="driver.html#L69" class="js-smell-location">2</a>                  </span>  </li></ul>
         adapter.find_elements(selector_type, selector_path)
       end
 

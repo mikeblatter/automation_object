@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 14:35:41 -0500'>2016-10-30 14:35:41 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       3.7 complexity per method
     </div>
     <div class="file-stat">
-      5 churn
+      7 churn
     </div>
     <div class="file-stat">
       7 methods
@@ -74,15 +74,17 @@ module AutomationObject
         end
 
         # @return [Symbol] current screen
-        def screen
+        def name
           @history[@position]
         end
 
+        # @return [void]
         def use
           return if @driver.window_handle == @handle
           @driver.window_handle = @handle
         end
 
+        # @return [void]
         def back
           raise CannotNavigateBack if @position.zero?
 
@@ -90,6 +92,7 @@ module AutomationObject
           @position -= 1
         end
 
+        # @return [void]
         def forward
           raise CannotNavigateForward if @position &gt;= @history.length
 
@@ -97,11 +100,13 @@ module AutomationObject
           @position += 1
         end
 
+        # @return [Boolean]
         def closed?
           !@driver.window_handles.include?(window_handle)
         end
 
         # Close the window
+        # @return [void]
         def close
           @driver.close
         end

@@ -16,7 +16,7 @@ module AutomationObject
         @state = state
         @name = name
 
-        @subject = (subject.new(blue_prints, state) if subject)
+        @subject = (subject&.new(blue_prints, state))
       end
 
       def alive?

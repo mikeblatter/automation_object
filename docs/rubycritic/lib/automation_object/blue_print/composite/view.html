@@ -21,32 +21,32 @@
     </header>
     <div class="container">
       <div class="file-header group rated">
-  <span class="rating rating-a circled-text circle">
-    A
+  <span class="rating rating-b circled-text circle">
+    B
   </span>
   <h2 class="file-name">AutomationObject::BluePrint::Composite::View</h2>
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 16:39:23 -0500'>2016-10-30 16:39:23 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      17 complexity
+      22 complexity
     </div>
     <div class="file-stat">
       2.4 complexity per method
     </div>
     <div class="file-stat">
-      6 churn
+      7 churn
     </div>
     <div class="file-stat">
-      7 methods
+      9 methods
     </div>
     <div class="file-stat">
-      33 duplication
+      41 duplication
     </div>
   </div>
 
@@ -59,13 +59,28 @@
 # Require parent class
 require_relative &#39;base&#39;
 
-module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Code.md" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="top.html#L8" class="js-smell-location">0</a>                  <a href="view.html#L5" class="js-smell-location">1</a>                  </span>  </li></ul>
+module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="screen.html#L13" class="js-smell-location">0</a>                  <a href="view.html#L5" class="js-smell-location">1</a>                  </span>  </li></ul>
   module BluePrint
     module Composite
       # View composite class, passing method to adapter only
       # Hoping to improve code completion and standard interface where
       # classes use this as a template to add additional adapters
       class View &lt; Base
+        # @return [Hook]
+        def load
+          adapter.load
+        end
+
+        # @return [Hook]
+        def accept
+          adapter.accept
+        end
+
+        # @return [Hook]
+        def dismiss
+          adapter.dismiss
+        end
+
         # @return [Array&lt;AutomaticOnloadModal&gt;]
         def automatic_onload_modals
           adapter.automatic_onload_modals
@@ -74,11 +89,6 @@ module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">
         # @return [Array&lt;Symbol&gt;]
         def automatic_screen_changes
           adapter.automatic_screen_changes
-        end
-
-        # @return [Hook]
-        def load
-          adapter.load
         end
 
         # @return [Hash&lt;Modal&gt;]
