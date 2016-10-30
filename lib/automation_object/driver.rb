@@ -34,7 +34,7 @@ module AutomationObject
 
     # @param driver [Object] selenium or appium driver. default nil for Nokogiri
     # @return [AutomationObject::Driver::Driver]
-    def new(driver = nil)
+    def create(driver = nil)
       adapted_driver = Driver.new(adapter.new(driver))
 
       # Add throttling and mutex proxies around adapter

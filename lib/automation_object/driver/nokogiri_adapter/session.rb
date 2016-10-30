@@ -10,7 +10,7 @@ module AutomationObject
       class Session
         def initialize
           @windows = [Window.new]
-          @current_window = 0 # Position
+          @position = 0 # Position
         end
 
         # @return [Array<String>] window handles
@@ -20,12 +20,12 @@ module AutomationObject
 
         # @return [String] current window handle
         def window_handle
-          @windows[@current_window].handle
+          @windows[@position].handle
         end
 
         # @return [String] current URL
         def current_url
-          @windows[@current_window].current_url
+          @windows[@position].current_url
         end
 
         # Switch window handles
@@ -45,7 +45,7 @@ module AutomationObject
         # @param params [Hash<String:String>] params
         # @param blank [Boolean] new window
         # @return [void]
-        def request(type, url, params, blank)
+        def request(type, url, params = {}, blank = false)
           if blank
             @windows.push(Window.new)
             @position = @windows.length - 1

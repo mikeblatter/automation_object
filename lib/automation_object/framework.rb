@@ -29,8 +29,8 @@ module AutomationObject
       self.driver = driver
       self.blue_prints = blue_prints
 
-      self.state = State.new(self.driver, self.blue_prints)
-      @subject = Dsl.new(self.blue_prints, state)
+      self.state = State.create(self.driver, self.blue_prints)
+      @subject = Dsl.create(self.blue_prints, state)
 
       AutomationObject::Framework.singleton = self
     end
@@ -48,7 +48,7 @@ module AutomationObject
         BluePrint.adapter = :hash
       end
 
-      @blue_prints = BluePrint.build(value)
+      @blue_prints = BluePrint.create(value)
     end
 
     # Driver port provides a formatted interface for interacting with different drivers
@@ -64,7 +64,7 @@ module AutomationObject
                          :nokogiri
                        end
 
-      @driver = Driver.new(value)
+      @driver = Driver.create(value)
     end
 
     # Reset the entire state, remove any values

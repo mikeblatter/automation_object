@@ -13,7 +13,7 @@ module AutomationObject
         # @return [AutomationObject::Driver::NokogiriAdapter::Session]
         attr_accessor :session
 
-        def initialize
+        def initialize(*_args)
           self.session = Session.new
         end
 
@@ -21,7 +21,7 @@ module AutomationObject
         # @param url [String] navigate to the following url
         # @return [void]
         def get(url)
-          session.get(url)
+          session.request(:get, url)
         end
 
         def back
