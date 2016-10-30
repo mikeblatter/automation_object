@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-require_relative '../adapter_test_helper'
+require_relative '../driver_adapter_test_helper'
 
 # Test AutomationObject::Driver::NokogiriAdapter::Driver class
 class TestSeleniumAdapterDriver < Minitest::Test
-  include AdapterTestHelper
+  include DriverAdapterTestHelper
 
   self.interface_class = AutomationObject::Driver::Driver
   self.adapter_class = AutomationObject::Driver::SeleniumAdapter::Driver

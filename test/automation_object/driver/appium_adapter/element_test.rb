@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-require_relative '../adapter_test_helper'
+require_relative '../driver_adapter_test_helper'
 
 # Test AutomationObject::Driver::AppiumAdapter::Element class
 class TestAppiumAdapterElement < Minitest::Test
-  include AdapterTestHelper
+  include DriverAdapterTestHelper
 
   self.interface_class = AutomationObject::Driver::Element
   self.adapter_class = AutomationObject::Driver::AppiumAdapter::Element

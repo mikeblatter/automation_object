@@ -3,9 +3,7 @@ require_relative '../../test_helper'
 
 Dir['../../../lib/automation_object/driver/**/*.rb'].each { |f| load(f) }
 
-# Common Tests AutomationObject::BluePrint::HashAdapter::
-# Using dynamic method addition to make one assertion per function test
-module AdapterTestHelper
+module DriverAdapterTestHelper
   def setup
   end
 
