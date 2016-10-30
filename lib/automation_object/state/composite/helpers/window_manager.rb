@@ -10,6 +10,7 @@ module AutomationObject
         attr_accessor :window, :modal
 
         # @param name [Symbol] name of window to use
+        # @return [void]
         def use(name)
           windows.each do |window|
             next if window.name != name
@@ -35,6 +36,7 @@ module AutomationObject
           windows.map(&:name)
         end
 
+        # @return [void]
         def new_window(name)
           driver_handles = driver.window_handles
           diff_handles = driver_handles - window_handles

@@ -23,11 +23,13 @@ module AutomationObject
           @history[@position]
         end
 
+        # @return [void]
         def use
           return if @driver.window_handle == @handle
           @driver.window_handle = @handle
         end
 
+        # @return [void]
         def back
           raise CannotNavigateBack if @position.zero?
 
@@ -35,6 +37,7 @@ module AutomationObject
           @position -= 1
         end
 
+        # @return [void]
         def forward
           raise CannotNavigateForward if @position >= @history.length
 
@@ -42,11 +45,13 @@ module AutomationObject
           @position += 1
         end
 
+        # @return [Boolean]
         def closed?
           !@driver.window_handles.include?(window_handle)
         end
 
         # Close the window
+        # @return [void]
         def close
           @driver.close
         end
