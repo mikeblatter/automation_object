@@ -33,10 +33,17 @@ of the core features/code.
 gem install automation_object
 ```
 
-## Generated Documentation
+## Generated Docs
 
 1. [Code Documentation (YARD Generated)](https://mikeblatter.github.io/automation_object/docs/internal)
 2. [RubyCritic Report](https://mikeblatter.github.io/automation_object/docs/rubycritic)
+
+## Cucumber Step Definition Docs
+
+- [Screen Step Definitions](docs/step_definitions/screen)
+- [Element Array Step Definitions](docs/step_definitions/element_array)
+- [Element Hash Step Definitions](docs/step_definitions/element_hash)
+- [Element Step Definitions](docs/step_definitions/element)
 
 ## Fully working example
 
