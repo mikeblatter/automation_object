@@ -14,6 +14,16 @@ class TestBluePrintCompositeView < Minitest::Test
     assert_equal({}, @subject.load)
   end
 
+  def test_accept
+    @mock.expects(:accept).returns({})
+    assert_equal({}, @subject.accept)
+  end
+
+  def test_dismiss
+    @mock.expects(:dismiss).returns({})
+    assert_equal({}, @subject.dismiss)
+  end
+
   def test_modals
     @mock.expects(:modals).returns({})
     assert_equal({}, @subject.modals)

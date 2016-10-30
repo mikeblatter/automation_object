@@ -9,6 +9,21 @@ module AutomationObject
       # Hoping to improve code completion and standard interface where
       # classes use this as a template to add additional adapters
       class View < Base
+        # @return [Hook]
+        def load
+          adapter.load
+        end
+
+        # @return [Hook]
+        def accept
+          adapter.accept
+        end
+
+        # @return [Hook]
+        def dismiss
+          adapter.dismiss
+        end
+
         # @return [Array<AutomaticOnloadModal>]
         def automatic_onload_modals
           adapter.automatic_onload_modals
@@ -17,11 +32,6 @@ module AutomationObject
         # @return [Array<Symbol>]
         def automatic_screen_changes
           adapter.automatic_screen_changes
-        end
-
-        # @return [Hook]
-        def load
-          adapter.load
         end
 
         # @return [Hash<Modal>]
