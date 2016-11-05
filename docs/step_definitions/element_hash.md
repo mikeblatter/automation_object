@@ -6,13 +6,13 @@ Provides step definitions related to element hashes
 
 ## Table of Contents
 
-- (Calling an element hash method)[Calling an element hash method]
-- (Typing into element hash field)[Typing into element hash field]
-- (Scrolling element hash item(s) into focus)[Scrolling element hash item(s) into focus]
-- (Saving value from element hash for use later)[Saving value from element hash for use later]
-- (Testing the element hashes size)[Testing the element hashes size]
-- (Testing if the element hash value equals a given value)[Testing if the element hash value equals a given value]
-- (Testing if the element hashes uniqueness)[Testing if the element hashes uniqueness]
+- [Calling an element hash method](Calling an element hash method)
+- [Typing into element hash field](Typing into element hash field)
+- [Scrolling element hash item(s) into focus](Scrolling element hash item(s) into focus)
+- [Saving value from element hash for use later](Saving value from element hash for use later)
+- [Testing the element hashes size](Testing the element hashes size)
+- [Testing if the element hash value equals a given value](Testing if the element hash value equals a given value)
+- [Testing if the element hashes uniqueness](Testing if the element hashes uniqueness)
 
 ## Steps 
 
