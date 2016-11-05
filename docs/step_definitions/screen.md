@@ -13,7 +13,7 @@ Provides step definitions related to screens
 
 ## Steps 
 
---- 
+
 
 ### Close the current screen or given screen
 
@@ -26,10 +26,10 @@ Provides step definitions related to screens
 
 #### Regex
 
-```%r(^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$```
+```^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$```
 
 
---- 
+
 
 ### Navigating back on a given or current screen
 
@@ -41,10 +41,10 @@ Provides step definitions related to screens
 
 #### Regex
 
-```%r(^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$```
+```^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$```
 
 
---- 
+
 
 ### Switch/Focus screen
 
@@ -56,10 +56,10 @@ Provides step definitions related to screens
 
 #### Regex
 
-```%r(^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{[\w\d]+\})" screen$```
+```^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{[\w\d]+\})" screen$```
 
 
---- 
+
 
 ### Setting the current screen's width or given screen
 
@@ -73,6 +73,6 @@ Provides step definitions related to screens
 
 #### Regex
 
-```%r(^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$```
+```^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$```
 
 

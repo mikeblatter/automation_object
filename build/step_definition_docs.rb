@@ -32,11 +32,11 @@ def file_steps(line_array)
   line_array.each { |line|
     for_line = line.match(/For:\s*(.+)/)
     example_line = line.match(/^# \s*-\s*(.+)/)
-    regex_line = line.match(%r{^(?:Given|When|Then|But|And)[\s\(\/]+(.+)\/[\s\)]+})
+    regex_line = line.match(%r{^(?:Given|When|Then|But|And)[r%\{\s\(\/]+(.+)\/[\s\)\}]+})
 
     if for_line
       added_examples = false
-      text += "--- \n\n### #{for_line[1]}\n\n"
+      text += "\n\n### #{for_line[1]}\n\n"
     end
 
     if example_line

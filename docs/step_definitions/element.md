@@ -15,7 +15,7 @@ Provides step definitions related to elements
 
 ## Steps 
 
---- 
+
 
 ### Calling an element method
 
@@ -31,7 +31,7 @@ Provides step definitions related to elements
 ```^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$```
 
 
---- 
+
 
 ### Typing into element field
 
@@ -47,7 +47,7 @@ Provides step definitions related to elements
 ```^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$```
 
 
---- 
+
 
 ### Scrolling element into focus
 
@@ -63,7 +63,7 @@ Provides step definitions related to elements
 ```^I (?:scroll |focus )to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$```
 
 
---- 
+
 
 ### Saving value from element for use later
 
@@ -78,7 +78,7 @@ Provides step definitions related to elements
 ```^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$```
 
 
---- 
+
 
 ### Testing if the element exists or not
 
@@ -94,7 +94,7 @@ Provides step definitions related to elements
 ```^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element should ?(n't |not )?exist$```
 
 
---- 
+
 
 ### Testing if the element method value equals a given value
 
