@@ -13,20 +13,48 @@ def file_description(line_array)
 end
 
 def file_table_of_contents(line_array)
-  text = "---\n\n## Table of Contents\n\n"
+  text = "\n\n## Table of Contents\n\n"
 
   line_array.each { |line|
     for_line = line.match(/For:\s*(.+)/)
     next unless for_line
 
-    text += "- #{for_line[1]}\n"
+    text += "- #{(for_line[1])[for_line[1]]}\n"
   }
 
   text + "\n"
 end
 
 def file_steps(line_array)
-  text = "--- \n\n## Steps \n\n"
+  text = "## Steps \n\n"
+
+  added_examples = false
+  line_array.each { |line|
+    for_line = line.match(/For:\s*(.+)/)
+    example_line = line.match(/^# \s*-\s*(.+)/)
+    regex_line = line.match(%r{^(?:Given|When|Then|But|And)[\s\(\/]+(.+)\/[\s\)]+})
+
+    if for_line
+      added_examples = false
+      text += "--- \n\n### #{for_line[1]}\n\n"
+    end
+
+    if example_line
+      unless added_examples
+        text += "#### Examples\n\n"
+        added_examples = true
+      end
+
+      text += "- #{example_line[1]}\n"
+    end
+
+    if regex_line
+      text += "\n\n#### Regex\n\n"
+      text += "```#{regex_line[1]}```\n\n\n"
+    end
+  }
+
+  text
 end
 
 Dir.glob(STEP_DEFINITION_FILES) do |step_def_file|

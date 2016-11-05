@@ -20,10 +20,6 @@ module AutomationObject
       def initialize(blue_prints, state, name)
         super Top, blue_prints, state, name
       end
-
-      def active_screens
-        @state
-      end
     end
   end
 end

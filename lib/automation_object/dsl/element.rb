@@ -30,10 +30,6 @@ module AutomationObject
 
         super
       end
-
-      def respond_to_missing?(method, include_private = false)
-        @subject.respond_to_missing?(method, include_private)
-      end
     end
   end
 end
