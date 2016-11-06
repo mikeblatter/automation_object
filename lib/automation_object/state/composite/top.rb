@@ -23,6 +23,10 @@ module AutomationObject
           new_window(initial_screen)
         end
 
+        def current_screen
+          screens[window.name]
+        end
+
         # Get the initial screen
         # @raise [AutomationObject::State::NoInitialScreenError] if no initial screen
         # @return [Symbol] screen name

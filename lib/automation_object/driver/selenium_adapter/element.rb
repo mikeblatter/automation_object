@@ -9,9 +9,9 @@ module AutomationObject
       class Element < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Element
 
-        def initialize(args)
-          @driver = args.fetch :driver
-          @subject = args.fetch :element
+        def initialize(driver, element)
+          @driver = driver
+          @subject = element
         end
 
         # Scroll the element into view

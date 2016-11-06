@@ -7,11 +7,13 @@ module AutomationObject
     module Composite
       # Collection to manage Window objects
       module WindowManager
-        attr_accessor :window, :modal
+        attr_accessor :window
 
         # @param name [Symbol] name of window to use
         # @return [void]
         def use(name)
+          raise AutomationObject::State::ScreenNotActiveError, name unless live_screens.include?(name)
+
           windows.each do |window|
             next if window.name != name
             return if window == self.window
@@ -19,6 +21,11 @@ module AutomationObject
             self.window = window
             self.window.use
           end
+        end
+
+        def window
+          raise AutomationObject::State::Error::NoActiveWindows unless @window
+          @window
         end
 
         # @return [Array<Window>]

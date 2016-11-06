@@ -19,7 +19,7 @@ module AutomationObject
           elements.each do |element|
             # Want to wrap element, before sending for method!
             # That will help us include custom methods, etc...
-            wrapped_element = ElementProxy.new(composite: self, element: element)
+            wrapped_element = ElementProxy.new(self, element)
             hash_key = wrapped_element.send(blue_prints.define_elements_by) # Send to wrapped state proxy
 
             elements_hash[hash_key] = wrapped_element

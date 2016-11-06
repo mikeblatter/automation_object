@@ -22,8 +22,8 @@ module AutomationObject
       def method_missing(method, *args, &block)
         return super if ElementArray.methods.include?(method)
 
-        if @subject.nil?
-          puts "@state.load(:element_array, #{@name})"
+        if @subject.is_a?(AutomationObject::Dsl::ElementArray)
+          #puts "@state.load(:element_array, #{@name})"
           @subject = @state.load(:element_array, @name)
         end
 

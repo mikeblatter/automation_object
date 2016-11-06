@@ -64,8 +64,9 @@ module AutomationObject
         # @return [Object] element
         def find_element(selector_type, selector_path)
           element = @subject.find_element(selector_type, selector_path)
+
           # Wrap in adapter interface
-          AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
+          AutomationObject::Driver::Element.new(Element.new(self, element))
         end
 
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
@@ -75,7 +76,7 @@ module AutomationObject
           elements = @subject.find_elements(selector_type, selector_path)
 
           elements.map do |element|
-            AutomationObject::Driver::Element.new(Element.new(driver: self, element: element))
+            AutomationObject::Driver::Element.new(Element.new(self, element))
           end
         end
 
