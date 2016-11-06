@@ -6,12 +6,12 @@ Provides step definitions related to elements
 
 ## Table of Contents
 
-- [Calling an element method](#calling-an-element-method)
-- [Typing into element field](#typing-into-element-field)
-- [Scrolling element into focus](#scrolling-element-into-focus)
-- [Saving value from element for use later](#saving-value-from-element-for-use-later)
-- [Testing if the element exists or not](#testing-if-the-element-exists-or-not)
-- [Testing if the element method value equals a given value](#testing-if-the-element-method-value-equals-a-given-value)
+- [Calling an element method](#callinganelementmethod)
+- [Typing into element field](#typingintoelementfield)
+- [Scrolling element into focus](#scrollingelementintofocus)
+- [Saving value from element for use later](#savingvaluefromelementforuselater)
+- [Testing if the element exists or not](#testingiftheelementexistsornot)
+- [Testing if the element method value equals a given value](#testingiftheelementmethodvalueequalsagivenvalue)
 
 ## Steps 
 

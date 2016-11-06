@@ -38,7 +38,7 @@ module StepDefinitionsTestBase
             # Iterate through examples and test the regex matches the example
             # This way we know the documentation is accurate and if any updates will break existing implmentations
             examples.each do |example|
-              define_method("test_assert_regex_#{regex.to_s.gsub(/\W/, '')}_#{example.gsub(/\W/, '').downcase}") do
+              define_method("test_assert_regex_#{regex.to_s.gsub(/[^\w-]/, '')}_#{example.gsub(/\W/, '').downcase}") do
                 assert example.match(regex), "Expecting example: #{example} to match regex: #{regex}"
               end
             end

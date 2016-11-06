@@ -6,10 +6,10 @@ Provides step definitions related to screens
 
 ## Table of Contents
 
-- [Close the current screen or given screen](#close-the-current-screen-or-given-screen)
-- [Navigating back on a given or current screen](#navigating-back-on-a-given-or-current-screen)
-- [Switch/Focus screen](#switch/focus-screen)
-- [Setting the current screen's width or given screen](#setting-the-current-screen's-width-or-given-screen)
+- [Close the current screen or given screen](#closethecurrentscreenorgivenscreen)
+- [Navigating back on a given or current screen](#navigatingbackonagivenorcurrentscreen)
+- [Switch/Focus screen](#switchfocusscreen)
+- [Setting the current screen's width or given screen](#settingthecurrentscreenswidthorgivenscreen)
 
 ## Steps 
 

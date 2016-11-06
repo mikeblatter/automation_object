@@ -6,13 +6,13 @@ Provides step definitions related to element arrays
 
 ## Table of Contents
 
-- [Calling an element array method](#calling-an-element-array-method)
-- [Typing into element array field](#typing-into-element-array-field)
-- [Scrolling element array item(s) into focus](#scrolling-element-array-item(sinto-focus)
-- [Saving value from element array for use later](#saving-value-from-element-array-for-use-later)
-- [Testing the element arrays size](#testing-the-element-arrays-size)
-- [Testing if the element method value equals a given value](#testing-if-the-element-method-value-equals-a-given-value)
-- [Testing if the element arrays uniqueness](#testing-if-the-element-arrays-uniqueness)
+- [Calling an element array method](#callinganelementarraymethod)
+- [Typing into element array field](#typingintoelementarrayfield)
+- [Scrolling element array item(s) into focus](#scrollingelementarrayitemsintofocus)
+- [Saving value from element array for use later](#savingvaluefromelementarrayforuselater)
+- [Testing the element arrays size](#testingtheelementarrayssize)
+- [Testing if the element method value equals a given value](#testingiftheelementmethodvalueequalsagivenvalue)
+- [Testing if the element arrays uniqueness](#testingiftheelementarraysuniqueness)
 
 ## Steps 
 

@@ -19,7 +19,7 @@ def file_table_of_contents(line_array)
     for_line = line.match(/For:\s*(.+)/)
     next unless for_line
 
-    text += "- [#{for_line[1]}](##{for_line[1].gsub(' ', '-').gsub(/\W-/,'').downcase})\n"
+    text += "- [#{for_line[1]}](##{for_line[1].gsub(' ', '-').gsub(/[\W]*/,'').downcase})\n"
   }
 
   text + "\n"
