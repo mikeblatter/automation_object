@@ -29,19 +29,17 @@ module AutomationObject
         end
 
         def get(type, name)
-          if self.modal
-            return self.modals[self.modal].get(type, name)
-          end
+          return modals[modal].get(type, name) if modal
 
           case type
-            when :element
-              return self.elements[name].load
-            when :element_array
-              return self.element_arrays[name].load
-            when :element_hash
-              return self.element_hashes[name].load
-            else
-              raise AutomationObject::State::UndefinedLoadTypeError
+          when :element
+            return elements[name].load
+          when :element_array
+            return element_arrays[name].load
+          when :element_hash
+            return element_hashes[name].load
+          else
+            raise AutomationObject::State::UndefinedLoadTypeError
           end
         end
 

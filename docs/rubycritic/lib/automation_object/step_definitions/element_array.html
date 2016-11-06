@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 17:46:54 -0500'>2016-10-30 17:46:54 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       N/A complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      9 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -59,18 +59,15 @@
 require_relative &#39;support/parse&#39;
 require_relative &#39;support/element_array&#39;
 
-# Element Array related step definitions
-# # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
-# This is to make sure that the examples in the docs will actually perform as indicated
-# Please follow what is already defined below
+# Description: Provides step definitions related to element arrays
 
-# Step to call a method on an element
-# # Examples:
+# For: Calling an element array method
+# Examples:
 # - I click on the first &quot;home_screen&quot; &quot;about_button&quot; element array
 # - I hover over all &quot;home_screen&quot; &quot;about_button&quot; element array
 # - I click on 0..9 &quot;home_screen&quot; &quot;about_button&quot; element array
 # - I click on a random &quot;home_screen&quot; &quot;about_button&quot; element array
-When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L16" class="js-smell-location">0</a>                  <a href="element_array.html#L29" class="js-smell-location">1</a>                  <a href="element_hash.html#L13" class="js-smell-location">2</a>                  <a href="element_hash.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L13" class="js-smell-location">0</a>                  <a href="element_array.html#L26" class="js-smell-location">1</a>                  <a href="element_hash.html#L10" class="js-smell-location">2</a>                  <a href="element_hash.html#L23" class="js-smell-location">3</a>                  </span>  </li></ul>
   method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(
@@ -80,10 +77,10 @@ When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|rando
   end
 end
 
-# Step to type into a field element array
-# # Examples:
+# For: Typing into element array field
+# Examples:
 # - I type &quot;blah&quot; into the first &quot;home_screen&quot; &quot;text_field&quot; element array
-When(%r(^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L16" class="js-smell-location">0</a>                  <a href="element_array.html#L29" class="js-smell-location">1</a>                  <a href="element_hash.html#L13" class="js-smell-location">2</a>                  <a href="element_hash.html#L26" class="js-smell-location">3</a>                  </span>  </li></ul>
+When(%r(^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L13" class="js-smell-location">0</a>                  <a href="element_array.html#L26" class="js-smell-location">1</a>                  <a href="element_hash.html#L10" class="js-smell-location">2</a>                  <a href="element_hash.html#L23" class="js-smell-location">3</a>                  </span>  </li></ul>
   text, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(
@@ -93,10 +90,10 @@ When(%r(^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to| to)? (?:the )?(%\{[\
   end
 end
 
-# Step to scroll to an element array
-# # Examples:
+# For: Scrolling element array item(s) into focus
+# Examples:
 # - I scroll to the first &quot;home_screen&quot; &quot;logo_button&quot; element array
-When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L42" class="js-smell-location">0</a>                  <a href="element_hash.html#L39" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L39" class="js-smell-location">0</a>                  <a href="element_hash.html#L36" class="js-smell-location">1</a>                  </span>  </li></ul>
   key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(
@@ -104,10 +101,10 @@ When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|l
   )
 end
 
-# Step to save something from an element array
-# # Examples:
+# For: Saving value from element array for use later
+# Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the first &quot;home_screen&quot; &quot;logo_button&quot; element array
-When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L53" class="js-smell-location">0</a>                  <a href="element_hash.html#L50" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L50" class="js-smell-location">0</a>                  <a href="element_hash.html#L47" class="js-smell-location">1</a>                  </span>  </li></ul>
   method, value_key, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(
@@ -118,8 +115,8 @@ When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:
   end
 end
 
-# Step to test if element array length
-# # Examples:
+# For: Testing the element arrays size
+# Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element array should be greater than 0
 Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array should(n&#39;t|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$\// has a flog score of 44          </span>  </li></ul>
   screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
@@ -148,15 +145,14 @@ Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&qu
   end
 end
 
-# Step to test element(s) of an array value to a given value
-# If trying to carry over from any other object, use cache mechanism
-# # Examples:
+# For: Testing if the element method value equals a given value
+# Examples:
 # - the first &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; should equal &quot;Home&quot;
 # - the last &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; shouldn&#39;t equal &quot;Home&quot;
 # - the random &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; should not equal &quot;Home&quot;
 # - the 0..9 &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; should equal &quot;Home&quot;
 # - the all &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; should not equal &quot;Home&quot;
-Then(%r(^(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array &quot;(\w+|%\{[\w\d]+\})&quot; should?(n&#39;t| not)? equal &quot;(\w+|%\{[\w\d]+\})&quot;$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L102" class="js-smell-location">0</a>                  <a href="element_hash.html#L95" class="js-smell-location">1</a>                  </span>  </li></ul>
+Then(%r(^(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array &quot;(\w+|%\{[\w\d]+\})&quot; should?(n&#39;t| not)? equal &quot;(\w+|%\{[\w\d]+\})&quot;$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L98" class="js-smell-location">0</a>                  <a href="element_hash.html#L91" class="js-smell-location">1</a>                  </span>  </li></ul>
   key, low_range, high_range, screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(
@@ -172,12 +168,12 @@ Then(%r(^(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{
   end
 end
 
-# Step to test element array element values for uniqueness
-# # Examples:
+# For: Testing if the element arrays uniqueness
+# Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; should be unique
 # - the &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; should not be unique
 # - the &quot;home_screen&quot; &quot;title&quot; element array &quot;text&quot; shouldn&#39;t be unique
-Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;([\w\d]+|%\{[\w\d]+\})&quot; element array &quot;([\w\d]+|%\{[\w\d]+\})&quot; should(n&#39;t| not)? be unique$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L123" class="js-smell-location">0</a>                  <a href="element_hash.html#L114" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element array "([\w\d]+|%\{[\w\d]+\})" should(n't| not)? be unique$\// has a flog score of 30          </span>  </li></ul>
+Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;([\w\d]+|%\{[\w\d]+\})&quot; element array &quot;([\w\d]+|%\{[\w\d]+\})&quot; should(n&#39;t| not)? be unique$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L119" class="js-smell-location">0</a>                  <a href="element_hash.html#L110" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element array "([\w\d]+|%\{[\w\d]+\})" should(n't| not)? be unique$\// has a flog score of 30          </span>  </li></ul>
   screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
   element_array = AutomationObject::Framework.get.send(screen).send(element)

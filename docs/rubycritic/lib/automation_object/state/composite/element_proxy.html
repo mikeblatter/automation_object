@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-01 15:35:52 -0500'>2016-10-01 15:35:52 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      21 complexity
+      19 complexity
     </div>
     <div class="file-stat">
-      7.0 complexity per method
+      6.3 complexity per method
     </div>
     <div class="file-stat">
-      12 churn
+      13 churn
     </div>
     <div class="file-stat">
       3 methods
@@ -63,9 +63,9 @@ module AutomationObject
     module Composite
       # Proxy class to allow for usage of hooks
       class ElementProxy &lt; ::AutomationObject::Proxy::Proxy
-        def initialize(args = {})
-          @composite = args.fetch :composite
-          @subject = args.fetch :element
+        def initialize(composite, element)
+          @composite = composite
+          @subject = element
         end
 
         # Overiding base method to run possible hooks

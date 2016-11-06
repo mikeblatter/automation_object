@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 14:35:41 -0500'>2016-10-30 14:35:41 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      1 complexity
+      17 complexity
     </div>
     <div class="file-stat">
-      1.0 complexity per method
+      8.5 complexity per method
     </div>
     <div class="file-stat">
-      18 churn
+      19 churn
     </div>
     <div class="file-stat">
-      1 methods
+      2 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -57,6 +57,7 @@
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;_base&#39;
+require_relative &#39;../error&#39;
 
 require_relative &#39;element&#39;
 require_relative &#39;element_array&#39;
@@ -72,6 +73,19 @@ module AutomationObject
         has_many :elements, interface: Element
         has_many :element_arrays, interface: ElementArray
         has_many :element_hashes, interface: ElementHash
+
+        def get(type, name)
+          case type<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::State::Composite::Modal#get is controlled by argument 'type'          </span>  </li></ul>
+          when :element
+            elements[name].load
+          when :element_array
+            element_arrays[name].load
+          when :element_hash
+            element_hashes[name].load
+          else
+            raise AutomationObject::State::UndefinedLoadTypeError
+          end
+        end
 
         # Whether or not modal is active
         # @return [Boolean]

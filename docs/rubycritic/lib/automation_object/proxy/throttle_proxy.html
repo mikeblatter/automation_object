@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      35 complexity
+      33 complexity
     </div>
     <div class="file-stat">
-      5.0 complexity per method
+      5.5 complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      9 churn
     </div>
     <div class="file-stat">
-      7 methods
+      6 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -75,10 +75,6 @@ module AutomationObject
         execution_return = @subject.send(method_symbol, *args, &amp;block)
         throttle_speed(method_symbol, start_time)
         execution_return
-      end
-
-      def respond_to_missing?(method, include_private = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Proxy::ThrottleProxy#respond_to_missing? has boolean parameter 'include_private'          </span>  </li></ul>
-        @subject.respond_to_missing?(method, include_private)
       end
 
       def add_method_throttle(method_symbol, time)

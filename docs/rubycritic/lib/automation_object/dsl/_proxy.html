@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 14:32:01 -0500'>2016-10-30 14:32:01 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-04 23:10:57 -0500'>2016-11-04 23:10:57 -0500</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      4 complexity
+      6 complexity
     </div>
     <div class="file-stat">
-      2.0 complexity per method
+      6.0 complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      10 churn
     </div>
     <div class="file-stat">
-      2 methods
+      1 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -63,21 +63,18 @@ module AutomationObject
     # Base Proxy Object
     # Proxies intercept commands and issue calls to the state
     # Prevents inspection from picking up internal methods
-    class Proxy &lt; AutomationObject::Proxy::Proxy
-      # @param [AutomationObject::Dsl::CompositeBase, nil] subject
-      # @param [AutomationObject::BluePrint::Composite::CompositeBase] blue_prints
-      # @param [AutomationObject::State::Session] state
-      # @param [Symbol] name
-      def initialize(subject, blue_prints, state, name)
+    class Proxy &lt; AutomationObject::Proxy::Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Instance-Variables.md" target="_blank">TooManyInstanceVariables</a>)      AutomationObject::Dsl::Proxy has at least 5 instance variables          </span>  </li></ul>
+      # @param subject_class [AutomationObject::Dsl::CompositeBase, nil]
+      # @param blue_prints [AutomationObject::BluePrint::Composite::CompositeBase]
+      # @param state [AutomationObject::State::Session]
+      # @param name [Symbol]
+      def initialize(subject_class, blue_prints, state, name)
         @blue_prints = blue_prints
         @state = state
         @name = name
+        @subject_class = subject_class
 
-        @subject = (subject&amp;.new(blue_prints, state))<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::Dsl::Proxy#initialize performs a nil-check          </span>  </li></ul>
-      end
-
-      def alive?
-        false
+        @subject = @subject_class.new(blue_prints, state)
       end
     end
   end

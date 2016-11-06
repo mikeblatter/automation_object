@@ -24,11 +24,11 @@
   <span class="rating rating-a circled-text circle">
     A
   </span>
-  <h2 class="file-name">AutomationObject::State::AutomationObject::State::CannotNavigateBack</h2>
+  <h2 class="file-name">AutomationObject::State::CannotNavigateBack</h2>
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:19:10 -0500'>2016-09-18 19:19:10 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       1.0 complexity per method
     </div>
     <div class="file-stat">
-      18 churn
+      19 churn
     </div>
     <div class="file-stat">
       5 methods
@@ -51,65 +51,70 @@
   </div>
 
   
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
 </div>
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 module AutomationObject
   module State
-    module AutomationObject
-      module State
-        # Cannot navigate back error
-        class CannotNavigateBack &lt; StandardError
-          def initialize(message = &#39;Cannot navigate backwards in history&#39;)
-            super
-          end
-        end
-
-        # Cannot navigate forward error
-        class CannotNavigateForward &lt; StandardError
-          def initialize(message = &#39;Cannot navigate forwards in history&#39;)
-            super
-          end
-        end
-
-        # More than one expected new windows
-        class UnexpectedExtraWindowError &lt; StandardError
-          def initialize(message = &#39;Expecting only 1 extra window&#39;)
-            super
-          end
-        end
-
-        # Undefined load type called on the State object
-        class UndefinedLoadTypeError &lt; StandardError
-        end
-
-        # No initial screen to start from
-        class NoInitialScreenError &lt; StandardError
-          def initialize(message = &#39;No initial screen to be set to&#39;)
-            super
-          end
-        end
-
-        # Screen is not currently active
-        class ScreenNotActiveError &lt; StandardError
-          def initialize(screen)
-            message = &quot;#{screen} is not currently active&quot;
-            super(message)
-          end
-        end
-
-        # Modal isn&#39;t active error
-        class ModalNotActiveError &lt; StandardError; end
-
-        # Modal parent error
-        class ModalParentExpected &lt; StandardError; end
-
-        # Screen parent error
-        class ScreenParentExpected &lt; StandardError; end
-
-        # More than one screen created error
-        class MoreThenOneScreenCreated &lt; StandardError; end
+    # Cannot navigate back error
+    class CannotNavigateBack &lt; StandardError
+      def initialize(message = &#39;Cannot navigate backwards in history&#39;)
+        super
       end
+    end
+
+    # Cannot navigate forward error
+    class CannotNavigateForward &lt; StandardError
+      def initialize(message = &#39;Cannot navigate forwards in history&#39;)
+        super
+      end
+    end
+
+    # More than one expected new windows
+    class UnexpectedExtraWindowError &lt; StandardError
+      def initialize(message = &#39;Expecting only 1 extra window&#39;)
+        super
+      end
+    end
+
+    # Undefined load type called on the State object
+    class UndefinedLoadTypeError &lt; StandardError
+    end
+
+    # No initial screen to start from
+    class NoInitialScreenError &lt; StandardError
+      def initialize(message = &#39;No initial screen to be set to&#39;)
+        super
+      end
+    end
+
+    # Screen is not currently active
+    class ScreenNotActiveError &lt; StandardError
+      def initialize(screen)
+        message = &quot;#{screen} is not currently active&quot;
+        super(message)
+      end
+    end
+
+    # Modal isn&#39;t active error
+    class ModalNotActiveError &lt; StandardError
+    end
+
+    # Modal parent error
+    class ModalParentExpected &lt; StandardError
+    end
+
+    # Screen parent error
+    class ScreenParentExpected &lt; StandardError
+    end
+
+    # More than one screen created error
+    class MoreThenOneScreenCreated &lt; StandardError
+    end
+
+    class NoActiveWindows &lt; StandardError<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank">IrresponsibleModule</a>)      AutomationObject::State::NoActiveWindows has no descriptive comment          </span>  </li></ul>
     end
   end
 end

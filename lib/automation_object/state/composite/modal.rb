@@ -19,14 +19,14 @@ module AutomationObject
 
         def get(type, name)
           case type
-            when :element
-              return self.elements[name].load
-            when :element_array
-              return self.element_arrays[name].load
-            when :element_hash
-              return self.element_hashes[name].load
-            else
-              raise AutomationObject::State::UndefinedLoadTypeError
+          when :element
+            elements[name].load
+          when :element_array
+            element_arrays[name].load
+          when :element_hash
+            element_hashes[name].load
+          else
+            raise AutomationObject::State::UndefinedLoadTypeError
           end
         end
 

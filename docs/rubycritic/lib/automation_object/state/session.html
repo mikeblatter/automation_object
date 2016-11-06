@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 14:32:01 -0500'>2016-10-30 14:32:01 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:51:05 -0600'>2016-11-06 14:51:05 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      24 complexity
+      16 complexity
     </div>
     <div class="file-stat">
-      12.0 complexity per method
+      8.0 complexity per method
     </div>
     <div class="file-stat">
-      25 churn
+      27 churn
     </div>
     <div class="file-stat">
       2 methods
@@ -83,14 +83,11 @@ module AutomationObject
       def load(type, name)
         case type
         when :screen
-          raise AutomationObject::State::ScreenNotActiveError, name unless composite.live_screens.include?(name)
-
-          # Set the current window by name
           composite.use(name)
         when :modal
-          raise AutomationObject::State::ModalNotActiveError, name unless composite.window.modal == name
+          composite.current_screen.use(name)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Session#load calls 'composite.current_screen' 2 times                        <a href="session.html#L31" class="js-smell-location">0</a>                  <a href="session.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
         when :element, :element_array, :element_hash
-          return composite.get_object(type, name)
+          return composite.current_screen.get(type, name)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Session#load calls 'composite.current_screen' 2 times                        <a href="session.html#L31" class="js-smell-location">0</a>                  <a href="session.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
         else
           raise AutomationObject::State::UndefinedLoadTypeError
         end

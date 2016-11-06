@@ -137,29 +137,7 @@ Prevents inspection from picking up internal methods</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#alive%3F-instance_method" title="#alive? (instance method)">#<strong>alive?</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(subject, blue_prints, state, name)  &#x21d2; Proxy </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(subject_class, blue_prints, state, name)  &#x21d2; Proxy </a>
     
 
     
@@ -194,14 +172,14 @@ Prevents inspection from picking up internal methods</p>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../Proxy/Proxy.html" title="AutomationObject::Proxy::Proxy (class)">Proxy::Proxy</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Proxy/Proxy.html#method_missing-instance_method" title="AutomationObject::Proxy::Proxy#method_missing (method)">#method_missing</a></span>, <span class='object_link'><a href="../Proxy/Proxy.html#respond_to_missing%3F-instance_method" title="AutomationObject::Proxy::Proxy#respond_to_missing? (method)">#respond_to_missing?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Proxy/Proxy.html#method_missing-instance_method" title="AutomationObject::Proxy::Proxy#method_missing (method)">#method_missing</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(subject, blue_prints, state, name)  &#x21d2; <tt><span class='object_link'><a href="" title="AutomationObject::Dsl::Proxy (class)">Proxy</a></span></tt> 
+    #<strong>initialize</strong>(subject_class, blue_prints, state, name)  &#x21d2; <tt><span class='object_link'><a href="" title="AutomationObject::Dsl::Proxy (class)">Proxy</a></span></tt> 
   
 
   
@@ -220,7 +198,7 @@ Prevents inspection from picking up internal methods</p>
   
     <li>
       
-        <span class='name'>subject</span>
+        <span class='name'>subject_class</span>
       
       
         <span class='type'>(<tt>AutomationObject::Dsl::CompositeBase</tt>, <tt>nil</tt>)</span>
@@ -277,17 +255,19 @@ Prevents inspection from picking up internal methods</p>
 17
 18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_proxy.rb', line 14</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_subject_class'>subject_class</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@blue_prints</span> <span class='op'>=</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span>
   <span class='ivar'>@state</span> <span class='op'>=</span> <span class='id identifier rubyid_state'>state</span>
   <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@subject_class</span> <span class='op'>=</span> <span class='id identifier rubyid_subject_class'>subject_class</span>
 
-  <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='op'>&amp;.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='ivar'>@subject_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -307,68 +287,10 @@ Prevents inspection from picking up internal methods</p>
 </div>
 
 
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="alive?-instance_method">
-  
-    #<strong>alive?</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-22
-23
-24</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_proxy.rb', line 22</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_alive?'>alive?</span>
-  <span class='kw'>false</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 30 16:48:08 2016 by
+  Generated on Sun Nov  6 14:54:48 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

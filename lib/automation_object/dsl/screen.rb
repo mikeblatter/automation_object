@@ -34,7 +34,7 @@ module AutomationObject
 
         # Attempt to load screen if composite object contains that child
         if @subject.methods.include?(method)
-          #puts "@state.load(:screen, #{@name})"
+          # puts "@state.load(:screen, #{@name})"
           @state.load(:screen, @name)
         end
 

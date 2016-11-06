@@ -129,7 +129,7 @@
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes included from <span class='object_link'><a href="WindowManager.html" title="AutomationObject::State::Composite::WindowManager (module)">WindowManager</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="WindowManager.html#modal-instance_method" title="AutomationObject::State::Composite::WindowManager#modal (method)">#modal</a></span>, <span class='object_link'><a href="WindowManager.html#window-instance_method" title="AutomationObject::State::Composite::WindowManager#window (method)">#window</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="WindowManager.html#window-instance_method" title="AutomationObject::State::Composite::WindowManager#window (method)">#window</a></span></p>
 
   
   
@@ -149,6 +149,28 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#current_screen-instance_method" title="#current_screen (instance method)">#<strong>current_screen</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -313,7 +335,37 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="initial_screen-instance_method">
+  <h3 class="signature first" id="current_screen-instance_method">
+  
+    #<strong>current_screen</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/top.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current_screen'>current_screen</span>
+  <span class='id identifier rubyid_screens'>screens</span><span class='lbracket'>[</span><span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initial_screen-instance_method">
   
     #<strong>initial_screen</strong>  &#x21d2; <tt>Symbol</tt> 
   
@@ -353,7 +405,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../AutomationObject/State/NoInitialScreenError.html" title="AutomationObject::State::AutomationObject::State::NoInitialScreenError (class)">AutomationObject::State::NoInitialScreenError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../NoInitialScreenError.html" title="AutomationObject::State::NoInitialScreenError (class)">AutomationObject::State::NoInitialScreenError</a></span></tt>)</span>
       
       
       
@@ -371,10 +423,6 @@
       <pre class="lines">
 
 
-29
-30
-31
-32
 33
 34
 35
@@ -385,10 +433,14 @@
 40
 41
 42
-43</pre>
+43
+44
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/top.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/top.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initial_screen'>initial_screen</span>
   <span class='comment'># If default screen then check if its live and set it
@@ -415,7 +467,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 30 16:48:09 2016 by
+  Generated on Sun Nov  6 14:54:49 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

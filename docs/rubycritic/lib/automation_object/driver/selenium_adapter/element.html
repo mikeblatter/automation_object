@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      31 complexity
+      30 complexity
     </div>
     <div class="file-stat">
-      15.5 complexity per method
+      15.0 complexity per method
     </div>
     <div class="file-stat">
-      11 churn
+      12 churn
     </div>
     <div class="file-stat">
       2 methods
@@ -66,9 +66,9 @@ module AutomationObject
       class Element &lt; AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Element
 
-        def initialize(args)
-          @driver = args.fetch :driver
-          @subject = args.fetch :element
+        def initialize(driver, element)
+          @driver = driver
+          @subject = element
         end
 
         # Scroll the element into view

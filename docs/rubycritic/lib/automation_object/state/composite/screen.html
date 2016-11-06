@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 14:35:41 -0500'>2016-10-30 14:35:41 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      1 complexity
+      25 complexity
     </div>
     <div class="file-stat">
-      1.0 complexity per method
+      8.3 complexity per method
     </div>
     <div class="file-stat">
-      19 churn
+      20 churn
     </div>
     <div class="file-stat">
-      1 methods
+      3 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -57,6 +57,7 @@
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;_base&#39;
+require_relative &#39;../error&#39;
 
 require_relative &#39;modal&#39;
 require_relative &#39;hook&#39;
@@ -69,7 +70,7 @@ module AutomationObject
     module Composite
       # Screen composite for managing state
       class Screen &lt; Base
-        attr_accessor :modal, :current_modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::Screen#current_modal is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::Screen#modal is a writable attribute          </span>  </li></ul>
+        attr_accessor :modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::Screen#modal is a writable attribute          </span>  </li></ul>
 
         has_one :load, interface: Hook
 
@@ -79,6 +80,25 @@ module AutomationObject
         has_many :elements, interface: Element
         has_many :element_arrays, interface: ElementArray
         has_many :element_hashes, interface: ElementHash
+
+        def use(name)
+          self.modal = name
+        end
+
+        def get(type, name)
+          return modals[modal].get(type, name) if modal
+
+          case type
+          when :element
+            return elements[name].load
+          when :element_array
+            return element_arrays[name].load
+          when :element_hash
+            return element_hashes[name].load
+          else
+            raise AutomationObject::State::UndefinedLoadTypeError
+          end
+        end
 
         # Whether or not modal is active
         # @return [Boolean]

@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:11:05 -0500'>2016-09-18 21:11:05 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
@@ -37,16 +37,16 @@
       7 complexity
     </div>
     <div class="file-stat">
-      2.3 complexity per method
+      3.5 complexity per method
     </div>
     <div class="file-stat">
-      10 churn
+      12 churn
     </div>
     <div class="file-stat">
-      3 methods
+      2 methods
     </div>
     <div class="file-stat">
-      35 duplication
+      28 duplication
     </div>
   </div>
 
@@ -85,17 +85,15 @@ module AutomationObject
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &amp;block)
-        # If Modal class has the method defined, then don&#39;t load
-        return super if Modal.method_defined?(method)
+        return super if Modal.methods.include?(method)
 
-        puts &quot;@state.load(:modal, #{@name})&quot;
-        @state.load(:modal, @name)
+        # Attempt to load screen if composite object contains that child
+        if @subject.methods.include?(method)
+          # puts &quot;@state.load(:modal, #{@name})&quot;
+          @state.load(:modal, @name)
+        end
 
         super
-      end
-
-      def respond_to_missing?(method, include_private = false)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank">BooleanParameter</a>)      AutomationObject::Dsl::ModalProxy#respond_to_missing? has boolean parameter 'include_private'          </span>  </li></ul>
-        @subject.respond_to_missing?(method, include_private)
       end
     end
   end

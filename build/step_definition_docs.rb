@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'awesome_print'
 
 STEP_DEFINITION_FILES = File.join(__dir__, '../lib/automation_object/step_definitions/*.rb')
@@ -9,18 +10,18 @@ def present_underscore(string)
 end
 
 def file_description(line_array)
-  return line_array.join('').match(/# Description:\s*(.+)/)[1] + "\n\n"
+  line_array.join('').match(/# Description:\s*(.+)/)[1] + "\n\n"
 end
 
 def file_table_of_contents(line_array)
   text = "\n\n## Table of Contents\n\n"
 
-  line_array.each { |line|
+  line_array.each do |line|
     for_line = line.match(/For:\s*(.+)/)
     next unless for_line
 
-    text += "- [#{for_line[1]}](##{for_line[1].gsub(' ', '-').gsub(/[\W]*/,'').downcase})\n"
-  }
+    text += "- [#{for_line[1]}](##{for_line[1].tr(' ', '-').gsub(/[\W]*/, '').downcase})\n"
+  end
 
   text + "\n"
 end
@@ -29,7 +30,7 @@ def file_steps(line_array)
   text = "## Steps \n\n"
 
   added_examples = false
-  line_array.each { |line|
+  line_array.each do |line|
     for_line = line.match(/For:\s*(.+)/)
     example_line = line.match(/^# \s*-\s*(.+)/)
     regex_line = line.match(%r{^(?:Given|When|Then|But|And)[r%\{\s\(\/]+(.+)\/[\s\)\}]+})
@@ -52,7 +53,7 @@ def file_steps(line_array)
       text += "\n\n#### Regex\n\n"
       text += "```#{regex_line[1]}```\n\n\n"
     end
-  }
+  end
 
   text
 end
@@ -65,7 +66,7 @@ Dir.glob(STEP_DEFINITION_FILES) do |step_def_file|
 
   line_array = []
   File.open(step_def_file, 'r') do |file_handle|
-    file_handle.each_line {|line| line_array.push(line) }
+    file_handle.each_line { |line| line_array.push(line) }
   end
 
   doc_file_contents += file_description(line_array)

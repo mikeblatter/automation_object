@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:51:05 -0600'>2016-11-06 14:51:05 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       2.5 complexity per method
     </div>
     <div class="file-stat">
-      5 churn
+      6 churn
     </div>
     <div class="file-stat">
       14 methods
@@ -130,7 +130,7 @@ module AutomationObject
         # Perform a click action on the element
         # @return [void]
         def click
-          scroll_into_view if @driver.is_browser?
+          scroll_into_view if @driver.browser?
           @subject.click
         end
 

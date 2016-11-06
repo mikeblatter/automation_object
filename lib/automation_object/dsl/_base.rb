@@ -36,8 +36,8 @@ module AutomationObject
       # @param indent [Integer]
       # @return [String]
       def formatted_name(key, indent)
-        #TODO: finish
-        #color = self[key].alive? ? :green : :blue
+        # TODO: finish
+        # color = self[key].alive? ? :green : :blue
         "\n#{' ' * indent} #{key}:".colorize(:green)
       end
 

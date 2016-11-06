@@ -151,32 +151,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#current_modal-instance_method" title="#current_modal (instance method)">#<strong>current_modal</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute current_modal.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#modal-instance_method" title="#modal (instance method)">#<strong>modal</strong>  &#x21d2; Object </a>
     
 
@@ -215,6 +189,61 @@
   <p class="inherited"><span class='object_link'><a href="../../Composite.html#children-instance_method" title="AutomationObject::Composite#children (method)">#children</a></span>, <span class='object_link'><a href="../../Composite.html#location-instance_method" title="AutomationObject::Composite#location (method)">#location</a></span>, <span class='object_link'><a href="../../Composite.html#name-instance_method" title="AutomationObject::Composite#name (method)">#name</a></span>, <span class='object_link'><a href="../../Composite.html#parent-instance_method" title="AutomationObject::Composite#parent (method)">#parent</a></span></p>
 
 
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(type, name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use-instance_method" title="#use (instance method)">#<strong>use</strong>(name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
 
   
   
@@ -222,7 +251,7 @@
   
   
   
-  <h2>Method Summary</h2>
+  
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Base.html" title="AutomationObject::State::Composite::Base (class)">Base</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Base.html#get_child-instance_method" title="AutomationObject::State::Composite::Base#get_child (method)">#get_child</a></span>, <span class='object_link'><a href="Base.html#get_children-instance_method" title="AutomationObject::State::Composite::Base#get_children (method)">#get_children</a></span>, <span class='object_link'><a href="Base.html#initialize-instance_method" title="AutomationObject::State::Composite::Base#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Base.html#screen-instance_method" title="AutomationObject::State::Composite::Base#screen (method)">#screen</a></span></p>
@@ -313,57 +342,15 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active'>active</span>
   <span class='ivar'>@active</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="current_modal=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="current_modal-instance_method">
-  
-    #<strong>current_modal</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the value of attribute current_modal</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-15
-16
-17</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 15</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_current_modal'>current_modal</span>
-  <span class='ivar'>@current_modal</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -397,12 +384,12 @@
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_modal'>modal</span>
   <span class='ivar'>@modal</span>
@@ -415,10 +402,98 @@
   </div>
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get-instance_method">
+  
+    #<strong>get</strong>(type, name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_modals'>modals</span><span class='lbracket'>[</span><span class='id identifier rubyid_modal'>modal</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_modal'>modal</span>
+
+  <span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='kw'>when</span> <span class='symbol'>:element</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_elements'>elements</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span>
+  <span class='kw'>when</span> <span class='symbol'>:element_array</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_element_arrays'>element_arrays</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span>
+  <span class='kw'>when</span> <span class='symbol'>:element_hash</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_element_hashes'>element_hashes</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>State</span><span class='op'>::</span><span class='const'>UndefinedLoadTypeError</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="use-instance_method">
+  
+    #<strong>use</strong>(name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/composite/screen.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_use'>use</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_modal'>modal</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 30 16:48:09 2016 by
+  Generated on Sun Nov  6 14:54:50 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

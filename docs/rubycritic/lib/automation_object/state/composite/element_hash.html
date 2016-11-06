@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       16.0 complexity per method
     </div>
     <div class="file-stat">
-      15 churn
+      16 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -76,7 +76,7 @@ module AutomationObject
           elements.each do |element|
             # Want to wrap element, before sending for method!
             # That will help us include custom methods, etc...
-            wrapped_element = ElementProxy.new(composite: self, element: element)
+            wrapped_element = ElementProxy.new(self, element)
             hash_key = wrapped_element.send(blue_prints.define_elements_by) # Send to wrapped state proxy
 
             elements_hash[hash_key] = wrapped_element

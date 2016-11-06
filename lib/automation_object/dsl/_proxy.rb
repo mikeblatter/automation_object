@@ -17,7 +17,7 @@ module AutomationObject
         @name = name
         @subject_class = subject_class
 
-        @subject = (@subject_class.new(blue_prints, state))
+        @subject = @subject_class.new(blue_prints, state)
       end
     end
   end

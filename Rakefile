@@ -51,7 +51,7 @@ end
 
 desc 'Generate Step Definition Docs'
 task :step_definition_docs do
-  ruby File.join(THIS_DIRECTORY, "build/step_definition_docs.rb")
+  ruby File.join(THIS_DIRECTORY, 'build/step_definition_docs.rb')
 end
 
 # Building

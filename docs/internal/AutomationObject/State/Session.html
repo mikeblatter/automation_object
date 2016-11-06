@@ -527,10 +527,7 @@
 34
 35
 36
-37
-38
-39
-40</pre>
+37</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/state/session.rb', line 26</span>
@@ -538,14 +535,11 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span>
   <span class='kw'>when</span> <span class='symbol'>:screen</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>State</span><span class='op'>::</span><span class='const'>ScreenNotActiveError</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_live_screens'>live_screens</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-
-    <span class='comment'># Set the current window by name
-</span>    <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_use'>use</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_use'>use</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>when</span> <span class='symbol'>:modal</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>State</span><span class='op'>::</span><span class='const'>ModalNotActiveError</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_modal'>modal</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span>
+    <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_current_screen'>current_screen</span><span class='period'>.</span><span class='id identifier rubyid_use'>use</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>when</span> <span class='symbol'>:element</span><span class='comma'>,</span> <span class='symbol'>:element_array</span><span class='comma'>,</span> <span class='symbol'>:element_hash</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_current_screen'>current_screen</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>State</span><span class='op'>::</span><span class='const'>UndefinedLoadTypeError</span>
   <span class='kw'>end</span>
@@ -560,7 +554,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 30 16:48:09 2016 by
+  Generated on Sun Nov  6 14:54:49 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

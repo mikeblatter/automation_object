@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-10-30 17:46:54 -0500'>2016-10-30 17:46:54 -0500</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       N/A complexity per method
     </div>
     <div class="file-stat">
-      7 churn
+      8 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -58,33 +58,30 @@
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
 
-# Element related step definitions
-# # Warning: Examples documentation is parsed and turned into unit tests checked the step definition regex
-# This is to make sure that the examples in the docs will actually perform as indicated
-# Please follow what is already defined below
+# Description: Provides step definitions related to elements
 
-# Step to call a method on an element
-# # Examples:
+# For: Calling an element method
+# Examples:
 # - I click on the &quot;home_screen&quot; &quot;about_button&quot; element
 # - I hover over the &quot;home_screen&quot; &quot;test_link&quot; element
 # - I tap on &quot;home_screen&quot; &quot;logo_button&quot; element
-When(/^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L14" class="js-smell-location">0</a>                  <a href="element.html#L24" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(/^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L11" class="js-smell-location">0</a>                  <a href="element.html#L21" class="js-smell-location">1</a>                  </span>  </li></ul>
   method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send(method)
 end
 
-# Step to type into a field element
-# # Examples:
+# For: Typing into element field
+# Examples:
 # - I type &quot;blah&quot; into the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;blah&quot; in &quot;home_screen&quot; &quot;text_field&quot; element
-When(/^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L14" class="js-smell-location">0</a>                  <a href="element.html#L24" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(/^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L11" class="js-smell-location">0</a>                  <a href="element.html#L21" class="js-smell-location">1</a>                  </span>  </li></ul>
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
 end
 
-# Step to scroll to an element
-# # Examples:
+# For: Scrolling element into focus
+# Examples:
 # - I scroll to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I focus to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I scroll to &quot;home_screen&quot; &quot;logo_button&quot; element
@@ -93,8 +90,8 @@ When(/^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+
   AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
 end
 
-# Step to save something from an element
-# # Examples:
+# For: Saving value from element for use later
+# Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I save &quot;id&quot; as &quot;unique_value&quot; from &quot;home_screen&quot; &quot;logo_button&quot; element
 When(/^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|
@@ -104,8 +101,8 @@ When(/^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:th
   AutomationObject::StepDefinitions::Cache.set(key, value)
 end
 
-# Step to test element exists
-# # Examples:
+# For: Testing if the element exists or not
+# Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element should exist
 # - the &quot;home_screen&quot; &quot;title&quot; element shouldn&#39;t exist
 # - &quot;home_screen&quot; &quot;title&quot; element should not exist
@@ -120,9 +117,8 @@ Then(/^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; el
   end
 end
 
-# Step to test element value to a given value
-# If trying to carry over from any other object, use cache mechanism
-# # Examples:
+# For: Testing if the element method value equals a given value
+# Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should equal &quot;Home&quot;
 # - &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should not equal &quot;About&quot;
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; shouldn&#39;t equal &quot;%{saved_value}&quot;

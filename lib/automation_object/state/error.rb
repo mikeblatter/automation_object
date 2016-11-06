@@ -42,22 +42,22 @@ module AutomationObject
     end
 
     # Modal isn't active error
-    class ModalNotActiveError < StandardError;
+    class ModalNotActiveError < StandardError
     end
 
     # Modal parent error
-    class ModalParentExpected < StandardError;
+    class ModalParentExpected < StandardError
     end
 
     # Screen parent error
-    class ScreenParentExpected < StandardError;
+    class ScreenParentExpected < StandardError
     end
 
     # More than one screen created error
-    class MoreThenOneScreenCreated < StandardError;
+    class MoreThenOneScreenCreated < StandardError
     end
 
-    class NoActiveWindows < StandardError;
+    class NoActiveWindows < StandardError
     end
   end
 end

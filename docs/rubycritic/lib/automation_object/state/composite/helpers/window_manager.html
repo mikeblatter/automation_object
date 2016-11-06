@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 14:35:41 -0500'>2016-10-30 14:35:41 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-06 14:23:55 -0600'>2016-11-06 14:23:55 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      39 complexity
+      44 complexity
     </div>
     <div class="file-stat">
-      7.8 complexity per method
+      7.3 complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      9 churn
     </div>
     <div class="file-stat">
-      5 methods
+      6 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -64,18 +64,25 @@ module AutomationObject
     module Composite
       # Collection to manage Window objects
       module WindowManager
-        attr_accessor :window, :modal<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#modal is a writable attribute          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#window is a writable attribute          </span>  </li></ul>
+        attr_accessor :window<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::State::Composite::WindowManager#window is a writable attribute          </span>  </li></ul>
 
         # @param name [Symbol] name of window to use
         # @return [void]
-        def use(name)
+        def use(name)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::State::Composite::WindowManager#use has approx 6 statements          </span>  </li></ul>
+          raise AutomationObject::State::ScreenNotActiveError, name unless live_screens.include?(name)
+
           windows.each do |window|
-            next if window.name != name<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank">ControlParameter</a>)      AutomationObject::State::Composite::WindowManager#use is controlled by argument 'name'          </span>  </li></ul>
-            return if window == self.window<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#use calls 'self.window' 2 times                        <a href="window_manager.html#L17" class="js-smell-location">0</a>                  <a href="window_manager.html#L20" class="js-smell-location">1</a>                  </span>  </li></ul>
+            next if window.name != name
+            return if window == self.window<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#use calls 'self.window' 2 times                        <a href="window_manager.html#L19" class="js-smell-location">0</a>                  <a href="window_manager.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
 
             self.window = window
-            self.window.use<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#use calls 'self.window' 2 times                        <a href="window_manager.html#L17" class="js-smell-location">0</a>                  <a href="window_manager.html#L20" class="js-smell-location">1</a>                  </span>  </li></ul>
+            self.window.use<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Composite::WindowManager#use calls 'self.window' 2 times                        <a href="window_manager.html#L19" class="js-smell-location">0</a>                  <a href="window_manager.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
           end
+        end
+
+        def window
+          raise AutomationObject::State::Error::NoActiveWindows unless @window
+          @window
         end
 
         # @return [Array&lt;Window&gt;]

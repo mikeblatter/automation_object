@@ -502,7 +502,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../../Proxy/Proxy.html" title="AutomationObject::Proxy::Proxy (class)">Proxy::Proxy</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../../Proxy/Proxy.html#method_missing-instance_method" title="AutomationObject::Proxy::Proxy#method_missing (method)">#method_missing</a></span>, <span class='object_link'><a href="../../Proxy/Proxy.html#respond_to_missing%3F-instance_method" title="AutomationObject::Proxy::Proxy#respond_to_missing? (method)">#respond_to_missing?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../../Proxy/Proxy.html#method_missing-instance_method" title="AutomationObject::Proxy::Proxy#method_missing (method)">#method_missing</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -979,7 +979,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='comment'># Wrap element in the adapter interface
-</span>  <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Driver</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>driver:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>element:</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</span>  <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Driver</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1079,7 +1079,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 
   <span class='id identifier rubyid_elements'>elements</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
     <span class='comment'># Wrap element in the adapter interface
-</span>    <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Driver</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>driver:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>element:</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</span>    <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Driver</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1515,7 +1515,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 30 16:48:10 2016 by
+  Generated on Sun Nov  6 14:54:50 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>
