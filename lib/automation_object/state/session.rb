@@ -30,7 +30,7 @@ module AutomationObject
         when :modal
           composite.current_screen.use(name)
         when :element, :element_array, :element_hash
-          return composite.current_screen.get(type, name).load
+          return composite.current_screen.get(type, name)
         else
           raise AutomationObject::State::UndefinedLoadTypeError
         end

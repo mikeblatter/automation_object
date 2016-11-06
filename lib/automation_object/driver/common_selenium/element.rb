@@ -73,7 +73,7 @@ module AutomationObject
         # Perform a click action on the element
         # @return [void]
         def click
-          scroll_into_view if @driver.is_browser?
+          scroll_into_view if @driver.browser?
           @subject.click
         end
 

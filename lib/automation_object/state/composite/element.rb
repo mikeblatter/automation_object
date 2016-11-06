@@ -14,9 +14,7 @@ module AutomationObject
         # @return [AutomationObject::State::Composite::ElementProxy] Selenium proxy
         def load
           element = driver.find_element(*blue_prints.selector_params)
-          puts element
-          raise 'test'
-          ElementProxy.new(self, element)
+          return ElementProxy.new(self, element)
         end
       end
     end
