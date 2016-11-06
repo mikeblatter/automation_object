@@ -20,8 +20,7 @@ module AutomationObject
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &block)
-        # If Screen class has the method defined, then don't load
-        return super if ElementHash.method_defined?(method)
+        return super if ElementHash.methods.include?(method)
 
         if @subject.nil?
           puts "@state.load(:element_hash, #{@name})"
@@ -29,10 +28,6 @@ module AutomationObject
         end
 
         super
-      end
-
-      def respond_to_missing?(method, include_private = false)
-        @subject.respond_to_missing?(method, include_private)
       end
     end
   end

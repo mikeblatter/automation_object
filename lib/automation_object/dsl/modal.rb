@@ -28,17 +28,15 @@ module AutomationObject
       # @param [Array, nil] args
       # @param [Proc] block
       def method_missing(method, *args, &block)
-        # If Modal class has the method defined, then don't load
-        return super if Modal.method_defined?(method)
+        return super if Modal.methods.include?(method)
 
-        puts "@state.load(:modal, #{@name})"
-        @state.load(:modal, @name)
+        # Attempt to load screen if composite object contains that child
+        if @subject.methods.include?(method)
+          puts "@state.load(:modal, #{@name})"
+          @state.load(:modal, @name)
+        end
 
         super
-      end
-
-      def respond_to_missing?(method, include_private = false)
-        @subject.respond_to_missing?(method, include_private)
       end
     end
   end
