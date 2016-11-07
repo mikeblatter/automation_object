@@ -20,6 +20,10 @@ class RailsApp
   end
 
   def create
+    `cd #{BASE_DIR}; bundle install`
+    `cd #{BASE_DIR}; bundle exec rake db:create`
+    `cd #{BASE_DIR}; bundle exec rake db:migrate`
+    
     @pid = Process.spawn("cd #{BASE_DIR}; rails s -p #{PORT} > /dev/null 2>&1")#
 
     10.times do
