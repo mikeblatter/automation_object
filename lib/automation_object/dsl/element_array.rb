@@ -23,7 +23,7 @@ module AutomationObject
         return super if ElementArray.methods.include?(method)
 
         if @subject.is_a?(AutomationObject::Dsl::ElementArray)
-          # puts "@state.load(:element_array, #{@name})"
+          #puts "@state.load(:element_array, #{@name})"
           @subject = @state.load(:element_array, @name)
         end
 

@@ -30,9 +30,9 @@ module AutomationObject
       def method_missing(method, *args, &block)
         return super if Modal.methods.include?(method)
 
-        # Attempt to load screen if composite object contains that child
-        if @subject.methods.include?(method)
-          # puts "@state.load(:modal, #{@name})"
+        # Attempt to load modal if composite object contains that child
+        if @subject.to_h.include?(method)
+          #puts "@state.load(:modal, #{@name})"
           @state.load(:modal, @name)
         end
 

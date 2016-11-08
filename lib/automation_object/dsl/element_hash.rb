@@ -23,7 +23,7 @@ module AutomationObject
         return super if ElementHash.methods.include?(method)
 
         if @subject.is_a?(AutomationObject::Dsl::ElementHash)
-          # puts "@state.load(:element_hash, #{@name})"
+          #puts "@state.load(:element_hash, #{@name})"
           @subject = @state.load(:element_hash, @name)
         end
 
