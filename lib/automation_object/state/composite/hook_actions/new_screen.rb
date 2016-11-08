@@ -7,10 +7,6 @@ module AutomationObject
     module Composite
       # New screen hook loop
       class NewScreen < ActionLoop
-        def initialize(args = {})
-          super
-        end
-
         def single_run
           new_screen_name = blue_prints
           new_screen = composite.top.screens[new_screen_name]

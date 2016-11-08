@@ -6,17 +6,12 @@ module AutomationObject
     module Composite
       # Change screen hook loop
       class ChangeScreen < ActionLoop
-        def initialize(args = {})
-          super
-          @new_screen_name = args.fetch :blue_prints
-        end
-
         def single_run
           return false unless driver.document_complete?
 
-          new_screen = composite.top.screens[@new_screen_name]
+          new_screen = composite.top.screens[self.blue_prints]
           if new_screen.load.live?
-            composite.top.set_screen(@new_screen_name)
+            composite.top.set_screen(self.blue_prints)
             return true
           else
             return false

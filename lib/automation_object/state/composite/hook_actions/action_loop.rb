@@ -4,31 +4,40 @@ module AutomationObject
     module Composite
       # Composite action loop base class
       class ActionLoop
-        attr_accessor :composite, :blue_prints, :loops
+        # @return [AutomationObject::Driver::Driver]
+        attr_accessor :driver
+        # @return [AutomationObject::BluePrint::Composite::Base]
+        attr_accessor :blue_prints
+        # @return [AutomationObject::State::Session]
+        attr_accessor :session
+        # @return [Integer]
+        attr_accessor :loops
 
-        def initialize(blue_prints, driver, composite, loops = 30)
-          self.blue_prints = blue_prints
+        # @param session [AutomationObject::State::Session]
+        # @param driver [AutomationObject::Driver::Driver]
+        # @param blue_prints [AutomationObject::BluePrint::Composite::Base]
+        # @param loops [Integer]
+        def initialize(session, driver, blue_prints, loops = 30)
+          self.session = session
           self.driver = driver
-          self.composite = composite
+          self.blue_prints = blue_prints
           self.loops = loops
-        end
-
-        def driver
-          composite.driver
         end
 
         # @return [Boolean] run success or not
         def run
           loops.times do
+            # Sub classes implement single run
             return true if single_run
           end
 
           false
         end
 
+        # Abstract method, override
         # @return [Boolean] success or not
         def single_run
-          raise 'Abstract Issue'
+          raise NotImplementedError
         end
       end
     end

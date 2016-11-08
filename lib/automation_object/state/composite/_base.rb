@@ -17,7 +17,7 @@ module AutomationObject
 
         # @param session [AutomationObject::State::Session] session
         # @param driver [AutomationObject::Driver] driver
-        # @param blue_prints [AutomationObject::BluePrint::Composite] blue print composite
+        # @param blue_prints [AutomationObject::BluePrint::Composite::Base] blue print composite
         # @param name [Symbol] name of composite element
         # @param parent [Object, nil] parent composite object
         # @param location [String] string location for error/debugging purposes

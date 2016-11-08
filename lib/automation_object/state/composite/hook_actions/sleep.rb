@@ -6,13 +6,8 @@ module AutomationObject
     module Composite
       # Sleep hook loop
       class Sleep < ActionLoop
-        def initialize(args = {})
-          super
-          @time = args.fetch :blue_prints
-        end
-
         def single_run
-          sleep(@time)
+          sleep(self.blue_prints)
         end
       end
     end

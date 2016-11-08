@@ -6,16 +6,11 @@ module AutomationObject
     module Composite
       # Show modal hook loop
       class ShowModal < ActionLoop
-        def initialize(args = {})
-          super
-          @new_modal_name = args.fetch :blue_prints
-        end
-
         def single_run
-          new_modal = composite.screen.modals[@new_modal_name]
+          new_modal = composite.screen.modals[self.blue_prints]
 
           if new_modal.load.live? != false
-            composite.screen.current_modal = @new_modal_name
+            composite.screen.current_modal = self.blue_prints
             composite.screen.modal = new_modal
             return true
           else
