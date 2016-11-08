@@ -6,10 +6,12 @@ module AutomationObject
     module Composite
       # Window class
       class Window
-        # @param [AutomationObject::Driver::Driver] driver
-        # @param [String] handle
-        # @param [Symbol] screen
-        def initialize(driver, handle, screen)
+        # @param window_manager [AutomationObject::State::Composite::WindowManager]
+        # @param driver [AutomationObject::Driver::Driver]
+        # @param handle [String]
+        # @param screen [Symbol]
+        def initialize(window_manager, driver, handle, screen)
+          @window_manager = window_manager
           @driver = driver
           @handle = handle
 
@@ -27,6 +29,9 @@ module AutomationObject
         # @param name [Symbol] screen name
         # @return [void]
         def update(name)
+          #Reset current screen
+          @window_manager.screens[self.name].reset
+
           @position += 1
           @history << name
         end

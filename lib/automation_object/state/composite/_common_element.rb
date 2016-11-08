@@ -6,6 +6,12 @@ module AutomationObject
     module Composite
       # Helper module for Element composite classes
       module CommonElement
+        attr_accessor :cache
+
+        def reset
+          self.cache = nil
+        end
+
         def method_hook?(name)
           blue_prints.method_hooks.key?(name)
         end

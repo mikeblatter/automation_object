@@ -50,7 +50,7 @@ module AutomationObject
           # Should only have one extra window
           raise UnexpectedExtraWindowError if diff_handles.length > 1
 
-          @window = Window.new(driver, diff_handles.first, name)
+          @window = Window.new(self, driver, diff_handles.first, name)
           windows << @window
         end
       end

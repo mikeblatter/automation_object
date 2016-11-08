@@ -43,6 +43,12 @@ module AutomationObject
           end
         end
 
+        def reset
+          elements.values.map(&:reset)
+          element_arrays.values.map(&:reset)
+          element_hashes.values.map(&:reset)
+        end
+
         # Whether or not modal is active
         # @return [Boolean]
         attr_accessor :active
