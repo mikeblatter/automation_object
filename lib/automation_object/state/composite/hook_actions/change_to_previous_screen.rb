@@ -10,7 +10,7 @@ module AutomationObject
           return false unless driver.document_complete?
 
           new_screen = composite.top.window.previous
-          if new_screen.load.live?
+          if new_screen.load.live? != false
             composite.top.window.update(new_screen)
             return true
           else

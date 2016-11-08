@@ -10,7 +10,7 @@ module AutomationObject
           return false unless driver.document_complete?
 
           new_screen = composite.top.screens[self.blue_prints]
-          if new_screen.load.live?
+          if new_screen.load.live? != false # Need strict
             composite.top.window.update(self.blue_prints)
             return true
           else

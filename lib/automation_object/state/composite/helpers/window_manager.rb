@@ -7,8 +7,6 @@ module AutomationObject
     module Composite
       # Collection to manage Window objects
       module WindowManager
-        attr_accessor :window
-
         # @param name [Symbol] name of window to use
         # @return [void]
         def use(name)
@@ -18,8 +16,8 @@ module AutomationObject
             next if window.name != name
             return if window == self.window
 
-            self.window = window
-            self.window.use
+            @window = window
+            @window.use
           end
         end
 
@@ -52,8 +50,8 @@ module AutomationObject
           # Should only have one extra window
           raise UnexpectedExtraWindowError if diff_handles.length > 1
 
-          self.window = Window.new(driver, diff_handles.first, name)
-          windows << window
+          @window = Window.new(driver, diff_handles.first, name)
+          windows << @window
         end
       end
     end
