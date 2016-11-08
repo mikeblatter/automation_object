@@ -62,12 +62,18 @@ module AutomationObject
 
         # Recursive function to reach parent screen
         # Can return nil if above a screen!
-        # @return [AutomationObject::State::BluePrintAdapter::Screen,nil]
+        # @return [AutomationObject::State::Composite::Screen,nil]
         def screen
           return nil if is_a?(Top)
 
           # Should recursively call top until parent is nil
           is_a?(Screen) ? self : parent.screen
+        end
+
+        # Recursive function to reach top
+        # @return [AutomationObject::State::Composite::Top]
+        def top
+          is_a?(Top) ? self : parent.top
         end
       end
     end

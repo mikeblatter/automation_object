@@ -11,7 +11,7 @@ module AutomationObject
 
           new_screen = composite.top.screens[self.blue_prints]
           if new_screen.load.live?
-            composite.top.set_screen(self.blue_prints)
+            composite.top.window.update(self.blue_prints)
             return true
           else
             return false

@@ -16,7 +16,7 @@ module AutomationObject
           return nil if blue_prints.live?.empty?
 
           blue_prints.live?.each do |element_requirement_blueprints|
-            hook_element_requirement = ElementRequirement.new(self.session, driver, element_requirement_blueprints, 1)
+            hook_element_requirement = ElementRequirement.new(self, driver, element_requirement_blueprints, 1)
             return false unless hook_element_requirement.run
           end
 

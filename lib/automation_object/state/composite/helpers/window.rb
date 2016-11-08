@@ -18,6 +18,19 @@ module AutomationObject
           @history = [screen]
         end
 
+        # @return [Symbol,nil] previous screen name
+        def previous
+          return nil if @position < 1
+          @history[@position - 1]
+        end
+
+        # @param name [Symbol] screen name
+        # @return [void]
+        def update(name)
+          @position += 1
+          @history << name
+        end
+
         # @return [Symbol] current screen
         def name
           @history[@position]

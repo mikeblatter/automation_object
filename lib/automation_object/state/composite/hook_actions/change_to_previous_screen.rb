@@ -9,9 +9,9 @@ module AutomationObject
         def single_run
           return false unless driver.document_complete?
 
-          new_screen = composite.top.current_window.previous_screen_name
+          new_screen = composite.top.window.previous
           if new_screen.load.live?
-            composite.top.set_screen(new_screen)
+            composite.top.window.update(new_screen)
             return true
           else
             return false

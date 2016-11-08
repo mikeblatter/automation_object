@@ -23,6 +23,7 @@ module AutomationObject
           end
         end
 
+        # @return [AutomationObject::State::Composite::Window]
         def window
           raise AutomationObject::State::Error::NoActiveWindows unless @window
           @window

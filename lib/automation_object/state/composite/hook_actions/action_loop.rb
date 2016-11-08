@@ -4,21 +4,21 @@ module AutomationObject
     module Composite
       # Composite action loop base class
       class ActionLoop
+        # @return [AutomationObject::State::Composite::Base]
+        attr_accessor :composite
         # @return [AutomationObject::Driver::Driver]
         attr_accessor :driver
         # @return [AutomationObject::BluePrint::Composite::Base]
         attr_accessor :blue_prints
-        # @return [AutomationObject::State::Session]
-        attr_accessor :session
         # @return [Integer]
         attr_accessor :loops
 
-        # @param session [AutomationObject::State::Session]
+        # @param composite [AutomationObject::State::Composite::Base]
         # @param driver [AutomationObject::Driver::Driver]
         # @param blue_prints [AutomationObject::BluePrint::Composite::Base]
         # @param loops [Integer]
-        def initialize(session, driver, blue_prints, loops = 30)
-          self.session = session
+        def initialize(composite, driver, blue_prints, loops = 30)
+          self.composite = composite
           self.driver = driver
           self.blue_prints = blue_prints
           self.loops = loops
