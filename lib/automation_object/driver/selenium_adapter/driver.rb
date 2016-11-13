@@ -48,11 +48,10 @@ module AutomationObject
           exists = false
 
           begin
-            suspend_timeout do
-              element_objects = @subject.find_elements(selector_type, selector_path)
-              exists = true unless element_objects.empty?
-            end
-          rescue StandardError
+            element_objects = @subject.find_elements(selector_type, selector_path)
+            exists = true unless element_objects.empty?
+          rescue StandardError => e
+            puts e
             return false
           end
 

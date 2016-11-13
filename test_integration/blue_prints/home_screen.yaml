@@ -2,11 +2,11 @@ screens:
   home_screen:
     included_views:
       - 'header_view'
-#    load:
-#      live?:
-#        - element_name: 'title'
-#          exists?: true
-#          text: 'AutomationObject Testing'
+    load:
+      live?:
+        - element_name: 'title'
+          exists?: true
+          text: 'AutomationObject Testing'
     elements:
       title:
         css: 'div.container h2'
