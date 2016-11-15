@@ -25,16 +25,14 @@ module AutomationObject
       # @param string [String] index of arg
       # @return [String] parsed string
       def parse(string)
-        parsed_string = string
+        string.scan(/%\{[\w\d]+\}/) do |cache_key|
+          unwrapped_cache_key = cache_key.gsub(/[%\{\}]/, '')
 
-        string.scan(/%\{(\w+)\}/) do |cache_key|
-          cached_value = AutomationObject::StepDefinitions::Cache.get(cache_key)
-          next unless cached_value
-
-          parsed_string.gsub("%{#{cache_key}}", cached_value)
+          cached_value = AutomationObject::StepDefinitions::Cache.get(unwrapped_cache_key)
+          return cached_value if cached_value
         end
 
-        parsed_string
+        string
       end
     end
   end
