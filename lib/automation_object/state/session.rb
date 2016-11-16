@@ -23,6 +23,8 @@ module AutomationObject
         self.composite = Composite::Top.new(self, driver, blue_prints)
       end
 
+      # @param type [Symbol]
+      # @param name [Symbol]
       def load(type, name)
         case type
         when :screen
@@ -33,6 +35,18 @@ module AutomationObject
           return composite.current_screen.get(type, name)
         else
           raise AutomationObject::State::UndefinedLoadTypeError
+        end
+      end
+
+      # @param type [Symbol]
+      # @param name [Symbol]
+      # @return [Boolean]
+      def active?(type, name)
+        case type
+          when :screen
+            return composite.live_screens.include?(name)
+          else
+            raise AutomationObject::State::UndefinedLoadTypeError
         end
       end
     end

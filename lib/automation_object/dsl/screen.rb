@@ -40,6 +40,11 @@ module AutomationObject
 
         super
       end
+
+      # @return [Boolean]
+      def active?
+        @state.active?(:screen, @name)
+      end
     end
   end
 end

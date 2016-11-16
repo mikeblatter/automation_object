@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
+require_relative 'support/minitest'
 
 # Description: Provides step definitions related to elements
 

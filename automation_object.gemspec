@@ -43,11 +43,12 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   # Testing
   spec.add_development_dependency 'coveralls', '~> 0.8'
   spec.add_development_dependency 'simplecov', '~> 0.8'
-  spec.add_development_dependency 'minitest', '~> 5.9'
-  spec.add_development_dependency 'minitest-bonus-assertions', '~> 2.0'
-
   spec.add_development_dependency 'mocha', '~> 1.1'
   spec.add_development_dependency 'fakefs', '~> 0.9'
+
+  # For Both
+  spec.add_dependency 'minitest', '~> 5.9'
+  spec.add_dependency 'minitest-bonus-assertions', '~> 2.0'
 
   # Runtime dependencies
   spec.add_runtime_dependency 'colorize', '~> 0.8'

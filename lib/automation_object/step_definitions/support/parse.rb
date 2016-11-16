@@ -22,9 +22,11 @@ module AutomationObject
       private
 
       # Used to parse any embedded variables
-      # @param string [String] index of arg
+      # @param string [String, nil] index of arg
       # @return [String] parsed string
       def parse(string)
+        return string if string.nil?
+
         string.scan(/%\{[\w\d]+\}/) do |cache_key|
           unwrapped_cache_key = cache_key.gsub(/[%\{\}]/, '')
 
