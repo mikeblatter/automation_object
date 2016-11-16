@@ -23,7 +23,7 @@ module AutomationObject
             hook_action_class = AutomationObject::State::Composite.const_get(hook_name.to_s.pascalize)
             blue_prints = self.blue_prints.send(hook_name)
 
-            hook_action = hook_action_class.new(self, self.driver, blue_prints)
+            hook_action = hook_action_class.new(self, driver, blue_prints)
             return false if hook_action.run == false # Use long form, can return nil!
           end
 

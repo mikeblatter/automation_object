@@ -43,10 +43,10 @@ module AutomationObject
       # @return [Boolean]
       def active?(type, name)
         case type
-          when :screen
-            return composite.live_screens.include?(name)
-          else
-            raise AutomationObject::State::UndefinedLoadTypeError
+        when :screen
+          composite.live_screens.include?(name)
+        else
+          raise AutomationObject::State::UndefinedLoadTypeError
         end
       end
     end
