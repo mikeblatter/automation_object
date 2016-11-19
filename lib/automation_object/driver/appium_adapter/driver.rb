@@ -100,10 +100,10 @@ module AutomationObject
         # Window Handles Override
         # @return [Array<String>] array of window handles
         def window_handles
-          if @subject.device_is_android? && is_browser?
+          if @subject.device_is_android? && browser?
             window_handles = @subject.window_handles
           else
-            return @subject.available_contexts unless is_browser?
+            return @subject.available_contexts unless browser?
 
             window_handles = []
             @subject.available_contexts.each do |context|
@@ -117,7 +117,7 @@ module AutomationObject
         # Get window handle override
         # @return [String] current window handle
         def window_handle
-          return @subject.current_context unless is_browser?
+          return @subject.current_context unless browser?
 
           return @subject.window_handle if @subject.device_is_android?
 
@@ -137,7 +137,7 @@ module AutomationObject
 
         # @return [Boolean] document is complete
         def document_complete?
-          return true unless is_browser? # Skip for non-browser Appium sessions
+          return true unless browser? # Skip for non-browser Appium sessions
           @subject.execute_script('return document.readyState;') == 'complete'
         end
 

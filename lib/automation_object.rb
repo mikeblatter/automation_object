@@ -11,6 +11,7 @@ Kernel.suppress_warnings do
   require 'appium_lib'
   require 'selenium-webdriver'
   require 'colorize'
+  require 'pry'
 end
 
 # Local Files

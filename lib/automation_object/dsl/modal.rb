@@ -32,7 +32,7 @@ module AutomationObject
 
         # Attempt to load modal if composite object contains that child
         if @subject.to_h.include?(method)
-          #puts "@state.load(:modal, #{@name})"
+          # puts "@state.load(:modal, #{@name})"
           @state.load(:modal, @name)
         end
 

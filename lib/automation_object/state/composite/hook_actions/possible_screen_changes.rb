@@ -8,7 +8,8 @@ module AutomationObject
       class PossibleScreenChanges < ActionLoop
         def single_run
           blue_prints.each do |possible_screen_name|
-            if possible_screen_name.load.live? != false
+            new_screen = composite.top.screens[possible_screen_name]
+            if new_screen.load.live? != false
               composite.top.window.update(possible_screen_name)
               return true
             end

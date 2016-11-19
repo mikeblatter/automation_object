@@ -17,10 +17,10 @@ module AutomationObject
             requirement_value = blue_prints.requirement(requirement_name)
 
             case requirement_name
-              when :exists?
-                return false if requirement_value != driver.exists?(*blue_prints.element_blueprints.selector_params)
-              else
-                return false if requirement_value != element.send(requirement_name)
+            when :exists?
+              return false if requirement_value != driver.exists?(*blue_prints.element_blueprints.selector_params)
+            else
+              return false if requirement_value != element.send(requirement_name)
             end
           end
 

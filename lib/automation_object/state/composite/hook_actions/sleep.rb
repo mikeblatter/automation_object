@@ -7,7 +7,7 @@ module AutomationObject
       # Sleep hook loop
       class Sleep < ActionLoop
         def single_run
-          sleep(self.blue_prints)
+          sleep(blue_prints)
         end
       end
     end

@@ -4,7 +4,7 @@ module AutomationObject
   module StepDefinitions
     # Cache module for temporary storage of vars
     module Cache
-      module_function
+      extend self
 
       # Singleton hash, create new if needed
       # @return [Hash] hash of values saved or new hash

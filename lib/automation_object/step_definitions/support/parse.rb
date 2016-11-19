@@ -22,19 +22,19 @@ module AutomationObject
       private
 
       # Used to parse any embedded variables
-      # @param string [String] index of arg
+      # @param string [String, nil] index of arg
       # @return [String] parsed string
       def parse(string)
-        parsed_string = string
+        return string if string.nil?
 
-        string.scan(/%\{(\w+)\}/) do |cache_key|
-          cached_value = AutomationObject::StepDefinitions::Cache.get(cache_key)
-          next unless cached_value
+        string.scan(/%\{[\w\d]+\}/) do |cache_key|
+          unwrapped_cache_key = cache_key.gsub(/[%\{\}]/, '')
 
-          parsed_string.gsub("%{#{cache_key}}", cached_value)
+          cached_value = AutomationObject::StepDefinitions::Cache.get(unwrapped_cache_key)
+          return cached_value if cached_value
         end
 
-        parsed_string
+        string
       end
     end
   end

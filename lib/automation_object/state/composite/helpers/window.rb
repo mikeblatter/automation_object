@@ -29,7 +29,7 @@ module AutomationObject
         # @param name [Symbol] screen name
         # @return [void]
         def update(name)
-          #Reset current screen
+          # Reset current screen
           @window_manager.screens[self.name].reset
 
           @position += 1

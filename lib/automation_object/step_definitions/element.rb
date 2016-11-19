@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
+require_relative 'support/minitest'
 
 # Description: Provides step definitions related to elements
 
@@ -18,7 +19,7 @@ end
 # - I type "blah" into the "home_screen" "text_field" element
 # - I type "test" in the "home_screen" "text_field" element
 # - I type "blah" in "home_screen" "text_field" element
-When(/^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
+When(/^I type "([^"]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$/) do |*args|
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
+require_relative 'support/minitest'
 
 # Description: Provides step definitions related to screens
 
@@ -8,7 +9,7 @@ require_relative 'support/parse'
 # - I close the "contact" screen
 # - I close the screen
 # - I destroy the screen
-Then(%r(^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$/)) do |*args|
+Then(%r(^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$)) do |*args|
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
@@ -22,7 +23,7 @@ end
 # Examples:
 # - I navigate back on the screen
 # - I navigate back on the "contact" screen
-Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$/)) do
+Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$)) do
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
@@ -36,7 +37,7 @@ end
 # Examples:
 # - I switch to the "home" screen
 # - I focus the "contact" screen
-Then(%r(^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{[\w\d]+\})" screen$/)) do |*args|
+Then(%r(^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{[\w\d]+\})" screen$)) do |*args|
   screen = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.focus(screen)
 end
@@ -47,7 +48,7 @@ end
 # - I set the "home" screen size to 1000x2000
 # - I set the screen width to 1000
 # - I set the screen height to 2000
-Then(%r(^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$/)) do |*args|
+Then(%r(^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$)) do |*args|
   _unparsed_screen, screen, dimension, size, width, height = AutomationObject::StepDefinitions::Parse.new(args).get
 
   screen = if screen
@@ -59,4 +60,18 @@ Then(%r(^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\
   screen.size(width.to_i, height.to_i) if width && height
   screen.width(size) if dimension == 'width' && size
   screen.height(size) if dimension == 'height' && size
+end
+
+# For: Test if screen is currently active
+# Examples:
+# - the "home" screen should be active
+# - the "login" screen shouldn't be active
+Then(%r(^the "([\w\s]+|%\{[\w\d]+\})" screen should ?(n't |not )?be active$)) do |*args|
+  screen, negative = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  if negative
+    assert_equal false, AutomationObject::Framework.get.send(screen).active?
+  else
+    assert_equal true, AutomationObject::Framework.get.send(screen).active?
+  end
 end

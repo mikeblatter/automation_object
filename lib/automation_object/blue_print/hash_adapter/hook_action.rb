@@ -21,7 +21,7 @@ module AutomationObject
         validates :change_to_previous_screen, instance_of: TrueClass
         validates :close_modal, instance_of: TrueClass
         validates :close_screen, instance_of: TrueClass
-        validates :possible_screen_changes, instance_of: String, screen_presence_of: true
+        validates :possible_screen_changes, instance_of: Array, screen_presence_of: true
         validates :reset_screen, instance_of: TrueClass
         validates :show_modal, instance_of: String, modal_presence_of: true
         validates :sleep, instance_of: Numeric
