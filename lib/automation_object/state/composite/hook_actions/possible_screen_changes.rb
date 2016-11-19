@@ -7,6 +7,8 @@ module AutomationObject
       # Possible screen changes hook loop
       class PossibleScreenChanges < ActionLoop
         def single_run
+          return false unless driver.document_complete?
+
           blue_prints.each do |possible_screen_name|
             new_screen = composite.top.screens[possible_screen_name]
             if new_screen.load.live? != false

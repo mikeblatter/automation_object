@@ -7,6 +7,7 @@ module AutomationObject
       # Reset screen hook loop
       class ResetScreen < ActionLoop
         def single_run
+          composite.screen.reset
         end
       end
     end

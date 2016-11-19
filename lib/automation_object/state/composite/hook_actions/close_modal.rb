@@ -12,15 +12,9 @@ module AutomationObject
 
           raise ModalParentExpected unless composite.parent.is_a?(Modal)
 
-          modal = composite.parent
-          modal.active = modal.live?
-
-          return false unless modal.active?
+          return false if modal.live?
 
           composite.screen.modal = nil
-          composite.screen.current_modal = nil
-          composite.top.destroy_modal
-
           true
         end
       end

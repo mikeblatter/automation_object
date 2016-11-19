@@ -18,6 +18,14 @@ module AutomationObject
           element = driver.find_element(*blue_prints.selector_params)
           self.cache = ElementProxy.new(self, element)
         end
+
+        # Whether or not modal is active
+        attr_writer :active
+
+        # @return [Boolean] screen is active or not
+        def active
+          @active ||= false
+        end
       end
     end
   end

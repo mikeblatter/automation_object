@@ -21,6 +21,14 @@ module AutomationObject
             ElementProxy.new(self, element)
           end
         end
+
+        # Whether or not modal is active
+        attr_writer :active
+
+        # @return [Boolean] screen is active or not
+        def active
+          @active ||= false
+        end
       end
     end
   end

@@ -23,10 +23,10 @@ at_exit {
 
 ao = AutomationObject::Framework.new(driver, File.expand_path(File.join(__dir__, 'blue_prints/')))
 
-100.times do
-  ao.home_screen.contact_button.click
-  ao.contact_screen.home_button.click
-end
+#100.times do
+#  ao.home_screen.contact_button.click
+#  ao.contact_screen.home_button.click
+#end
 
 # Allow user to debug using pry
 binding.pry

@@ -13,9 +13,9 @@ module AutomationObject
           if new_screen.load.live? != false # Need strict
             composite.top.window.update(blue_prints)
             return true
-          else
-            return false
           end
+
+          false
         end
       end
     end

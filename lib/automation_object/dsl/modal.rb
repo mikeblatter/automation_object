@@ -38,6 +38,11 @@ module AutomationObject
 
         super
       end
+
+      # @return [Boolean]
+      def active?
+        @state.active?(:modal, @name)
+      end
     end
   end
 end

@@ -10,12 +10,11 @@ module AutomationObject
           new_modal = composite.screen.modals[blue_prints]
 
           if new_modal.load.live? != false
-            composite.screen.current_modal = blue_prints
             composite.screen.modal = new_modal
             return true
-          else
-            return false
           end
+
+          false
         end
       end
     end

@@ -31,10 +31,8 @@ module AutomationObject
         end
 
         # Whether or not modal is active
-        # @return [Boolean]
-        attr_accessor :active
+        attr_writer :active
 
-        undef :active if defined? :active
         # @return [Boolean] screen is active or not
         def active
           @active ||= false
