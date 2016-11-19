@@ -71,7 +71,7 @@ module AutomationObject
         # Close the window
         # @return [void]
         def close
-          @driver.close
+          @driver.close unless closed?
         end
       end
     end

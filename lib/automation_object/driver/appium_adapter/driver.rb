@@ -17,6 +17,9 @@ module AutomationObject
       class Driver < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Driver
 
+        DOCUMENT_COMPLETE_LOOPS = 5
+        DOCUMENT_COMPLETE_SLEEP = 0.2
+
         # @param driver [Appium::Driver] Appium Driver
         def initialize(driver)
           @subject = driver
@@ -138,7 +141,14 @@ module AutomationObject
         # @return [Boolean] document is complete
         def document_complete?
           return true unless browser? # Skip for non-browser Appium sessions
-          @subject.execute_script('return document.readyState;') == 'complete'
+
+          # Loop through a few times to double check correctness
+          DOCUMENT_COMPLETE_LOOPS.times do
+            sleep(DOCUMENT_COMPLETE_SLEEP)
+            return false unless @subject.execute_script('return document.readyState;') == 'complete'
+          end
+
+          true
         end
 
         # @return [void]

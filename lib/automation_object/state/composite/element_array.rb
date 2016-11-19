@@ -13,7 +13,7 @@ module AutomationObject
 
         # @return [Array<AutomationObject::State::Composite::ElementProxy>] Selenium proxy
         def load
-          #return self.cache if self.cache
+          # return self.cache if self.cache
 
           elements = driver.find_elements(*blue_prints.selector_params)
 

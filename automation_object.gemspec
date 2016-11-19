@@ -25,19 +25,19 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.require_paths = ['lib']
 
   # Installation
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'bundler', '~> 1.12'
+  spec.add_development_dependency 'rake', '~> 11.3'
 
   # Code Checking
   spec.add_development_dependency 'rubocop', '~> 0.42'
-  spec.add_development_dependency 'rubycritic', '~> 2.9.4'
+  spec.add_development_dependency 'rubycritic', '~> 2.9'
 
   # Documentation
   spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'redcarpet', '~> 3.3'
 
   # Debugging
-  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'awesome_print', '~> 1.7'
 
   # Testing

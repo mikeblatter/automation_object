@@ -21,6 +21,20 @@ module AutomationObject
           end
         end
 
+        def close(name)
+          window = window_by_name(name)
+          return unless window
+
+          window.close
+          windows.delete(window)
+        end
+
+        # @param name [Symbol]
+        # @return [Window, nil]
+        def window_by_name(name)
+          windows.detect { |i| i.name = name }
+        end
+
         # @return [AutomationObject::State::Composite::Window]
         def window
           raise AutomationObject::State::Error::NoActiveWindows unless @window

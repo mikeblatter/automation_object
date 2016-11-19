@@ -15,6 +15,9 @@ module AutomationObject
       class Driver < AutomationObject::Proxy::Proxy
         include AutomationObject::Driver::CommonSelenium::Driver
 
+        DOCUMENT_COMPLETE_LOOPS = 5
+        DOCUMENT_COMPLETE_SLEEP = 0.2
+
         # @param driver [Selenium::WebDriver::Driver] Selenium Web Driver
         def initialize(driver)
           @subject = driver
@@ -120,7 +123,13 @@ module AutomationObject
         # Run script in browser to check if document in JS is complete
         # @return [Boolean] document is complete
         def document_complete?
-          @subject.execute_script('return document.readyState;') == 'complete'
+          # Loop through a few times to double check correctness
+          DOCUMENT_COMPLETE_LOOPS.times do
+            sleep(DOCUMENT_COMPLETE_SLEEP)
+            return false unless @subject.execute_script('return document.readyState;') == 'complete'
+          end
+
+          true
         end
 
         # Destroy the driver
