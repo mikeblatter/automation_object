@@ -34,7 +34,7 @@
 
   <div class="file-stats group">
     <div class="file-stat">
-      48 complexity
+      50 complexity
     </div>
     <div class="file-stat">
       2.4 complexity per method
@@ -43,7 +43,7 @@
       13 churn
     </div>
     <div class="file-stat">
-      20 methods
+      21 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -67,7 +67,7 @@ module AutomationObject
 
     # Driver adapter interface
     # Adapters should meet this interface standard
-    class Driver &lt; Base<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::Driver has at least 20 methods          </span>  </li></ul>
+    class Driver &lt; Base<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::Driver has at least 21 methods          </span>  </li></ul>
       # Navigates current window to a given url
       # @param url [String] navigate to the following url
       # @return [void]
@@ -143,6 +143,12 @@ module AutomationObject
         adapter.browser?
       end
 
+      # Close current window
+      # @return [void]
+      def close
+        adapter.close
+      end
+
       # Window Handles
       # @return [Array&lt;String&gt;] array of window handle ids
       def window_handles
@@ -158,7 +164,7 @@ module AutomationObject
       # Set current window handle to, will switch windows
       # @param handle_value [String] window handle value
       def window_handle=(handle_value)
-        adapter.window_handle(handle_value)
+        adapter.window_handle = handle_value
       end
 
       # Run script in browser to check if document in JS is complete

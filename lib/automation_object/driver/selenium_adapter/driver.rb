@@ -120,6 +120,12 @@ module AutomationObject
           @subject.switch_to.window(handle_value)
         end
 
+        # Close current window
+        # @return [void]
+        def close
+          @subject.close
+        end
+
         # Run script in browser to check if document in JS is complete
         # @return [Boolean] document is complete
         def document_complete?

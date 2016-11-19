@@ -34,16 +34,16 @@
 
   <div class="file-stats group">
     <div class="file-stat">
-      33 complexity
+      36 complexity
     </div>
     <div class="file-stat">
-      5.5 complexity per method
+      5.1 complexity per method
     </div>
     <div class="file-stat">
       13 churn
     </div>
     <div class="file-stat">
-      6 methods
+      7 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -76,6 +76,10 @@ module AutomationObject
         super ostruct_hash
       end
 
+      def to_s
+        inspect
+      end
+
       # @param _indent [Integer]
       # @return [String]
       def inspect(_indent = 5)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank">UncommunicativeParameterName</a>)      AutomationObject::Dsl::Base#inspect has the parameter name '_indent'          </span>  </li></ul>
@@ -92,10 +96,9 @@ module AutomationObject
       # @param key [String]
       # @param indent [Integer]
       # @return [String]
-      def formatted_name(key, indent)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::Dsl::Base#formatted_name doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
-        # TODO: finish
-        # color = self[key].alive? ? :green : :blue
-        &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(:green)
+      def formatted_name(key, indent)
+        color = self[key].active? ? :green : :blue
+        &quot;\n#{&#39; &#39; * indent} #{key}:&quot;.colorize(color)
       end
 
       # @param value [Object]

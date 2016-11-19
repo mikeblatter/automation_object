@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::State::ElementHash</h2>
+
+  <span class="file-committed-at">
+    
+      Never committed
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      19 complexity
+    </div>
+    <div class="file-stat">
+      19.0 complexity per method
+    </div>
+    <div class="file-stat">
+      0 churn
+    </div>
+    <div class="file-stat">
+      1 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;_base&#39;
+require_relative &#39;_common_element&#39;
+
+require_relative &#39;element_proxy&#39;
+
+module AutomationObject
+  module State
+    # Element hash composite for managing state
+    class ElementHash &lt; Base
+      include CommonElement
+
+      # @return [Hash&lt;String, AutomationObject::State::ElementProxy&gt;] Selenium proxy
+      def utilize<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::State::ElementHash#utilize has approx 8 statements          </span>  </li></ul>
+        # return self.cache if self.cache
+
+        elements = driver.find_elements(*blue_prints.selector_params)
+        self.cache = {}
+
+        elements.each do |element|
+          # Want to wrap element, before sending for method!
+          # That will help us include custom methods, etc...
+          wrapped_element = ElementProxy.new(self, element)
+          hash_key = wrapped_element.send(blue_prints.define_elements_by) # Send to wrapped state proxy
+
+          cache[hash_key] = wrapped_element
+        end
+
+        @active = true
+        cache
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

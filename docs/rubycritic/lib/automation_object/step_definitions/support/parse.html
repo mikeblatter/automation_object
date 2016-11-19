@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-16 10:08:29 -0600'>2016-11-16 10:08:29 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      10 complexity
+      12 complexity
     </div>
     <div class="file-stat">
-      3.3 complexity per method
+      4.0 complexity per method
     </div>
     <div class="file-stat">
-      7 churn
+      9 churn
     </div>
     <div class="file-stat">
       3 methods
@@ -79,19 +79,19 @@ module AutomationObject
       private
 
       # Used to parse any embedded variables
-      # @param string [String] index of arg
+      # @param string [String, nil] index of arg
       # @return [String] parsed string
       def parse(string)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::StepDefinitions::Parse#parse has approx 6 statements          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::StepDefinitions::Parse#parse doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
-        parsed_string = string
+        return string if string.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::StepDefinitions::Parse#parse performs a nil-check          </span>  </li></ul>
 
-        string.scan(/%\{(\w+)\}/) do |cache_key|
-          cached_value = AutomationObject::StepDefinitions::Cache.get(cache_key)
-          next unless cached_value
+        string.scan(/%\{[\w\d]+\}/) do |cache_key|
+          unwrapped_cache_key = cache_key.gsub(/[%\{\}]/, &#39;&#39;)
 
-          parsed_string.gsub(&quot;%{#{cache_key}}&quot;, cached_value)
+          cached_value = AutomationObject::StepDefinitions::Cache.get(unwrapped_cache_key)
+          return cached_value if cached_value
         end
 
-        parsed_string
+        string
       end
     end
   end

@@ -10,10 +10,11 @@ module AutomationObject
     # Proxy for ElementHash
     class ElementHashProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::ElementHash] blue_prints
-      # @param [AutomationObject::State::Session] state
+      # @param [AutomationObject::State::Modal, AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super ElementHash, blue_prints, state, name
+        element_hash_state = state.element_hashes[name]
+        super ElementHash, blue_prints, element_hash_state, name
       end
 
       # @param [Symbol] method
@@ -22,9 +23,14 @@ module AutomationObject
       def method_missing(method, *args, &block)
         return super if ElementHash.methods.include?(method)
 
-        @subject = @state.load(:element_hash, @name)
+        @subject = @state.utilize
 
         super
+      end
+
+      # @return [Boolean]
+      def active?
+        @state.active?
       end
     end
   end

@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 17:46:54 -0500'>2016-10-30 17:46:54 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-16 10:08:29 -0600'>2016-11-16 10:08:29 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       N/A complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      9 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -58,13 +58,14 @@
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
 require_relative &#39;support/element_hash&#39;
+require_relative &#39;support/minitest&#39;
 
 # Description: Provides step definitions related to element hashes
 
 # For: Calling an element hash method
 # Examples:
 # - I click on the first &quot;home_screen&quot; &quot;about_button&quot; element hash
-When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L13" class="js-smell-location">0</a>                  <a href="element_array.html#L26" class="js-smell-location">1</a>                  <a href="element_hash.html#L10" class="js-smell-location">2</a>                  <a href="element_hash.html#L23" class="js-smell-location">3</a>                  </span>  </li></ul>
+When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L14" class="js-smell-location">0</a>                  <a href="element_array.html#L27" class="js-smell-location">1</a>                  <a href="element_hash.html#L11" class="js-smell-location">2</a>                  <a href="element_hash.html#L24" class="js-smell-location">3</a>                  </span>  </li></ul>
   method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
@@ -77,7 +78,7 @@ end
 # For: Typing into element hash field
 # Examples:
 # - I type &quot;blah&quot; into the first &quot;home_screen&quot; &quot;text_field&quot; element hash
-When(%r(^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L13" class="js-smell-location">0</a>                  <a href="element_array.html#L26" class="js-smell-location">1</a>                  <a href="element_hash.html#L10" class="js-smell-location">2</a>                  <a href="element_hash.html#L23" class="js-smell-location">3</a>                  </span>  </li></ul>
+When(%r(^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L14" class="js-smell-location">0</a>                  <a href="element_array.html#L27" class="js-smell-location">1</a>                  <a href="element_hash.html#L11" class="js-smell-location">2</a>                  <a href="element_hash.html#L24" class="js-smell-location">3</a>                  </span>  </li></ul>
   text, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
@@ -90,7 +91,7 @@ end
 # For: Scrolling element hash item(s) into focus
 # Examples:
 # - I scroll to the first &quot;home_screen&quot; &quot;logo_button&quot; element hash
-When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L39" class="js-smell-location">0</a>                  <a href="element_hash.html#L36" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L40" class="js-smell-location">0</a>                  <a href="element_hash.html#L37" class="js-smell-location">1</a>                  </span>  </li></ul>
   key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
@@ -101,7 +102,7 @@ end
 # For: Saving value from element hash for use later
 # Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the first &quot;home_screen&quot; &quot;logo_button&quot; element hash
-When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L50" class="js-smell-location">0</a>                  <a href="element_hash.html#L47" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L51" class="js-smell-location">0</a>                  <a href="element_hash.html#L48" class="js-smell-location">1</a>                  </span>  </li></ul>
   method, value_key, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
@@ -115,7 +116,7 @@ end
 # For: Testing the element hashes size
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element hash should be greater than 0
-Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash should(n&#39;t|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$\// has a flog score of 56          </span>  </li></ul>
+Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash should(n&#39;t|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$/ has a flog score of 56          </span>  </li></ul>
   screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
   element_hash = AutomationObject::Framework.get.send(screen).send(element)
@@ -145,7 +146,7 @@ end
 # For: Testing if the element hash value equals a given value
 # Examples:
 # - the first &quot;home_screen&quot; &quot;title&quot; element hash &quot;text&quot; should equal &quot;Home&quot;
-Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash &quot;(\w+|%\{[\w\d]+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{[\w\d]+\})&quot;$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L98" class="js-smell-location">0</a>                  <a href="element_hash.html#L91" class="js-smell-location">1</a>                  </span>  </li></ul>
+Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element hash &quot;(\w+|%\{[\w\d]+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{[\w\d]+\})&quot;$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L99" class="js-smell-location">0</a>                  <a href="element_hash.html#L92" class="js-smell-location">1</a>                  </span>  </li></ul>
   key, low_range, high_range, screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementHash.iterate_and_do(
@@ -164,7 +165,7 @@ end
 # For: Testing if the element hashes uniqueness
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element hash &quot;text&quot; should be unique
-Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;([\w\d]+|%\{[\w\d]+\})&quot; element hash &quot;([\w\d]+|%\{[\w\d]+\})&quot; should(n&#39;t|not)? be unique$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L119" class="js-smell-location">0</a>                  <a href="element_hash.html#L110" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "([\w\d]+|%\{[\w\d]+\})" should(n't|not)? be unique$\// has a flog score of 30          </span>  </li></ul>
+Then(%r(^(?:the )?&quot;([\w\d]+|%\{[\w\d]+\})&quot; &quot;([\w\d]+|%\{[\w\d]+\})&quot; element hash &quot;([\w\d]+|%\{[\w\d]+\})&quot; should(n&#39;t|not)? be unique$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element_array.html#L120" class="js-smell-location">0</a>                  <a href="element_hash.html#L111" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      Then#/^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "([\w\d]+|%\{[\w\d]+\})" should(n't|not)? be unique$/ has a flog score of 30          </span>  </li></ul>
   screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
   element_hash = AutomationObject::Framework.get.send(screen).send(element)

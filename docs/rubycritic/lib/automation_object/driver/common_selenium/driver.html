@@ -28,30 +28,28 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 22:44:32 -0500'>2016-09-18 22:44:32 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-13 14:19:56 -0600'>2016-11-13 14:19:56 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      28 complexity
+      17 complexity
     </div>
     <div class="file-stat">
-      4.0 complexity per method
+      2.8 complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      9 churn
     </div>
     <div class="file-stat">
-      7 methods
+      6 methods
     </div>
     <div class="file-stat">
       0 duplication
     </div>
   </div>
 
-  
-    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
   
 </div>
 
@@ -63,16 +61,6 @@ module AutomationObject
     module CommonSelenium
       # Common Selenium/AppiumMethods
       module Driver
-        # Suspend timeout for block running
-        def suspend_timeout
-          original_timeout = @subject.manage.timeouts.implicit_wait<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::CommonSelenium::Driver#suspend_timeout calls '@subject.manage' 3 times                        <a href="driver.html#L11" class="js-smell-location">0</a>                  <a href="driver.html#L12" class="js-smell-location">1</a>                  <a href="driver.html#L16" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::CommonSelenium::Driver#suspend_timeout calls '@subject.manage.timeouts' 3 times                        <a href="driver.html#L11" class="js-smell-location">0</a>                  <a href="driver.html#L12" class="js-smell-location">1</a>                  <a href="driver.html#L16" class="js-smell-location">2</a>                  </span>  </li></ul>
-          @subject.manage.timeouts.implicit_wait = 0<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::CommonSelenium::Driver#suspend_timeout calls '@subject.manage' 3 times                        <a href="driver.html#L11" class="js-smell-location">0</a>                  <a href="driver.html#L12" class="js-smell-location">1</a>                  <a href="driver.html#L16" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::CommonSelenium::Driver#suspend_timeout calls '@subject.manage.timeouts' 3 times                        <a href="driver.html#L11" class="js-smell-location">0</a>                  <a href="driver.html#L12" class="js-smell-location">1</a>                  <a href="driver.html#L16" class="js-smell-location">2</a>                  </span>  </li></ul>
-
-          yield
-
-          @subject.manage.timeouts.implicit_wait = original_timeout<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::CommonSelenium::Driver#suspend_timeout calls '@subject.manage' 3 times                        <a href="driver.html#L11" class="js-smell-location">0</a>                  <a href="driver.html#L12" class="js-smell-location">1</a>                  <a href="driver.html#L16" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::CommonSelenium::Driver#suspend_timeout calls '@subject.manage.timeouts' 3 times                        <a href="driver.html#L11" class="js-smell-location">0</a>                  <a href="driver.html#L12" class="js-smell-location">1</a>                  <a href="driver.html#L16" class="js-smell-location">2</a>                  </span>  </li></ul>
-        end
-
         # @return [Point] x,y scroll position
         def scroll_position
           position = Point.new

@@ -206,6 +206,29 @@ Adapters should meet this interface standard</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#close-instance_method" title="#close (instance method)">#<strong>close</strong>  &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Close current window.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#dismiss_prompt-instance_method" title="#dismiss_prompt (instance method)">#<strong>dismiss_prompt</strong>  &#x21d2; Object </a>
     
 
@@ -757,6 +780,46 @@ Adapters should meet this interface standard</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="close-instance_method">
+  
+    #<strong>close</strong>  &#x21d2; <tt>void</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Close current window</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
+  <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="dismiss_prompt-instance_method">
   
     #<strong>dismiss_prompt</strong>  &#x21d2; <tt>Object</tt> 
@@ -838,12 +901,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-109
-110
-111</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_document_complete?'>document_complete?</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_document_complete?'>document_complete?</span>
@@ -909,12 +972,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-115
-116
-117</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='id identifier rubyid_script'>script</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='id identifier rubyid_script'>script</span><span class='rparen'>)</span>
@@ -1338,12 +1401,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-125
-126
-127</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inner_window_height'>inner_window_height</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_inner_window_height'>inner_window_height</span>
@@ -1378,12 +1441,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-130
-131
-132</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_quit'>quit</span>
@@ -1475,12 +1538,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-120
-121
-122</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scroll_position'>scroll_position</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_scroll_position'>scroll_position</span>
@@ -1646,12 +1709,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-97
-98
-99</pre>
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span>
@@ -1705,15 +1768,15 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle='>window_handle=</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>=</span> <span class='id identifier rubyid_handle_value'>handle_value</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1762,12 +1825,12 @@ Adapters should meet this interface standard</p>
       <pre class="lines">
 
 
-91
-92
-93</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/driver.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handles'>window_handles</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_window_handles'>window_handles</span>
@@ -1782,7 +1845,7 @@ Adapters should meet this interface standard</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Nov  6 21:45:21 2016 by
+  Generated on Sat Nov 19 15:40:34 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

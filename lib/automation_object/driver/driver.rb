@@ -86,6 +86,12 @@ module AutomationObject
         adapter.browser?
       end
 
+      # Close current window
+      # @return [void]
+      def close
+        adapter.close
+      end
+
       # Window Handles
       # @return [Array<String>] array of window handle ids
       def window_handles
@@ -101,7 +107,7 @@ module AutomationObject
       # Set current window handle to, will switch windows
       # @param handle_value [String] window handle value
       def window_handle=(handle_value)
-        adapter.window_handle(handle_value)
+        adapter.window_handle = handle_value
       end
 
       # Run script in browser to check if document in JS is complete

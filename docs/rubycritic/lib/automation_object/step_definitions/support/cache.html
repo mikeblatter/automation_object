@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-15 14:33:55 -0600'>2016-11-15 14:33:55 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       1.7 complexity per method
     </div>
     <div class="file-stat">
-      6 churn
+      7 churn
     </div>
     <div class="file-stat">
       3 methods
@@ -59,7 +59,7 @@ module AutomationObject
   module StepDefinitions
     # Cache module for temporary storage of vars
     module Cache
-      module_function
+      extend self
 
       # Singleton hash, create new if needed
       # @return [Hash] hash of values saved or new hash

@@ -14,11 +14,15 @@ module AutomationObject
     # Proxy for Top Composite
     # Use proxy for methods trying to do a @state call
     class TopProxy < Proxy
-      # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
-      # @param [AutomationObject::State::Session] state
-      # @param [Symbol] name
+      # @param blue_prints [AutomationObject::BluePrint::Composite::Top]
+      # @param state [AutomationObject::State::Top] top composite
+      # @param name [Symbol]
       def initialize(blue_prints, state, name)
         super Top, blue_prints, state, name
+      end
+
+      def active?
+        true
       end
     end
   end

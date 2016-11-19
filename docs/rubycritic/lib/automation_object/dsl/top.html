@@ -37,13 +37,13 @@
       1 complexity
     </div>
     <div class="file-stat">
-      1.0 complexity per method
+      0.5 complexity per method
     </div>
     <div class="file-stat">
       9 churn
     </div>
     <div class="file-stat">
-      1 methods
+      2 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -69,11 +69,15 @@ module AutomationObject
     # Proxy for Top Composite
     # Use proxy for methods trying to do a @state call
     class TopProxy &lt; Proxy
-      # @param [AutomationObject::BluePrint::Composite::Top] blue_prints
-      # @param [AutomationObject::State::Session] state
-      # @param [Symbol] name
+      # @param blue_prints [AutomationObject::BluePrint::Composite::Top]
+      # @param state [AutomationObject::State::Top] top composite
+      # @param name [Symbol]
       def initialize(blue_prints, state, name)
         super Top, blue_prints, state, name
+      end
+
+      def active?
+        true
       end
     end
   end

@@ -133,6 +133,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#active%3F-instance_method" title="#active? (instance method)">#<strong>active?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(blue_prints, state, name)  &#x21d2; ModalProxy </a>
     
 
@@ -231,7 +253,7 @@
         <span class='name'>state</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../State/Session.html" title="AutomationObject::State::Session (class)">AutomationObject::State::Session</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../State/Screen.html" title="AutomationObject::State::Screen (class)">AutomationObject::State::Screen</a></span></tt>)</span>
       
       
       
@@ -259,13 +281,15 @@
 
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='kw'>super</span> <span class='const'>Modal</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_modal_state'>modal_state</span> <span class='op'>=</span> <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_modals'>modals</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
+  <span class='kw'>super</span> <span class='const'>Modal</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_modal_state'>modal_state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -341,7 +365,6 @@
       <pre class="lines">
 
 
-30
 31
 32
 33
@@ -349,21 +372,16 @@
 35
 36
 37
-38
-39
-40</pre>
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>super</span> <span class='kw'>if</span> <span class='const'>Modal</span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
 
-  <span class='comment'># Attempt to load screen if composite object contains that child
-</span>  <span class='kw'>if</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
-    <span class='comment'># puts &quot;@state.load(:modal, #{@name})&quot;
-</span>    <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='symbol'>:modal</span><span class='comma'>,</span> <span class='ivar'>@name</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='comment'># Attempt to load modal if composite object contains that child
+</span>  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span> <span class='kw'>if</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
 
   <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
@@ -375,10 +393,68 @@
 </div>
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="active?-instance_method">
+  
+    #<strong>active?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span>
+  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_active?'>active?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
       <div id="footer">
-  Generated on Sun Nov  6 21:45:21 2016 by
+  Generated on Sat Nov 19 15:40:33 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

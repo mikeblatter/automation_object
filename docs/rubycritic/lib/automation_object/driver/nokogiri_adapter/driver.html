@@ -34,7 +34,7 @@
 
   <div class="file-stats group">
     <div class="file-stat">
-      53 complexity
+      56 complexity
     </div>
     <div class="file-stat">
       2.4 complexity per method
@@ -43,7 +43,7 @@
       20 churn
     </div>
     <div class="file-stat">
-      22 methods
+      23 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -66,7 +66,7 @@ module AutomationObject
     module NokogiriAdapter
       # Driver for Nokogiri
       # Conforms to interface and provides Selenium type functionality for XML only functionality
-      class Driver<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::NokogiriAdapter::Driver has at least 22 methods          </span>  </li></ul>
+      class Driver<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank">TooManyMethods</a>)      AutomationObject::Driver::NokogiriAdapter::Driver has at least 23 methods          </span>  </li></ul>
         # @return [AutomationObject::Driver::NokogiriAdapter::Session]
         attr_accessor :session<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank">Attribute</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#session is a writable attribute          </span>  </li></ul>
 
@@ -85,6 +85,12 @@ module AutomationObject
         # @return [String]
         def title
           find_element(:xpath, &#39;//title&#39;).text
+        end
+
+        # Close current window
+        # @return [void]
+        def close
+          session.close
         end
 
         def back
@@ -113,7 +119,7 @@ module AutomationObject
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
         # @return [Boolean] element exists?
-        def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L59" class="js-smell-location">0</a>                  <a href="driver.html#L67" class="js-smell-location">1</a>                  <a href="driver.html#L79" class="js-smell-location">2</a>                  <a href="driver.html#L143" class="js-smell-location">3</a>                  </span>  </li></ul>
+        def exists?(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L65" class="js-smell-location">0</a>                  <a href="driver.html#L73" class="js-smell-location">1</a>                  <a href="driver.html#L85" class="js-smell-location">2</a>                  <a href="driver.html#L149" class="js-smell-location">3</a>                  </span>  </li></ul>
           elements = get_elements(selector_type, selector_path)
           !elements.empty? ? true : false
         end
@@ -121,7 +127,7 @@ module AutomationObject
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
         # @return [AutomationObject::Driver::Element] element
-        def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L59" class="js-smell-location">0</a>                  <a href="driver.html#L67" class="js-smell-location">1</a>                  <a href="driver.html#L79" class="js-smell-location">2</a>                  <a href="driver.html#L143" class="js-smell-location">3</a>                  </span>  </li></ul>
+        def find_element(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L65" class="js-smell-location">0</a>                  <a href="driver.html#L73" class="js-smell-location">1</a>                  <a href="driver.html#L85" class="js-smell-location">2</a>                  <a href="driver.html#L149" class="js-smell-location">3</a>                  </span>  </li></ul>
           elements = get_elements(selector_type, selector_path)
           raise NoSuchElementError if elements.length.zero?
 
@@ -133,7 +139,7 @@ module AutomationObject
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
         # @return [Array&lt;AutomationObject::Driver::Element&gt;] elements
-        def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L59" class="js-smell-location">0</a>                  <a href="driver.html#L67" class="js-smell-location">1</a>                  <a href="driver.html#L79" class="js-smell-location">2</a>                  <a href="driver.html#L143" class="js-smell-location">3</a>                  </span>  </li></ul>
+        def find_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L65" class="js-smell-location">0</a>                  <a href="driver.html#L73" class="js-smell-location">1</a>                  <a href="driver.html#L85" class="js-smell-location">2</a>                  <a href="driver.html#L149" class="js-smell-location">3</a>                  </span>  </li></ul>
           elements = get_elements(selector_type, selector_path)
           elements.map do |element|
             AutomationObject::Driver::Element.new(
@@ -197,12 +203,12 @@ module AutomationObject
 
         private
 
-        def get_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L59" class="js-smell-location">0</a>                  <a href="driver.html#L67" class="js-smell-location">1</a>                  <a href="driver.html#L79" class="js-smell-location">2</a>                  <a href="driver.html#L143" class="js-smell-location">3</a>                  </span>  </li></ul>
+        def get_elements(selector_type, selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank">DataClump</a>)      AutomationObject::Driver::NokogiriAdapter::Driver takes parameters ['selector_path', 'selector_type'] to 4 methods                        <a href="driver.html#L65" class="js-smell-location">0</a>                  <a href="driver.html#L73" class="js-smell-location">1</a>                  <a href="driver.html#L85" class="js-smell-location">2</a>                  <a href="driver.html#L149" class="js-smell-location">3</a>                  </span>  </li></ul>
           case selector_type
           when :xpath
-            elements = session.xml.xpath(selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#get_elements calls 'session.xml' 2 times                        <a href="driver.html#L146" class="js-smell-location">0</a>                  <a href="driver.html#L148" class="js-smell-location">1</a>                  </span>  </li></ul>
+            elements = session.xml.xpath(selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#get_elements calls 'session.xml' 2 times                        <a href="driver.html#L152" class="js-smell-location">0</a>                  <a href="driver.html#L154" class="js-smell-location">1</a>                  </span>  </li></ul>
           when :css
-            elements = session.xml.css(selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#get_elements calls 'session.xml' 2 times                        <a href="driver.html#L146" class="js-smell-location">0</a>                  <a href="driver.html#L148" class="js-smell-location">1</a>                  </span>  </li></ul>
+            elements = session.xml.css(selector_path)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::Driver::NokogiriAdapter::Driver#get_elements calls 'session.xml' 2 times                        <a href="driver.html#L152" class="js-smell-location">0</a>                  <a href="driver.html#L154" class="js-smell-location">1</a>                  </span>  </li></ul>
           else
             raise ArgumentError, &quot;#{selector_type} selector type not implemented. Only :css, :xpath&quot;
           end

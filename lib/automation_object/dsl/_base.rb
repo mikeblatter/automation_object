@@ -19,6 +19,10 @@ module AutomationObject
         super ostruct_hash
       end
 
+      def to_s
+        inspect
+      end
+
       # @param _indent [Integer]
       # @return [String]
       def inspect(_indent = 5)
@@ -36,9 +40,8 @@ module AutomationObject
       # @param indent [Integer]
       # @return [String]
       def formatted_name(key, indent)
-        # TODO: finish
-        # color = self[key].alive? ? :green : :blue
-        "\n#{' ' * indent} #{key}:".colorize(:green)
+        color = self[key].active? ? :green : :blue
+        "\n#{' ' * indent} #{key}:".colorize(color)
       end
 
       # @param value [Object]

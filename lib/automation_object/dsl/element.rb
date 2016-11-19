@@ -10,10 +10,11 @@ module AutomationObject
     # Proxy for Element
     class ElementProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Element] blue_prints
-      # @param [AutomationObject::State::Session] state
+      # @param [AutomationObject::State::Modal, AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super Element, blue_prints, state, name
+        element_state = state.elements[name]
+        super Element, blue_prints, element_state, name
       end
 
       # @param [Symbol] method
@@ -22,9 +23,14 @@ module AutomationObject
       def method_missing(method, *args, &block)
         return super if Element.methods.include?(method)
 
-        @subject = @state.load(:element, @name)
+        @subject = @state.utilize
 
         super
+      end
+
+      # @return [Boolean]
+      def active?
+        @state.active?
       end
     end
   end

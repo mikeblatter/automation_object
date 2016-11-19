@@ -10,6 +10,7 @@ Provides step definitions related to screens
 - [Navigating back on a given or current screen](#navigatingbackonagivenorcurrentscreen)
 - [Switch/Focus screen](#switchfocusscreen)
 - [Setting the current screen's width or given screen](#settingthecurrentscreenswidthorgivenscreen)
+- [Test if screen is currently active](#testifscreeniscurrentlyactive)
 
 ## Steps 
 
@@ -24,13 +25,6 @@ Provides step definitions related to screens
 - I destroy the screen
 
 
-#### Regex
-
-```^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$```
-
-
-
-
 ### Navigating back on a given or current screen
 
 #### Examples
@@ -39,26 +33,12 @@ Provides step definitions related to screens
 - I navigate back on the "contact" screen
 
 
-#### Regex
-
-```^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$```
-
-
-
-
 ### Switch/Focus screen
 
 #### Examples
 
 - I switch to the "home" screen
 - I focus the "contact" screen
-
-
-#### Regex
-
-```^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{[\w\d]+\})" screen$```
-
-
 
 
 ### Setting the current screen's width or given screen
@@ -71,8 +51,9 @@ Provides step definitions related to screens
 - I set the screen height to 2000
 
 
-#### Regex
+### Test if screen is currently active
 
-```^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$```
+#### Examples
 
-
+- the "home" screen should be active
+- the "login" screen shouldn't be active

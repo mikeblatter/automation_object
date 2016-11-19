@@ -21,26 +21,26 @@
     </header>
     <div class="container">
       <div class="file-header group rated">
-  <span class="rating rating-a circled-text circle">
-    A
+  <span class="rating rating-b circled-text circle">
+    B
   </span>
   <h2 class="file-name">Screen</h2>
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 17:46:54 -0500'>2016-10-30 17:46:54 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-16 10:08:29 -0600'>2016-11-16 10:08:29 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      57 complexity
+      81 complexity
     </div>
     <div class="file-stat">
       N/A complexity per method
     </div>
     <div class="file-stat">
-      6 churn
+      7 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -55,6 +55,7 @@
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
+require_relative &#39;support/minitest&#39;
 
 # Description: Provides step definitions related to screens
 
@@ -63,7 +64,7 @@ require_relative &#39;support/parse&#39;
 # - I close the &quot;contact&quot; screen
 # - I close the screen
 # - I destroy the screen
-Then(%r(^I (?:close|destroy) the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen$/)) do |*args|
+Then(%r(^I (?:close|destroy) the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen$)) do |*args|
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
@@ -77,7 +78,7 @@ end
 # Examples:
 # - I navigate back on the screen
 # - I navigate back on the &quot;contact&quot; screen
-Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?(&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen$/)) do
+Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?(&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen$)) do
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
@@ -91,7 +92,7 @@ end
 # Examples:
 # - I switch to the &quot;home&quot; screen
 # - I focus the &quot;contact&quot; screen
-Then(%r(^I (?:switch|focus) (?:to )?(?:the )?&quot;([\w\s]+|%\{[\w\d]+\})&quot; screen$/)) do |*args|
+Then(%r(^I (?:switch|focus) (?:to )?(?:the )?&quot;([\w\s]+|%\{[\w\d]+\})&quot; screen$)) do |*args|
   screen = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.focus(screen)
 end
@@ -102,7 +103,7 @@ end
 # - I set the &quot;home&quot; screen size to 1000x2000
 # - I set the screen width to 1000
 # - I set the screen height to 2000
-Then(%r(^I set the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$/)) do |*args|
+Then(%r(^I set the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$)) do |*args|
   _unparsed_screen, screen, dimension, size, width, height = AutomationObject::StepDefinitions::Parse.new(args).get
 
   screen = if screen
@@ -114,6 +115,20 @@ Then(%r(^I set the (&quot;([\w\s]+|%\{[\w\d]+\})&quot;)? ?screen (size|width|hei
   screen.size(width.to_i, height.to_i) if width &amp;&amp; height
   screen.width(size) if dimension == &#39;width&#39; &amp;&amp; size
   screen.height(size) if dimension == &#39;height&#39; &amp;&amp; size
+end
+
+# For: Test if screen is currently active
+# Examples:
+# - the &quot;home&quot; screen should be active
+# - the &quot;login&quot; screen shouldn&#39;t be active
+Then(%r(^the &quot;([\w\s]+|%\{[\w\d]+\})&quot; screen should ?(n&#39;t |not )?be active$)) do |*args|
+  screen, negative = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  if negative
+    assert_equal false, AutomationObject::Framework.get.send(screen).active?
+  else
+    assert_equal true, AutomationObject::Framework.get.send(screen).active?
+  end
 end
 </code>
 

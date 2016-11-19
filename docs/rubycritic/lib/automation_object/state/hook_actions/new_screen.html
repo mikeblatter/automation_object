@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-b circled-text circle">
+    B
+  </span>
+  <h2 class="file-name">AutomationObject::State::NewScreen</h2>
+
+  <span class="file-committed-at">
+    
+      Never committed
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      53 complexity
+    </div>
+    <div class="file-stat">
+      26.5 complexity per method
+    </div>
+    <div class="file-stat">
+      0 churn
+    </div>
+    <div class="file-stat">
+      2 methods
+    </div>
+    <div class="file-stat">
+      16 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;action_loop&#39;
+require_relative &#39;../_error&#39;
+
+module AutomationObject
+  module State
+    # New screen hook loop
+    class NewScreen &lt; ActionLoop
+      # @param composite [AutomationObject::State::Base]
+      # @param driver [AutomationObject::Driver::Driver]
+      # @param blue_prints [AutomationObject::BluePrint::Composite::Base]
+      # @param loops [Integer]
+      def initialize(composite, driver, blue_prints, loops = 1)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="action_loop.html#L19" class="js-smell-location">0</a>                  <a href="new_screen.html#L13" class="js-smell-location">1</a>                  </span>  </li></ul>
+        self.composite = composite
+        self.driver = driver
+        self.blue_prints = blue_prints
+        self.loops = loops
+      end
+
+      def single_run<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      AutomationObject::State::NewScreen#single_run has a flog score of 48          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::State::NewScreen#single_run has approx 15 statements          </span>  </li></ul>
+        new_screen = composite.top.screens[blue_prints]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'composite.top' 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L22" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'composite.top.screens' 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
+        stored_window_handles = composite.top.screens.values<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'composite.top' 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L22" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'composite.top.screens' 2 times                        <a href="new_screen.html#L21" class="js-smell-location">0</a>                  <a href="new_screen.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
+                                         .each_with_object([]) do |screen, a|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank">UncommunicativeVariableName</a>)      AutomationObject::State::NewScreen#single_run has the variable name 'a'          </span>  </li></ul>
+          a.push(screen.window_handle) unless screen.window_handle.nil?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'screen.window_handle' 2 times          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank">NilCheck</a>)      AutomationObject::State::NewScreen#single_run performs a nil-check          </span>  </li></ul>
+          a
+        end
+
+        driver_handles = driver.window_handles
+
+        return false if driver_handles.length &lt;= stored_window_handles.length<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'driver_handles.length' 2 times                        <a href="new_screen.html#L30" class="js-smell-location">0</a>                  <a href="new_screen.html#L31" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'stored_window_handles.length' 2 times                        <a href="new_screen.html#L30" class="js-smell-location">0</a>                  <a href="new_screen.html#L31" class="js-smell-location">1</a>                  </span>  </li></ul>
+        raise MoreThenOneScreenCreated if (driver_handles.length - stored_window_handles.length) &gt; 1<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'driver_handles.length' 2 times                        <a href="new_screen.html#L30" class="js-smell-location">0</a>                  <a href="new_screen.html#L31" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::NewScreen#single_run calls 'stored_window_handles.length' 2 times                        <a href="new_screen.html#L30" class="js-smell-location">0</a>                  <a href="new_screen.html#L31" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+        new_window_handle = (driver_handles - stored_window_handles)[0]
+        driver.window_handle = new_window_handle
+
+        30.times do
+          next unless driver.document_complete?
+          next if new_screen.load.live? == false
+
+          new_screen.activate
+
+          return true
+        end
+
+        false
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

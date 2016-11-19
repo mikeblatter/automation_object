@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-10-30 17:46:54 -0500'>2016-10-30 17:46:54 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-16 10:08:29 -0600'>2016-11-16 10:08:29 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       N/A complexity per method
     </div>
     <div class="file-stat">
-      8 churn
+      10 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -57,6 +57,7 @@
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
+require_relative &#39;support/minitest&#39;
 
 # Description: Provides step definitions related to elements
 
@@ -65,7 +66,7 @@ require_relative &#39;support/parse&#39;
 # - I click on the &quot;home_screen&quot; &quot;about_button&quot; element
 # - I hover over the &quot;home_screen&quot; &quot;test_link&quot; element
 # - I tap on &quot;home_screen&quot; &quot;logo_button&quot; element
-When(/^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L11" class="js-smell-location">0</a>                  <a href="element.html#L21" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(/^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
   method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send(method)
 end
@@ -75,7 +76,7 @@ end
 # - I type &quot;blah&quot; into the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;blah&quot; in &quot;home_screen&quot; &quot;text_field&quot; element
-When(/^I type &quot;([\w\s]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L11" class="js-smell-location">0</a>                  <a href="element.html#L21" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(/^I type &quot;([^&quot;]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
 end

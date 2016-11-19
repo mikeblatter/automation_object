@@ -54,7 +54,7 @@
 </div>
 
 <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
-require_relative &#39;state/session&#39;
+require_relative &#39;state/top&#39;
 
 module AutomationObject
   # State Port, following port/adapter pattern
@@ -66,9 +66,9 @@ module AutomationObject
     # Will use a composite to help control the state
     # @param driver [AutomationObject::Driver::Driver] driver interface
     # @param blue_prints [AutomationObject::BluePrint::Composite::Top] Top composite interface
-    # # @return [AutomationObject::State::Session] Session instance
+    # # @return [AutomationObject::State::Top] Top instance
     def create(driver, blue_prints)
-      Session.new(driver, blue_prints)
+      Top.new(driver, blue_prints)
     end
   end
 end

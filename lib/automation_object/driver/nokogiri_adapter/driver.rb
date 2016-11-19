@@ -30,6 +30,12 @@ module AutomationObject
           find_element(:xpath, '//title').text
         end
 
+        # Close current window
+        # @return [void]
+        def close
+          session.close
+        end
+
         def back
           session.back
         end

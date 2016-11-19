@@ -18,10 +18,11 @@ module AutomationObject
     # Proxy for Modal
     class ModalProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Modal] blue_prints
-      # @param [AutomationObject::State::Session] state
+      # @param [AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super Modal, blue_prints, state, name
+        modal_state = state.modals[name]
+        super Modal, blue_prints, modal_state, name
       end
 
       # @param [Symbol] method
@@ -31,17 +32,14 @@ module AutomationObject
         return super if Modal.methods.include?(method)
 
         # Attempt to load modal if composite object contains that child
-        if @subject.to_h.include?(method)
-          # puts "@state.load(:modal, #{@name})"
-          @state.load(:modal, @name)
-        end
+        @state.utilize if @subject.to_h.include?(method)
 
         super
       end
 
       # @return [Boolean]
       def active?
-        @state.active?(:modal, @name)
+        @state.active?
       end
     end
   end

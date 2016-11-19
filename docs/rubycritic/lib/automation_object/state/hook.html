@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../../../overview.html" class="project-nav-item">Overview</a>
+          <a href="../../../code_index.html" class="project-nav-item">Code</a>
+          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">AutomationObject::State::Hook</h2>
+
+  <span class="file-committed-at">
+    
+      Never committed
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      41 complexity
+    </div>
+    <div class="file-stat">
+      13.7 complexity per method
+    </div>
+    <div class="file-stat">
+      0 churn
+    </div>
+    <div class="file-stat">
+      3 methods
+    </div>
+    <div class="file-stat">
+      42 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+require_relative &#39;_base&#39;
+
+require_relative &#39;hook_action&#39;
+require_relative &#39;hook_actions/element_requirement&#39;
+
+module AutomationObject
+  module State
+    # Hook composite for managing state
+    class Hook &lt; Base
+      # @return [Boolean, nil] return nil if no live? check, otherwise boolean
+      def live?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::State::Hook#live? has approx 7 statements          </span>  </li></ul>
+        before
+
+        return nil if blue_prints.live?.empty?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Hook#live? calls 'blue_prints.live?' 2 times                        <a href="hook.html#L15" class="js-smell-location">0</a>                  <a href="hook.html#L17" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+        blue_prints.live?.each do |element_requirement_blueprints|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Hook#live? calls 'blue_prints.live?' 2 times                        <a href="hook.html#L15" class="js-smell-location">0</a>                  <a href="hook.html#L17" class="js-smell-location">1</a>                  </span>  </li></ul>
+          hook_element_requirement = ElementRequirement.new(self, driver, element_requirement_blueprints, 1)
+          return false unless hook_element_requirement.run
+        end
+
+        after
+
+        true
+      end
+
+      # Runs the before hook
+      # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
+      def before<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="hook.html#L29" class="js-smell-location">0</a>                  <a href="hook.html#L41" class="js-smell-location">1</a>                  </span>  </li></ul>
+        return nil if blue_prints.before.empty?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Hook#before calls 'blue_prints.before' 2 times                        <a href="hook.html#L30" class="js-smell-location">0</a>                  <a href="hook.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+        hook_action = HookAction.new(driver,
+                                     blue_prints.before,<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Hook#before calls 'blue_prints.before' 2 times                        <a href="hook.html#L30" class="js-smell-location">0</a>                  <a href="hook.html#L33" class="js-smell-location">1</a>                  </span>  </li></ul>
+                                     :hook_action, self, location + &#39;[hook_action]&#39;)
+
+        hook_action.run
+      end
+
+      # Runs the after hook
+      # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
+      def after<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="hook.html#L29" class="js-smell-location">0</a>                  <a href="hook.html#L41" class="js-smell-location">1</a>                  </span>  </li></ul>
+        return nil if blue_prints.after.empty?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Hook#after calls 'blue_prints.after' 2 times                        <a href="hook.html#L42" class="js-smell-location">0</a>                  <a href="hook.html#L45" class="js-smell-location">1</a>                  </span>  </li></ul>
+
+        hook_action = HookAction.new(driver,
+                                     blue_prints.after,<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Hook#after calls 'blue_prints.after' 2 times                        <a href="hook.html#L42" class="js-smell-location">0</a>                  <a href="hook.html#L45" class="js-smell-location">1</a>                  </span>  </li></ul>
+                                     :hook_action, self, location + &#39;[hook_action]&#39;)
+        hook_action.run
+      end
+    end
+  end
+end
+</code>
+
+    </div>
+    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+  </body>
+</html>

@@ -228,6 +228,29 @@ Conforms to interface and provides Selenium type functionality for XML only func
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#close-instance_method" title="#close (instance method)">#<strong>close</strong>  &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Close current window.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#dismiss_prompt-instance_method" title="#dismiss_prompt (instance method)">#<strong>dismiss_prompt</strong>  &#x21d2; Object </a>
     
 
@@ -775,11 +798,11 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-89
-90</pre>
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accept_prompt'>accept_prompt</span>
 <span class='kw'>end</span></pre>
@@ -803,12 +826,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-33
-34
-35</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_back'>back</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_back'>back</span>
@@ -860,15 +883,55 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-98
-99
-100</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser?'>browser?</span>
   <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="close-instance_method">
+  
+    #<strong>close</strong>  &#x21d2; <tt>void</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Close current window</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
+  <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -900,11 +963,11 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-93
-94</pre>
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dismiss_prompt'>dismiss_prompt</span>
 <span class='kw'>end</span></pre>
@@ -955,12 +1018,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-122
-123
-124</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_document_complete?'>document_complete?</span>
   <span class='kw'>true</span>
@@ -1026,11 +1089,11 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-128
-129</pre>
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='id identifier rubyid_script'>script</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1115,13 +1178,13 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-59
-60
-61
-62</pre>
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_elements'>elements</span> <span class='op'>=</span> <span class='id identifier rubyid_get_elements'>get_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1221,17 +1284,17 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-67
-68
-69
-70
-71
-72
 73
-74</pre>
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_elements'>elements</span> <span class='op'>=</span> <span class='id identifier rubyid_get_elements'>get_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1322,17 +1385,17 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
 85
-86</pre>
+86
+87
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_elements'>find_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_elements'>elements</span> <span class='op'>=</span> <span class='id identifier rubyid_get_elements'>get_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1362,12 +1425,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-37
-38
-39</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forward'>forward</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_forward'>forward</span>
@@ -1478,12 +1541,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-137
-138
-139</pre>
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inner_window_height'>inner_window_height</span>
   <span class='int'>0</span>
@@ -1518,12 +1581,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-46
-47
-48</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_quit'>quit</span>
@@ -1548,12 +1611,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-41
-42
-43</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh'>refresh</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_refresh'>refresh</span>
@@ -1605,12 +1668,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-132
-133
-134</pre>
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scroll_position'>scroll_position</span>
   <span class='const'>Point</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>x:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>y:</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -1719,11 +1782,11 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-53
-54</pre>
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait'>wait</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1774,12 +1837,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-110
-111
-112</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span>
@@ -1833,12 +1896,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-116
-117
-118</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 122</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle='>window_handle=</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>=</span> <span class='id identifier rubyid_handle_value'>handle_value</span>
@@ -1890,12 +1953,12 @@ Conforms to interface and provides Selenium type functionality for XML only func
       <pre class="lines">
 
 
-104
-105
-106</pre>
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/driver.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handles'>window_handles</span>
   <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_window_handles'>window_handles</span>
@@ -1910,7 +1973,7 @@ Conforms to interface and provides Selenium type functionality for XML only func
 </div>
 
       <div id="footer">
-  Generated on Sun Nov  6 21:45:23 2016 by
+  Generated on Sat Nov 19 15:40:35 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

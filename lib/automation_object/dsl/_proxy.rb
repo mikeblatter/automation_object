@@ -8,8 +8,8 @@ module AutomationObject
     # Prevents inspection from picking up internal methods
     class Proxy < AutomationObject::Proxy::Proxy
       # @param subject_class [AutomationObject::Dsl::CompositeBase, nil]
-      # @param blue_prints [AutomationObject::BluePrint::Composite::CompositeBase]
-      # @param state [AutomationObject::State::Session]
+      # @param blue_prints [AutomationObject::BluePrint::Composite::Base]
+      # @param state [AutomationObject::State::Base]
       # @param name [Symbol]
       def initialize(subject_class, blue_prints, state, name)
         @blue_prints = blue_prints

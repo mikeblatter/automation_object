@@ -20,10 +20,11 @@ module AutomationObject
     # Proxy for Screen
     class ScreenProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Screen] blue_prints
-      # @param [AutomationObject::State::Session] state
+      # @param [AutomationObject::State::Top] top state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        super Screen, blue_prints, state, name
+        screen_state = state.screens[name]
+        super Screen, blue_prints, screen_state, name
       end
 
       # @param [Symbol] method
@@ -33,17 +34,14 @@ module AutomationObject
         return super if Screen.methods.include?(method)
 
         # Attempt to load screen if composite object contains that child
-        if @subject.to_h.include?(method)
-          # puts "@state.load(:screen, #{@name})"
-          @state.load(:screen, @name)
-        end
+        @state.utilize if @subject.to_h.include?(method)
 
         super
       end
 
       # @return [Boolean]
       def active?
-        @state.active?(:screen, @name)
+        @state.active?
       end
     end
   end

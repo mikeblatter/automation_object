@@ -151,6 +151,12 @@ module AutomationObject
           true
         end
 
+        # Close current window
+        # @return [void]
+        def close
+          @subject.close
+        end
+
         # @return [void]
         def quit
           @subject.driver_quit
