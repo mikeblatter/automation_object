@@ -16,6 +16,7 @@ module AutomationObject
           else
             return false
           end
+
         end
       end
     end

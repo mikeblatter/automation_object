@@ -44,9 +44,11 @@ module AutomationObject
         end
 
         def reset
-          elements.values.map(&:reset)
-          element_arrays.values.map(&:reset)
-          element_hashes.values.map(&:reset)
+          #puts "reset: #{self.name}"
+
+          #elements.values.map(&:reset)
+          #element_arrays.values.map(&:reset)
+          #element_hashes.values.map(&:reset)
         end
 
         # Whether or not modal is active
