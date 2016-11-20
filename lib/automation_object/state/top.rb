@@ -11,8 +11,13 @@ module AutomationObject
       # Children for this composite
       has_many :screens, interface: Screen
 
-      def initialize(*args)
-        super(*args)
+      # @param driver [AutomationObject::Driver] driver
+      # @param blue_prints [AutomationObject::BluePrint::Composite::Base] blue print composite
+      # @param name [Symbol] name of composite element
+      # @param parent [Object, nil] parent composite object
+      # @param location [String] string location for error/debugging purposes
+      def initialize(driver, blue_prints, name = :top, parent = nil, location = 'top')
+        super
 
         driver.get(blue_prints.base_url) if blue_prints.base_url
         set_initial_screen

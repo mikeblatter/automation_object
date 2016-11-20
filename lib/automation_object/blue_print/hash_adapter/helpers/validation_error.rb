@@ -16,7 +16,7 @@ module AutomationObject
         def message
           message = "\nBluePrint::HashAdapter composite validation failed for the following errors:\n"
           @errors.each do |error|
-            message << "     - #{error}\n"
+            message = message + "     - #{error}\n"
           end
 
           message + "\n"
