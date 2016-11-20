@@ -12,7 +12,7 @@ module AutomationObject
 
       # @return [Hash<String, AutomationObject::State::ElementProxy>] Selenium proxy
       def utilize
-        # return self.cache if self.cache
+        return self.cache if self.cache
 
         elements = driver.find_elements(*blue_prints.selector_params)
         self.cache = {}

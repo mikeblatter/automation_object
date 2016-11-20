@@ -43,6 +43,11 @@ module AutomationObject
       def active?
         @state.active?
       end
+
+      # Close screen
+      def close
+        @state.close
+      end
     end
   end
 end
