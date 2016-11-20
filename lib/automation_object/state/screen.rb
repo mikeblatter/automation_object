@@ -34,7 +34,6 @@ module AutomationObject
       def activate
         @active = true
         self.window_handle = driver.window_handle
-        binding.pry
       end
 
       def deactivate
