@@ -24,7 +24,7 @@ class RailsApp
     `cd #{BASE_DIR}; bundle exec rake db:create`
     `cd #{BASE_DIR}; bundle exec rake db:migrate`
 
-    @pid = Process.spawn("cd #{BASE_DIR}; rails s -p #{PORT} > /dev/null 2>&1")#
+    @pid = Process.spawn("cd #{BASE_DIR}; bundle exec rails s -p #{PORT} > /dev/null 2>&1")#
 
     10.times do
       sleep(5)

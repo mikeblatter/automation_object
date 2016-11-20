@@ -11,10 +11,9 @@ By creating YAML configurations that represents your website/app, the DSL framew
 and allow you to control the automation through the DSL framework.  Using this gem can help remove tedious tasks that are often
 repeated throughout code and help improve the scalability of code by mapping UI in YAML configuration files.
 
-## Currently In Development
+## Development Phase
 
-Most of the features are unavailable and the gem is not supported at all right now. In the middle of building out most
-of the core features/code.
+Alpha
 
 ## Features
 
