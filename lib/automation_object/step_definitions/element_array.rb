@@ -11,7 +11,7 @@ require_relative 'support/minitest'
 # - I hover over all "home_screen" "about_button" element array
 # - I click on 0..9 "home_screen" "about_button" element array
 # - I click on a random "home_screen" "about_button" element array
-When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array$/)) do |*args|
+When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array$)) do |*args|
   method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(
