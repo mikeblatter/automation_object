@@ -26,7 +26,7 @@ module AutomationObject
         if blue_prints.default_screen
           default_name = blue_prints.default_screen
 
-          raise AutomationObject::State::NoInitialScreenError if screens[default_name].load.live? != true
+          raise AutomationObject::State::NoInitialScreenError if screens[default_name].load.live? == false
 
           return screens[default_name].activate
         end
