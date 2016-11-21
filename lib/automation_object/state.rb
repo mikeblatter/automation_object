@@ -13,7 +13,10 @@ module AutomationObject
     # @param blue_prints [AutomationObject::BluePrint::Composite::Top] Top composite interface
     # # @return [AutomationObject::State::Top] Top instance
     def create(driver, blue_prints)
-      Top.new(driver, blue_prints)
+      top = Top.new(driver, blue_prints)
+      top.start
+
+      top
     end
   end
 end

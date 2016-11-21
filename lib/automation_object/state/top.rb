@@ -18,7 +18,9 @@ module AutomationObject
       # @param location [String] string location for error/debugging purposes
       def initialize(driver, blue_prints, name = :top, parent = nil, location = 'top')
         super
+      end
 
+      def start
         driver.get(blue_prints.base_url) if blue_prints.base_url
         set_initial_screen
       end
