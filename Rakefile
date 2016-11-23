@@ -4,6 +4,10 @@ require 'rake/testtask'
 require 'fileutils'
 require 'awesome_print'
 
+module Cucumber
+  JRUBY = nil
+end
+
 # Auto documentation
 require 'yard'
 require 'redcarpet'
@@ -49,13 +53,8 @@ Rake::Task[:rubycritic].enhance do
   FileUtils.cp(rubycritic_overview, rubycritic_index)
 end
 
-desc 'Generate Step Definition Docs'
-task :step_definition_docs do
-  ruby File.join(THIS_DIRECTORY, 'build/step_definition_docs.rb')
-end
-
 desc 'Build Docs'
-task docs: [:yard, :step_definition_docs, :rubycritic] do
+task docs: [:yard, :rubycritic] do
 end
 
 # Building

@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-16 10:08:29 -0600'>2016-11-16 10:08:29 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-20 13:49:17 -0600'>2016-11-20 13:49:17 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       N/A complexity per method
     </div>
     <div class="file-stat">
-      10 churn
+      11 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -68,7 +68,7 @@ require_relative &#39;support/minitest&#39;
 # - I hover over all &quot;home_screen&quot; &quot;about_button&quot; element array
 # - I click on 0..9 &quot;home_screen&quot; &quot;about_button&quot; element array
 # - I click on a random &quot;home_screen&quot; &quot;about_button&quot; element array
-When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$/)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L14" class="js-smell-location">0</a>                  <a href="element_array.html#L27" class="js-smell-location">1</a>                  <a href="element_hash.html#L11" class="js-smell-location">2</a>                  <a href="element_hash.html#L24" class="js-smell-location">3</a>                  </span>  </li></ul>
+When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element array$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="element_array.html#L14" class="js-smell-location">0</a>                  <a href="element_array.html#L27" class="js-smell-location">1</a>                  <a href="element_hash.html#L11" class="js-smell-location">2</a>                  <a href="element_hash.html#L24" class="js-smell-location">3</a>                  </span>  </li></ul>
   method, key, low_range, high_range, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
 
   AutomationObject::StepDefinitions::ElementArray.iterate_and_do(

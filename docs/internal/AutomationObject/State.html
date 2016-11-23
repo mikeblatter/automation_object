@@ -221,13 +221,19 @@ Will use a composite to help control the state</p>
 
 15
 16
-17</pre>
+17
+18
+19
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/state.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
-  <span class='const'>Top</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_top'>top</span> <span class='op'>=</span> <span class='const'>Top</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_top'>top</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span>
+
+  <span class='id identifier rubyid_top'>top</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -239,9 +245,9 @@ Will use a composite to help control the state</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 19 15:41:37 2016 by
+  Generated on Wed Nov 23 15:10:21 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.0).
 </div>
 
     </div>

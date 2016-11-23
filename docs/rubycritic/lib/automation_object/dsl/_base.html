@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-23 14:54:17 -0600'>2016-11-23 14:54:17 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      36 complexity
+      42 complexity
     </div>
     <div class="file-stat">
-      5.1 complexity per method
+      6.0 complexity per method
     </div>
     <div class="file-stat">
-      14 churn
+      15 churn
     </div>
     <div class="file-stat">
       7 methods
@@ -69,7 +69,8 @@ module AutomationObject
         # Add attributes the call super
         self.class.has_many_relationships.each do |name, composite_class|
           blue_prints.send(name).each do |child_key, child_blue_prints|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nested-Iterators.md" target="_blank">NestedIterators</a>)      AutomationObject::Dsl::Base#initialize contains iterators nested 2 deep          </span>  </li></ul>
-            ostruct_hash[child_key] = composite_class.new(child_blue_prints, state, child_key)
+            child_state = state.send(name)[child_key]
+            ostruct_hash[child_key] = composite_class.new(child_blue_prints, child_state, child_key)
           end
         end
 

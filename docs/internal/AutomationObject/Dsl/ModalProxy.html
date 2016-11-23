@@ -281,15 +281,13 @@
 
 23
 24
-25
-26</pre>
+25</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_modal_state'>modal_state</span> <span class='op'>=</span> <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_modals'>modals</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
-  <span class='kw'>super</span> <span class='const'>Modal</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_modal_state'>modal_state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>super</span> <span class='const'>Modal</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -365,17 +363,17 @@
       <pre class="lines">
 
 
+30
 31
 32
 33
 34
 35
 36
-37
-38</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>super</span> <span class='kw'>if</span> <span class='const'>Modal</span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
@@ -434,12 +432,12 @@
       <pre class="lines">
 
 
+40
 41
-42
-43</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span>
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_active?'>active?</span>
@@ -454,9 +452,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 19 15:41:37 2016 by
+  Generated on Wed Nov 23 15:10:21 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.0).
 </div>
 
     </div>

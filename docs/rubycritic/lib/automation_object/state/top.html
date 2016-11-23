@@ -28,22 +28,22 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-21 08:58:13 -0600'>2016-11-21 08:58:13 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      38 complexity
+      40 complexity
     </div>
     <div class="file-stat">
-      19.0 complexity per method
+      13.3 complexity per method
     </div>
     <div class="file-stat">
-      1 churn
+      4 churn
     </div>
     <div class="file-stat">
-      2 methods
+      3 methods
     </div>
     <div class="file-stat">
       0 duplication
@@ -68,10 +68,17 @@ module AutomationObject
       # Children for this composite
       has_many :screens, interface: Screen
 
-      def initialize(*args)
-        super(*args)
+      # @param driver [AutomationObject::Driver] driver
+      # @param blue_prints [AutomationObject::BluePrint::Composite::Base] blue print composite
+      # @param name [Symbol] name of composite element
+      # @param parent [Object, nil] parent composite object
+      # @param location [String] string location for error/debugging purposes
+      def initialize(driver, blue_prints, name = :top, parent = nil, location = &#39;top&#39;)
+        super
+      end
 
-        driver.get(blue_prints.base_url) if blue_prints.base_url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#initialize calls 'blue_prints.base_url' 2 times          </span>  </li></ul>
+      def start
+        driver.get(blue_prints.base_url) if blue_prints.base_url<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#start calls 'blue_prints.base_url' 2 times          </span>  </li></ul>
         set_initial_screen
       end
 
@@ -80,12 +87,12 @@ module AutomationObject
       # @return [Symbol] screen name
       def set_initial_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flog/" target="_blank">HighComplexity</a>)      AutomationObject::State::Top#set_initial_screen has a flog score of 28          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::State::Top#set_initial_screen has approx 7 statements          </span>  </li></ul>
         # If default screen then check if its live and set it
-        if blue_prints.default_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'blue_prints.default_screen' 2 times                        <a href="top.html#L26" class="js-smell-location">0</a>                  <a href="top.html#L27" class="js-smell-location">1</a>                  </span>  </li></ul>
-          default_name = blue_prints.default_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'blue_prints.default_screen' 2 times                        <a href="top.html#L26" class="js-smell-location">0</a>                  <a href="top.html#L27" class="js-smell-location">1</a>                  </span>  </li></ul>
+        if blue_prints.default_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'blue_prints.default_screen' 2 times                        <a href="top.html#L33" class="js-smell-location">0</a>                  <a href="top.html#L34" class="js-smell-location">1</a>                  </span>  </li></ul>
+          default_name = blue_prints.default_screen<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'blue_prints.default_screen' 2 times                        <a href="top.html#L33" class="js-smell-location">0</a>                  <a href="top.html#L34" class="js-smell-location">1</a>                  </span>  </li></ul>
 
-          raise AutomationObject::State::NoInitialScreenError if screens[default_name].load.live? != true<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'raise AutomationObject::State::NoInitialScreenError' 2 times                        <a href="top.html#L29" class="js-smell-location">0</a>                  <a href="top.html#L39" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'screens[default_name]' 2 times                        <a href="top.html#L29" class="js-smell-location">0</a>                  <a href="top.html#L31" class="js-smell-location">1</a>                  </span>  </li></ul>
+          raise AutomationObject::State::NoInitialScreenError if screens[default_name].load.live? == false<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'raise AutomationObject::State::NoInitialScreenError' 2 times                        <a href="top.html#L36" class="js-smell-location">0</a>                  <a href="top.html#L46" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'screens[default_name]' 2 times                        <a href="top.html#L36" class="js-smell-location">0</a>                  <a href="top.html#L38" class="js-smell-location">1</a>                  </span>  </li></ul>
 
-          return screens[default_name].activate<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'screens[default_name]' 2 times                        <a href="top.html#L29" class="js-smell-location">0</a>                  <a href="top.html#L31" class="js-smell-location">1</a>                  </span>  </li></ul>
+          return screens[default_name].activate<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'screens[default_name]' 2 times                        <a href="top.html#L36" class="js-smell-location">0</a>                  <a href="top.html#L38" class="js-smell-location">1</a>                  </span>  </li></ul>
         end
 
         screens.each_value do |screen|
@@ -93,7 +100,7 @@ module AutomationObject
           return screen.activate
         end
 
-        raise AutomationObject::State::NoInitialScreenError<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'raise AutomationObject::State::NoInitialScreenError' 2 times                        <a href="top.html#L29" class="js-smell-location">0</a>                  <a href="top.html#L39" class="js-smell-location">1</a>                  </span>  </li></ul>
+        raise AutomationObject::State::NoInitialScreenError<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::Top#set_initial_screen calls 'raise AutomationObject::State::NoInitialScreenError' 2 times                        <a href="top.html#L36" class="js-smell-location">0</a>                  <a href="top.html#L46" class="js-smell-location">1</a>                  </span>  </li></ul>
       end
     end
   end

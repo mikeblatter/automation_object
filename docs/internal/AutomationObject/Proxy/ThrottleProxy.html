@@ -609,7 +609,7 @@
   <span class='id identifier rubyid_total_time_taken'>total_time_taken</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='id identifier rubyid_start_time'>start_time</span>
 
   <span class='id identifier rubyid_sleep_time'>sleep_time</span> <span class='op'>=</span> <span class='id identifier rubyid_throttle_methods'>throttle_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_total_time_taken'>total_time_taken</span>
-  <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='id identifier rubyid_sleep_time'>sleep_time</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_sleep_time'>sleep_time</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span>
+  <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='id identifier rubyid_sleep_time'>sleep_time</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_sleep_time'>sleep_time</span> <span class='op'>&gt;</span> <span class='int'>0</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -621,9 +621,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 19 15:41:39 2016 by
+  Generated on Wed Nov 23 15:10:23 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.0).
 </div>
 
     </div>

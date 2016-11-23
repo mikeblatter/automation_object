@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+      Updated <time class='js-timeago' datetime='2016-11-20 14:55:23 -0600'>2016-11-20 14:55:23 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      5 complexity
+      6 complexity
     </div>
     <div class="file-stat">
-      2.5 complexity per method
+      3.0 complexity per method
     </div>
     <div class="file-stat">
-      4 churn
+      5 churn
     </div>
     <div class="file-stat">
       2 methods
@@ -73,7 +73,7 @@ module AutomationObject
         def message
           message = &quot;\nBluePrint::HashAdapter composite validation failed for the following errors:\n&quot;
           @errors.each do |error|
-            message &lt;&lt; &quot;     - #{error}\n&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)                        <a href="validation_error.html#L19" class="js-smell-location">0</a>                  <a href="validation_error.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
+            message = message + &quot;     - #{error}\n&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)                        <a href="validation_error.html#L19" class="js-smell-location">0</a>                  <a href="validation_error.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
           end
 
           message + &quot;\n&quot;<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)                        <a href="validation_error.html#L19" class="js-smell-location">0</a>                  <a href="validation_error.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>

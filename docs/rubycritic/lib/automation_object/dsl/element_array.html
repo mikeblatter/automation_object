@@ -28,25 +28,25 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-23 14:54:17 -0600'>2016-11-23 14:54:17 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      9 complexity
+      6 complexity
     </div>
     <div class="file-stat">
-      3.0 complexity per method
+      2.0 complexity per method
     </div>
     <div class="file-stat">
-      17 churn
+      18 churn
     </div>
     <div class="file-stat">
       3 methods
     </div>
     <div class="file-stat">
-      35 duplication
+      30 duplication
     </div>
   </div>
 
@@ -70,8 +70,7 @@ module AutomationObject<ul class="nocode smells js-smells">  <li class="smell ">
       # @param [AutomationObject::State::Modal, AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        element_array_state = state.element_arrays[name]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::ElementArrayProxy#initialize refers to 'state' more than self (maybe move it to another class?)          </span>  </li></ul>
-        super ElementArray, blue_prints, element_array_state, name
+        super ElementArray, blue_prints, state, name
       end
 
       # @param [Symbol] method

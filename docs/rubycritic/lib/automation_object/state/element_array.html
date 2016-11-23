@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-20 12:26:08 -0600'>2016-11-20 12:26:08 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      8 complexity
+      11 complexity
     </div>
     <div class="file-stat">
-      8.0 complexity per method
+      11.0 complexity per method
     </div>
     <div class="file-stat">
-      1 churn
+      2 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -50,6 +50,8 @@
     </div>
   </div>
 
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
   
 </div>
 
@@ -67,7 +69,7 @@ module AutomationObject
 
       # @return [Array&lt;AutomationObject::State::ElementProxy&gt;] Selenium proxy
       def utilize
-        # return self.cache if self.cache
+        return self.cache if self.cache<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      AutomationObject::State::ElementArray#utilize calls 'self.cache' 2 times          </span>  </li></ul>
 
         elements = driver.find_elements(*blue_prints.selector_params)
 

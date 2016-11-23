@@ -28,7 +28,7 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-16 10:08:29 -0600'>2016-11-16 10:08:29 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-20 13:49:17 -0600'>2016-11-20 13:49:17 -0600</time>
     
   </span>
 
@@ -40,7 +40,7 @@
       N/A complexity per method
     </div>
     <div class="file-stat">
-      10 churn
+      11 churn
     </div>
     <div class="file-stat">
       0 methods
@@ -66,7 +66,7 @@ require_relative &#39;support/minitest&#39;
 # - I click on the &quot;home_screen&quot; &quot;about_button&quot; element
 # - I hover over the &quot;home_screen&quot; &quot;test_link&quot; element
 # - I tap on &quot;home_screen&quot; &quot;logo_button&quot; element
-When(/^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(%r(^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
   method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send(method)
 end
@@ -76,7 +76,7 @@ end
 # - I type &quot;blah&quot; into the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;blah&quot; in &quot;home_screen&quot; &quot;text_field&quot; element
-When(/^I type &quot;([^&quot;]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
+When(%r(^I type &quot;([^&quot;]+|%\{[\w\d]+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$)) do |*args|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L22" class="js-smell-location">1</a>                  </span>  </li></ul>
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
 end
@@ -86,7 +86,7 @@ end
 # - I scroll to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I focus to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I scroll to &quot;home_screen&quot; &quot;logo_button&quot; element
-When(/^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|
+When(%r(^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$)) do |*args|
   screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
 end
@@ -95,7 +95,7 @@ end
 # Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I save &quot;id&quot; as &quot;unique_value&quot; from &quot;home_screen&quot; &quot;logo_button&quot; element
-When(/^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$/) do |*args|
+When(%r(^I save &quot;(\w+|%\{[\w\d]+\})&quot; as &quot;([\w\d]+)&quot; from (?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element$)) do |*args|
   method, key, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   # Save value from called method/property
   value = AutomationObject::Framework.get.send(screen).send(element).send(method)
@@ -107,7 +107,7 @@ end
 # - the &quot;home_screen&quot; &quot;title&quot; element should exist
 # - the &quot;home_screen&quot; &quot;title&quot; element shouldn&#39;t exist
 # - &quot;home_screen&quot; &quot;title&quot; element should not exist
-Then(/^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element should ?(n&#39;t |not )?exist$/) do |*args|
+Then(%r(^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element should ?(n&#39;t |not )?exist$)) do |*args|
   screen, element, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
   exists = AutomationObject::Framework.get.send(screen).send(element).exists?
@@ -123,7 +123,7 @@ end
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should equal &quot;Home&quot;
 # - &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should not equal &quot;About&quot;
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; shouldn&#39;t equal &quot;%{saved_value}&quot;
-Then(/^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element &quot;(\w+|%\{[\w\d]+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{[\w\d]+\})&quot;$/) do |*args|
+Then(%r(^(?:the )?&quot;(\w+|%\{[\w\d]+\})&quot; &quot;(\w+|%\{[\w\d]+\})&quot; element &quot;(\w+|%\{[\w\d]+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{[\w\d]+\})&quot;$)) do |*args|
   screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
   actual_value = AutomationObject::Framework.get.send(screen).send(element).send(method)

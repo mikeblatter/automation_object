@@ -28,25 +28,25 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-23 14:54:17 -0600'>2016-11-23 14:54:17 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      11 complexity
+      9 complexity
     </div>
     <div class="file-stat">
-      3.7 complexity per method
+      3.0 complexity per method
     </div>
     <div class="file-stat">
-      17 churn
+      18 churn
     </div>
     <div class="file-stat">
       3 methods
     </div>
     <div class="file-stat">
-      35 duplication
+      17 duplication
     </div>
   </div>
 
@@ -73,19 +73,18 @@ module AutomationObject
     end
 
     # Proxy for Modal
-    class ModalProxy &lt; Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="modal.html#L19" class="js-smell-location">0</a>                  <a href="screen.html#L21" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@state'          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@subject'          </span>  </li></ul>
+    class ModalProxy &lt; Proxy<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@state'          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@subject'          </span>  </li></ul>
       # @param [AutomationObject::BluePrint::Composite::Modal] blue_prints
       # @param [AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        modal_state = state.modals[name]<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      AutomationObject::Dsl::ModalProxy#initialize refers to 'state' more than self (maybe move it to another class?)          </span>  </li></ul>
-        super Modal, blue_prints, modal_state, name
+        super Modal, blue_prints, state, name
       end
 
       # @param [Symbol] method
       # @param [Array, nil] args
       # @param [Proc] block
-      def method_missing(method, *args, &amp;block)
+      def method_missing(method, *args, &amp;block)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 2 nodes                        <a href="modal.html#L30" class="js-smell-location">0</a>                  <a href="screen.html#L32" class="js-smell-location">1</a>                  </span>  </li></ul>
         return super if Modal.methods.include?(method)
 
         # Attempt to load modal if composite object contains that child

@@ -767,7 +767,9 @@
 53
 54
 55
-56</pre>
+56
+57
+58</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 51</span>
@@ -777,6 +779,8 @@
 
   <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>=</span> <span class='id identifier rubyid_window_handle'>window_handle</span> <span class='kw'>if</span> <span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>!=</span> <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+
+  <span class='id identifier rubyid_deactivate'>deactivate</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -820,12 +824,12 @@
       <pre class="lines">
 
 
-59
-60
-61</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_closed?'>closed?</span>
   <span class='op'>!</span><span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_window_handles'>window_handles</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_window_handle'>window_handle</span><span class='rparen'>)</span>
@@ -886,14 +890,14 @@
       <pre class="lines">
 
 
-63
-64
 65
 66
-67</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset'>reset</span>
   <span class='id identifier rubyid_elements'>elements</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:reset</span><span class='rparen'>)</span>
@@ -964,9 +968,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 19 15:41:38 2016 by
+  Generated on Wed Nov 23 15:10:22 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.0).
 </div>
 
     </div>

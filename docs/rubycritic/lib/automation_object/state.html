@@ -28,19 +28,19 @@
 
   <span class="file-committed-at">
     
-      Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+      Updated <time class='js-timeago' datetime='2016-11-21 08:58:13 -0600'>2016-11-21 08:58:13 -0600</time>
     
   </span>
 
   <div class="file-stats group">
     <div class="file-stat">
-      1 complexity
+      2 complexity
     </div>
     <div class="file-stat">
-      1.0 complexity per method
+      2.0 complexity per method
     </div>
     <div class="file-stat">
-      16 churn
+      17 churn
     </div>
     <div class="file-stat">
       1 methods
@@ -68,7 +68,10 @@ module AutomationObject
     # @param blue_prints [AutomationObject::BluePrint::Composite::Top] Top composite interface
     # # @return [AutomationObject::State::Top] Top instance
     def create(driver, blue_prints)
-      Top.new(driver, blue_prints)
+      top = Top.new(driver, blue_prints)
+      top.start
+
+      top
     end
   end
 end

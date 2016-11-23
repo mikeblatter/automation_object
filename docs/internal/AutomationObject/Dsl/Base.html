@@ -369,7 +369,8 @@
 17
 18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 9</span>
@@ -380,7 +381,8 @@
   <span class='comment'># Add attributes the call super
 </span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_has_many_relationships'>has_many_relationships</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_composite_class'>composite_class</span><span class='op'>|</span>
     <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_child_key'>child_key</span><span class='comma'>,</span> <span class='id identifier rubyid_child_blue_prints'>child_blue_prints</span><span class='op'>|</span>
-      <span class='id identifier rubyid_ostruct_hash'>ostruct_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_child_key'>child_key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_composite_class'>composite_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_child_blue_prints'>child_blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_child_key'>child_key</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_child_state'>child_state</span> <span class='op'>=</span> <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='id identifier rubyid_child_key'>child_key</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_ostruct_hash'>ostruct_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_child_key'>child_key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_composite_class'>composite_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_child_blue_prints'>child_blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_child_state'>child_state</span><span class='comma'>,</span> <span class='id identifier rubyid_child_key'>child_key</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 
@@ -457,12 +459,12 @@
       <pre class="lines">
 
 
-62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_many'>has_many</span><span class='lparen'>(</span><span class='id identifier rubyid_children_name'>children_name</span><span class='comma'>,</span> <span class='id identifier rubyid_composite_class'>composite_class</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_has_many_relationships'>has_many_relationships</span><span class='lbracket'>[</span><span class='id identifier rubyid_children_name'>children_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_composite_class'>composite_class</span>
@@ -514,12 +516,12 @@
       <pre class="lines">
 
 
-67
 68
-69</pre>
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_many_relationships'>has_many_relationships</span>
   <span class='ivar'>@has_many_relationships</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -598,13 +600,13 @@
       <pre class="lines">
 
 
-42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_formatted_name'>formatted_name</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_color'>color</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_active?'>active?</span> <span class='op'>?</span> <span class='symbol'>:green</span> <span class='op'>:</span> <span class='symbol'>:blue</span>
@@ -669,7 +671,6 @@
       <pre class="lines">
 
 
-28
 29
 30
 31
@@ -678,10 +679,11 @@
 34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span><span class='lparen'>(</span><span class='id identifier rubyid__indent'>_indent</span> <span class='op'>=</span> <span class='int'>5</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_string'>string</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -761,16 +763,16 @@
       <pre class="lines">
 
 
-50
 51
 52
 53
 54
 55
-56</pre>
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sub_inspect'>sub_inspect</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Base</span><span class='rparen'>)</span>
@@ -799,12 +801,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/_base.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_inspect'>inspect</span>
@@ -819,9 +821,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 19 15:41:37 2016 by
+  Generated on Wed Nov 23 15:10:21 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.0).
 </div>
 
     </div>

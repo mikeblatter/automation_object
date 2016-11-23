@@ -297,8 +297,8 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/state/element.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_utilize'>utilize</span>
-  <span class='comment'># return self.cache if self.cache
-</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cache'>cache</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cache'>cache</span>
+
   <span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_selector_params'>selector_params</span><span class='rparen'>)</span>
   <span class='ivar'>@active</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cache'>cache</span> <span class='op'>=</span> <span class='const'>ElementProxy</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
@@ -313,9 +313,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 19 15:41:38 2016 by
+  Generated on Wed Nov 23 15:10:22 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.0).
 </div>
 
     </div>
