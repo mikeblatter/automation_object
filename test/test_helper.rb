@@ -9,11 +9,19 @@ require 'minitest-bonus-assertions'
 require 'simplecov'
 require 'coveralls'
 
+BASE_DIR = File.expand_path(File.join(__dir__, '../'))
+
+SimpleCov.root(BASE_DIR)
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
-  add_filter '/test'
-  add_filter '/test_integration'
-  add_filter '/docs'
+  add_group 'BluePrint', '../lib/automation_object/blue_print'
+  add_group 'Dsl', '../lib/automation_object/dsl'
+  add_group 'State', '../lib/automation_object/state'
+  add_group 'Driver', '../lib/automation_object/driver'
+
+  add_filter '../test'
+  add_filter '../test_integration'
+  add_filter '../docs'
 end
 
 # Extension of Assertions

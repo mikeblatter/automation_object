@@ -12,4 +12,13 @@ class TestAppiumAdapterElement < Minitest::Test
 
   def setup
   end
+
+  def teardown
+  end
+
+  def test_scroll_into_view
+  end
+
+  def test_ideal_y_position
+  end
 end
