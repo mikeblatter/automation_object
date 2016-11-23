@@ -45,7 +45,7 @@ module AutomationObject
         total_time_taken = Time.new.to_f - start_time
 
         sleep_time = throttle_methods[method_symbol] - total_time_taken
-        sleep(sleep_time) if sleep_time.positive?
+        sleep(sleep_time) if sleep_time > 0
       end
     end
   end
