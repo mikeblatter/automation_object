@@ -13,8 +13,7 @@ module AutomationObject
       # @param [AutomationObject::State::Modal, AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        element_hash_state = state.element_hashes[name]
-        super ElementHash, blue_prints, element_hash_state, name
+        super ElementHash, blue_prints, state, name
       end
 
       # @param [Symbol] method

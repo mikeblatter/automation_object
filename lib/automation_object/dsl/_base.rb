@@ -12,7 +12,8 @@ module AutomationObject
         # Add attributes the call super
         self.class.has_many_relationships.each do |name, composite_class|
           blue_prints.send(name).each do |child_key, child_blue_prints|
-            ostruct_hash[child_key] = composite_class.new(child_blue_prints, state, child_key)
+            child_state = state.send(name)[child_key]
+            ostruct_hash[child_key] = composite_class.new(child_blue_prints, child_state, child_key)
           end
         end
 

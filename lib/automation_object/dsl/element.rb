@@ -13,8 +13,7 @@ module AutomationObject
       # @param [AutomationObject::State::Modal, AutomationObject::State::Screen] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
-        element_state = state.elements[name]
-        super Element, blue_prints, element_state, name
+        super Element, blue_prints, state, name
       end
 
       # @param [Symbol] method
