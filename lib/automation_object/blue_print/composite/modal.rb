@@ -18,7 +18,7 @@ module AutomationObject
       class Modal < Base
         # @return [Array<Symbol>]
         def included_views
-          adapter.screens
+          adapter.included_views
         end
 
         # @return [Hook]

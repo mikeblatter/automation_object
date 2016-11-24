@@ -29,7 +29,7 @@ module AutomationObject
           adapter.element_name
         end
 
-        # Convience for getting element blueprints
+        # Convenience for getting element blueprints
         # @return [AutomationObject::BluePrint::Composite::Element]
         def element_blueprints(composite_object = nil)
           adapter.element_blueprints(composite_object)

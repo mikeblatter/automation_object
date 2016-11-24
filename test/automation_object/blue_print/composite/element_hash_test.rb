@@ -9,6 +9,11 @@ class TestBluePrintCompositeElementHash < Minitest::Test
     @subject = AutomationObject::BluePrint::Composite::ElementHash.new(@mock)
   end
 
+  def test_define_elements_by
+    @mock.expects(:define_elements_by).returns(:text)
+    assert_equal :text, @subject.define_elements_by
+  end
+
   def test_selector_params
     @mock.expects(:selector_params).returns([:xpath, '//path/to/logo'])
     assert_equal [:xpath, '//path/to/logo'], @subject.selector_params

@@ -23,4 +23,9 @@ class TestBluePrintCompositeHookElementRequirements < Minitest::Test
     @mock.expects(:element_name).returns(:element_name)
     assert_equal :element_name, @subject.element_name
   end
+
+  def test_element_blueprints
+    @mock.expects(:element_blueprints).with(:test).returns(:blue_prints)
+    assert_equal :blue_prints, @subject.element_blueprints(:test)
+  end
 end

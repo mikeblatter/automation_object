@@ -50,8 +50,8 @@ class TestBluePrintCompositeHookAction < Minitest::Test
   end
 
   def test_reset_screen
-    @mock.expects(:close_modal).returns(true)
-    assert_equal true, @subject.close_modal
+    @mock.expects(:reset_screen).returns(true)
+    assert_equal true, @subject.reset_screen
   end
 
   def test_show_modal
