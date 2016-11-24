@@ -31,11 +31,13 @@ module AutomationObject
         @active ||= false
       end
 
+      # @return [void]
       def activate
         @active = true
         self.window_handle = driver.window_handle
       end
 
+      # @return [void]
       def deactivate
         @active = false
         self.window_handle = nil
@@ -43,17 +45,16 @@ module AutomationObject
         reset
       end
 
+      # @return [void]
       def utilize
         raise ScreenNotActiveError, name unless active?
-        driver.window_handle = window_handle if window_handle != driver.window_handle
+        driver.window_handle = window_handle
       end
 
+      # @return [void]
       def close
-        raise ScreenNotActiveError, name unless active?
-
-        driver.window_handle = window_handle if window_handle != driver.window_handle
+        utilize
         driver.close
-
         deactivate
       end
 
@@ -62,6 +63,7 @@ module AutomationObject
         !driver.window_handles.include?(window_handle)
       end
 
+      # @return [void]
       def reset
         elements.values.map(&:reset)
         element_arrays.values.map(&:reset)

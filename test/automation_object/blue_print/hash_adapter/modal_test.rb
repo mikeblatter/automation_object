@@ -21,6 +21,11 @@ class TestHashAdapterModal < Minitest::Test
     assert_instance_of AutomationObject::BluePrint::Composite::Hook, composite.load
   end
 
+  def test_included_views
+    composite = create_composite(included_views: [:test_view])
+    assert_equal [:test_view], composite.included_views
+  end
+
   def test_elements
     composite = create_composite(elements: { test_one: {}, test_two: {} })
 
