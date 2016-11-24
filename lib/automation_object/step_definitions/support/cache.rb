@@ -9,14 +9,17 @@ module AutomationObject
       # Singleton hash, create new if needed
       # @return [Hash] hash of values saved or new hash
       def values
-        return @values if @values
-        @values = {}
+        @values ||= {}
       end
 
+      # @return [Object]
       def get(key)
         values[key]
       end
 
+      # @param key [Object]
+      # @param value [Object]
+      # @return [void]
       def set(key, value)
         values[key] = value
       end
