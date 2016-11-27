@@ -24,9 +24,9 @@ module AutomationObject
           adapter.dismiss
         end
 
-        # @return [Array<AutomaticOnloadModal>]
-        def automatic_onload_modals
-          adapter.automatic_onload_modals
+        # @return [Array<AutomaticModalChange>]
+        def automatic_modal_changes
+          adapter.automatic_modal_changes
         end
 
         # @return [Array<Symbol>]

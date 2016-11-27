@@ -16,7 +16,7 @@ class TestHashAdapterScreen < Minitest::Test
     elements: {},
     element_arrays: {},
     element_hashes: {},
-    automatic_onload_modals: [],
+    automatic_modal_changes: [],
     automatic_screen_changes: [],
     included_views: []
   }
@@ -85,14 +85,14 @@ class TestHashAdapterScreen < Minitest::Test
     end
   end
 
-  def test_automatic_onload_modals
-    composite = create_composite(automatic_onload_modals: [{}, {}])
+  def test_automatic_modal_changes
+    composite = create_composite(automatic_modal_changes: [{}, {}])
 
-    assert_instance_of Array, composite.automatic_onload_modals
-    assert_equal 2, composite.automatic_onload_modals.length
+    assert_instance_of Array, composite.automatic_modal_changes
+    assert_equal 2, composite.automatic_modal_changes.length
 
-    composite.automatic_onload_modals.each do |sub_composite|
-      assert_instance_of AutomationObject::BluePrint::Composite::AutomaticOnloadModal, sub_composite
+    composite.automatic_modal_changes.each do |sub_composite|
+      assert_instance_of AutomationObject::BluePrint::Composite::AutomaticModalChange, sub_composite
     end
   end
 
