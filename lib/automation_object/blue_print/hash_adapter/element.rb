@@ -29,6 +29,7 @@ module AutomationObject
         validates :in_iframe, instance_of: String, element_presence_of: true
         validates :css, instance_of: String, presence_of: { unless_presence_of: :xpath }
         validates :xpath, instance_of: String, presence_of: { unless_presence_of: :css }
+        validates :default_input, instance_of: String
       end
     end
   end
