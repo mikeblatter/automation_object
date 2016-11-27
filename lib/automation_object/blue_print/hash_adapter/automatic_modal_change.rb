@@ -5,8 +5,8 @@ require_relative 'composite'
 module AutomationObject
   module BluePrint
     module HashAdapter
-      # Automatic Onload Modal Composite
-      class AutomaticOnloadModal < Composite
+      # Automatic Modal Change Composite
+      class AutomaticModalChange < Composite
         # Validations
         validates :modal_name, instance_of: [String, Symbol], modal_presence_of: true, presence_of: true
         validates :number_of_checks, instance_of: Numeric

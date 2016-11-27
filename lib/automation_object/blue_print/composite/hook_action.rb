@@ -7,9 +7,7 @@ require_relative 'hook_element_requirements'
 module AutomationObject
   module BluePrint
     module Composite
-      # HookAction composite class, passing method to adapter only
-      # Hoping to improve code completion and standard interface where
-      # classes use this as a template to add additional adapters
+      # HookAction composite class
       class HookAction < Base
         # Get the order to run the hook in
         # @return [Array<Symbol>] list of hook methods to run in given order

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require_relative '../../../test_helper'
-require_relative '../../../../lib/automation_object/blue_print/composite/automatic_onload_modal'
+require_relative '../../../../lib/automation_object/blue_print/composite/automatic_modal_change'
 
 # Test AutomationObject::BluePrint::Composite::AutomaticOnloadModal
 class TestBluePrintCompositeAutomaticOnloadModal < Minitest::Test
