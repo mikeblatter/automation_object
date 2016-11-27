@@ -1,8 +1,3 @@
-# Set up Java Drivers
-drivers_path = File.expand_path(File.join(__dir__, 'drivers/'))
-ENV['SELENIUM_SERVER_JAR'] = drivers_path
-ENV['PATH'] = "#{drivers_path}:" + ENV['PATH']
-
 require_relative '../../../lib/automation_object'
 
 driver = Selenium::WebDriver.for :chrome
@@ -16,7 +11,10 @@ at_exit {
   end
 }
 
-AutomationObject::Framework.new(driver: driver, blue_prints: File.expand_path(File.join(__dir__, '../../blue_prints')))
+blue_prints_path = File.expand_path(File.join(__dir__, '../../blue_prints'))
 
-#Load Cucumber Step Definitions
+# Create Framework
+AutomationObject::Framework.new(driver, blue_prints_path)
+
+# Load Cucumber Step Definitions
 AutomationObject::StepDefinitions.load

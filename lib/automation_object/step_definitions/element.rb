@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
-require_relative 'support/minitest'
 
 # Description: Provides step definitions related to elements
 
@@ -11,7 +10,7 @@ require_relative 'support/minitest'
 # - I tap on "home_screen" "logo_button" element
 When(%r(^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$)) do |*args|
   method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
-  AutomationObject::Framework.get.send(screen).send(element).send(method)
+  AutomationObject::Framework.get.screen(screen).element(element).send(method)
 end
 
 # For: Type into element field
@@ -21,7 +20,7 @@ end
 # - I type "blah" in "home_screen" "text_field" element
 When(%r(^I type "([^"]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$)) do |*args|
   text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
-  AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
+  AutomationObject::Framework.get.screen(screen).element(element).send_keys(text)
 end
 
 # For: Scroll element into focus
@@ -31,7 +30,7 @@ end
 # - I scroll to "home_screen" "logo_button" element
 When(%r(^I (?:scroll |focus )to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$)) do |*args|
   screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
-  AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
+  AutomationObject::Framework.get.screen(screen).element(element).scroll_into_view
 end
 
 # For: Save value from element for use later
@@ -41,7 +40,7 @@ end
 When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$)) do |*args|
   method, key, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
   # Save value from called method/property
-  value = AutomationObject::Framework.get.send(screen).send(element).send(method)
+  value = AutomationObject::Framework.get.screen(screen).element(element).send(method)
   AutomationObject::StepDefinitions::Cache.set(key, value)
 end
 
@@ -53,11 +52,11 @@ end
 Then(%r(^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element should ?(n't |not )?exist$)) do |*args|
   screen, element, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  exists = AutomationObject::Framework.get.send(screen).send(element).exists?
+  exists = AutomationObject::Framework.get.screen(screen).element(element).exists?
   if negative
-    assert_equal false, exists
+    expect(exists).to eq(false)
   else
-    assert_equal true, exists
+    expect(exists).to eq(true)
   end
 end
 
@@ -69,10 +68,10 @@ end
 Then(%r(^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element "(\w+|%\{[\w\d]+\})" should ?(n't |not )?equal "(\w+|%\{[\w\d]+\})"$)) do |*args|
   screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  actual_value = AutomationObject::Framework.get.send(screen).send(element).send(method)
+  actual_value = AutomationObject::Framework.get.screen(screen).element(element).send(method)
   if negative
-    refute_equal expected_value, actual_value
+    expect(expected_value).not_to eq(actual_value)
   else
-    assert_equal expected_value, actual_value
+    expect(expected_value).to eq(actual_value)
   end
 end

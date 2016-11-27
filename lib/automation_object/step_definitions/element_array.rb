@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 require_relative 'support/element_array'
-require_relative 'support/minitest'
 
 # Description: Provides step definitions related to element arrays
 
@@ -65,26 +64,26 @@ end
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$)) do |*args|
   screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  element_array = AutomationObject::Framework.get.send(screen).send(element)
+  element_array = AutomationObject::Framework.get.screen(screen).element_array(element)
   assert element_array.is_a?(Array)
 
   if comparison =~ /larger th[ae]n|greater th[ae]n/
     if negative
-      refute expected_value < element_array.length
+      expect(expected_value).to_not be < element_array.length
     else
-      assert expected_value < element_array.length
+      expect(expected_value).to be < element_array.length
     end
   elsif comparison =~ /smaller th[ae]n|less th[ae]n/
     if negative
-      refute expected_value > element_array.length
+      expect(expected_value).to_not be > element_array.length
     else
-      assert expected_value > element_array.length
+      expect(expected_value).to be > element_array.length
     end
   elsif comparison =~ /equals?/
     if negative
-      refute_equals expected_value, element_array.length
+      expect(expected_value).to_not eq(element_array.length)
     else
-      assert_equals expected_value, element_array.length
+      expect(expected_value).to eq(element_array.length)
     end
   end
 end
@@ -105,9 +104,9 @@ Then(%r(^(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d
     value = sub_element.send(method)
 
     if negative
-      refute_equals expected_value, value
+      expect(expected_value).to_not eq(value)
     else
-      assert_equals expected_value, value
+      expect(expected_value).to eq(value)
     end
   end
 end
@@ -120,7 +119,7 @@ end
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element array "([\w\d]+|%\{[\w\d]+\})" should(n't| not)? be unique$)) do |*args|
   screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  element_array = AutomationObject::Framework.get.send(screen).send(element)
+  element_array = AutomationObject::Framework.get.screen(screen).element_array(element)
   assert element_array.is_a?(Array)
 
   values = []
@@ -129,8 +128,8 @@ Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element arra
   end
 
   if negative
-    refute_equals values.uniq, values
+    expect(values.uniq).to_not eq(values)
   else
-    assert_equals values.uniq, values
+    expect(values.uniq).to eq(values)
   end
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require_relative '_base'
 require_relative '_proxy'
+require_relative '_error'
 
 require_relative 'screen'
 
@@ -23,6 +24,23 @@ module AutomationObject
 
       def active?
         true
+      end
+
+      # Retrieve screen from composite
+      # @param name [String, Symbol] name of screen
+      # @raise [AutomationObject::Dsl::Error::ScreenDoesNotExistError]
+      # @return [AutomationObject::Dsl::ScreenProxy]
+      def screen(name)
+        name = name.to_sym
+        raise AutomationObject::Dsl::Error::ScreenDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+
+        @subject.send(name)
+      end
+
+      # Current Screen
+      # @return [AutomationObject::Dsl::ScreenProxy]
+      def current_screen
+        @subject.send(@state.current_screen)
       end
     end
   end

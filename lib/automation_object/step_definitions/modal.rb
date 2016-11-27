@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
-require_relative 'support/minitest'
 
 # Description: Provides step definitions related to modals
 
@@ -11,9 +10,11 @@ require_relative 'support/minitest'
 Then(%r(^the "([\w\s]+|%\{[\w\d]+\})" "([\w\s]+|%\{[\w\d]+\})" modal should ?(n't |not )?be active$)) do |*args|
   screen, modal, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
+  active = AutomationObject::Framework.get.screen(screen).modal(modal).active?
+
   if negative
-    assert_equal false, AutomationObject::Framework.get.send(screen).send(modal).active?
+    expect(active).to eq(false)
   else
-    assert_equal true, AutomationObject::Framework.get.send(screen).send(modal).active?
+    expect(active).to eq(true)
   end
 end

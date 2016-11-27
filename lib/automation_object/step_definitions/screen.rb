@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
-require_relative 'support/minitest'
 
 # Description: Provides step definitions related to screens
 
@@ -69,9 +68,11 @@ end
 Then(%r(^the "([\w\s]+|%\{[\w\d]+\})" screen should ?(n't |not )?be active$)) do |*args|
   screen, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
+  active = AutomationObject::Framework.get.screen(screen).active?
+
   if negative
-    assert_equal false, AutomationObject::Framework.get.send(screen).active?
+    expect(active).to eq(false)
   else
-    assert_equal true, AutomationObject::Framework.get.send(screen).active?
+    expect(active).to eq(true)
   end
 end

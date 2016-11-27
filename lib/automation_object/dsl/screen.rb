@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require_relative '_base'
 require_relative '_proxy'
+require_relative '_error'
 
 require_relative 'modal'
 require_relative 'element'
@@ -46,6 +47,54 @@ module AutomationObject
       # Close screen
       def close
         @state.close
+      end
+
+      # Retrieve modal from composite
+      # @param name [String, Symbol] name of modal
+      # @raise [AutomationObject::Dsl::Error::ModalDoesNotExistError]
+      # @return [AutomationObject::Dsl::ModalProxy]
+      def modal(name)
+        name = name.to_sym
+        raise AutomationObject::Dsl::Error::ModalDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+
+        @state.utilize
+        @subject.send(name)
+      end
+
+      # Retrieve element from composite
+      # @param name [String, Symbol] name of element
+      # @raise [AutomationObject::Dsl::Error::ElementDoesNotExistError]
+      # @return [AutomationObject::Dsl::ElementProxy]
+      def element(name)
+        name = name.to_sym
+        raise AutomationObject::Dsl::Error::ElementDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+
+        @state.utilize
+        @subject.send(name)
+      end
+
+      # Retrieve element array from composite
+      # @param name [String, Symbol] name of element array
+      # @raise [AutomationObject::Dsl::Error::ElementArrayDoesNotExistError]
+      # @return [AutomationObject::Dsl::ElementArrayProxy]
+      def element_array(name)
+        name = name.to_sym
+        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+
+        @state.utilize
+        @subject.send(name)
+      end
+
+      # Retrieve element hash from composite
+      # @param name [String, Symbol] name of element hash
+      # @raise [AutomationObject::Dsl::Error::ElementHashDoesNotExistError]
+      # @return [AutomationObject::Dsl::ElementHashProxy]
+      def element_hash(name)
+        name = name.to_sym
+        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+
+        @state.utilize
+        @subject.send(name)
       end
     end
   end

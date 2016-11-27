@@ -45,10 +45,11 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'simplecov', '~> 0.8'
   spec.add_development_dependency 'mocha', '~> 1.2'
   spec.add_development_dependency 'fakefs', '~> 0.9'
+  spec.add_development_dependency 'minitest', '~> 5.9'
+  spec.add_development_dependency 'minitest-bonus-assertions', '~> 2.0'
 
-  # For Both
-  spec.add_dependency 'minitest', '~> 5.9'
-  spec.add_dependency 'minitest-bonus-assertions', '~> 2.0'
+  # Step Definition Testing
+  spec.add_runtime_dependency 'rspec-expectations', '~> 3.5'
 
   # Runtime dependencies
   spec.add_runtime_dependency 'colorize', '~> 0.8'

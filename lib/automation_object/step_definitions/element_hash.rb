@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 require_relative 'support/element_hash'
-require_relative 'support/minitest'
 
 # Description: Provides step definitions related to element hashes
 
@@ -62,26 +61,26 @@ end
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$)) do |*args|
   screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  element_hash = AutomationObject::Framework.get.send(screen).send(element)
+  element_hash = AutomationObject::Framework.get.screen(screen).element_hash(element)
   assert element_hash.is_a?(Hash)
 
   if comparison =~ /larger th[ae]n|greater th[ae]n/
     if negative
-      refute expected_value < element_hash.keys.length
+      expect(expected_value).to_not be < element_hash.keys.length
     else
-      assert expected_value < element_hash.keys.length
+      expect(expected_value).to be < element_hash.keys.length
     end
   elsif comparison =~ /smaller th[ae]n|less th[ae]n/
     if negative
-      refute expected_value > element_hash.keys.length
+      expect(expected_value).to_not be > element_hash.keys.length
     else
-      assert expected_value > element_hash.keys.length
+      expect(expected_value).to be > element_hash.keys.length
     end
   elsif comparison =~ /equals?/
     if negative
-      refute_equals expected_value, element_hash.keys.length
+      expect(expected_value).to_not eq(element_hash.keys.length)
     else
-      assert_equals expected_value, element_hash.keys.length
+      expect(expected_value).to eq(element_hash.keys.length)
     end
   end
 end
@@ -98,9 +97,9 @@ Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\}
     value = sub_element.send(method)
 
     if negative
-      refute_equals expected_value, value
+      expect(expected_value).to_not eq(value)
     else
-      assert_equals expected_value, value
+      expect(expected_value).to eq(value)
     end
   end
 end
@@ -111,7 +110,7 @@ end
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "([\w\d]+|%\{[\w\d]+\})" should(n't|not)? be unique$)) do |*args|
   screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  element_hash = AutomationObject::Framework.get.send(screen).send(element)
+  element_hash = AutomationObject::Framework.get.screen(screen).element_hash(element)
   assert element_hash.is_a?(Hash)
 
   values = []
@@ -120,8 +119,8 @@ Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash
   end
 
   if negative
-    refute_equals values.uniq, values
+    expect(values.uniq).to_not eq(values)
   else
-    assert_equals values.uniq, values
+    expect(values.uniq).to eq(values)
   end
 end

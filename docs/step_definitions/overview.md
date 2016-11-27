@@ -1,10 +1,6 @@
 # Cucumber Step Definitions Overview
 
-## MiniTest - For Assertions
-
-I chose to use [MiniTest](https://github.com/seattlerb/minitest) as the testing suite because I was already 
-using it for unit testing the gem itself. Figured it would be easier to move back and forth. If there is a good
-case for changing it to RSpec/etc..., I'm open to it.
+* Using RSpec for Assertions
 
 ## Loading Step Definitions in Cucumber
 
