@@ -3,28 +3,20 @@
 [![Travis Master](https://travis-ci.org/mikeblatter/automation_object.svg?branch=master)](https://travis-ci.org/mikeblatter/automation_object/builds)
 [![Coverage Status](https://coveralls.io/repos/github/mikeblatter/automation_object/badge.svg?branch=master)](https://coveralls.io/github/mikeblatter/automation_object?branch=master)
 
-Configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.
+Configuration based dynamic DSL framework for UI automation.
 
-This gem provides a way to create a dynamic usable DSL framework representing your website or app. Implementing Selenium/Appium driver
-and YAML configurations, this API will provide a layer in between your automation code and the driver.
-By creating YAML configurations that represents your website/app, the DSL framework in turn will reflect your configuration
-and allow you to control the automation through the DSL framework.  Using this gem can help remove tedious tasks that are often
-repeated throughout code and help improve the scalability of code by mapping UI in YAML configuration files.
-
-## Development Phase
-
-Alpha
+This framework takes your created UI configurations and translates that into a usable DSL framework composite 
+representing your website. It encapsulates many UI automation problems, supports integration to many different drivers,
+and has built in Cucumber step definitions to get your tests up and running quick. With this, you can create scalable 
+automation tests quickly.
 
 ## Features
 
-1. Configurations represent the UI and structure of your site/app
-2. Configuration will be used to generate a usable composite that automates UI interactions
-3. Automatic validation of configuration inputs
-4. Generated composite that operates the UI automation
-5. Takes out extraneous automation code allowing you to operate purely with business logic
-6. Cucumber pre-made step definitions
-7. Encapsulates an entire layer of automation allowing for quick UI testing development
-8. Configurations allow for DRY development
+* Supports Appium, Selenium, Nokogiri as drivers
+* Encapsulates automation logic
+* Translates UI configuration to descriptive/usable language
+* Cucumber step definitions to get your tests up and running fast
+* DRY UI test development
 
 ## Installation
 
@@ -39,6 +31,9 @@ gem install automation_object
 
 ## Cucumber Step Definition Docs
 
+There are a number of Cucumber step definitions available within this gem to help you UI test.
+
+- [Overview](docs/step_definitions/overview.md)
 - [Screen Step Definitions](docs/step_definitions/screen.md)
 - [Element Array Step Definitions](docs/step_definitions/element_array.md)
 - [Element Hash Step Definitions](docs/step_definitions/element_hash.md)
@@ -53,61 +48,3 @@ like bot protection.
 I included the needed drivers so it is mostly free of dependencies. Also created a mac_osx.sh script contained
 that helps install any base programs you may need. If you want to do it manually can follow the script
 and download those components or use whatever you have.
-
-## Example Configuration YAML file
-
-```
-# Example, doesn't actually work
-base_url: http://www.google.com
-screens:
-  home_screen:
-    elements:
-      search_input:
-        xpath: '//input[@id="search_input]'
-        submit:
-          after:
-            change_screen: 'search_screen'
-      search_button:
-        css: '#search_button'
-        click:
-          after:
-            wait_for_elements:
-              - element_name: 'loading_spinner'
-                visible?: false
-            change_screen: 'search_screen'
-      loading_spinner:
-        css: '#loading_spinner'
-  search_screen:
-    load:
-      live?:
-        - element_name: 'search_results'
-          exists?: true
-    elements:
-      home_button:
-        xpath: '//button[@id="home"]'
-        click:
-          after:
-            change_screen: 'home_screen'
-      search_results:
-        css: '#search_results'
-```
-
-## Public Interface Example
-
-```
-require 'automation_object'
-
-ao = AutomationObject::Framework.new(args)
-
-ao.home_screen.search_input.send_keys('automation_object gem')
-ao.home_screen.search_button.click # Now moving to search screen
-
-# Go back to home screen
-ao.search_screen.home_screen.click
-
-# Search Again
-
-ao.home_screen.search_input.send_keys('automation_object gem')
-ao.home_screen.search_input.submit # On search_screen again
-
-```
