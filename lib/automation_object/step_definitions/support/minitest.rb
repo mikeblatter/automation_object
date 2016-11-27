@@ -1,3 +1,5 @@
+# Work around so I can use Minitest in Cucumber
+
 module MiniTestAssertions
   def self.extended(base)
     base.extend(MiniTest::Assertions)
