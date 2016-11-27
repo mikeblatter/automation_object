@@ -35,6 +35,7 @@ There are a number of Cucumber step definitions available within this gem to hel
 
 - [Overview](docs/step_definitions/overview.md)
 - [Screen Step Definitions](docs/step_definitions/screen.md)
+- [Modal Step Definitions](docs/step_definitions/modal.md)
 - [Element Array Step Definitions](docs/step_definitions/element_array.md)
 - [Element Hash Step Definitions](docs/step_definitions/element_hash.md)
 - [Element Step Definitions](docs/step_definitions/element.md)

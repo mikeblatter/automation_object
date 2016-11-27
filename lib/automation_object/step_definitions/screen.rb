@@ -13,13 +13,13 @@ Then(%r(^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$)) do |*arg
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
-    AutomationObject::Framework.get.screen(name).close
+    AutomationObject::Framework.get.send(name).close
   else
     AutomationObject::Framework.get.current_screen.close
   end
 end
 
-# For: Navigating back on a given or current screen
+# For: Navigate back on a given or current screen
 # Examples:
 # - I navigate back on the screen
 # - I navigate back on the "contact" screen

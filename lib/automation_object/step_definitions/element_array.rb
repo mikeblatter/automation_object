@@ -5,7 +5,7 @@ require_relative 'support/minitest'
 
 # Description: Provides step definitions related to element arrays
 
-# For: Calling an element array method
+# For: Call an element array method
 # Examples:
 # - I click on the first "home_screen" "about_button" element array
 # - I hover over all "home_screen" "about_button" element array
@@ -21,7 +21,7 @@ When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|rando
   end
 end
 
-# For: Typing into element array field
+# For: Type into element array field
 # Examples:
 # - I type "blah" into the first "home_screen" "text_field" element array
 When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array$)) do |*args|
@@ -34,7 +34,7 @@ When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|ra
   end
 end
 
-# For: Scrolling element array item(s) into focus
+# For: Scroll element array item(s) into focus
 # Examples:
 # - I scroll to the first "home_screen" "logo_button" element array
 When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array$)) do |*args|
@@ -45,7 +45,7 @@ When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|l
   )
 end
 
-# For: Saving value from element array for use later
+# For: Save value from element array for use later
 # Examples:
 # - I save "text" as "unique_value" from the first "home_screen" "logo_button" element array
 When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array$)) do |*args|
@@ -59,7 +59,7 @@ When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|
   end
 end
 
-# For: Testing the element arrays size
+# For: Test the element arrays length
 # Examples:
 # - the "home_screen" "title" element array should be greater than 0
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$)) do |*args|
@@ -89,7 +89,7 @@ Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element array sh
   end
 end
 
-# For: Testing if the element method value equals a given value
+# For: Test if the element method value equals a given value
 # Examples:
 # - the first "home_screen" "title" element array "text" should equal "Home"
 # - the last "home_screen" "title" element array "text" shouldn't equal "Home"
@@ -112,7 +112,7 @@ Then(%r(^(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d
   end
 end
 
-# For: Testing if the element arrays uniqueness
+# For: Test if the element arrays is unique
 # Examples:
 # - the "home_screen" "title" element array "text" should be unique
 # - the "home_screen" "title" element array "text" should not be unique

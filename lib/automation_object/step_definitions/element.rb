@@ -14,7 +14,7 @@ When(%r(^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w
   AutomationObject::Framework.get.send(screen).send(element).send(method)
 end
 
-# For: Typing into element field
+# For: Type into element field
 # Examples:
 # - I type "blah" into the "home_screen" "text_field" element
 # - I type "test" in the "home_screen" "text_field" element
@@ -24,7 +24,7 @@ When(%r(^I type "([^"]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "
   AutomationObject::Framework.get.send(screen).send(element).send_keys(text)
 end
 
-# For: Scrolling element into focus
+# For: Scroll element into focus
 # Examples:
 # - I scroll to the "home_screen" "logo_button" element
 # - I focus to the "home_screen" "logo_button" element
@@ -34,7 +34,7 @@ When(%r(^I (?:scroll |focus )to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\}
   AutomationObject::Framework.get.send(screen).send(element).scroll_into_view
 end
 
-# For: Saving value from element for use later
+# For: Save value from element for use later
 # Examples:
 # - I save "text" as "unique_value" from the "home_screen" "logo_button" element
 # - I save "id" as "unique_value" from "home_screen" "logo_button" element
@@ -45,7 +45,7 @@ When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?"(\w+|%\{[\w\d
   AutomationObject::StepDefinitions::Cache.set(key, value)
 end
 
-# For: Testing if the element exists or not
+# For: Test if the element exists or not
 # Examples:
 # - the "home_screen" "title" element should exist
 # - the "home_screen" "title" element shouldn't exist
@@ -61,7 +61,7 @@ Then(%r(^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element should ?(n't
   end
 end
 
-# For: Testing if the element method value equals a given value
+# For: Test if the element method value equals a given value
 # Examples:
 # - the "home_screen" "title" element "text" should equal "Home"
 # - "home_screen" "title" element "text" should not equal "About"
