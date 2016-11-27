@@ -42,6 +42,14 @@ module AutomationObject
         @state.active?
       end
 
+      # Go to this modal
+      # Will try to automatically reach it, will throw error if it cannot
+      # @raise [AutomationObject::Dsl::Error::AutoReachModalError]
+      # @return [void]
+      def go
+        raise AutomationObject::Dsl::Error::AutoReachModalError.new(@name) unless @state.go
+      end
+
       # Retrieve element from composite
       # @param name [String, Symbol] name of element
       # @raise [AutomationObject::Dsl::Error::ElementDoesNotExistError]

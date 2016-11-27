@@ -21,7 +21,7 @@ module AutomationObject
     # Proxy for Screen
     class ScreenProxy < Proxy
       # @param [AutomationObject::BluePrint::Composite::Screen] blue_prints
-      # @param [AutomationObject::State::Top] top state
+      # @param [AutomationObject::State::Top] state
       # @param [Symbol] name
       def initialize(blue_prints, state, name)
         super Screen, blue_prints, state, name
@@ -39,14 +39,24 @@ module AutomationObject
         super
       end
 
+      # Is the screen active
       # @return [Boolean]
       def active?
         @state.active?
       end
 
       # Close screen
+      # @return [void]
       def close
         @state.close
+      end
+
+      # Go to this screen
+      # Will try to automatically reach it, will throw error if it cannot
+      # @raise [AutomationObject::Dsl::Error::AutoReachScreenError]
+      # @return [void]
+      def go
+        raise AutomationObject::Dsl::Error::AutoReachScreenError.new(@name) unless @state.go
       end
 
       # Retrieve modal from composite

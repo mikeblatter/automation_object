@@ -31,6 +31,17 @@ module AutomationObject
         @active ||= false
       end
 
+      # Automatically find a way to go to this screen
+      # @return [Boolean]
+      def go
+        if active?
+          utilize
+          return true
+        end
+
+        false
+      end
+
       # @return [void]
       def activate
         @active = true
