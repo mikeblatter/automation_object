@@ -10,7 +10,7 @@ AutomationObject::StepDefinitions.load
 ```
 
 I created a static function to load the cucumber steps because requiring steps outside a Cucumber context
-causes exceptions to be raised. This way you can use AutomationObject in many contexts
+causes exceptions to be raised.
 
 ## Step Definitions
 

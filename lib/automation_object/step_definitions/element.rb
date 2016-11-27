@@ -4,7 +4,7 @@ require_relative 'support/minitest'
 
 # Description: Provides step definitions related to elements
 
-# For: Calling an element method
+# Call an element method
 # Examples:
 # - I click on the "home_screen" "about_button" element
 # - I hover over the "home_screen" "test_link" element
