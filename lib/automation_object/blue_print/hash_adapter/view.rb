@@ -9,7 +9,7 @@ module AutomationObject
       class View < Composite
         # Creation hooks
         before_create :merge_views
-        before_create :automatic_onload_modals
+        before_create :automatic_modal_changes
 
         # Relationships
         has_one :load, interface: Hook
@@ -39,17 +39,17 @@ module AutomationObject
 
         validates :modals, instance_of: Hash
 
-        # @return [Array<AutomaticOnloadModal>] array of AutomaticOnloadModal that are defined under the screen
-        def automatic_onload_modals
-          return @automatic_onload_modals if defined? @automatic_onload_modals
+        # @return [Array<AutomaticModalChange>] array of AutomaticModalChange that are defined under the screen
+        def automatic_modal_changes
+          return @automatic_modal_changes if defined? @automatic_modal_changes
 
-          children = hash[:automatic_onload_modals]
+          children = hash[:automatic_modal_changes]
           children = children.is_a?(Array) ? children : []
-          @automatic_onload_modals = create_array_children(:automatic_onload_modals, children,
-                                                           interface: AutomaticOnloadModal,
-                                                           location: location + '[automatic_onload_modals]')
+          @automatic_modal_changes = create_array_children(:automatic_modal_changes, children,
+                                                           interface: AutomaticModalChange,
+                                                           location: location + '[automatic_modal_change]')
 
-          @automatic_onload_modals
+          @automatic_modal_changes
         end
 
         # @return [Array<Symbol>] array of screens where screen can automatically change to

@@ -5,6 +5,8 @@ require_relative 'driver'
 require_relative 'dsl'
 require_relative 'state'
 
+require_relative 'dsl/_error'
+
 module AutomationObject
   # Framework class, the core
   # A Proxy class that will become the DSL Framework
@@ -33,6 +35,20 @@ module AutomationObject
       @subject = Dsl.create(self.blue_prints, state)
 
       AutomationObject::Framework.singleton = self
+    end
+
+    # Retrieve screen from composite
+    # @param name [String, Symbol] name of screen
+    # @raise [AutomationObject::Dsl::Error::ScreenDoesNotExistError]
+    # @return [AutomationObject::Dsl::ScreenProxy]
+    def screen(name)
+      @subject.screen(name)
+    end
+
+    # Current Screen
+    # @return [AutomationObject::Dsl::ScreenProxy]
+    def current_screen
+      @subject.current_screen
     end
 
     # BluePrints (UI configurations) wrapped in an composite
@@ -82,7 +98,7 @@ module AutomationObject
       attr_accessor :singleton
 
       # Singleton method if using Cucumber
-      # @return [Framework] singleton of self
+      # @return [AutomationObject::Framework] singleton of self
       def get
         singleton
       end

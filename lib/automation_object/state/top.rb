@@ -9,6 +9,7 @@ module AutomationObject
     # Top composite for managing state
     class Top < Base
       # Children for this composite
+      # @return [Array<Screen>]
       has_many :screens, interface: Screen
 
       # @param driver [AutomationObject::Driver] driver

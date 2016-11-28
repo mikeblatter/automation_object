@@ -28,6 +28,20 @@ module AutomationObject
         @active ||= false
       end
 
+      # Automatically find a way to go to this modal
+      # @return [Boolean]
+      def go
+        # Go to screen first then try to activate modal
+        screen.go
+
+        if active?
+          utilize
+          return true
+        end
+
+        false
+      end
+
       def activate
         @active = true
       end

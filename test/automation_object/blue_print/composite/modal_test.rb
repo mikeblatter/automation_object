@@ -9,6 +9,16 @@ class TestBluePrintCompositeModal < Minitest::Test
     @subject = AutomationObject::BluePrint::Composite::Modal.new(@mock)
   end
 
+  def test_load
+    @mock.expects(:load).returns({})
+    assert_equal({}, @subject.load)
+  end
+
+  def test_included_views
+    @mock.expects(:included_views).returns([:test_view])
+    assert_equal([:test_view], @subject.included_views)
+  end
+
   def test_elements
     @mock.expects(:elements).returns({})
     assert_equal({}, @subject.elements)

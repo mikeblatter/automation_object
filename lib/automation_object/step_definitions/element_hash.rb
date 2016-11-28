@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 require_relative 'support/element_hash'
-require_relative 'support/minitest'
 
 # Description: Provides step definitions related to element hashes
 
-# For: Calling an element hash method
+# For: Call an element hash method
 # Examples:
 # - I click on the first "home_screen" "about_button" element hash
 When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash$)) do |*args|
@@ -18,7 +17,7 @@ When(%r(^I (\w+|%\{[\w\d]+\})?(?: on| over)?(?: the| a)? (%\{[\w\d]+\}|all|rando
   end
 end
 
-# For: Typing into element hash field
+# For: Type into element hash field
 # Examples:
 # - I type "blah" into the first "home_screen" "text_field" element hash
 When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash$)) do |*args|
@@ -31,7 +30,7 @@ When(%r(^I type "([\w\s]+|%\{[\w\d]+\})" in(?:to| to)? (?:the )?(%\{[\w\d]+\}|ra
   end
 end
 
-# For: Scrolling element hash item(s) into focus
+# For: Scroll element hash item(s) into focus
 # Examples:
 # - I scroll to the first "home_screen" "logo_button" element hash
 When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash$)) do |*args|
@@ -42,7 +41,7 @@ When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{[\w\d]+\}|all|random|l
   )
 end
 
-# For: Saving value from element hash for use later
+# For: Save value from element hash for use later
 # Examples:
 # - I save "text" as "unique_value" from the first "home_screen" "logo_button" element hash
 When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash$)) do |*args|
@@ -56,37 +55,37 @@ When(%r(^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?(%\{[\w\d]+\}|
   end
 end
 
-# For: Testing the element hashes size
+# For: Test the element hashes size
 # Examples:
 # - the "home_screen" "title" element hash should be greater than 0
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$)) do |*args|
   screen, element, negative, comparison, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  element_hash = AutomationObject::Framework.get.send(screen).send(element)
+  element_hash = AutomationObject::Framework.get.screen(screen).element_hash(element)
   assert element_hash.is_a?(Hash)
 
   if comparison =~ /larger th[ae]n|greater th[ae]n/
     if negative
-      refute expected_value < element_hash.keys.length
+      expect(expected_value).to_not be < element_hash.keys.length
     else
-      assert expected_value < element_hash.keys.length
+      expect(expected_value).to be < element_hash.keys.length
     end
   elsif comparison =~ /smaller th[ae]n|less th[ae]n/
     if negative
-      refute expected_value > element_hash.keys.length
+      expect(expected_value).to_not be > element_hash.keys.length
     else
-      assert expected_value > element_hash.keys.length
+      expect(expected_value).to be > element_hash.keys.length
     end
   elsif comparison =~ /equals?/
     if negative
-      refute_equals expected_value, element_hash.keys.length
+      expect(expected_value).to_not eq(element_hash.keys.length)
     else
-      assert_equals expected_value, element_hash.keys.length
+      expect(expected_value).to eq(element_hash.keys.length)
     end
   end
 end
 
-# For: Testing if the element hash value equals a given value
+# For: Test if the element hash value equals a given value
 # Examples:
 # - the first "home_screen" "title" element hash "text" should equal "Home"
 Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element hash "(\w+|%\{[\w\d]+\})" should ?(n't |not )?equal "(\w+|%\{[\w\d]+\})"$)) do |*args|
@@ -98,20 +97,20 @@ Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{[\w\d]+\}
     value = sub_element.send(method)
 
     if negative
-      refute_equals expected_value, value
+      expect(expected_value).to_not eq(value)
     else
-      assert_equals expected_value, value
+      expect(expected_value).to eq(value)
     end
   end
 end
 
-# For: Testing if the element hashes uniqueness
+# For: Test if the element hash is unique
 # Examples:
 # - the "home_screen" "title" element hash "text" should be unique
 Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash "([\w\d]+|%\{[\w\d]+\})" should(n't|not)? be unique$)) do |*args|
   screen, element, method, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  element_hash = AutomationObject::Framework.get.send(screen).send(element)
+  element_hash = AutomationObject::Framework.get.screen(screen).element_hash(element)
   assert element_hash.is_a?(Hash)
 
   values = []
@@ -120,8 +119,8 @@ Then(%r(^(?:the )?"([\w\d]+|%\{[\w\d]+\})" "([\w\d]+|%\{[\w\d]+\})" element hash
   end
 
   if negative
-    refute_equals values.uniq, values
+    expect(values.uniq).to_not eq(values)
   else
-    assert_equals values.uniq, values
+    expect(values.uniq).to eq(values)
   end
 end

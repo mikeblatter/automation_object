@@ -5,9 +5,7 @@ require_relative 'base'
 module AutomationObject
   module BluePrint
     module Composite
-      # Hook composite class, passing method to adapter only
-      # Hoping to improve code completion and standard interface where
-      # classes use this as a template to add additional adapters
+      # Hook composite class
       class Hook < Base
         # @return [HookAction]
         def before

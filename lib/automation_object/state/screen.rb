@@ -2,6 +2,8 @@
 require_relative '_base'
 require_relative '_error'
 
+require_relative 'automatic_modal_change'
+require_relative 'automatic_screen_changes'
 require_relative 'modal'
 require_relative 'hook'
 require_relative 'element'
@@ -14,9 +16,13 @@ module AutomationObject
     class Screen < Base
       attr_accessor :modal, :window_handle, :previous_screen_name
 
+      # @return [AutomaticScreenChanges]
+      attr_accessor :automatic_screen_changes
+
       has_one :load, interface: Hook
 
       # Children for this composite
+      #has_many :automatic_modal_changes, interface: AutomaticModalChange
       has_many :modals, interface: Modal
 
       has_many :elements, interface: Element
@@ -31,29 +37,54 @@ module AutomationObject
         @active ||= false
       end
 
+      # Automatically find a way to go to this screen
+      # @return [Boolean]
+      def go
+        if active?
+          utilize
+          return true
+        end
+
+        false
+      end
+
+      # @return [void]
       def activate
         @active = true
         self.window_handle = driver.window_handle
+
+        return if blue_prints.automatic_screen_changes.length == 0
+
+        # Add automatic screen change to a new thread and test for screen changes
+        self.automatic_screen_changes = AutomaticScreenChanges.new(driver,
+                                                                   blue_prints.automatic_screen_changes,
+                                                                   :automatic_screen_changes,
+                                                                   self,
+                                                                   self.location+'[automatic_screen_changes]')
+        self.automatic_screen_changes.activate
       end
 
+      # @return [void]
       def deactivate
+        self.automatic_screen_changes.deactivate if self.automatic_screen_changes
+
+        self.automatic_screen_changes, self.window_handle = nil
         @active = false
-        self.window_handle = nil
+
         modals.values.map(&:deactivate)
         reset
       end
 
+      # @return [void]
       def utilize
         raise ScreenNotActiveError, name unless active?
-        driver.window_handle = window_handle if window_handle != driver.window_handle
+        driver.window_handle = window_handle
       end
 
+      # @return [void]
       def close
-        raise ScreenNotActiveError, name unless active?
-
-        driver.window_handle = window_handle if window_handle != driver.window_handle
+        utilize
         driver.close
-
         deactivate
       end
 
@@ -62,6 +93,7 @@ module AutomationObject
         !driver.window_handles.include?(window_handle)
       end
 
+      # @return [void]
       def reset
         elements.values.map(&:reset)
         element_arrays.values.map(&:reset)

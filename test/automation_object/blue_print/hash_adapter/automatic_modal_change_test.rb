@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 require_relative '_base'
 
-# Test AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal
-class TestHashAdapterAutomaticOnloadModal < Minitest::Test
+# Test AutomationObject::BluePrint::HashAdapter::AutomaticModalChange
+class TestHashAdapterAutomaticModalChange < Minitest::Test
   include HashAdapterBase
 
-  self.interface_class = AutomationObject::BluePrint::Composite::AutomaticOnloadModal
-  self.adapter_class = AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal
+  self.interface_class = AutomationObject::BluePrint::Composite::AutomaticModalChange
+  self.adapter_class = AutomationObject::BluePrint::HashAdapter::AutomaticModalChange
   self.defaults = {
     modal_name: nil,
     number_of_checks: 1,

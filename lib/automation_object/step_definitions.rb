@@ -5,10 +5,8 @@ module AutomationObject
     module_function
 
     def load
-      # Using minitest to run assertions
-      require 'minitest/autorun'
-      require 'minitest/unit'
-      require 'minitest-bonus-assertions'
+      # Using rspec to run assertions
+      require 'rspec/expectations'
 
       Dir[File.dirname(__FILE__) + '/step_definitions/**/*.rb'].each { |file| require file }
     end

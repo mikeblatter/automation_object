@@ -85,7 +85,7 @@ module AutomationObject
 
         # @return [Boolean] whether or not browser is being used
         def browser?
-          return @browser unless @browser.nil?
+          return @browser if defined? @browser
           @browser = false
 
           # Now we need to check Appium's contexts to see if WEBVIEW is in available_contexts

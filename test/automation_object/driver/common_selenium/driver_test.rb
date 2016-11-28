@@ -13,8 +13,8 @@ end
 # Test AutomationObject::Driver::CommonSelenium::Driver
 class TestDriverCommonSeleniumDriver < Minitest::Test
   def setup
-    @driver_mock = mock('driver')
-    @driver = DriverModuleContainer.new(@driver_mock)
+    #@driver_mock = mock('driver')
+    #@driver = DriverModuleContainer.new(@driver_mock)
   end
 
   def teardown

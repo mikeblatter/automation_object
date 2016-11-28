@@ -44,9 +44,9 @@ class TestBluePrintCompositeView < Minitest::Test
     assert_equal({}, @subject.element_hashes)
   end
 
-  def test_automatic_onload_modals
-    @mock.expects(:element_hashes).returns({})
-    assert_equal({}, @subject.element_hashes)
+  def test_automatic_modal_changes
+    @mock.expects(:automatic_modal_changes).returns({})
+    assert_equal({}, @subject.automatic_modal_changes)
   end
 
   def test_automatic_screen_changes

@@ -10,9 +10,7 @@ require_relative 'helpers/element_helper'
 module AutomationObject
   module BluePrint
     module Composite
-      # Element composite class, passing method to adapter only
-      # Hoping to improve code completion and standard interface where
-      # classes use this as a template to add additional adapters
+      # Element composite class
       class Element < Base
         include ElementHelper
       end

@@ -4,6 +4,11 @@ module AutomationObject
     module HashAdapter
       # Helper module for Element composite classes
       module ElementHelper
+        # @return [String, nil] text input for automatic screen/modal change if needed
+        def default_input
+          hash[:default_input]
+        end
+
         # @return [Array<Symbol, String>, nil] params as an array for driver find_element args
         def selector_params
           if hash[:xpath].is_a?(String)

@@ -2,7 +2,7 @@
 # Require parent class
 require_relative 'base'
 
-require_relative 'automatic_onload_modal'
+require_relative 'automatic_modal_change'
 require_relative 'hook'
 
 require_relative 'modal'
@@ -13,13 +13,11 @@ require_relative 'element_hash'
 module AutomationObject
   module BluePrint
     module Composite
-      # Screen composite class, passing method to adapter only
-      # Hoping to improve code completion and standard interface where
-      # classes use this as a template to add additional adapters
+      # Screen composite class
       class Screen < Base
-        # @return [Array<AutomaticOnloadModal>]
-        def automatic_onload_modals
-          adapter.automatic_onload_modals
+        # @return [Array<AutomaticModalChange>]
+        def automatic_modal_changes
+          adapter.automatic_modal_changes
         end
 
         # @return [Array<Symbol>]

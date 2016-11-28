@@ -1,8 +1,13 @@
 views:
   header_view:
     modals:
-      interface_menu_modal:
+      menu_modal:
         elements:
+          menu_button:
+            css: 'a.open_interface_menu'
+            click:
+              after:
+                close_modal: true
           modals_button:
             xpath: '//a[text()="Modals"]'
             click:
@@ -19,11 +24,11 @@ views:
         click:
           after:
             change_screen: 'home_screen'
-      user_interface_menu_button:
+      menu_button:
         css: 'a.open_interface_menu'
         click:
           after:
-            show_modal: 'interface_menu_modal'
+            show_modal: 'menu_modal'
       contact_button:
         xpath: '//a[text()="Contacts"]'
         click:

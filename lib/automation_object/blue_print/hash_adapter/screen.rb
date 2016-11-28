@@ -3,7 +3,7 @@
 require_relative 'composite'
 
 # Require child classes
-require_relative 'automatic_onload_modal'
+require_relative 'automatic_modal_change'
 require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'
@@ -17,7 +17,7 @@ module AutomationObject
       class Screen < Composite
         # Creation hooks
         before_create :merge_views
-        before_create :automatic_onload_modals
+        before_create :automatic_modal_changes
 
         # Relationships
         has_one :load, interface: Hook
@@ -30,10 +30,10 @@ module AutomationObject
         has_many :element_hashes, interface: ElementHash
 
         # Validations
-        validates_keys allowed_keys: [:automatic_onload_modals, :automatic_screen_changes, :elements,
+        validates_keys allowed_keys: [:automatic_modal_changes, :automatic_screen_changes, :elements,
                                       :element_arrays, :element_hashes, :included_views, :load, :modals]
 
-        validates :automatic_onload_modals, instance_of: Array, modal_presence_of: true
+        validates :automatic_modal_changes, instance_of: Array, modal_presence_of: true
         validates :automatic_screen_changes, instance_of: Array, screen_presence_of: true
 
         validates :elements, instance_of: Hash
@@ -48,17 +48,17 @@ module AutomationObject
 
         validates :modals, instance_of: Hash
 
-        # @return [Array<AutomaticOnloadModal>] array of AutomaticOnloadModal that are defined under the screen
-        def automatic_onload_modals
-          return @automatic_onload_modals if defined? @automatic_onload_modals
+        # @return [Array<AutomaticModalChange>] array of AutomaticModalChange that are defined under the screen
+        def automatic_modal_changes
+          return @automatic_modal_changes if defined? @automatic_modal_changes
 
-          children = hash[:automatic_onload_modals]
+          children = hash[:automatic_modal_changes]
           children = children.is_a?(Array) ? children : []
-          @automatic_onload_modals = create_array_children(:automatic_onload_modals, children,
-                                                           interface: AutomaticOnloadModal,
-                                                           location: location + '[automatic_onload_modals]')
+          @automatic_modal_changes = create_array_children(:automatic_modal_changes, children,
+                                                           interface: AutomaticModalChange,
+                                                           location: location + '[automatic_modal_changes]')
 
-          @automatic_onload_modals
+          @automatic_modal_changes
         end
 
         # @return [Array<Symbol>] array of screens where screen can automatically change to
