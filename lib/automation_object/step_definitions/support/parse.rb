@@ -27,7 +27,7 @@ module AutomationObject
       def parse(string)
         return string if string.nil?
 
-        string.scan(/%\{[\w\d]+\}/) do |cache_key|
+        string.scan(/%\{[\w]+\}/) do |cache_key|
           unwrapped_cache_key = cache_key.gsub(/[%\{\}]/, '')
 
           cached_value = AutomationObject::StepDefinitions::Cache.get(unwrapped_cache_key)

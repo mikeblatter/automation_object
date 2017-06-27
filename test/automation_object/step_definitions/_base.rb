@@ -30,7 +30,7 @@ module StepDefinitionsTestBase
       examples = []
       File.open(File.join(STEP_DEFINITION_DIR, file_name), 'r') do |file_handle|
         file_handle.each_line do |line|
-          if line =~ %r(^# \s*-\s*)
+          if line =~ %r(^#\s*-\s*)
             examples.push(line.gsub(%r(^#\s*-\s*), ''))
           elsif line =~ %r(^(?:Given|When|Then|But|And)\(%r\((.+)\)\s*\))
             regex = Regexp.new(line.match(%r(^(?:Given|When|Then|But|And)\(%r\((.+)\)\s*\)))[1])

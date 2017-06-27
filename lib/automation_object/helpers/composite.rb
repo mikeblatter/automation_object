@@ -14,7 +14,8 @@ module AutomationObject
     # @param name [Symbol] name of the object
     # @param parent [Object, nil] parent composite object
     # @param location [String] string location for error/debugging purposes
-    def initialize(_name = :top, parent = nil, location = 'top')
+    def initialize(name = :top, parent = nil, location = 'top')
+      self.name = name
       self.parent = parent
       self.location = location
 
@@ -43,7 +44,7 @@ module AutomationObject
     # @param name [Symbol] name of child
     # @param options [Hash] options for child
     # @return child [Object] return child composite object
-    def get_child(_name, _options)
+    def get_child(name, options)
       raise 'Abstract method'
     end
 
@@ -51,7 +52,7 @@ module AutomationObject
     # @param name [Symbol] name of child
     # @param options [Hash] options for child
     # @return children [Hash] return children and names
-    def get_children(_name, _options)
+    def get_children(name, options)
       raise 'Abstract method'
     end
 
