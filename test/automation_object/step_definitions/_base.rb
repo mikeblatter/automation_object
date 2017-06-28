@@ -31,8 +31,8 @@ module StepDefinitionsTestBase
         file_handle.each_line do |line|
           if line =~ %r(^#\s*-\s*)
             examples.push(line.gsub(%r(^#\s*-\s*), ''))
-          elsif line =~ %r(^(?:Given|When|Then|But|And)\(%r\((.+)\)\s*\))
-            regex = Regexp.new(line.match(%r(^(?:Given|When|Then|But|And)\(%r\((.+)\)\s*\)))[1])
+          elsif line =~ %r(^\s*Given|When|Then|But|And)
+            regex = Regexp.new(line.match(%r(%r\((.+)(?=\)\s*\)\s*do)))[1])
 
             # Iterate through examples and test the regex matches the example
             # This way we know the documentation is accurate and if any updates will break existing implmentations
