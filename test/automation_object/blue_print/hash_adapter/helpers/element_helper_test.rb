@@ -29,7 +29,7 @@ class TestElementHelper < Minitest::Test
     composite_stub = stub(hash: {})
     extended_stub = extend_stub(composite_stub)
 
-    assert_equal nil, extended_stub.selector_params
+    assert_nil extended_stub.selector_params
   end
 
   def test_in_iframe
@@ -43,7 +43,7 @@ class TestElementHelper < Minitest::Test
     composite_stub = stub(hash: {})
     extended_stub = extend_stub(composite_stub)
 
-    assert_equal nil, extended_stub.in_iframe
+    assert_nil extended_stub.in_iframe
   end
 
   def test_in_iframe?

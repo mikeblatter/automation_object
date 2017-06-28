@@ -29,7 +29,7 @@ class TestMultipleElementsHelper < Minitest::Test
     composite_stub = stub(hash: {})
     extended_stub = extend_stub(composite_stub)
 
-    assert_equal nil, extended_stub.custom_range
+    assert_nil extended_stub.custom_range
   end
 
   def test_remove_duplicates
@@ -43,6 +43,6 @@ class TestMultipleElementsHelper < Minitest::Test
     composite_stub = stub(hash: {})
     extended_stub = extend_stub(composite_stub)
 
-    assert_equal nil, extended_stub.remove_duplicates
+    assert_nil extended_stub.remove_duplicates
   end
 end

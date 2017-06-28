@@ -23,7 +23,7 @@ class TestHashAdapterHookElementRequirements < Minitest::Test
     composite = create_composite(text: 'Text should be this', exists?: true, element_name: 'element_name')
 
     assert_equal 'Text should be this', composite.requirement(:text)
-    assert_equal nil, composite.requirement(:nonexistent_key)
+    assert_nil composite.requirement(:nonexistent_key)
   end
 
   def test_element_name
