@@ -42,7 +42,7 @@ repeated throughout code and help improve the scalability of code by mapping UI 
 
   # Testing
   spec.add_development_dependency 'coveralls', '~> 0.8'
-  spec.add_development_dependency 'simplecov', '~> 0.8'
+  spec.add_development_dependency 'simplecov', '~> 0.1'
   spec.add_development_dependency 'mocha', '~> 1.2'
   spec.add_development_dependency 'fakefs', '~> 0.9'
   spec.add_development_dependency 'minitest', '~> 5.9'

@@ -46,7 +46,7 @@ module AutomationObject
 
           children_hash[child_key] = args.fetch(:interface).new(driver,
                                                                 child_blue_prints,
-                                                                name, self, child_location)
+                                                                child_key, self, child_location)
         end
 
         children_hash
