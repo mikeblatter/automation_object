@@ -3,12 +3,6 @@ require_relative '../../../test_helper'
 
 # Test AutomationObject::Driver::CommonSelenium::Element
 class TestDriverCommonSeleniumElement < Minitest::Test
-  def setup
-  end
-
-  def teardown
-  end
-
   def test_visible?
   end
 

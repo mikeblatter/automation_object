@@ -10,6 +10,11 @@ require 'simplecov'
 require 'coveralls'
 
 BASE_DIR = File.expand_path(File.join(__dir__, '../'))
+AO_LIB_DIR = File.join(BASE_DIR, 'lib/automation_object')
+
+def automation_object_require(path)
+  require(File.join(AO_LIB_DIR, path))
+end
 
 SimpleCov.root(BASE_DIR)
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
