@@ -7,7 +7,7 @@ require_relative 'support/parse'
 # Examples:
 # - the "home_screen" "test_modal" modal should be active
 # - the "login_screen" "test_modal" modal shouldn't be active
-Then(%r(^the "([\w\s]+|%\{[\w\d]+\})" "([\w\s]+|%\{[\w\d]+\})" modal should ?(n't |not )?be active$)) do |*args|
+Then(%r(^the "([\w\s]+|%\{\w+\})" "([\w\s]+|%\{\w+\})" modal should ?(n't |not )?be active$)) do |*args|
   screen, modal, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
   active = AutomationObject::Framework.get.screen(screen).modal(modal).active?

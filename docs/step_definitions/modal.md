@@ -10,5 +10,5 @@
 #### Regex
 
 ```
-^the "([\w\s]+|%\{[\w\d]+\})" "([\w\s]+|%\{[\w\d]+\})" modal should ?(n't |not )?be active$
+^the "([\w\s]+|%\{\w+\})" "([\w\s]+|%\{\w+\})" modal should ?(n't |not )?be active$
 ```

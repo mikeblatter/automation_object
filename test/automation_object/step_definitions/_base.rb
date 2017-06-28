@@ -32,12 +32,15 @@ module StepDefinitionsTestBase
           if line =~ %r(^#\s*-\s*)
             examples.push(line.gsub(%r(^#\s*-\s*), ''))
           elsif line =~ %r(^\s*Given|When|Then|But|And)
-            regex = Regexp.new(line.match(%r(%r\((.+)(?=\)\s*\)\s*do)))[1])
+            line_match = line.match(%r((?<=%r\().+(?=\)\s*\)\s*do)))
+            next unless line_match
+
+            regex = Regexp.new(line_match[0])
 
             # Iterate through examples and test the regex matches the example
             # This way we know the documentation is accurate and if any updates will break existing implmentations
             examples.each do |example|
-              define_method("test_assert_regex_#{regex.to_s.gsub(/[^\w-]/, '')}_#{example.gsub(/\W/, '').downcase}") do
+              define_method("test_assert_regex_#{regex.to_s.gsub(/\W/, '')}_#{example.gsub(/\W/, '').downcase}") do
                 assert example.match(regex), "Expecting example: #{example} to match regex: #{regex}"
               end
             end

@@ -11,7 +11,7 @@
 #### Regex
 
 ```
-^I (\w+|%\{[\w\d]+\}) ?(?: on| over)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$
+^I (\w+|%\{\w+\}) ?(?: on| over)? (?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element$
 ```
 
 ---
@@ -27,7 +27,7 @@
 #### Regex
 
 ```
-^I type "([^"]+|%\{[\w\d]+\})" in(?:to)? (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$
+^I type "([^"]+|%\{\w+\})" in(?:to)? (?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element$
 ```
 
 ---
@@ -43,7 +43,7 @@
 #### Regex
 
 ```
-^I (?:scroll |focus )to (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$
+^I (?:scroll |focus )to (?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element$
 ```
 
 ---
@@ -58,7 +58,7 @@
 #### Regex
 
 ```
-^I save "(\w+|%\{[\w\d]+\})" as "([\w\d]+)" from (?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element$
+^I save "(\w+|%\{\w+\})" as "(\w+)" from (?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element$
 ```
 
 ---
@@ -74,7 +74,7 @@
 #### Regex
 
 ```
-^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element should ?(n't |not )?exist$
+^(?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element should ?(n't |not )?exist$
 ```
 
 ---
@@ -90,5 +90,5 @@
 #### Regex
 
 ```
-^(?:the )?"(\w+|%\{[\w\d]+\})" "(\w+|%\{[\w\d]+\})" element "(\w+|%\{[\w\d]+\})" should ?(n't |not )?equal "(\w+|%\{[\w\d]+\})"$
+^(?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element "(\w+|%\{\w+\})" should ?(n't |not )?equal "(\w+|%\{\w+\})"$
 ```

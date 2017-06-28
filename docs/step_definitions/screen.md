@@ -11,7 +11,7 @@
 #### Regex
 
 ```
-^I (?:close|destroy) the ("([\w\s]+|%\{[\w\d]+\})")? ?screen$
+^I (?:close|destroy) the ("([\w\s]+|%\{\w+\})")? ?screen$
 ```
 
 ---
@@ -26,7 +26,7 @@
 #### Regex
 
 ```
-^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{[\w\d]+\})")? ?screen$
+^I (?:navigate|go) back (?:on )?(?:the )?("([\w\s]+|%\{\w+\})")? ?screen$
 ```
 
 ---
@@ -41,7 +41,7 @@
 #### Regex
 
 ```
-^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{[\w\d]+\})" screen$
+^I (?:switch|focus) (?:to )?(?:the )?"([\w\s]+|%\{\w+\})" screen$
 ```
 
 ---
@@ -58,7 +58,7 @@
 #### Regex
 
 ```
-^I set the ("([\w\s]+|%\{[\w\d]+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$
+^I set the ("([\w\s]+|%\{\w+\})")? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$
 ```
 
 ---
@@ -73,5 +73,5 @@
 #### Regex
 
 ```
-^the "([\w\s]+|%\{[\w\d]+\})" screen should ?(n't |not )?be active$
+^the "([\w\s]+|%\{\w+\})" screen should ?(n't |not )?be active$
 ```
