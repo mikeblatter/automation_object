@@ -20,6 +20,15 @@ module AutomationObject
         super ostruct_hash
       end
 
+      # @param [Symbol] method
+      # @param [Array, nil] args
+      # @param [Proc] block
+      def method_missing(method, *args, &block)
+        return super if to_h.has_key?(method)
+
+        raise NoMethodError.new("undefined method '#{method}'", method, args)
+      end
+
       def to_s
         inspect
       end
