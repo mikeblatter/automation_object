@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-require 'minitest/autorun'
 require_relative '../lib/automation_object'
+
+require 'minitest/autorun'
 
 require 'minitest/unit'
 require 'mocha/mini_test'

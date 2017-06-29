@@ -5,7 +5,7 @@
 #
 # Dependencies are for running a Selenium Server and a Rails app
 
-RUBY_VERSION="2.3.0"
+RUBY_VERSION="2.3.3"
 RVM_GPG_KEY="409B6B1796C275462A1703113804BB82D39DC0E3"
 
 #Install xCode Command Line Tools
