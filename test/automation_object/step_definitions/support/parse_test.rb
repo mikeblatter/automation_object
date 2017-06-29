@@ -10,11 +10,27 @@ class TestStepDefinitionsSupportParse < Minitest::Test
   end
 
   def test_get
-    AutomationObject::StepDefinitions::Cache.set('test_key', 'test')
+    AutomationObject::StepDefinitions::Cache.set('test_key', 'test_get')
 
     args = ['plain', '%{test_key}']
     parsed_args = AutomationObject::StepDefinitions::Parse.new(args).get
 
-    assert_equal ['plain', 'test'], parsed_args
+    assert_equal ['plain', 'test_get'], parsed_args
+  end
+
+  def test_parse
+    AutomationObject::StepDefinitions::Cache.set('test_key', 'test_parse')
+
+    parse = AutomationObject::StepDefinitions::Parse.new({})
+    parsed_string = parse.send(:parse, '%{test_key}')
+
+    assert_equal 'test_parse', parsed_string
+  end
+
+  def test_parse_nil
+    parse = AutomationObject::StepDefinitions::Parse.new({})
+    parsed_string = parse.send(:parse, nil)
+
+    assert_nil parsed_string
   end
 end
