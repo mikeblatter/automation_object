@@ -10,6 +10,8 @@ require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'
 
+require_relative 'automatic_routing/screen'
+
 module AutomationObject
   module State
     # Screen composite for managing state
@@ -45,7 +47,7 @@ module AutomationObject
           return true
         end
 
-        false
+        AutomaticRouting::Screen.new(self.top, self.name).route_to()
       end
 
       # @return [void]
@@ -98,6 +100,16 @@ module AutomationObject
         elements.values.map(&:reset)
         element_arrays.values.map(&:reset)
         element_hashes.values.map(&:reset)
+      end
+
+      # @return [Array<Symbol>]
+      def screen_changes
+        blue_prints.screen_changes
+      end
+
+      # @return [Array<Symbol>]
+      def modal_changes
+        blue_prints.modal_changes
       end
     end
   end

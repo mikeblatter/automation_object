@@ -56,6 +56,16 @@ module AutomationObject
         element_arrays.values.map(&:reset)
         element_hashes.values.map(&:reset)
       end
+
+      # @return [Array<Symbol>]
+      def screen_changes
+        blue_prints.screen_changes
+      end
+
+      # @return [Array<Symbol>]
+      def modal_changes
+        modal_changes.screen_changes
+      end
     end
   end
 end

@@ -35,7 +35,7 @@ module AutomationObject
           method_hooks.key?(name)
         end
 
-        # @return [Hash<Hook>] array of Hook that are defined under the element
+        # @return [Hash<Hook>] hash of Hook that are defined under the element
         def method_hooks
           return @method_hooks if defined? @method_hooks
 

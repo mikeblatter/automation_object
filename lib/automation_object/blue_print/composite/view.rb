@@ -24,7 +24,7 @@ module AutomationObject
           adapter.dismiss
         end
 
-        # @return [Array<AutomaticModalChange>]
+        # @return [Array<AutomationObject::BluePrint::Composite::AutomaticModalChange>]
         def automatic_modal_changes
           adapter.automatic_modal_changes
         end
@@ -34,22 +34,22 @@ module AutomationObject
           adapter.automatic_screen_changes
         end
 
-        # @return [Hash<Modal>]
+        # @return [Hash<AutomationObject::BluePrint::Composite::Modal>]
         def modals
           adapter.modals
         end
 
-        # @return [Hash<Element>]
+        # @return [Hash<AutomationObject::BluePrint::Composite::Element>]
         def elements
           adapter.elements
         end
 
-        # @return [Hash<ElementArray>]
+        # @return [Hash<AutomationObject::BluePrint::Composite::ElementArray>]
         def element_arrays
           adapter.element_arrays
         end
 
-        # @return [Hash<ElementHash>]
+        # @return [Hash<AutomationObject::BluePrint::Composite::ElementHash>]
         def element_hashes
           adapter.element_hashes
         end

@@ -9,7 +9,7 @@ module AutomationObject
     # Top composite for managing state
     class Top < Base
       # Children for this composite
-      # @return [Array<Screen>]
+      # @return [Hash<Screen>]
       has_many :screens, interface: Screen
 
       # @param driver [AutomationObject::Driver] driver
@@ -21,6 +21,7 @@ module AutomationObject
         super
       end
 
+      # @return [Void]
       def start
         driver.get(blue_prints.base_url) if blue_prints.base_url
         set_initial_screen
@@ -45,6 +46,11 @@ module AutomationObject
         end
 
         raise AutomationObject::State::NoInitialScreenError
+      end
+
+      # @return [Hash<Screen>] active screens
+      def active_screens
+        self.screens.select {|key, value| value.active? }
       end
     end
   end

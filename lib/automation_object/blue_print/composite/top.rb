@@ -12,12 +12,12 @@ module AutomationObject
       # Hoping to improve code completion and standard interface where
       # classes use this as a template to add additional adapters
       class Top < Base
-        # @return [Hash<Screen>]
+        # @return [Hash<AutomationObject::BluePrint::Composite::Screen>]
         def screens
           adapter.screens
         end
 
-        # @return [Hash<View>]
+        # @return [Hash<AutomationObject::BluePrint::Composite::View>]
         def views
           adapter.views
         end

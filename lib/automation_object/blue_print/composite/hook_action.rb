@@ -73,7 +73,7 @@ module AutomationObject
         end
 
         # Custom method for array of children instead of Hash
-        # @return [Array<HookElementRequirements>] array of wait for element children
+        # @return [Array<AutomationObject::BluePrint::Composite::HookElementRequirements>] array of wait for element children
         def wait_for_elements
           adapter.wait_for_elements
         end

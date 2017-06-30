@@ -28,9 +28,32 @@ module AutomationObject
           adapter.method_hook?(name)
         end
 
-        # @return [Hash<Hook>] array of Hook that are defined under the element
+        # @return [Hash<AutomationObject::BluePrint::Composite::Hook>] hash of Hook that are defined under the element
         def method_hooks
           adapter.method_hooks
+        end
+
+        # Get possible screen changes
+        # @return [Array<Symbol>]
+        def screen_changes
+          screen_changes = []
+          self.method_hooks.each_value { |hook|
+            screen_changes += [hook.before.change_screen, hook.before.new_screen,
+             hook.after.change_screen, hook.after.new_screen]
+          }
+
+          screen_changes.uniq.compact
+        end
+
+        # Get possible modal changes
+        # @return [Array<Symbol>]
+        def modal_changes
+          modal_changes = []
+          self.method_hooks.each_value { |hook|
+            modal_changes += [hook.before.show_modal, hook.after.show_modal]
+          }
+
+          modal_changes.uniq.compact
         end
       end
     end
