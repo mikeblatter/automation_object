@@ -33,27 +33,15 @@ module AutomationObject
           adapter.method_hooks
         end
 
-        # Get possible screen changes
+        # Get possible changes
         # @return [Array<Symbol>]
-        def screen_changes
-          screen_changes = []
+        def changes
+          changes = []
           self.method_hooks.each_value { |hook|
-            screen_changes += [hook.before.change_screen, hook.before.new_screen,
-             hook.after.change_screen, hook.after.new_screen]
+            changes += hook.changes
           }
 
-          screen_changes.uniq.compact
-        end
-
-        # Get possible modal changes
-        # @return [Array<Symbol>]
-        def modal_changes
-          modal_changes = []
-          self.method_hooks.each_value { |hook|
-            modal_changes += [hook.before.show_modal, hook.after.show_modal]
-          }
-
-          modal_changes.uniq.compact
+          changes.uniq.compact
         end
       end
     end

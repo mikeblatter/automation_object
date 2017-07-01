@@ -39,26 +39,15 @@ module AutomationObject
           adapter.element_hashes
         end
 
-        # Get possible screen changes
+        # Get possible changes
         # @return [Array<Symbol>]
-        def screen_changes
-          screen_changes = []
+        def changes
+          changes = []
           elements.merge(element_arrays).merge(element_hashes).each_value { |element|
-            screen_changes += element.screen_changes
+            changes += element.changes
           }
 
-          screen_changes.uniq.compact
-        end
-
-        # Get possible modal changes
-        # @return [Array<Symbol>]
-        def modal_changes
-          modal_changes = []
-          elements.merge(element_arrays).merge(element_hashes).each_value { |element|
-            modal_changes += element.modal_changes
-          }
-
-          modal_changes.uniq.compact
+          changes.uniq.compact
         end
       end
     end

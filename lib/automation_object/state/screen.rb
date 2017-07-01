@@ -10,12 +10,15 @@ require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'
 
-require_relative 'automatic_routing/screen'
+require_relative 'helpers/automatic_routing'
+require_relative 'helpers/container_helper'
 
 module AutomationObject
   module State
     # Screen composite for managing state
     class Screen < Base
+      include ContainerHelper
+
       attr_accessor :modal, :window_handle, :previous_screen_name
 
       # @return [AutomaticScreenChanges]
@@ -30,25 +33,6 @@ module AutomationObject
       has_many :elements, interface: Element
       has_many :element_arrays, interface: ElementArray
       has_many :element_hashes, interface: ElementHash
-
-      # Whether or not modal is active
-      attr_accessor :active
-
-      # @return [Boolean] screen is active or not
-      def active?
-        @active ||= false
-      end
-
-      # Automatically find a way to go to this screen
-      # @return [Boolean]
-      def go
-        if active?
-          utilize
-          return true
-        end
-
-        AutomaticRouting::Screen.new(self.top, self.name).route_to()
-      end
 
       # @return [void]
       def activate
@@ -93,23 +77,6 @@ module AutomationObject
       # @return [Boolean]
       def closed?
         !driver.window_handles.include?(window_handle)
-      end
-
-      # @return [void]
-      def reset
-        elements.values.map(&:reset)
-        element_arrays.values.map(&:reset)
-        element_hashes.values.map(&:reset)
-      end
-
-      # @return [Array<Symbol>]
-      def screen_changes
-        blue_prints.screen_changes
-      end
-
-      # @return [Array<Symbol>]
-      def modal_changes
-        blue_prints.modal_changes
       end
     end
   end

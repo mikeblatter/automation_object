@@ -22,17 +22,11 @@ module AutomationObject
           adapter.live?
         end
 
-        # Get possible screen changes
+        # Get possible changes
         # @return [Array<Symbol>]
-        def screen_changes
+        def changes
           [self.before.change_screen, self.before.new_screen,
-                            self.after.change_screen, self.after.new_screen].uniq.compact
-        end
-
-        # Get possible modal changes
-        # @return [Array<Symbol>]
-        def modal_changes
-          [self.before.show_modal, self.after.show_modal].uniq.compact
+                            self.after.change_screen, self.after.new_screen, self.before.show_modal, self.after.show_modal].uniq.compact
         end
       end
     end

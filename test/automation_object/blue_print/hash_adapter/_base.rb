@@ -28,6 +28,8 @@ module HashAdapterBase
 
     def create_tests
       interface_class.public_instance_methods(false).each do |method|
+        next if method == :changes
+
         remove_method :"test_interface_#{method}" if method_defined? :"test_interface_#{method}"
         define_method("test_interface_#{method}") do
           assert create_composite(self.class.defaults).public_methods.include?(method),
