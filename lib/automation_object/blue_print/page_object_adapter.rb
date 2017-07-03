@@ -4,6 +4,8 @@ require_relative 'composite/top'
 require_relative 'page_object_adapter/top'
 require_relative 'page_object_adapter/user_defined'
 
+require_relative '../page_object'
+
 # PageObject adapter
 module AutomationObject
   module BluePrint
@@ -26,8 +28,6 @@ module AutomationObject
 
         # Add classes defined into UserDefined module
         Dir[File.join(path, '**/*.rb')].each do |file|
-          puts file
-          puts File.read(file)
           UserDefined.module_eval(File.read(file))
         end
 

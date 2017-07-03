@@ -40,8 +40,7 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'redcarpet', '~> 3.4'
 
   # Debugging
-  spec.add_development_dependency 'pry', '~> 0.9'
-  spec.add_development_dependency 'pry-require_relative'
+  spec.add_development_dependency 'pry', '0.10'
   spec.add_development_dependency 'awesome_print', '~> 1.7'
 
   # Testing

@@ -5,8 +5,8 @@ require_relative 'composite'
 module AutomationObject
   module BluePrint
     module PageObjectAdapter
-      # Element composite
-      class Element < Composite
+      # ElementArray composite
+      class ElementArray < Composite
 
       end
     end
