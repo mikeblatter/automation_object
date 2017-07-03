@@ -54,17 +54,10 @@ module AutomationObject
 
     # BluePrints (UI configurations) wrapped in an composite
     # Composite provides a common interface for all adapters
-    # @param value [String, Hash] String to YAML files or Hash configuration
+    # @param value [String, Hash] String to YAML files, PageObject, or Hash configuration
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
     undef :blue_prints= if defined? :blue_prints=
     def blue_prints=(value)
-      case value
-      when String
-        BluePrint.adapter = :yaml
-      when Hash
-        BluePrint.adapter = :hash
-      end
-
       @blue_prints = BluePrint.create(value)
     end
 

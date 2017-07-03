@@ -14,7 +14,7 @@ module AutomationObject
       def build(hash = {})
         hash.symbolize_keys_deep!
 
-        top_hash = AutomationObject::BluePrint::HashAdapter::Top.new(hash)
+        top_hash = self::Top.new(hash)
         AutomationObject::BluePrint::Composite::Top.new(top_hash)
       end
     end

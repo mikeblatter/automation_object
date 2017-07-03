@@ -1,0 +1,3 @@
+class Blah
+
+end
