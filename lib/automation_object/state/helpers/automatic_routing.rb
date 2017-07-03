@@ -36,12 +36,21 @@ module AutomationObject
           container = container_by_key(container_name, parent_name)
           container.utilize
 
-          break unless next_container_name
+          return true unless next_container_name
 
           element = container.element_to_container(next_container_name)
           element_method = element.method_to_container(next_container_name)
 
-          element.send(element_method)
+          element_proxy = element.utilize
+
+          case element
+            when ElementArray
+              element_proxy.sample.send(element_method) # grab random
+            when ElementHash
+              element_proxy[element_proxy.keys.sample].send(element_method)
+            else
+              element_proxy.send(element_method)
+          end
         }
 
         false
