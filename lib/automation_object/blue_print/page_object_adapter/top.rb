@@ -7,8 +7,9 @@ module AutomationObject
     module PageObjectAdapter
       # Top composite
       class Top < Composite
-        def initialize
-          self.constant = UserDefined.const_get(:Configuration)
+        def initialize(defined_module)
+          super(defined_module)
+          self.constant = defined_module.const_get(:Configuration)
         end
 
         # @return [String, nil] base url to navigate to upon framework creation
