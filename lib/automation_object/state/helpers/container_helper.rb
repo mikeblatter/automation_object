@@ -28,7 +28,10 @@ module AutomationObject
       # @param name [Symbol] name of container you want to go to
       # @return [AutomationObject::State::Element, AutomationObject::State::ElementArray, AutomationObject::State::ElementHash]
       def element_to_container(name)
+        element_name, element_type = blue_prints.element_to_container(name)
+        return unless element_name or element_type
 
+        self.send(element_type)[element_name]
       end
 
       def reset

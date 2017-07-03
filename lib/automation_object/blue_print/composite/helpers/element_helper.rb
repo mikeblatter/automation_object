@@ -43,6 +43,18 @@ module AutomationObject
 
           changes.uniq.compact
         end
+
+        # @param name [Symbol] name of container you want to go to
+        # @return [Symbol] method name
+        def method_to_container(name)
+          self.method_hooks.each { |method_name, hook|
+            next unless hook.changes.include?(name)
+
+            return method_name
+          }
+
+          nil
+        end
       end
     end
   end

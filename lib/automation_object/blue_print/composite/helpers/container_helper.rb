@@ -45,6 +45,29 @@ module AutomationObject
 
           changes.uniq.compact
         end
+
+        # @param name [Symbol] name of container you want to go to
+        # @return [Symbol, Symbol] name and type of element
+        def element_to_container(name)
+          elements.merge(element_arrays).merge(element_hashes).each { |element_name, element|
+            next unless element.changes.include?(name)
+
+            element_type = nil
+
+            case element
+              when Element
+                  element_type = :elements
+              when ElementArray
+                  element_type = :element_arrays
+              when ElementHash
+                  element_type = :element_hashes
+            end
+
+            return element_name, element_type
+          }
+
+          return nil, nil
+        end
       end
     end
   end

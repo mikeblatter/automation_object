@@ -39,6 +39,10 @@ module AutomationObject
 
         @method_hooks
       end
+
+      def method_to_container(name)
+        blue_prints.method_to_container(name)
+      end
     end
   end
 end

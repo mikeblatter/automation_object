@@ -43,16 +43,6 @@ module AutomationObject
           adapter.element_hashes
         end
 
-        # Get possible changes
-        # @return [Array<Symbol>]
-        def changes
-          changes = []
-          elements.merge(element_arrays).merge(element_hashes).each_value { |element|
-            changes += element.changes
-          }
-
-          changes.uniq.compact
-        end
       end
     end
   end

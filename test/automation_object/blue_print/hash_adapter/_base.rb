@@ -28,7 +28,7 @@ module HashAdapterBase
 
     def create_tests
       interface_class.public_instance_methods(false).each do |method|
-        next if method == :changes
+        next if [:changes_to_container?, :changes].include?(method)
 
         remove_method :"test_interface_#{method}" if method_defined? :"test_interface_#{method}"
         define_method("test_interface_#{method}") do
