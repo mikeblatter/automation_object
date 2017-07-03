@@ -3,6 +3,17 @@ require_relative 'support/parse'
 
 # Description: Provides step definitions related to screens
 
+# For: Automatically navigate to the modal
+# Examples:
+# - I go to the "home_screen" screen
+# - I go to "login_screen" screen
+Then(%r(^I go to (?:the |)"([\w\s]+|%\{\w+\})" screen)) do |*args|
+  screen = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  success = AutomationObject::Framework.get.screen(screen).go
+  expect(success).to eq(true)
+end
+
 # For: Close the current screen or given screen
 # Examples:
 # - I close the "contact" screen

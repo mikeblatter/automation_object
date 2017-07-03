@@ -1,5 +1,20 @@
 # Screen Step Definitions
 
+### Automatically navigate to a screen
+
+#### Examples
+
+* I go to the "login_screen" screen
+* I go to "home_screen" screen
+
+#### Regex
+
+```
+^I go to (?:the |)"([\w\s]+|%\{\w+\})" screen
+```
+
+---
+
 ### Close the current screen or given screen
 
 #### Examples
