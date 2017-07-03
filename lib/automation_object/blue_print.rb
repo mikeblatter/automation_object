@@ -34,16 +34,16 @@ module AutomationObject
     # @return [AutomationObject::BluePrint::Composite::Top]
     def create(blueprint_arg)
       case blueprint_arg
-        when String
-          path = File.expand_path(blueprint_arg)
+      when String
+        path = File.expand_path(blueprint_arg)
 
-          if Dir[File.join(path, '/**/*.rb')].length > 0
-            self.adapter = :page_object
-          else
-            self.adapter = :yaml
-          end
-        when Hash
-          self.adapter = :hash
+        self.adapter = if !Dir[File.join(path, '/**/*.rb')].empty?
+                         :page_object
+                       else
+                         :yaml
+                       end
+      when Hash
+        self.adapter = :hash
       end
 
       adapter.build(blueprint_arg)

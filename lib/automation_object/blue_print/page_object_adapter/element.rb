@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
-# Namespace for user defined classes
 module AutomationObject
   module BluePrint
     module PageObjectAdapter
-      module UserDefined
+      # Top composite
+      class Element
+        def initialize
+          ap UserDefined.constants
+        end
       end
     end
   end

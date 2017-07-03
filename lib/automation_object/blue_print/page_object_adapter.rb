@@ -19,15 +19,17 @@ module AutomationObject
         path = File.expand_path(path)
 
         # Remove any defined classes in UserDefined namespace
-        UserDefined.constants.select { |constant|
+        UserDefined.constants.select do |constant|
           UserDefined.const_get(constant).is_a? Class
           UserDefined.remove_const(constant)
-        }
+        end
 
         # Add classes defined into UserDefined module
-        Dir[File.join(path, '**/*.rb')].each { |file|
+        Dir[File.join(path, '**/*.rb')].each do |file|
+          puts file
+          puts File.read(file)
           UserDefined.module_eval(File.read(file))
-        }
+        end
 
         # Will look for classes defined
         adapter_top = self::Top.new

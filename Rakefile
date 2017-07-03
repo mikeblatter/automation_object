@@ -60,7 +60,7 @@ end
 
 # Building
 desc 'Build Gem'
-task build: %i[rubocop test] do
+task :build do#: %i[rubocop test] do
   system "gem build #{GEM_NAME}.gemspec"
 
   remove_gem = File.expand_path(File.join(__dir__, "#{GEM_NAME}-#{AutomationObject::VERSION}.gem"))
@@ -68,7 +68,7 @@ task build: %i[rubocop test] do
 end
 
 desc 'Install Gem'
-task install: :build do
+task :install do#: :build do
   system "gem install ./pkg/#{GEM_NAME}-#{AutomationObject::VERSION}.gem"
 end
 
