@@ -6,7 +6,7 @@
 <title>
   Module: AutomationObject::State::CommonElement
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Module: AutomationObject::State::CommonElement
   
@@ -236,6 +234,28 @@
   
     <span class="summary_desc"><div class='inline'><p>Array of Hook that are defined under the element.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_to_container-instance_method" title="#method_to_container (instance method)">#<strong>method_to_container</strong>(name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -534,7 +554,7 @@
 
   <span class='ivar'>@method_hooks</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='op'>|</span>
-    <span class='ivar'>@method_hooks</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Hook</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span>
+    <span class='ivar'>@method_hooks</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Hook.html" title="AutomationObject::State::Hook (class)">Hook</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Base.html#initialize-instance_method" title="AutomationObject::State::Base#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span>
                                   <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span>
                                   <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span>
                                   <span class='kw'>self</span><span class='comma'>,</span>
@@ -542,6 +562,36 @@
   <span class='kw'>end</span>
 
   <span class='ivar'>@method_hooks</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="method_to_container-instance_method">
+  
+    #<strong>method_to_container</strong>(name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/_common_element.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_method_to_container'>method_to_container</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_method_to_container'>method_to_container</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -585,9 +635,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

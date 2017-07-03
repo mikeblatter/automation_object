@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::BluePrint::HashAdapter::Modal
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::BluePrint::HashAdapter::Modal
   
@@ -292,12 +290,12 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_merge_views'>merge_views</span>
   <span class='id identifier rubyid_top_hash'>top_hash</span> <span class='op'>=</span> <span class='id identifier rubyid_top'>top</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span>
 
-  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_top_hash'>top_hash</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_top_hash'>top_hash</span><span class='lbracket'>[</span><span class='symbol'>:views</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_top_hash'>top_hash</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_top_hash'>top_hash</span><span class='lbracket'>[</span><span class='symbol'>:views</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_top_view_hash'>top_view_hash</span> <span class='op'>=</span> <span class='id identifier rubyid_top_hash'>top_hash</span><span class='lbracket'>[</span><span class='symbol'>:views</span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_included_views'>included_views</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_included_view'>included_view</span><span class='op'>|</span>
-    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_top_view_hash'>top_view_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_included_view'>included_view</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_top_view_hash'>top_view_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_included_view'>included_view</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_deep_merge'>deep_merge</span><span class='lparen'>(</span><span class='id identifier rubyid_top_view_hash'>top_view_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_included_view'>included_view</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -311,9 +309,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:23 2016 by
+  Generated on Mon Jul  3 11:30:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

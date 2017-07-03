@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::State::CloseModal
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::State::CloseModal
   
@@ -235,7 +233,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_single_run'>single_run</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_document_complete?'>document_complete?</span>
 
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ModalParentExpected</span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Modal</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="ModalParentExpected.html" title="AutomationObject::State::ModalParentExpected (class)">ModalParentExpected</a></span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Modal.html" title="AutomationObject::State::Modal (class)">Modal</a></span></span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_modal'>modal</span><span class='period'>.</span><span class='id identifier rubyid_live?'>live?</span> <span class='op'>==</span> <span class='kw'>false</span>
 
@@ -252,9 +250,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:24 2016 by
+  Generated on Mon Jul  3 11:30:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

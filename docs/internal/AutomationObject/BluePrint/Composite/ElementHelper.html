@@ -6,7 +6,7 @@
 <title>
   Module: AutomationObject::BluePrint::Composite::ElementHelper
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Module: AutomationObject::BluePrint::Composite::ElementHelper
   
@@ -114,6 +112,52 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changes-instance_method" title="#changes (instance method)">#<strong>changes</strong>  &#x21d2; Array&lt;Symbol&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get possible changes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_input-instance_method" title="#default_input (instance method)">#<strong>default_input</strong>  &#x21d2; String<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Text input for automatic screen/modal change if needed.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -186,7 +230,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#method_hooks-instance_method" title="#method_hooks (instance method)">#<strong>method_hooks</strong>  &#x21d2; Hash&lt;Hook&gt; </a>
+      <a href="#method_hooks-instance_method" title="#method_hooks (instance method)">#<strong>method_hooks</strong>  &#x21d2; Hash&lt;AutomationObject::BluePrint::Composite::Hook&gt; </a>
     
 
     
@@ -200,7 +244,30 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Array of Hook that are defined under the element.</p>
+    <span class="summary_desc"><div class='inline'><p>Hash of Hook that are defined under the element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_to_container-instance_method" title="#method_to_container (instance method)">#<strong>method_to_container</strong>(name)  &#x21d2; Symbol </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Method name.</p>
 </div></span>
   
 </li>
@@ -239,7 +306,127 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="in_iframe-instance_method">
+  <h3 class="signature first" id="changes-instance_method">
+  
+    #<strong>changes</strong>  &#x21d2; <tt>Array&lt;Symbol&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get possible changes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_changes'>changes</span>
+  <span class='id identifier rubyid_changes'>changes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each_value'>each_value</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_hook'>hook</span><span class='op'>|</span>
+    <span class='id identifier rubyid_changes'>changes</span> <span class='op'>+=</span> <span class='id identifier rubyid_hook'>hook</span><span class='period'>.</span><span class='id identifier rubyid_changes'>changes</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_input-instance_method">
+  
+    #<strong>default_input</strong>  &#x21d2; <tt><span class='object_link'><a href="../../../String.html" title="String (class)">String</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns text input for automatic screen/modal change if needed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../../String.html" title="String (class)">String</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>text input for automatic screen/modal change if needed</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_input'>default_input</span>
+  <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_default_input'>default_input</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="in_iframe-instance_method">
   
     #<strong>in_iframe</strong>  &#x21d2; <tt>Symbol</tt><sup>?</sup> 
   
@@ -280,12 +467,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_iframe'>in_iframe</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_in_iframe'>in_iframe</span>
@@ -337,12 +524,12 @@
       <pre class="lines">
 
 
-18
-19
-20</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_iframe?'>in_iframe?</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_in_iframe?'>in_iframe?</span>
@@ -389,12 +576,12 @@
       <pre class="lines">
 
 
-22
-23
-24</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_hook?'>method_hook?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_method_hook?'>method_hook?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -407,7 +594,7 @@
       <div class="method_details ">
   <h3 class="signature " id="method_hooks-instance_method">
   
-    #<strong>method_hooks</strong>  &#x21d2; <tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span>&lt;<span class='object_link'><a href="Hook.html" title="AutomationObject::BluePrint::Composite::Hook (class)">Hook</a></span>&gt;</tt> 
+    #<strong>method_hooks</strong>  &#x21d2; <tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span>&lt;<span class='object_link'><a href="Hook.html" title="AutomationObject::BluePrint::Composite::Hook (class)">AutomationObject::BluePrint::Composite::Hook</a></span>&gt;</tt> 
   
 
   
@@ -415,7 +602,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns array of Hook that are defined under the element</p>
+    <p>Returns hash of Hook that are defined under the element</p>
 
 
   </div>
@@ -428,12 +615,12 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span>&lt;<span class='object_link'><a href="Hook.html" title="AutomationObject::BluePrint::Composite::Hook (class)">Hook</a></span>&gt;</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span>&lt;<span class='object_link'><a href="Hook.html" title="AutomationObject::BluePrint::Composite::Hook (class)">AutomationObject::BluePrint::Composite::Hook</a></span>&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>array of Hook that are defined under the element</p>
+        <div class='inline'><p>hash of Hook that are defined under the element</p>
 </div>
       
     </li>
@@ -446,15 +633,103 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_hooks'>method_hooks</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="method_to_container-instance_method">
+  
+    #<strong>method_to_container</strong>(name)  &#x21d2; <tt>Symbol</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns method name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of container you want to go to</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>method name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_method_to_container'>method_to_container</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_hook'>hook</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_hook'>hook</span><span class='period'>.</span><span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_method_name'>method_name</span>
+  <span class='rbrace'>}</span>
+
+  <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -503,12 +778,12 @@
       <pre class="lines">
 
 
-8
-9
-10</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_selector_params'>selector_params</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_selector_params'>selector_params</span>
@@ -523,9 +798,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

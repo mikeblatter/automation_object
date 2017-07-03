@@ -6,7 +6,7 @@
 <title>
   Module: AutomationObject::Driver::CommonSelenium::Driver
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Module: AutomationObject::Driver::CommonSelenium::Driver
   
@@ -564,7 +562,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/driver/common_selenium/driver.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scroll_position'>scroll_position</span>
-  <span class='id identifier rubyid_position'>position</span> <span class='op'>=</span> <span class='const'>Point</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_position'>position</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Point.html" title="AutomationObject::Driver::Point (class)">Point</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='id identifier rubyid_position'>position</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>var doc = document.documentElement; return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='id identifier rubyid_position'>position</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>var doc = document.documentElement; return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
@@ -581,9 +579,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::State::HookAction
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::State::HookAction
   
@@ -281,7 +279,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_hook_order'>hook_order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='op'>|</span>
-    <span class='id identifier rubyid_hook_action_class'>hook_action_class</span> <span class='op'>=</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>State</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_pascalize'>pascalize</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_hook_action_class'>hook_action_class</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../State.html" title="AutomationObject::State (module)">State</a></span></span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_pascalize'>pascalize</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_blue_prints'>blue_prints</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_hook_action'>hook_action</span> <span class='op'>=</span> <span class='id identifier rubyid_hook_action_class'>hook_action_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
@@ -300,9 +298,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:22 2016 by
+  Generated on Mon Jul  3 11:30:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

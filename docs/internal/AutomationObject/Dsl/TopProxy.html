@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::Dsl::TopProxy
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::Dsl::TopProxy
   
@@ -156,6 +154,29 @@ Use proxy for methods trying to do a @state call</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#current_screen-instance_method" title="#current_screen (instance method)">#<strong>current_screen</strong>  &#x21d2; AutomationObject::Dsl::ScreenProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Current Screen.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(blue_prints, state, name)  &#x21d2; TopProxy </a>
     
 
@@ -173,6 +194,29 @@ Use proxy for methods trying to do a @state call</p>
 
   
     <span class="summary_desc"><div class='inline'><p>A new instance of TopProxy.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#screen-instance_method" title="#screen (instance method)">#<strong>screen</strong>(name)  &#x21d2; AutomationObject::Dsl::ScreenProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve screen from composite.</p>
 </div></span>
   
 </li>
@@ -267,15 +311,15 @@ Use proxy for methods trying to do a @state call</p>
       <pre class="lines">
 
 
-20
 21
-22</pre>
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/top.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/top.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='kw'>super</span> <span class='const'>Top</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>super</span> <span class='const'><span class='object_link'><a href="Top.html" title="AutomationObject::Dsl::Top (class)">Top</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -336,15 +380,159 @@ Use proxy for methods trying to do a @state call</p>
       <pre class="lines">
 
 
-24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/top.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/top.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span>
   <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="current_screen-instance_method">
+  
+    #<strong>current_screen</strong>  &#x21d2; <tt><span class='object_link'><a href="ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Current Screen</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/top.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current_screen'>current_screen</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_current_screen'>current_screen</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="screen-instance_method">
+  
+    #<strong>screen</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve screen from composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of screen</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error/ScreenDoesNotExistError.html" title="AutomationObject::Dsl::Error::ScreenDoesNotExistError (class)">AutomationObject::Dsl::Error::ScreenDoesNotExistError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/top.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_screen'>screen</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ScreenDoesNotExistError.html" title="AutomationObject::Dsl::Error::ScreenDoesNotExistError (class)">ScreenDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ScreenDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ScreenDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -356,9 +544,9 @@ Use proxy for methods trying to do a @state call</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

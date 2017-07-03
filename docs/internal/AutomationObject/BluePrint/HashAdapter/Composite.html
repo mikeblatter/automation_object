@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::BluePrint::HashAdapter::Composite
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::BluePrint::HashAdapter::Composite
   
@@ -120,7 +118,7 @@
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="AutomaticOnloadModal.html" title="AutomationObject::BluePrint::HashAdapter::AutomaticOnloadModal (class)">AutomaticOnloadModal</a></span>, <span class='object_link'><a href="CustomMethod.html" title="AutomationObject::BluePrint::HashAdapter::CustomMethod (class)">CustomMethod</a></span>, <span class='object_link'><a href="ElementArray.html" title="AutomationObject::BluePrint::HashAdapter::ElementArray (class)">ElementArray</a></span>, <span class='object_link'><a href="ElementHash.html" title="AutomationObject::BluePrint::HashAdapter::ElementHash (class)">ElementHash</a></span>, <span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::HashAdapter::HookAction (class)">HookAction</a></span>, <span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::HashAdapter::HookElementRequirements (class)">HookElementRequirements</a></span></p>
+  <p class="children"><span class='object_link'><a href="AutomaticModalChange.html" title="AutomationObject::BluePrint::HashAdapter::AutomaticModalChange (class)">AutomaticModalChange</a></span>, <span class='object_link'><a href="CustomMethod.html" title="AutomationObject::BluePrint::HashAdapter::CustomMethod (class)">CustomMethod</a></span>, <span class='object_link'><a href="ElementArray.html" title="AutomationObject::BluePrint::HashAdapter::ElementArray (class)">ElementArray</a></span>, <span class='object_link'><a href="ElementHash.html" title="AutomationObject::BluePrint::HashAdapter::ElementHash (class)">ElementHash</a></span>, <span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::HashAdapter::HookAction (class)">HookAction</a></span>, <span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::HashAdapter::HookElementRequirements (class)">HookElementRequirements</a></span></p>
 </div>
 
 
@@ -495,7 +493,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='symbol'>:top</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>top</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='comment'># Add hash before calling super
-</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_hash'>hash</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_hash'>hash</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys_deep!'>symbolize_keys_deep!</span>
 
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
@@ -503,7 +501,7 @@
   <span class='comment'># Validate using ValidationHelper
 </span>  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_valid?'>valid?</span>
 
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ValidationError</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="ValidationError.html" title="AutomationObject::BluePrint::HashAdapter::ValidationError (class)">ValidationError</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span>
 
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_add_errors'>add_errors</span><span class='lparen'>(</span><span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -701,7 +699,7 @@
 </span>  <span class='id identifier rubyid_class_name'>class_name</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:interface</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
 
   <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../composite/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_class_name'>class_name</span><span class='period'>.</span><span class='id identifier rubyid_to_underscore'>to_underscore</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_composite_class'>composite_class</span> <span class='op'>=</span> <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>BluePrint</span><span class='op'>::</span><span class='const'>Composite</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_class_name'>class_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_composite_class'>composite_class</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../BluePrint.html" title="AutomationObject::BluePrint (module)">BluePrint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Composite.html" title="AutomationObject::BluePrint::Composite (module)">Composite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_class_name'>class_name</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_composite_class'>composite_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:interface</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_child'>child</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -867,7 +865,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_child'>get_child</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_child'>child</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_child'>child</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_child_location'>child_location</span> <span class='op'>=</span> <span class='id identifier rubyid_location'>location</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='id identifier rubyid_create_composite'>create_composite</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_child'>child</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_child_location'>child_location</span><span class='rparen'>)</span>
@@ -948,7 +946,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_children'>get_children</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_children'>children</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_children'>children</span> <span class='op'>=</span> <span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_children'>children</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_children'>children</span> <span class='op'>=</span> <span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_children'>children</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 
   <span class='id identifier rubyid_create_hash_children'>create_hash_children</span><span class='lparen'>(</span><span class='id identifier rubyid_children'>children</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -962,9 +960,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:24 2016 by
+  Generated on Mon Jul  3 11:30:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

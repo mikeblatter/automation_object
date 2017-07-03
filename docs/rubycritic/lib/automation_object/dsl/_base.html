@@ -1,61 +1,100 @@
 <!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RubyCritic</title>
-    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
-    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
   </head>
+
   <body>
-    <header class="project-header group">
-      <div class="container">
-        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
-        <nav class="project-nav">
-          <a href="../../../overview.html" class="project-nav-item">Overview</a>
-          <a href="../../../code_index.html" class="project-nav-item">Code</a>
-          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
-        </nav>
-      </div>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../overview.html"><img src="../../../assets/images/logo.png" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
     </header>
-    <div class="container">
-      <div class="file-header group rated">
-  <span class="rating rating-a circled-text circle">
-    A
-  </span>
-  <h2 class="file-name">AutomationObject::Dsl::Base</h2>
-
-  <span class="file-committed-at">
-    
-      Updated <time class='js-timeago' datetime='2016-11-23 14:54:17 -0600'>2016-11-23 14:54:17 -0600</time>
-    
-  </span>
-
-  <div class="file-stats group">
-    <div class="file-stat">
-      42 complexity
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2017-06-29 13:58:23 -0500'>2017-06-29 13:58:23 -0500</time>
+        
+      </span>
     </div>
-    <div class="file-stat">
-      6.0 complexity per method
-    </div>
-    <div class="file-stat">
-      15 churn
-    </div>
-    <div class="file-stat">
-      7 methods
-    </div>
-    <div class="file-stat">
-      0 duplication
+    <div>
+      <h3><small>lib/automation_object/dsl /</small> _base.rb</h3>
     </div>
   </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating a big">
+              A
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">83</span><small> lines of codes</small></div>
+              <div><span class="metric">8</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">5.9</span><small> complexity/method</small></div>
+              <div><span class="metric">16</span><small> loc/method</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">47</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                3
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  
-    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
-  
-</div>
-
-<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 
 module AutomationObject
   module Dsl
@@ -68,7 +107,7 @@ module AutomationObject
 
         # Add attributes the call super
         self.class.has_many_relationships.each do |name, composite_class|
-          blue_prints.send(name).each do |child_key, child_blue_prints|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Nested-Iterators.md" target="_blank">NestedIterators</a>)      AutomationObject::Dsl::Base#initialize contains iterators nested 2 deep          </span>  </li></ul>
+          blue_prints.send(name).each do |child_key, child_blue_prints|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Nested-Iterators.md" target="_blank"><b>NestedIterators</b></a>        </span>      </div>      <span>AutomationObject::Dsl::Base#initialize contains iterators nested 2 deep</span>          </div>  </li></ol>
             child_state = state.send(name)[child_key]
             ostruct_hash[child_key] = composite_class.new(child_blue_prints, child_state, child_key)
           end
@@ -77,13 +116,22 @@ module AutomationObject
         super ostruct_hash
       end
 
+      # @param [Symbol] method
+      # @param [Array, nil] args
+      # @param [Proc] block
+      def method_missing(method, *args, &amp;block)
+        return super if to_h.has_key?(method)
+
+        raise NoMethodError.new(&quot;undefined method &#39;#{method}&#39;&quot;, method, args)
+      end
+
       def to_s
         inspect
       end
 
       # @param _indent [Integer]
       # @return [String]
-      def inspect(_indent = 5)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank">UncommunicativeParameterName</a>)      AutomationObject::Dsl::Base#inspect has the parameter name '_indent'          </span>  </li></ul>
+      def inspect(_indent = 5)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank"><b>UncommunicativeParameterName</b></a>        </span>      </div>      <span>AutomationObject::Dsl::Base#inspect has the parameter name '_indent'</span>          </div>  </li></ol>
         string = self.class.to_s
 
         to_h.each do |key, value|
@@ -105,7 +153,7 @@ module AutomationObject
       # @param value [Object]
       # @param indent [Integer]
       # @return [String]
-      def sub_inspect(value, indent)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      AutomationObject::Dsl::Base#sub_inspect doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
+      def sub_inspect(value, indent)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>AutomationObject::Dsl::Base#sub_inspect doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
         if value.is_a?(Base)
           &quot; #{value.inspect(indent + 10)}&quot;
         else
@@ -130,15 +178,22 @@ module AutomationObject
   end
 end
 </code>
+  </div>
+</div>
 
+        </div>
+      </div>
     </div>
-    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
-    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
-    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
-    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+
+    <!-- Javascripts -->
+    <script src='../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago.js'></script>
     <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
-    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
-    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.min.js'></script>
     <script src='../../../assets/javascripts/application.js'></script>
+    <script src='../../../assets/javascripts/jquery.filtertable.min.js'></script>
   </body>
 </html>

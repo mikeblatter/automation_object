@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::State::CloseScreen
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::State::CloseScreen
   
@@ -232,7 +230,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/state/hook_actions/close_screen.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_single_run'>single_run</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ScreenParentExpected</span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="ScreenParentExpected.html" title="AutomationObject::State::ScreenParentExpected (class)">ScreenParentExpected</a></span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite'>composite</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span><span class='period'>.</span><span class='id identifier rubyid_closed?'>closed?</span>
 
@@ -250,9 +248,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:24 2016 by
+  Generated on Mon Jul  3 11:30:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

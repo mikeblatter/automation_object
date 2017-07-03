@@ -6,7 +6,7 @@
 <title>
   Module: AutomationObject::Dsl
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../class_list.html"></iframe>
+      <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -59,8 +59,6 @@
         <div class="clear"></div>
       </div>
 
-      <iframe id="search_frame" src="../class_list.html"></iframe>
-
       <div id="content"><h1>Module: AutomationObject::Dsl
   
   
@@ -81,7 +79,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/automation_object/dsl.rb<span class="defines">,<br />
-  lib/automation_object/dsl/top.rb,<br /> lib/automation_object/dsl/_base.rb,<br /> lib/automation_object/dsl/modal.rb,<br /> lib/automation_object/dsl/screen.rb,<br /> lib/automation_object/dsl/_proxy.rb,<br /> lib/automation_object/dsl/element.rb,<br /> lib/automation_object/dsl/element_hash.rb,<br /> lib/automation_object/dsl/element_array.rb</span>
+  lib/automation_object/dsl/top.rb,<br /> lib/automation_object/dsl/_base.rb,<br /> lib/automation_object/dsl/modal.rb,<br /> lib/automation_object/dsl/_error.rb,<br /> lib/automation_object/dsl/_proxy.rb,<br /> lib/automation_object/dsl/screen.rb,<br /> lib/automation_object/dsl/element.rb,<br /> lib/automation_object/dsl/element_hash.rb,<br /> lib/automation_object/dsl/element_array.rb</span>
 </dd>
   </dl>
   
@@ -100,6 +98,8 @@
 </div><h2>Defined Under Namespace</h2>
 <p class="children">
   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Dsl/Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span>
     
   
     
@@ -232,7 +232,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/dsl.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span>
-  <span class='const'>TopProxy</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='symbol'>:top</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Dsl/TopProxy.html" title="AutomationObject::Dsl::TopProxy (class)">TopProxy</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Dsl/TopProxy.html#initialize-instance_method" title="AutomationObject::Dsl::TopProxy#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='symbol'>:top</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -244,9 +244,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

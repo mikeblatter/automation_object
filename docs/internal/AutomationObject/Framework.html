@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::Framework
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../class_list.html"></iframe>
+      <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::Framework
   
@@ -269,7 +267,7 @@ A Proxy class that will become the DSL Framework</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get-class_method" title="get (class method)">.<strong>get</strong>  &#x21d2; Framework </a>
+      <a href="#get-class_method" title="get (class method)">.<strong>get</strong>  &#x21d2; AutomationObject::Framework </a>
     
 
     
@@ -297,6 +295,29 @@ A Proxy class that will become the DSL Framework</p>
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#current_screen-instance_method" title="#current_screen (instance method)">#<strong>current_screen</strong>  &#x21d2; AutomationObject::Dsl::ScreenProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Current Screen.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -341,6 +362,29 @@ A Proxy class that will become the DSL Framework</p>
 
   
     <span class="summary_desc"><div class='inline'><p>Reset the entire state, remove any values Leave the driver alone here, can be done elsewhere.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#screen-instance_method" title="#screen (instance method)">#<strong>screen</strong>(name)  &#x21d2; AutomationObject::Dsl::ScreenProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve screen from composite.</p>
 </div></span>
   
 </li>
@@ -423,27 +467,27 @@ can also automate XML</p>
       <pre class="lines">
 
 
-28
-29
 30
 31
 32
 33
 34
 35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span> <span class='op'>=</span> <span class='id identifier rubyid_driver'>driver</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span> <span class='op'>=</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>=</span> <span class='const'>State</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
-  <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='const'>Dsl</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="State.html" title="AutomationObject::State (module)">State</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create'><span class='object_link'><a href="State.html#create-class_method" title="AutomationObject::State.create (method)">create</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
+  <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create'><span class='object_link'><a href="Dsl.html#create-class_method" title="AutomationObject::Dsl.create (method)">create</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span>
 
-  <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Framework</span><span class='period'>.</span><span class='id identifier rubyid_singleton'>singleton</span> <span class='op'>=</span> <span class='kw'>self</span>
+  <span class='const'><span class='object_link'><a href="../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="AutomationObject::Framework (class)">Framework</a></span></span><span class='period'>.</span><span class='id identifier rubyid_singleton'><span class='object_link'><a href="#singleton-class_method" title="AutomationObject::Framework.singleton (method)">singleton</a></span></span> <span class='op'>=</span> <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -492,12 +536,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_singleton'>singleton</span>
   <span class='ivar'>@singleton</span>
@@ -551,12 +595,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-13
-14
-15</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span>
   <span class='ivar'>@blue_prints</span>
@@ -605,12 +649,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-16
-17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_driver'>driver</span>
   <span class='ivar'>@driver</span>
@@ -664,12 +708,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-22
-23
-24</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dsl'>dsl</span>
   <span class='ivar'>@dsl</span>
@@ -718,12 +762,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-19
-20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_state'>state</span>
   <span class='ivar'>@state</span>
@@ -743,7 +787,7 @@ can also automate XML</p>
       <div class="method_details first">
   <h3 class="signature first" id="get-class_method">
   
-    .<strong>get</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="AutomationObject::Framework (class)">Framework</a></span></tt> 
+    .<strong>get</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="AutomationObject::Framework (class)">AutomationObject::Framework</a></span></tt> 
   
 
   
@@ -764,7 +808,7 @@ can also automate XML</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="AutomationObject::Framework (class)">Framework</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="AutomationObject::Framework (class)">AutomationObject::Framework</a></span></tt>)</span>
       
       
       
@@ -782,12 +826,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-86
-87
-88</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span>
   <span class='id identifier rubyid_singleton'>singleton</span>
@@ -804,7 +848,60 @@ can also automate XML</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="quit-instance_method">
+  <h3 class="signature first" id="current_screen-instance_method">
+  
+    #<strong>current_screen</strong>  &#x21d2; <tt><span class='object_link'><a href="Dsl/ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Current Screen</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Dsl/ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current_screen'>current_screen</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_current_screen'>current_screen</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="quit-instance_method">
   
     #<strong>quit</strong>  &#x21d2; <tt>void</tt> 
   
@@ -829,17 +926,102 @@ Leave the driver alone here, can be done elsewhere</p>
       <pre class="lines">
 
 
-73
-74
-75
-76</pre>
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_quit'>quit</span> <span class='comment'># Quit the state.  That way it knows to kill threads if operational
 </span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dsl'>dsl</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="screen-instance_method">
+  
+    #<strong>screen</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="Dsl/ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve screen from composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of screen</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Dsl/ScreenProxy.html" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Dsl/Error/ScreenDoesNotExistError.html" title="AutomationObject::Dsl::Error::ScreenDoesNotExistError (class)">AutomationObject::Dsl::Error::ScreenDoesNotExistError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_screen'>screen</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -851,9 +1033,9 @@ Leave the driver alone here, can be done elsewhere</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

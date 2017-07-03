@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::Dsl::ModalProxy
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::Dsl::ModalProxy
   
@@ -148,6 +146,98 @@
 
   
     <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element-instance_method" title="#element (instance method)">#<strong>element</strong>(name)  &#x21d2; AutomationObject::Dsl::ElementProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve element from composite.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element_array-instance_method" title="#element_array (instance method)">#<strong>element_array</strong>(name)  &#x21d2; AutomationObject::Dsl::ElementArrayProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve element array from composite.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element_hash-instance_method" title="#element_hash (instance method)">#<strong>element_hash</strong>(name)  &#x21d2; AutomationObject::Dsl::ElementHashProxy </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve element hash from composite.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#go-instance_method" title="#go (instance method)">#<strong>go</strong>  &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Go to this modal Will try to automatically reach it, will throw error if it cannot.</p>
+</div></span>
   
 </li>
 
@@ -279,15 +369,15 @@
       <pre class="lines">
 
 
-23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='kw'>super</span> <span class='const'>Modal</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>super</span> <span class='const'><span class='object_link'><a href="Modal.html" title="AutomationObject::Dsl::Modal (class)">Modal</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -363,20 +453,20 @@
       <pre class="lines">
 
 
-30
 31
 32
 33
 34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>super</span> <span class='kw'>if</span> <span class='const'>Modal</span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>super</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="Modal.html" title="AutomationObject::Dsl::Modal (class)">Modal</a></span></span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
 
   <span class='comment'># Attempt to load modal if composite object contains that child
 </span>  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span> <span class='kw'>if</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
@@ -432,15 +522,348 @@
       <pre class="lines">
 
 
-40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span>
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_active?'>active?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="element-instance_method">
+  
+    #<strong>element</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="ElementProxy.html" title="AutomationObject::Dsl::ElementProxy (class)">AutomationObject::Dsl::ElementProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve element from composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of element</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ElementProxy.html" title="AutomationObject::Dsl::ElementProxy (class)">AutomationObject::Dsl::ElementProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error/ElementDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementDoesNotExistError (class)">AutomationObject::Dsl::Error::ElementDoesNotExistError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element'>element</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementDoesNotExistError (class)">ElementDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ElementDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ElementDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="element_array-instance_method">
+  
+    #<strong>element_array</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="ElementArrayProxy.html" title="AutomationObject::Dsl::ElementArrayProxy (class)">AutomationObject::Dsl::ElementArrayProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve element array from composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of element array</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ElementArrayProxy.html" title="AutomationObject::Dsl::ElementArrayProxy (class)">AutomationObject::Dsl::ElementArrayProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error/ElementArrayDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementArrayDoesNotExistError (class)">AutomationObject::Dsl::Error::ElementArrayDoesNotExistError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element_array'>element_array</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementArrayDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementArrayDoesNotExistError (class)">ElementArrayDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ElementArrayDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ElementArrayDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="element_hash-instance_method">
+  
+    #<strong>element_hash</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="ElementHashProxy.html" title="AutomationObject::Dsl::ElementHashProxy (class)">AutomationObject::Dsl::ElementHashProxy</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve element hash from composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of element hash</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ElementHashProxy.html" title="AutomationObject::Dsl::ElementHashProxy (class)">AutomationObject::Dsl::ElementHashProxy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error/ElementHashDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementHashDoesNotExistError (class)">AutomationObject::Dsl::Error::ElementHashDoesNotExistError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element_hash'>element_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementHashDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementHashDoesNotExistError (class)">ElementHashDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ElementHashDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ElementHashDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
+  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="go-instance_method">
+  
+    #<strong>go</strong>  &#x21d2; <tt>void</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Go to this modal
+Will try to automatically reach it, will throw error if it cannot</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error/AutoReachModalError.html" title="AutomationObject::Dsl::Error::AutoReachModalError (class)">AutomationObject::Dsl::Error::AutoReachModalError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/modal.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_go'>go</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/AutoReachModalError.html" title="AutomationObject::Dsl::Error::AutoReachModalError (class)">AutoReachModalError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/AutoReachModalError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::AutoReachModalError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_go'>go</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -452,9 +875,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

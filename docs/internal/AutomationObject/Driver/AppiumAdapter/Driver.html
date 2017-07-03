@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::Driver::AppiumAdapter::Driver
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::Driver::AppiumAdapter::Driver
   
@@ -473,7 +471,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#window_handle%3D-instance_method" title="#window_handle= (instance method)">#<strong>window_handle=</strong>(handle_value)  &#x21d2; void </a>
+      <a href="#window_handle=-instance_method" title="#window_handle= (instance method)">#<strong>window_handle=</strong>(handle_value)  &#x21d2; void </a>
     
 
     
@@ -721,7 +719,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser?'>browser?</span>
-  <span class='kw'>return</span> <span class='ivar'>@browser</span> <span class='kw'>unless</span> <span class='ivar'>@browser</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>return</span> <span class='ivar'>@browser</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@browser</span>
   <span class='ivar'>@browser</span> <span class='op'>=</span> <span class='kw'>false</span>
 
   <span class='comment'># Now we need to check Appium&#39;s contexts to see if WEBVIEW is in available_contexts
@@ -880,8 +878,8 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_browser?'>browser?</span> <span class='comment'># Skip for non-browser Appium sessions
 </span>
   <span class='comment'># Loop through a few times to double check correctness
-</span>  <span class='const'>DOCUMENT_COMPLETE_LOOPS</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='const'>DOCUMENT_COMPLETE_SLEEP</span><span class='rparen'>)</span>
+</span>  <span class='const'><span class='object_link'><a href="#DOCUMENT_COMPLETE_LOOPS-constant" title="AutomationObject::Driver::AppiumAdapter::Driver::DOCUMENT_COMPLETE_LOOPS (constant)">DOCUMENT_COMPLETE_LOOPS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DOCUMENT_COMPLETE_SLEEP-constant" title="AutomationObject::Driver::AppiumAdapter::Driver::DOCUMENT_COMPLETE_SLEEP (constant)">DOCUMENT_COMPLETE_SLEEP</a></span></span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_execute_script'>execute_script</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>return document.readyState;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>complete</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 
@@ -1071,7 +1069,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='comment'># Wrap element in the adapter interface
-</span>  <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Driver</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</span>  <span class='const'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Driver.html" title="AutomationObject::Driver (module)">Driver</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Element.html" title="AutomationObject::Driver::Element (class)">Element</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Base.html#initialize-instance_method" title="AutomationObject::Driver::Base#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Element.html" title="AutomationObject::Driver::AppiumAdapter::Element (class)">Element</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Element.html#initialize-instance_method" title="AutomationObject::Driver::AppiumAdapter::Element#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1171,7 +1169,7 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 
   <span class='id identifier rubyid_elements'>elements</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
     <span class='comment'># Wrap element in the adapter interface
-</span>    <span class='const'>AutomationObject</span><span class='op'>::</span><span class='const'>Driver</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</span>    <span class='const'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Driver.html" title="AutomationObject::Driver (module)">Driver</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Element.html" title="AutomationObject::Driver::Element (class)">Element</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Base.html#initialize-instance_method" title="AutomationObject::Driver::Base#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Element.html" title="AutomationObject::Driver::AppiumAdapter::Element (class)">Element</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Element.html#initialize-instance_method" title="AutomationObject::Driver::AppiumAdapter::Element#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1607,9 +1605,9 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:23 2016 by
+  Generated on Mon Jul  3 11:30:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

@@ -1,86 +1,132 @@
 <!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RubyCritic</title>
-    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
-    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
   </head>
+
   <body>
-    <header class="project-header group">
-      <div class="container">
-        <h1 class="logo"><a href="../../../overview.html" class="logo-link">RubyCritic</a></h1>
-        <nav class="project-nav">
-          <a href="../../../overview.html" class="project-nav-item">Overview</a>
-          <a href="../../../code_index.html" class="project-nav-item">Code</a>
-          <a href="../../../smells_index.html" class="project-nav-item">Smells</a>
-        </nav>
-      </div>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../overview.html"><img src="../../../assets/images/logo.png" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
     </header>
-    <div class="container">
-      <div class="file-header group rated">
-  <span class="rating rating-a circled-text circle">
-    A
-  </span>
-  <h2 class="file-name">Hash</h2>
-
-  <span class="file-committed-at">
-    
-      Updated <time class='js-timeago' datetime='2016-09-18 22:44:32 -0500'>2016-09-18 22:44:32 -0500</time>
-    
-  </span>
-
-  <div class="file-stats group">
-    <div class="file-stat">
-      21 complexity
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2016-09-18 22:44:32 -0500'>2016-09-18 22:44:32 -0500</time>
+        
+      </span>
     </div>
-    <div class="file-stat">
-      10.5 complexity per method
-    </div>
-    <div class="file-stat">
-      8 churn
-    </div>
-    <div class="file-stat">
-      2 methods
-    </div>
-    <div class="file-stat">
-      0 duplication
+    <div>
+      <h3><small>lib/automation_object/helpers /</small> hash.rb</h3>
     </div>
   </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating a big">
+              A
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">16</span><small> lines of codes</small></div>
+              <div><span class="metric">2</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">10.5</span><small> complexity/method</small></div>
+              <div><span class="metric">8</span><small> loc/method</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">21</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                8
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  
-    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
-  
-</div>
-
-<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 # Hash class method additions
-class Hash<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Prima-Donna-Method.md" target="_blank">PrimaDonnaMethod</a>)      Hash has prima donna method 'symbolize_keys_deep!'          </span>  </li></ul>
+class Hash<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Prima-Donna-Method.md" target="_blank"><b>PrimaDonnaMethod</b></a>        </span>      </div>      <span>Hash has prima donna method 'symbolize_keys_deep!'</span>          </div>  </li></ol>
   def deep_merge(second)
-    merger = proc { |_key, v1, v2| v1.is_a?(Hash) &amp;&amp; v2.is_a?(Hash) ? v1.merge(v2, &amp;merger) : v2 }<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank">UncommunicativeVariableName</a>)      Hash#deep_merge has the variable name 'v1'          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank">UncommunicativeVariableName</a>)      Hash#deep_merge has the variable name 'v2'          </span>  </li></ul>
+    merger = proc { |_key, v1, v2| v1.is_a?(Hash) &amp;&amp; v2.is_a?(Hash) ? v1.merge(v2, &amp;merger) : v2 }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Hash#deep_merge has the variable name 'v1'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Hash#deep_merge has the variable name 'v2'</span>          </div>  </li></ol>
     merge(second, &amp;merger)
   end
 
-  def symbolize_keys_deep!(h = self)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank">UncommunicativeParameterName</a>)      Hash#symbolize_keys_deep! has the parameter name 'h'          </span>  </li></ul>
-    h.keys.each do |k|<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)                        <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank">UncommunicativeVariableName</a>)      Hash#symbolize_keys_deep! has the variable name 'k'          </span>  </li></ul>
-      ks = k.respond_to?(:to_sym) ? k.to_sym : k<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Manual-Dispatch.md" target="_blank">ManualDispatch</a>)      Hash#symbolize_keys_deep! manually dispatches method call          </span>  </li></ul>
-      h[ks] = h.delete k # Preserve order even when k == ks<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)                        <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </span>  </li></ul>
-      symbolize_keys_deep! h[ks] if h[ks].is_a?(Hash)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      Hash#symbolize_keys_deep! calls 'h[ks]' 2 times          </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank">FeatureEnvy</a>)      Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)                        <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </span>  </li></ul>
+  def symbolize_keys_deep!(h = self)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank"><b>UncommunicativeParameterName</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! has the parameter name 'h'</span>          </div>  </li></ol>
+    h.keys.each do |k|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! has the variable name 'k'</span>          </div>  </li></ol>
+      ks = k.respond_to?(:to_sym) ? k.to_sym : k<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Manual-Dispatch.md" target="_blank"><b>ManualDispatch</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! manually dispatches method call</span>          </div>  </li></ol>
+      h[ks] = h.delete k # Preserve order even when k == ks<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </div>  </li></ol>
+      symbolize_keys_deep! h[ks] if h[ks].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! calls 'h[ks]' 2 times</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </div>  </li></ol>
     end
   end
 end
 </code>
+  </div>
+</div>
 
+        </div>
+      </div>
     </div>
-    <script src='../../../assets/javascripts/jquery-2.1.0.js'></script>
-    <script src='../../../assets/javascripts/jquery.tablesorter.js'></script>
-    <script src='../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
-    <script src='../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+
+    <!-- Javascripts -->
+    <script src='../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago.js'></script>
     <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
-    <script src='../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
-    <script src='../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.min.js'></script>
     <script src='../../../assets/javascripts/application.js'></script>
+    <script src='../../../assets/javascripts/jquery.filtertable.min.js'></script>
   </body>
 </html>

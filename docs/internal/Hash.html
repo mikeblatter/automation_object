@@ -6,7 +6,7 @@
 <title>
   Class: Hash
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="class_list.html"></iframe>
+      <iframe id="nav" src="class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="class_list.html"></iframe>
 
       <div id="content"><h1>Class: Hash
   
@@ -151,7 +149,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbolize_keys_deep%21-instance_method" title="#symbolize_keys_deep! (instance method)">#<strong>symbolize_keys_deep!</strong>(h = self)  &#x21d2; Object </a>
+      <a href="#symbolize_keys_deep!-instance_method" title="#symbolize_keys_deep! (instance method)">#<strong>symbolize_keys_deep!</strong>(h = self)  &#x21d2; Object </a>
     
 
     
@@ -203,7 +201,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/hash.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deep_merge'>deep_merge</span><span class='lparen'>(</span><span class='id identifier rubyid_second'>second</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_merger'>merger</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__key'>_key</span><span class='comma'>,</span> <span class='id identifier rubyid_v1'>v1</span><span class='comma'>,</span> <span class='id identifier rubyid_v2'>v2</span><span class='op'>|</span> <span class='id identifier rubyid_v1'>v1</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v2'>v2</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_v1'>v1</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_v2'>v2</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_merger'>merger</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_v2'>v2</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_merger'>merger</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__key'>_key</span><span class='comma'>,</span> <span class='id identifier rubyid_v1'>v1</span><span class='comma'>,</span> <span class='id identifier rubyid_v2'>v2</span><span class='op'>|</span> <span class='id identifier rubyid_v1'>v1</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v2'>v2</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_v1'>v1</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_v2'>v2</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_merger'>merger</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_v2'>v2</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_second'>second</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_merger'>merger</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -241,7 +239,7 @@
   <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
     <span class='id identifier rubyid_ks'>ks</span> <span class='op'>=</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_sym</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>:</span> <span class='id identifier rubyid_k'>k</span>
     <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_ks'>ks</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span> <span class='id identifier rubyid_k'>k</span> <span class='comment'># Preserve order even when k == ks
-</span>    <span class='id identifier rubyid_symbolize_keys_deep!'>symbolize_keys_deep!</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_ks'>ks</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_ks'>ks</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+</span>    <span class='id identifier rubyid_symbolize_keys_deep!'>symbolize_keys_deep!</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_ks'>ks</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_ks'>ks</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -254,9 +252,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:22 2016 by
+  Generated on Mon Jul  3 11:30:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

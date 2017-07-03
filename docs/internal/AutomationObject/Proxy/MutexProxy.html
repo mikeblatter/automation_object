@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::Proxy::MutexProxy
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../class_list.html"></iframe>
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::Proxy::MutexProxy
   
@@ -292,7 +290,7 @@
   <span class='kw'>super</span>
 
   <span class='ivar'>@mutexes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>Mutex</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rbracket'>]</span>
-  <span class='ivar'>@skip_protection_classes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>TrueClass</span><span class='comma'>,</span> <span class='const'>FalseClass</span><span class='comma'>,</span> <span class='const'>String</span><span class='comma'>,</span> <span class='const'>Numeric</span><span class='comma'>,</span> <span class='const'>Array</span><span class='comma'>,</span> <span class='const'>Hash</span><span class='comma'>,</span> <span class='const'>Class</span><span class='comma'>,</span> <span class='const'>NilClass</span><span class='comma'>,</span> <span class='const'>Symbol</span><span class='rbracket'>]</span>
+  <span class='ivar'>@skip_protection_classes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>TrueClass</span><span class='comma'>,</span> <span class='const'>FalseClass</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></span><span class='comma'>,</span> <span class='const'>Numeric</span><span class='comma'>,</span> <span class='const'>Array</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='comma'>,</span> <span class='const'>NilClass</span><span class='comma'>,</span> <span class='const'>Symbol</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -521,7 +519,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_protect_object'>protect_object</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_object'>object</span> <span class='kw'>if</span> <span class='ivar'>@skip_protection_classes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_protected_object'>protected_object</span> <span class='op'>=</span> <span class='const'>MutexProxy</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_protected_object'>protected_object</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="AutomationObject::Proxy::MutexProxy (class)">MutexProxy</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="AutomationObject::Proxy::MutexProxy#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
 
   <span class='ivar'>@mutexes</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mutex'>mutex</span><span class='op'>|</span>
     <span class='id identifier rubyid_protected_object'>protected_object</span><span class='period'>.</span><span class='id identifier rubyid_add_mutex'>add_mutex</span><span class='lparen'>(</span><span class='id identifier rubyid_mutex'>mutex</span><span class='rparen'>)</span>
@@ -539,9 +537,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:22 2016 by
+  Generated on Mon Jul  3 11:30:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

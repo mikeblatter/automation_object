@@ -1,61 +1,100 @@
 <!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RubyCritic</title>
-    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
-    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
   </head>
+
   <body>
-    <header class="project-header group">
-      <div class="container">
-        <h1 class="logo"><a href="../../../../overview.html" class="logo-link">RubyCritic</a></h1>
-        <nav class="project-nav">
-          <a href="../../../../overview.html" class="project-nav-item">Overview</a>
-          <a href="../../../../code_index.html" class="project-nav-item">Code</a>
-          <a href="../../../../smells_index.html" class="project-nav-item">Smells</a>
-        </nav>
-      </div>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../../overview.html"><img src="../../../../assets/images/logo.png" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
     </header>
-    <div class="container">
-      <div class="file-header group rated">
-  <span class="rating rating-b circled-text circle">
-    B
-  </span>
-  <h2 class="file-name">AutomationObject::BluePrint::HashAdapter::Hook</h2>
-
-  <span class="file-committed-at">
-    
-      Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
-    
-  </span>
-
-  <div class="file-stats group">
-    <div class="file-stat">
-      8 complexity
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+        
+      </span>
     </div>
-    <div class="file-stat">
-      8.0 complexity per method
-    </div>
-    <div class="file-stat">
-      10 churn
-    </div>
-    <div class="file-stat">
-      1 methods
-    </div>
-    <div class="file-stat">
-      30 duplication
+    <div>
+      <h3><small>lib/automation_object/blue_print/hash_adapter /</small> hook.rb</h3>
     </div>
   </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating b big">
+              B
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">38</span><small> lines of codes</small></div>
+              <div><span class="metric">1</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">8.0</span><small> complexity/method</small></div>
+              <div><span class="metric">10</span><small> loc/method</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">8</span><small> complexity</small></div>
+              <div><span class="metric">30</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                3
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  
-    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
-  
-</div>
-
-<code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 # Require parent class
 require_relative &#39;composite&#39;
 
@@ -66,7 +105,7 @@ module AutomationObject
   module BluePrint
     module HashAdapter
       # Hook composite
-      class Hook &lt; Composite<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank">InstanceVariableAssumption</a>)      AutomationObject::BluePrint::HashAdapter::Hook assumes too much for instance variable '@live'          </span>  </li></ul>
+      class Hook &lt; Composite<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Hook assumes too much for instance variable '@live'</span>          </div>  </li></ol>
         # Call the live? method so that it creates the needed Array of ElementRequirement interfaces
         before_create :live?
 
@@ -78,7 +117,7 @@ module AutomationObject
         validates_keys allowed_keys: [:before, :live?, :after]
 
         # @return [Array&lt;HookElementRequirements&gt;] array of element requirements
-        def live?<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="http://docs.seattlerb.org/flay/" target="_blank">DuplicateCode</a>)      Similar code found in 4 nodes                        <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank">TooManyStatements</a>)      AutomationObject::BluePrint::HashAdapter::Hook#live? has approx 6 statements          </span>  </li></ul>
+        def live?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Hook#live? has approx 6 statements</span>          </div>  </li></ol>
           return @live if defined? @live
 
           children = hash[:live?]
@@ -94,15 +133,22 @@ module AutomationObject
   end
 end
 </code>
+  </div>
+</div>
 
+        </div>
+      </div>
     </div>
-    <script src='../../../../assets/javascripts/jquery-2.1.0.js'></script>
-    <script src='../../../../assets/javascripts/jquery.tablesorter.js'></script>
-    <script src='../../../../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
-    <script src='../../../../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+
+    <!-- Javascripts -->
+    <script src='../../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago.js'></script>
     <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
-    <script src='../../../../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
-    <script src='../../../../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../../assets/javascripts/bootstrap.min.js'></script>
     <script src='../../../../assets/javascripts/application.js'></script>
+    <script src='../../../../assets/javascripts/jquery.filtertable.min.js'></script>
   </body>
 </html>

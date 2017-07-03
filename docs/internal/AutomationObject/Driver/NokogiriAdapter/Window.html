@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::Driver::NokogiriAdapter::Window
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::Driver::NokogiriAdapter::Window
   
@@ -517,7 +515,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_back'>back</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>UnableToNavigateBackward</span> <span class='kw'>if</span> <span class='ivar'>@position</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="UnableToNavigateBackward.html" title="AutomationObject::Driver::NokogiriAdapter::UnableToNavigateBackward (class)">UnableToNavigateBackward</a></span></span> <span class='kw'>if</span> <span class='ivar'>@position</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
   <span class='ivar'>@position</span> <span class='op'>-=</span> <span class='int'>1</span>
 
   <span class='id identifier rubyid_make_request'>make_request</span><span class='lparen'>(</span><span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='ivar'>@position</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -629,7 +627,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forward'>forward</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>UnableToNavigateForward</span> <span class='kw'>if</span> <span class='ivar'>@position</span> <span class='op'>&gt;=</span> <span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>2</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="UnableToNavigateForward.html" title="AutomationObject::Driver::NokogiriAdapter::UnableToNavigateForward (class)">UnableToNavigateForward</a></span></span> <span class='kw'>if</span> <span class='ivar'>@position</span> <span class='op'>&gt;=</span> <span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>2</span>
   <span class='ivar'>@position</span> <span class='op'>+=</span> <span class='int'>1</span>
 
   <span class='id identifier rubyid_make_request'>make_request</span><span class='lparen'>(</span><span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='ivar'>@position</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -750,7 +748,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="AutomationObject::Driver::NokogiriAdapter::Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="AutomationObject::Driver::NokogiriAdapter::Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_make_request'>make_request</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_update_history'>update_history</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
@@ -765,9 +763,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:23 2016 by
+  Generated on Mon Jul  3 11:30:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

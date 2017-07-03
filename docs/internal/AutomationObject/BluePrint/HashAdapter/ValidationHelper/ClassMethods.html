@@ -6,7 +6,7 @@
 <title>
   Module: AutomationObject::BluePrint::HashAdapter::ValidationHelper::ClassMethods
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../../class_list.html"></iframe>
 
       <div id="content"><h1>Module: AutomationObject::BluePrint::HashAdapter::ValidationHelper::ClassMethods
   
@@ -135,7 +133,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#skip_validations%3D-instance_method" title="#skip_validations= (instance method)">#<strong>skip_validations=</strong>(boolean)  &#x21d2; Object </a>
+      <a href="#skip_validations=-instance_method" title="#skip_validations= (instance method)">#<strong>skip_validations=</strong>(boolean)  &#x21d2; Object </a>
     
 
     
@@ -378,7 +376,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_validates'>validates</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_validator_name'>validator_name</span><span class='comma'>,</span> <span class='id identifier rubyid_validation_args'>validation_args</span><span class='op'>|</span>
     <span class='id identifier rubyid_validator_name'>validator_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Validate</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_validator_name'>validator_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_pascalize'>pascalize</span>
-    <span class='id identifier rubyid_validator'>validator</span> <span class='op'>=</span> <span class='const'>Validators</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_validator_name'>validator_name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_validator'>validator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Validators.html" title="AutomationObject::BluePrint::HashAdapter::Validators (module)">Validators</a></span></span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_validator_name'>validator_name</span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_validations'>validations</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_validator'>validator</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='id identifier rubyid_validation_args'>validation_args</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -454,7 +452,7 @@
       <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validates_keys'>validates_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_validations'>validations</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'>Validators</span><span class='op'>::</span><span class='const'>ValidateAllowedKeys</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_validations'>validations</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Validators.html" title="AutomationObject::BluePrint::HashAdapter::Validators (module)">Validators</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Validators/ValidateAllowedKeys.html" title="AutomationObject::BluePrint::HashAdapter::Validators::ValidateAllowedKeys (class)">ValidateAllowedKeys</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Validators/ValidateAllowedKeys.html#initialize-instance_method" title="AutomationObject::BluePrint::HashAdapter::Validators::ValidateAllowedKeys#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -525,9 +523,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:21 2016 by
+  Generated on Mon Jul  3 11:30:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>

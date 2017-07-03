@@ -6,7 +6,7 @@
 <title>
   Class: AutomationObject::BluePrint::Composite::Hook
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="../../../class_list.html"></iframe>
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -58,8 +58,6 @@
 </div>
         <div class="clear"></div>
       </div>
-
-      <iframe id="search_frame" src="../../../class_list.html"></iframe>
 
       <div id="content"><h1>Class: AutomationObject::BluePrint::Composite::Hook
   
@@ -105,9 +103,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Hook composite class, passing method to adapter only
-Hoping to improve code completion and standard interface where
-classes use this as a template to add additional adapters</p>
+    <p>Hook composite class</p>
 
 
   </div>
@@ -138,7 +134,7 @@ classes use this as a template to add additional adapters</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#after-instance_method" title="#after (instance method)">#<strong>after</strong>  &#x21d2; HookAction </a>
+      <a href="#after-instance_method" title="#after (instance method)">#<strong>after</strong>  &#x21d2; AutomationObject::BluePrint::Composite::HookAction </a>
     
 
     
@@ -160,7 +156,7 @@ classes use this as a template to add additional adapters</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#before-instance_method" title="#before (instance method)">#<strong>before</strong>  &#x21d2; HookAction </a>
+      <a href="#before-instance_method" title="#before (instance method)">#<strong>before</strong>  &#x21d2; AutomationObject::BluePrint::Composite::HookAction </a>
     
 
     
@@ -182,7 +178,52 @@ classes use this as a template to add additional adapters</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#live%3F-instance_method" title="#live? (instance method)">#<strong>live?</strong>  &#x21d2; Array&lt;HookElementRequirements&gt; </a>
+      <a href="#changes-instance_method" title="#changes (instance method)">#<strong>changes</strong>  &#x21d2; Array&lt;Symbol&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get possible changes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changes_to_container%3F-instance_method" title="#changes_to_container? (instance method)">#<strong>changes_to_container?</strong>(name)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#live%3F-instance_method" title="#live? (instance method)">#<strong>live?</strong>  &#x21d2; Array&lt;AutomationObject::BluePrint::Composite::HookElementRequirements&gt; </a>
     
 
     
@@ -231,7 +272,7 @@ classes use this as a template to add additional adapters</p>
       <div class="method_details first">
   <h3 class="signature first" id="after-instance_method">
   
-    #<strong>after</strong>  &#x21d2; <tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">HookAction</a></span></tt> 
+    #<strong>after</strong>  &#x21d2; <tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">AutomationObject::BluePrint::Composite::HookAction</a></span></tt> 
   
 
   
@@ -251,7 +292,7 @@ classes use this as a template to add additional adapters</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">HookAction</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">AutomationObject::BluePrint::Composite::HookAction</a></span></tt>)</span>
       
       
       
@@ -265,12 +306,12 @@ classes use this as a template to add additional adapters</p>
       <pre class="lines">
 
 
-18
-19
-20</pre>
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_after'>after</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span>
@@ -283,7 +324,7 @@ classes use this as a template to add additional adapters</p>
       <div class="method_details ">
   <h3 class="signature " id="before-instance_method">
   
-    #<strong>before</strong>  &#x21d2; <tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">HookAction</a></span></tt> 
+    #<strong>before</strong>  &#x21d2; <tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">AutomationObject::BluePrint::Composite::HookAction</a></span></tt> 
   
 
   
@@ -303,7 +344,7 @@ classes use this as a template to add additional adapters</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">HookAction</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="HookAction.html" title="AutomationObject::BluePrint::Composite::HookAction (class)">AutomationObject::BluePrint::Composite::HookAction</a></span></tt>)</span>
       
       
       
@@ -317,12 +358,12 @@ classes use this as a template to add additional adapters</p>
       <pre class="lines">
 
 
-13
-14
-15</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_before'>before</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span>
@@ -333,9 +374,131 @@ classes use this as a template to add additional adapters</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="changes-instance_method">
+  
+    #<strong>changes</strong>  &#x21d2; <tt>Array&lt;Symbol&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get possible changes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_changes'>changes</span>
+  <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_change_screen'>change_screen</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_new_screen'>new_screen</span><span class='comma'>,</span>
+                    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_change_screen'>change_screen</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_new_screen'>new_screen</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_show_modal'>show_modal</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_show_modal'>show_modal</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="changes_to_container?-instance_method">
+  
+    #<strong>changes_to_container?</strong>(name)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_changes_to_container?'>changes_to_container?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="live?-instance_method">
   
-    #<strong>live?</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::Composite::HookElementRequirements (class)">HookElementRequirements</a></span>&gt;</tt> 
+    #<strong>live?</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::Composite::HookElementRequirements (class)">AutomationObject::BluePrint::Composite::HookElementRequirements</a></span>&gt;</tt> 
   
 
   
@@ -356,7 +519,7 @@ classes use this as a template to add additional adapters</p>
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::Composite::HookElementRequirements (class)">HookElementRequirements</a></span>&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::Composite::HookElementRequirements (class)">AutomationObject::BluePrint::Composite::HookElementRequirements</a></span>&gt;</tt>)</span>
       
       
       
@@ -374,12 +537,12 @@ classes use this as a template to add additional adapters</p>
       <pre class="lines">
 
 
-23
-24
-25</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_live?'>live?</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_live?'>live?</span>
@@ -394,9 +557,9 @@ classes use this as a template to add additional adapters</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Nov 23 15:10:23 2016 by
+  Generated on Mon Jul  3 11:30:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>
