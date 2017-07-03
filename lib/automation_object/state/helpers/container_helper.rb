@@ -25,6 +25,12 @@ module AutomationObject
         blue_prints.changes
       end
 
+      # @param name [Symbol] name of container you want to go to
+      # @return [AutomationObject::State::Element, AutomationObject::State::ElementArray, AutomationObject::State::ElementHash]
+      def element_to_container(name)
+
+      end
+
       def reset
         elements.values.map(&:reset)
         element_arrays.values.map(&:reset)

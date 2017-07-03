@@ -31,9 +31,17 @@ module AutomationObject
       def follow_route(flattened_path)
         flattened_path.each_with_index { |container_name, index|
           parent_name = (index > 0) ? flattened_path[index - 1] : nil
+          next_container_name = (index < flattened_path.length) ? flattened_path[index + 1] : nil
 
           container = container_by_key(container_name, parent_name)
           container.utilize
+
+          break unless next_container_name
+
+          element = container.element_to_container(next_container_name)
+          element_method = element.method_to_container(next_container_name)
+
+          element.send(element_method)
         }
 
         false

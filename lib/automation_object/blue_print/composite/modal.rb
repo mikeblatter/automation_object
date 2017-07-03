@@ -9,11 +9,15 @@ require_relative 'element'
 require_relative 'element_array'
 require_relative 'element_hash'
 
+require_relative 'helpers/container_helper'
+
 module AutomationObject
   module BluePrint
     module Composite
       # Modal composite class
       class Modal < Base
+        include ContainerHelper
+
         # @return [Array<Symbol>]
         def included_views
           adapter.included_views

@@ -28,6 +28,12 @@ module AutomationObject
           [self.before.change_screen, self.before.new_screen,
                             self.after.change_screen, self.after.new_screen, self.before.show_modal, self.after.show_modal].uniq.compact
         end
+
+        # @param name [Symbol]
+        # @return [Boolean]
+        def changes_to_container?(name)
+          changes.include?(name)
+        end
       end
     end
   end
