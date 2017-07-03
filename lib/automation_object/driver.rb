@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'helpers/string'
 
 require_relative 'proxy/throttle_proxy'

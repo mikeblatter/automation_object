@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Kernel method additions
 module Kernel
   def suppress_warnings

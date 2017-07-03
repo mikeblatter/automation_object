@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AutomationObject
   module State
     module ContainerHelper
@@ -17,7 +19,7 @@ module AutomationObject
           return true
         end
 
-        AutomaticRouting.new(self.top, self.name).route
+        AutomaticRouting.new(top, name).route
       end
 
       # @return [Array<Symbol>]
@@ -29,9 +31,9 @@ module AutomationObject
       # @return [AutomationObject::State::Element]
       def element_to_container(name)
         element_name, element_type = blue_prints.element_to_container(name)
-        return unless element_name or element_type
+        return unless element_name || element_type
 
-        self.send(element_type)[element_name]
+        send(element_type)[element_name]
       end
 
       def reset

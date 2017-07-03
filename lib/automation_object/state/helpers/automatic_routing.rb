@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AutomationObject
   module State
     class AutomaticRouting
@@ -13,15 +15,15 @@ module AutomationObject
       # @return [Boolean] success or not
       def route
         paths = {}
-        @top.active_screens.each { |screen_name, screen|
+        @top.active_screens.each do |screen_name, screen|
           paths[screen_name] = recursive_search(screen)
-        }
+        end
 
         flattened_paths = flat_hash(paths).keys.sort_by(&:length)
-        flattened_paths.each { |flattened_path|
+        flattened_paths.each do |flattened_path|
           next unless flattened_path.last == @target
           return follow_route(flattened_path)
-        }
+        end
 
         false
       end
@@ -29,9 +31,9 @@ module AutomationObject
       private
 
       def follow_route(flattened_path)
-        flattened_path.each_with_index { |container_name, index|
-          parent_name = (index > 0) ? flattened_path[index - 1] : nil
-          next_container_name = (index < flattened_path.length) ? flattened_path[index + 1] : nil
+        flattened_path.each_with_index do |container_name, index|
+          parent_name = index > 0 ? flattened_path[index - 1] : nil
+          next_container_name = index < flattened_path.length ? flattened_path[index + 1] : nil
 
           container = container_by_key(container_name, parent_name)
           container.utilize
@@ -44,21 +46,21 @@ module AutomationObject
           element_proxy = element.utilize
 
           case element
-            when ElementArray
-              element_proxy.sample.send(element_method) # grab random
-            when ElementHash
-              element_proxy[element_proxy.keys.sample].send(element_method)
-            else
-              element_proxy.send(element_method)
+          when ElementArray
+            element_proxy.sample.send(element_method) # grab random
+          when ElementHash
+            element_proxy[element_proxy.keys.sample].send(element_method)
+          else
+            element_proxy.send(element_method)
           end
-        }
+        end
 
         false
       end
 
-      def flat_hash(h, f=[], g={})
-        return g.update({ f => h }) unless h.is_a? Hash
-        h.each { |k, r| flat_hash(r, f+[k], g) }
+      def flat_hash(h, f = [], g = {})
+        return g.update(f => h) unless h.is_a? Hash
+        h.each { |k, r| flat_hash(r, f + [k], g) }
         g
       end
 
@@ -68,7 +70,7 @@ module AutomationObject
         return nil if depth >= MAX_RECURSION_DEPTH
 
         next_level = {}
-        container.changes.each { |next_container_name|
+        container.changes.each do |next_container_name|
           next if next_container_name == container.name
 
           if next_container_name == @target
@@ -77,7 +79,7 @@ module AutomationObject
           end
 
           next_level[next_container_name] = recursive_search(container_by_key(next_container_name, container.name), depth + 1)
-        }
+        end
 
         next_level
       end
@@ -87,7 +89,7 @@ module AutomationObject
       # @return [AutomationObject::State::Screen, AutomationObject::State::Modal]
       def container_by_key(container_name, parent_name)
         return @top.screens[container_name] if @top.screens[container_name]
-        return @top.screens[parent_name].modals[container_name]
+        @top.screens[parent_name].modals[container_name]
       end
     end
   end

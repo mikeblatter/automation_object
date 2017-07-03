@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require_relative '../../../test_helper'
 require_relative '../../../../lib/automation_object/step_definitions/support/parse'
 
 class TestStepDefinitionsSupportParse < Minitest::Test
-  def setup
-  end
+  def setup; end
 
   def teardown
     AutomationObject::StepDefinitions::Cache.instance_variable_set(:@values, {})
@@ -15,7 +16,7 @@ class TestStepDefinitionsSupportParse < Minitest::Test
     args = ['plain', '%{test_key}']
     parsed_args = AutomationObject::StepDefinitions::Parse.new(args).get
 
-    assert_equal ['plain', 'test_get'], parsed_args
+    assert_equal %w[plain test_get], parsed_args
   end
 
   def test_parse

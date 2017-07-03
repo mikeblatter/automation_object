@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'proxy/proxy'
 require_relative 'blue_print'
 require_relative 'driver'

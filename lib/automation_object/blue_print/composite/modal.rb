@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'base'
 
@@ -42,7 +43,6 @@ module AutomationObject
         def element_hashes
           adapter.element_hashes
         end
-
       end
     end
   end

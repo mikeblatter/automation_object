@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Mock for MutexProxy
 class MutexProxyMock
   attr_accessor :test_attribute, :thread_working

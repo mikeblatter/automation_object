@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 require_relative '_error'
 
@@ -50,7 +51,7 @@ module AutomationObject
 
       # @return [Hash<Screen>] active screens
       def active_screens
-        self.screens.select {|key, value| value.active? }
+        screens.select { |_key, value| value.active? }
       end
     end
   end

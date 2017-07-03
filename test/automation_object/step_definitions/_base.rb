@@ -2,11 +2,9 @@
 
 # Common functionality for step definition tests
 module StepDefinitionsTestBase
-  def setup
-  end
+  def setup; end
 
-  def teardown
-  end
+  def teardown; end
 
   def self.included(base)
     base.extend(ClassMethods)
@@ -29,10 +27,10 @@ module StepDefinitionsTestBase
       examples = []
       File.open(File.join(STEP_DEFINITION_DIR, file_name), 'r') do |file_handle|
         file_handle.each_line do |line|
-          if line =~ %r(^#\s*-\s*)
-            examples.push(line.gsub(%r(^#\s*-\s*), ''))
-          elsif line =~ %r(^\s*Given|When|Then|But|And)
-            line_match = line.match(%r((?<=%r\().+(?=\)\s*\)\s*do)))
+          if line =~ /^#\s*-\s*/
+            examples.push(line.gsub(/^#\s*-\s*/, ''))
+          elsif line =~ /^\s*Given|When|Then|But|And/
+            line_match = line.match(/(?<=%r\().+(?=\)\s*\)\s*do)/)
             next unless line_match
 
             regex = Regexp.new(line_match[0])

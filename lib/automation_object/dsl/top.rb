@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 require_relative '_proxy'
 require_relative '_error'
@@ -32,7 +33,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ScreenProxy]
       def screen(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ScreenDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ScreenDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @subject.send(name)
       end

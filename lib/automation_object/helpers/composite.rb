@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'reflection'
 require_relative 'composite_hook'
 
@@ -44,7 +45,7 @@ module AutomationObject
     # @param name [Symbol] name of child
     # @param options [Hash] options for child
     # @return child [Object] return child composite object
-    def get_child(name, options)
+    def get_child(_name, _options)
       raise 'Abstract method'
     end
 
@@ -52,7 +53,7 @@ module AutomationObject
     # @param name [Symbol] name of child
     # @param options [Hash] options for child
     # @return children [Hash] return children and names
-    def get_children(name, options)
+    def get_children(_name, _options)
       raise 'Abstract method'
     end
 

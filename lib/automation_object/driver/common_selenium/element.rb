@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../driver'
 require_relative 'element_geometry'
 

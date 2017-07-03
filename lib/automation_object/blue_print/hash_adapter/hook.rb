@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'composite'
 
@@ -18,7 +19,7 @@ module AutomationObject
         has_one :after, interface: HookAction
 
         # Validations
-        validates_keys allowed_keys: [:before, :live?, :after]
+        validates_keys allowed_keys: %i[before live? after]
 
         # @return [Array<HookElementRequirements>] array of element requirements
         def live?

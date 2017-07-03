@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../adapter_test_helper'
 
 # Test AutomationObject::Driver::NokogiriAdapter::Driver class
@@ -10,6 +11,5 @@ class TestNokogiriAdapterDriver < Minitest::Test
 
   create_tests
 
-  def setup
-  end
+  def setup; end
 end

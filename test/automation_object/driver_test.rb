@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../test_helper'
 
 # Test AutomationObject::Driver
@@ -8,8 +9,7 @@ class TestDriver < Minitest::Test
     AutomationObject::Driver.instance_variable_set(:@adapter, nil)
   end
 
-  def teardown
-  end
+  def teardown; end
 
   def test_adapter_default
     assert_equal AutomationObject::Driver::NokogiriAdapter::Driver, AutomationObject::Driver.adapter

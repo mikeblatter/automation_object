@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'session'
 
 require_relative '../element'
@@ -56,8 +57,7 @@ module AutomationObject
         # Set timeout wait
         # @param timeout [Integer] the timeout in seconds
         # @return [void]
-        def wait(timeout = nil)
-        end
+        def wait(timeout = nil); end
 
         # @param selector_type [Symbol] selector type, :css, :xpath, etc...
         # @param selector_path [String] path to element
@@ -92,12 +92,10 @@ module AutomationObject
         end
 
         # Accept prompt either in browser or mobile
-        def accept_prompt
-        end
+        def accept_prompt; end
 
         # Dismiss the prompt
-        def dismiss_prompt
-        end
+        def dismiss_prompt; end
 
         # Check if browser, more useful for Appium but can be generic here
         # @return [Boolean] whether or not browser is being used
@@ -131,8 +129,7 @@ module AutomationObject
 
         # @param script [String] JS to run
         # @return [Object, nil]
-        def execute_script(script)
-        end
+        def execute_script(script); end
 
         # @return [Point] x,y scroll position
         def scroll_position

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require_relative '../../../test_helper'
 require_relative '../../../../lib/automation_object/step_definitions/support/cache'
 
 class TestStepDefinitionsSupportCache < Minitest::Test
-  def setup
-  end
+  def setup; end
 
   def teardown
     AutomationObject::StepDefinitions::Cache.instance_variable_set(:@values, {})
@@ -15,7 +16,7 @@ class TestStepDefinitionsSupportCache < Minitest::Test
   end
 
   def test_get
-    AutomationObject::StepDefinitions::Cache.instance_variable_set(:@values, { :test => 'test' })
+    AutomationObject::StepDefinitions::Cache.instance_variable_set(:@values, test: 'test')
     assert_equal 'test', AutomationObject::StepDefinitions::Cache.get(:test)
   end
 

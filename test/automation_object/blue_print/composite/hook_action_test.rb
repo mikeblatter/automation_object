@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../../test_helper'
 require_relative '../../../../lib/automation_object/blue_print/composite/hook_action'
 
@@ -10,8 +11,8 @@ class TestBluePrintCompositeHookAction < Minitest::Test
   end
 
   def test_hook_order
-    @mock.expects(:hook_order).returns([:change_screen, :sleep])
-    assert_equal [:change_screen, :sleep], @subject.hook_order
+    @mock.expects(:hook_order).returns(%i[change_screen sleep])
+    assert_equal %i[change_screen sleep], @subject.hook_order
   end
 
   def test_length
@@ -45,8 +46,8 @@ class TestBluePrintCompositeHookAction < Minitest::Test
   end
 
   def test_possible_screen_changes
-    @mock.expects(:possible_screen_changes).returns([:test_screen_one, :test_screen_two])
-    assert_equal [:test_screen_one, :test_screen_two], @subject.possible_screen_changes
+    @mock.expects(:possible_screen_changes).returns(%i[test_screen_one test_screen_two])
+    assert_equal %i[test_screen_one test_screen_two], @subject.possible_screen_changes
   end
 
   def test_reset_screen

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../test_helper'
 require_relative '../../../lib/automation_object/helpers/file'
 
@@ -11,8 +12,8 @@ require 'fakefs/safe'
 
 # Test AutomationObject::BluePrint::FileHelper
 class TestBluePrintFileHelper < Minitest::Test
-  DIRS = %w(/test /test/first_dir /test/second_dir).freeze
-  FILES = %w(/test/test_file /test/test_file_two /test/first_dir/test_file_three /test/second_dir/test_file_four /test/second_dir/test_file_five).freeze
+  DIRS = %w[/test /test/first_dir /test/second_dir].freeze
+  FILES = %w[/test/test_file /test/test_file_two /test/first_dir/test_file_three /test/second_dir/test_file_four /test/second_dir/test_file_five].freeze
 
   def setup
     FakeFS.activate!

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 require_relative '_error'
 
@@ -27,7 +28,7 @@ module AutomationObject
       has_one :load, interface: Hook
 
       # Children for this composite
-      #has_many :automatic_modal_changes, interface: AutomaticModalChange
+      # has_many :automatic_modal_changes, interface: AutomaticModalChange
       has_many :modals, interface: Modal
 
       has_many :elements, interface: Element
@@ -39,20 +40,20 @@ module AutomationObject
         @active = true
         self.window_handle = driver.window_handle
 
-        return if blue_prints.automatic_screen_changes.length == 0
+        return if blue_prints.automatic_screen_changes.empty?
 
         # Add automatic screen change to a new thread and test for screen changes
         self.automatic_screen_changes = AutomaticScreenChanges.new(driver,
                                                                    blue_prints.automatic_screen_changes,
                                                                    :automatic_screen_changes,
                                                                    self,
-                                                                   self.location+'[automatic_screen_changes]')
-        self.automatic_screen_changes.activate
+                                                                   location + '[automatic_screen_changes]')
+        automatic_screen_changes.activate
       end
 
       # @return [void]
       def deactivate
-        self.automatic_screen_changes.deactivate if self.automatic_screen_changes
+        automatic_screen_changes&.deactivate
 
         self.automatic_screen_changes, self.window_handle = nil
         @active = false
@@ -63,7 +64,7 @@ module AutomationObject
 
       # @return [void]
       def utilize
-        raise ScreenNotActiveError.new(name) unless active?
+        raise ScreenNotActiveError, name unless active?
         driver.window_handle = window_handle
       end
 

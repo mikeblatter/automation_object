@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   module BluePrint
     module HashAdapter
@@ -16,7 +17,7 @@ module AutomationObject
         def message
           message = "\nBluePrint::HashAdapter composite validation failed for the following errors:\n"
           @errors.each do |error|
-            message = message + "     - #{error}\n"
+            message += "     - #{error}\n"
           end
 
           message + "\n"

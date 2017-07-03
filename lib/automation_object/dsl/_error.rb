@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AutomationObject
   module Dsl
     # Errors related to interacting with the DSL

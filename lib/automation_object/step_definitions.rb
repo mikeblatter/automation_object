@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   # Require step definitons at run-time, only when running in a Cucumber context
   module StepDefinitions

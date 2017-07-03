@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   module BluePrint
     module HashAdapter
@@ -43,7 +44,7 @@ module AutomationObject
           hash.each do |key, value|
             # Skip possible keys that elements can have
             # Otherwise should be a method hook
-            next if [:load, :custom_methods, :in_iframe, :css, :xpath, :define_elements_by, :custom_range].include?(key)
+            next if %i[load custom_methods in_iframe css xpath define_elements_by custom_range].include?(key)
             children[key] = value
           end
 

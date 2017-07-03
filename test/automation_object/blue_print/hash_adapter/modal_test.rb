@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 
 # Test AutomationObject::BluePrint::HashAdapter::Modal
@@ -33,7 +34,7 @@ class TestHashAdapterModal < Minitest::Test
     assert_equal 2, composite.elements.keys.length
 
     composite.elements.each do |composite_name, sub_composite|
-      assert_includes [:test_one, :test_two], composite_name
+      assert_includes %i[test_one test_two], composite_name
       assert_instance_of AutomationObject::BluePrint::Composite::Element, sub_composite
     end
   end
@@ -45,7 +46,7 @@ class TestHashAdapterModal < Minitest::Test
     assert_equal 2, composite.element_arrays.keys.length
 
     composite.element_arrays.each do |composite_name, sub_composite|
-      assert_includes [:test_one, :test_two], composite_name
+      assert_includes %i[test_one test_two], composite_name
       assert_instance_of AutomationObject::BluePrint::Composite::ElementArray, sub_composite
     end
   end
@@ -57,7 +58,7 @@ class TestHashAdapterModal < Minitest::Test
     assert_equal 2, composite.element_hashes.keys.length
 
     composite.element_hashes.each do |composite_name, sub_composite|
-      assert_includes [:test_one, :test_two], composite_name
+      assert_includes %i[test_one test_two], composite_name
       assert_instance_of AutomationObject::BluePrint::Composite::ElementHash, sub_composite
     end
   end

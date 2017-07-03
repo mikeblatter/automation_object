@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 require_relative '_proxy'
 require_relative '_error'
@@ -56,7 +57,7 @@ module AutomationObject
       # @raise [AutomationObject::Dsl::Error::AutoReachScreenError]
       # @return [void]
       def go
-        raise AutomationObject::Dsl::Error::AutoReachScreenError.new(@name) unless @state.go
+        raise AutomationObject::Dsl::Error::AutoReachScreenError, @name unless @state.go
       end
 
       # Retrieve modal from composite
@@ -65,7 +66,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ModalProxy]
       def modal(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ModalDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ModalDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)
@@ -77,7 +78,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ElementProxy]
       def element(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ElementDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)
@@ -89,7 +90,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ElementArrayProxy]
       def element_array(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)
@@ -101,7 +102,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ElementHashProxy]
       def element_hash(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)

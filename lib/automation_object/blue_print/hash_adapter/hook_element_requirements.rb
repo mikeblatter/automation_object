@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'composite'
 
@@ -17,7 +18,7 @@ module AutomationObject
           hook_order = [:exists?] # Always put exists? first
 
           hash.each_key do |hook_name|
-            hook_order.push(hook_name) unless [:element_name, :exists?].include?(hook_name)
+            hook_order.push(hook_name) unless %i[element_name exists?].include?(hook_name)
           end
 
           hook_order

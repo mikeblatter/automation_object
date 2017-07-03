@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 
 # Test AutomationObject::BluePrint::HashAdapter::HookElementRequirements
@@ -16,7 +17,7 @@ class TestHashAdapterHookElementRequirements < Minitest::Test
 
   def test_hook_order
     composite = create_composite(text: 'Text should be this', exists?: true, element_name: 'element_name')
-    assert_equal [:exists?, :text], composite.hook_order
+    assert_equal %i[exists? text], composite.hook_order
   end
 
   def test_requirement

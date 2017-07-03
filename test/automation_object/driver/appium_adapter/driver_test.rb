@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../adapter_test_helper'
 
 # Test AutomationObject::Driver::AppiumAdapter::Driver class
@@ -35,14 +36,11 @@ class TestAppiumAdapterDriver < Minitest::Test
     @driver.wait(1)
   end
 
-  def test_exists?
-  end
+  def test_exists?; end
 
-  def test_find_element
-  end
+  def test_find_element; end
 
-  def test_find_elements
-  end
+  def test_find_elements; end
 
   def test_accept_prompt
     @driver_mock.expects(:alert_accept)
@@ -64,17 +62,13 @@ class TestAppiumAdapterDriver < Minitest::Test
     assert_equal false, @driver.browser?
   end
 
-  def test_window_handles
-  end
+  def test_window_handles; end
 
-  def test_window_handle
-  end
+  def test_window_handle; end
 
-  def test_window_handle_set
-  end
+  def test_window_handle_set; end
 
-  def test_document_complete?
-  end
+  def test_document_complete?; end
 
   def test_close
     @driver_mock.expects(:close)

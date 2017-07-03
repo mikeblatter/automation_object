@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'dsl/top'
 require_relative 'state/top'
 

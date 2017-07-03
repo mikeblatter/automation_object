@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../../../../test_helper'
 require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_element_presence_of'
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 
 # Test AutomationObject::BluePrint::HashAdapter::HookAction
@@ -25,7 +26,7 @@ class TestHashAdapterHookAction < Minitest::Test
 
   def test_hook_order
     composite = create_composite(change_screen: 'test_screen', sleep: 1)
-    assert_equal [:change_screen, :sleep], composite.hook_order
+    assert_equal %i[change_screen sleep], composite.hook_order
   end
 
   def test_length
@@ -65,7 +66,7 @@ class TestHashAdapterHookAction < Minitest::Test
 
   def test_possible_screen_changes
     composite = create_composite(possible_screen_changes: [:test_screen_one, 'test_screen_two'])
-    assert_equal [:test_screen_one, :test_screen_two], composite.possible_screen_changes
+    assert_equal %i[test_screen_one test_screen_two], composite.possible_screen_changes
   end
 
   def test_reset_screen

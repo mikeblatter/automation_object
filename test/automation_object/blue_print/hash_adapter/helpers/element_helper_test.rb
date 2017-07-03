@@ -1,11 +1,11 @@
 # frozen_string_literal: true
+
 require_relative '../../../../test_helper'
 require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/helpers/element_helper'
 
 # Test AutomationObject::BluePrint::HashAdapter::ElementHelper
 class TestElementHelper < Minitest::Test
-  def setup
-  end
+  def setup; end
 
   def extend_stub(stub_to_extend)
     stub_to_extend.extend(AutomationObject::BluePrint::HashAdapter::ElementHelper)

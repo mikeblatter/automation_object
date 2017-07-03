@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../../test_helper'
 require_relative '../../../../lib/automation_object/blue_print/composite/hook_element_requirements'
 
@@ -10,8 +11,8 @@ class TestBluePrintCompositeHookElementRequirements < Minitest::Test
   end
 
   def test_hook_order
-    @mock.expects(:hook_order).returns([:exists?, :text])
-    assert_equal [:exists?, :text], @subject.hook_order
+    @mock.expects(:hook_order).returns(%i[exists? text])
+    assert_equal %i[exists? text], @subject.hook_order
   end
 
   def test_requirement

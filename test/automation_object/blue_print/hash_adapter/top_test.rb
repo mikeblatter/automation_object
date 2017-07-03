@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 
 # Test AutomationObject::BluePrint::HashAdapter::Top < Composite
@@ -48,7 +49,7 @@ class TestHashAdapterTop < Minitest::Test
 
     assert_instance_of Hash, composite.screens
     composite.screens.each do |screen_name, screen_composite|
-      assert_includes [:test_screen_one, :test_screen_two], screen_name
+      assert_includes %i[test_screen_one test_screen_two], screen_name
       assert_instance_of AutomationObject::BluePrint::Composite::Screen, screen_composite
     end
   end

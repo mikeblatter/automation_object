@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   # Helper module for adding attributes/alias to classes dynamically
   # Reflection/MetaProgramming

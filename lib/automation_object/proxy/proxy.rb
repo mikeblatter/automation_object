@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   module Proxy
     # CompositeBase Proxy class for getting between another

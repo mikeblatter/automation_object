@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'base'
 
@@ -25,8 +26,8 @@ module AutomationObject
         # Get possible changes
         # @return [Array<Symbol>]
         def changes
-          [self.before.change_screen, self.before.new_screen,
-                            self.after.change_screen, self.after.new_screen, self.before.show_modal, self.after.show_modal].uniq.compact
+          [before.change_screen, before.new_screen,
+           after.change_screen, after.new_screen, before.show_modal, after.show_modal].uniq.compact
         end
 
         # @param name [Symbol]

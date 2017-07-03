@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../../../test_helper'
 
 class ElementHelperContainer
@@ -14,7 +15,7 @@ end
 # Test AutomationObject::BluePrint::Composite::CustomMethod
 class TestBluePrintCompositeElementHelper < Minitest::Test
   def setup
-    @mock = mock()
+    @mock = mock
     @subject = ElementHelperContainer.new(@mock)
   end
 

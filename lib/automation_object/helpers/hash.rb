@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Hash class method additions
 class Hash
   def deep_merge(second)

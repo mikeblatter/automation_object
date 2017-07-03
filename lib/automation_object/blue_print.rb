@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'blue_print/hash_adapter'
 require_relative 'blue_print/yaml_adapter'
 

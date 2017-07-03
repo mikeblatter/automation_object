@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 
 # Test AutomationObject::BluePrint::HashAdapter::Hook

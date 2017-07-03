@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'composite'
 
@@ -22,8 +23,8 @@ module AutomationObject
         has_many :element_hashes, interface: ElementHash
 
         # Validations
-        validates_keys allowed_keys: [:automatic_onload_modals, :automatic_screen_changes, :elements, :element_arrays,
-                                      :element_groups, :element_hashes, :included_views, :load, :modals]
+        validates_keys allowed_keys: %i[automatic_onload_modals automatic_screen_changes elements element_arrays
+                                        element_groups element_hashes included_views load modals]
 
         validates :automatic_onload_modals, instance_of: Array, modal_presence_of: true
         validates :automatic_screen_changes, instance_of: Array, screen_presence_of: true

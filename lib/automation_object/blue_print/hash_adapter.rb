@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'composite/top'
 require_relative 'hash_adapter/top'
 

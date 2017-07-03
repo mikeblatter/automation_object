@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '_base'
 require_relative '_proxy'
 require_relative '_error'
@@ -47,7 +48,7 @@ module AutomationObject
       # @raise [AutomationObject::Dsl::Error::AutoReachModalError]
       # @return [void]
       def go
-        raise AutomationObject::Dsl::Error::AutoReachModalError.new(@name) unless @state.go
+        raise AutomationObject::Dsl::Error::AutoReachModalError, @name unless @state.go
       end
 
       # Retrieve element from composite
@@ -56,7 +57,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ElementProxy]
       def element(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ElementDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)
@@ -68,7 +69,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ElementArrayProxy]
       def element_array(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)
@@ -80,7 +81,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ElementHashProxy]
       def element_hash(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
         @subject.send(name)

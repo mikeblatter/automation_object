@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../driver'
 require_relative 'error'
 
@@ -61,22 +62,18 @@ module AutomationObject
         end
 
         # @return [Boolean]
-        def visible?
-        end
+        def visible?; end
 
         # @return [Boolean]
-        def invisible?
-        end
+        def invisible?; end
 
         # Get the location
         # @return [Point]
-        def location
-        end
+        def location; end
 
         # Get the size of an element
         # @return [Dimension]
-        def size
-        end
+        def size; end
 
         # Perform a submit action on an element
         # @return [void]
@@ -88,8 +85,7 @@ module AutomationObject
 
         # Scroll the element into view
         # @return [void]
-        def scroll_into_view
-        end
+        def scroll_into_view; end
 
         # Perform a click action on the element
         # @return [void]
@@ -139,8 +135,7 @@ module AutomationObject
 
         # Hover over element
         # @return [void]
-        def hover
-        end
+        def hover; end
 
         # Helper method to switch to this element's iframe
         # @return [void]

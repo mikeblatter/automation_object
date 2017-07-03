@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'composite'
 require_relative 'hook_element_requirements'
@@ -12,9 +13,9 @@ module AutomationObject
         before_create :wait_for_elements
 
         # Validations
-        validates_keys allowed_keys: [:new_screen, :show_modal, :close_screen, :change_screen,
-                                      :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
-                                      :possible_screen_changes]
+        validates_keys allowed_keys: %i[new_screen show_modal close_screen change_screen
+                                        sleep wait_for_elements change_to_previous_screen close_modal reset_screen
+                                        possible_screen_changes]
 
         validates :change_screen, instance_of: [String, Symbol], screen_presence_of: true
         validates :new_screen, instance_of: [String, Symbol], screen_presence_of: true

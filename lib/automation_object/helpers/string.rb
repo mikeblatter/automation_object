@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # String class method additions
 class String
   # Test whether a string is a valid url or not

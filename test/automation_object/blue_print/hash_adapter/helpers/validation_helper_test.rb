@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../../../test_helper'
 require_relative '../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validation_helper'
 
@@ -10,8 +11,7 @@ class TestBluePrintHashAdapterValidationHelper < Minitest::Test
     @composite_stub.class.send(:include, AutomationObject::BluePrint::HashAdapter::ValidationHelper)
   end
 
-  def teardown
-  end
+  def teardown; end
 
   def test_errors
     assert_instance_of Array, @composite_stub.errors

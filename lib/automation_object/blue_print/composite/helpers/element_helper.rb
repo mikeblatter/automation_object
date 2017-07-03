@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   module BluePrint
     module Composite
@@ -37,9 +38,9 @@ module AutomationObject
         # @return [Array<Symbol>]
         def changes
           changes = []
-          self.method_hooks.each_value { |hook|
+          method_hooks.each_value do |hook|
             changes += hook.changes
-          }
+          end
 
           changes.uniq.compact
         end
@@ -47,11 +48,11 @@ module AutomationObject
         # @param name [Symbol] name of container you want to go to
         # @return [Symbol] method name
         def method_to_container(name)
-          self.method_hooks.each { |method_name, hook|
+          method_hooks.each do |method_name, hook|
             next unless hook.changes.include?(name)
 
             return method_name
-          }
+          end
 
           nil
         end

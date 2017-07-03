@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../lib/automation_object'
 
 require 'minitest/autorun'

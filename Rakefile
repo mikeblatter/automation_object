@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'fileutils'
@@ -54,12 +55,12 @@ Rake::Task[:rubycritic].enhance do
 end
 
 desc 'Build Docs'
-task docs: [:yard, :rubycritic] do
+task docs: %i[yard rubycritic] do
 end
 
 # Building
 desc 'Build Gem'
-task build: [:rubocop, :test] do
+task build: %i[rubocop test] do
   system "gem build #{GEM_NAME}.gemspec"
 
   remove_gem = File.expand_path(File.join(__dir__, "#{GEM_NAME}-#{AutomationObject::VERSION}.gem"))

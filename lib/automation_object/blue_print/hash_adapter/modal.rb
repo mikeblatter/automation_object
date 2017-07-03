@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Require parent class
 require_relative 'composite'
 
@@ -21,7 +22,7 @@ module AutomationObject
         has_many :element_hashes, interface: ElementHash
 
         # Validations
-        validates_keys allowed_keys: [:load, :elements, :element_arrays, :element_hashes]
+        validates_keys allowed_keys: %i[load elements element_arrays element_hashes]
 
         validates :load, instance_of: Hash
         validates :elements, instance_of: Hash

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../adapter_test_helper'
 
 # Test AutomationObject::Driver::AppiumAdapter::Element class
@@ -10,15 +11,11 @@ class TestAppiumAdapterElement < Minitest::Test
 
   create_tests
 
-  def setup
-  end
+  def setup; end
 
-  def teardown
-  end
+  def teardown; end
 
-  def test_scroll_into_view
-  end
+  def test_scroll_into_view; end
 
-  def test_ideal_y_position
-  end
+  def test_ideal_y_position; end
 end

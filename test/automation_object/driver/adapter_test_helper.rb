@@ -1,14 +1,13 @@
 # frozen_string_literal: true
+
 require_relative '../../test_helper'
 
 Dir['../../../lib/automation_object/driver/**/*.rb'].each { |f| load(f) }
 
 module AdapterTestHelper
-  def setup
-  end
+  def setup; end
 
-  def teardown
-  end
+  def teardown; end
 
   def create_adapter
     self.class.adapter_class.new(stub)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../../../../../test_helper'
 require_relative '../../../../../../lib/automation_object/blue_print/hash_adapter/helpers/validators/validate_allowed_keys'
 
@@ -13,7 +14,7 @@ class TestValidateAllowedKeys < Minitest::Test
   end
 
   def test_success
-    validator = @validator.new(allowed_keys: [:test_key_one, :test_key_two])
+    validator = @validator.new(allowed_keys: %i[test_key_one test_key_two])
     validator.validate(@validation_stub)
 
     assert_empty validator.error_messages

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   module Driver
     # Base class for driver and element adapter interface

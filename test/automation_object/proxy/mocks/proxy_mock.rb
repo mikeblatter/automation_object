@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Mock for Proxy
 class ProxyMock
   attr_accessor :test_attribute
