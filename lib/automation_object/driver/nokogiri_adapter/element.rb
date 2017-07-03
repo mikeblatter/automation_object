@@ -130,8 +130,8 @@ module AutomationObject
           BoxCoordinates.new(x1: 0, y1: 0, x2: 0, y2: 0)
         end
 
-        # @param second_element_object [Object] element to compare to
-        # @param collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
+        # @param _second_element_object [Object] element to compare to
+        # @param _collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
         # @return [Boolean] element collides with other
         def collides_with_element?(_second_element_object, _collision_tolerance = false)
           false
