@@ -25,6 +25,8 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.test_files = spec.files.grep(%r{^(docs|test|spec|features)/})
   spec.require_paths = ['lib']
 
+  spec.required_ruby_version = '>= 2.2'
+
   # Installation
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
