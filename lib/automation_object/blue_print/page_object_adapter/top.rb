@@ -9,8 +9,7 @@ module AutomationObject
       # Top composite
       class Top < Composite
         # Relationships
-        has_many :screens, public_interface: AutomationObject::PageObject::Screen,
-                 interface: AutomationObject::BluePrint::PageObjectAdapter::Screen
+        has_many :screens, interface: Screen
 
         def initialize(defined_module)
           super(defined_module, defined_module.const_get(:Configuration))
