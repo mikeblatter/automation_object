@@ -42,16 +42,16 @@ module AutomationObject
     end
 
     # Abstract argument, override
-    # @param name [Symbol] name of child
-    # @param options [Hash] options for child
+    # @param _name [Symbol] name of child
+    # @param _options [Hash] options for child
     # @return child [Object] return child composite object
     def get_child(_name, _options)
       raise 'Abstract method'
     end
 
     # Abstract argument, override
-    # @param name [Symbol] name of child
-    # @param options [Hash] options for child
+    # @param _name [Symbol] name of child
+    # @param _options [Hash] options for child
     # @return children [Hash] return children and names
     def get_children(_name, _options)
       raise 'Abstract method'

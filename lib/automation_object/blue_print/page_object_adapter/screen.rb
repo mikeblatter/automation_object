@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'composite'
+require_relative '../../page_object/screen'
 
 module AutomationObject
   module BluePrint

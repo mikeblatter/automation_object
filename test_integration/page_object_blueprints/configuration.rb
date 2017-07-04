@@ -3,7 +3,7 @@
 class Configuration < AutomationObject::PageObject::Configuration
   base_url('http://localhost:3000')
 
-  class Screen < AutomationObject::PageObject::Screen
+  class HomeScreen < AutomationObject::PageObject::Screen
 
   end
 end

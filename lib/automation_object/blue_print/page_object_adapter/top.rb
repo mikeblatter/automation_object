@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
 require_relative 'composite'
+require_relative 'screen'
 
 module AutomationObject
   module BluePrint
     module PageObjectAdapter
       # Top composite
       class Top < Composite
+        # Relationships
+        has_many :screens, public_interface: AutomationObject::PageObject::Screen,
+                 interface: AutomationObject::BluePrint::PageObjectAdapter::Screen
+
         def initialize(defined_module)
-          super(defined_module)
-          self.constant = defined_module.const_get(:Configuration)
+          super(defined_module, defined_module.const_get(:Configuration))
         end
 
         # @return [String, nil] base url to navigate to upon framework creation

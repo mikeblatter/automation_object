@@ -40,11 +40,6 @@ module AutomationObject
           adapter.dismiss
         end
 
-        # @return [AutomationObject::BluePrint::Composite::Hook]
-        def load
-          adapter.load
-        end
-
         # @return [Hash<AutomationObject::BluePrint::Composite::Modal>]
         def modals
           adapter.modals

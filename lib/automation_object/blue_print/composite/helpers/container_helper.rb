@@ -6,14 +6,9 @@ module AutomationObject
     module Composite
       # Screen composite class
       module ContainerHelper
-        # @return [Array<AutomationObject::BluePrint::Composite::AutomaticModalChange>]
-        def automatic_modal_changes
-          adapter.automatic_modal_changes
-        end
-
         # @return [Array<Symbol>]
-        def automatic_screen_changes
-          adapter.automatic_screen_changes
+        def included_views
+          adapter.included_views
         end
 
         # @return [AutomationObject::BluePrint::Composite::Hook]
