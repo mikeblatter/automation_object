@@ -1,6 +1,8 @@
+require_relative 'base'
+
 module AutomationObject
   module PageObject
-    class Modal
+    class Modal < Base
       class << self
       end
     end

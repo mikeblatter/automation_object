@@ -1,6 +1,8 @@
+require_relative 'base'
+
 module AutomationObject
   module PageObject
-    class ElementHash
+    class ElementHash < Base
       class << self
       end
     end

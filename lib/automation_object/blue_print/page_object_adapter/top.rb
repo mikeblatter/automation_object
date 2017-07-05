@@ -17,12 +17,12 @@ module AutomationObject
 
         # @return [String, nil] base url to navigate to upon framework creation
         def base_url
-          self.constant.base_url ||= nil
+          get_property(:base_url) || nil
         end
 
         # @return [Symbol, nil] default screen to be set when framework is created
         def default_screen
-          default_screen = self.constant.default_screen
+          default_screen = get_property(:default_screen)
 
           case default_screen
             when Symbol, String
@@ -34,17 +34,17 @@ module AutomationObject
 
         # @return [Numeric] sleep when transitioning screens
         def screen_transition_sleep
-          self.constant.screen_transition_sleep ||= 0
+          get_property(:screen_transition_sleep) || 0
         end
 
         # @return [Hash] driver methods to throttle
         def throttle_driver_methods
-          self.constant.throttle_driver_methods ||= {}
+          get_property(:throttle_driver_methods) || {}
         end
 
         # @return [Hash] element methods to throttle
         def throttle_element_methods
-          self.constant.throttle_element_methods ||= {}
+          get_property(:throttle_element_methods) || {}
         end
       end
     end
