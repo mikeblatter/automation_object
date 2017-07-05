@@ -1,5 +1,3 @@
-require_relative 'base'
-
 module AutomationObject
   module PageObject
     class Base
