@@ -31,7 +31,10 @@ module AutomationObject
         # @param options [Hash] options for child
         # @return child [Object] return child composite object
         def get_child(name, options)
-          raise 'Abstract method'
+          child = hash[name].is_a?(Hash) ? hash[name] : {}
+          child_location = location + "[#{name}]"
+
+          create_composite(options, child, name, child_location)
         end
 
         # Get children of composite
@@ -62,6 +65,10 @@ module AutomationObject
           composite_class = AutomationObject::BluePrint::Composite.const_get(class_name)
 
           composite_class.new(interface.new(user_defined_module, constant, name, self, child_location))
+        end
+
+        def get_property(name)
+          self.constant.send(name)
         end
       end
     end
