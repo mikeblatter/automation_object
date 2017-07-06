@@ -7,7 +7,7 @@ module AutomationObject
       module ElementHelper
         # @return [String, nil] text input for automatic screen/modal change if needed
         def default_input
-          hash[:default_input]
+          get_property(:default_input)
         end
 
         # @return [Array<Symbol, String>, nil] params as an array for driver find_element args

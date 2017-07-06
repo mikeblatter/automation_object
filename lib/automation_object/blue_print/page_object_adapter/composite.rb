@@ -82,6 +82,8 @@ module AutomationObject
           AutomationObject::PageObject.const_get(name)
         end
 
+        # @param name [Symbol]
+        # @return [Object]
         def get_property(name)
           self.constant.get_property(name)
         end

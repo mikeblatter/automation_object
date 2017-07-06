@@ -22,6 +22,12 @@ module AutomationObject
         has_many :elements, interface: Element
         has_many :element_arrays, interface: ElementArray
         has_many :element_hashes, interface: ElementHash
+
+        # @return [Array<Symbol>] array of screens where screen can automatically change to
+        def automatic_screen_changes
+          screen_array = get_property(:automatic_screen_changes) || []
+          screen_array.map(&:to_sym)
+        end
       end
     end
   end

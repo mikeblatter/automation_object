@@ -19,16 +19,8 @@ module AutomationObject
       def build(path = '')
         # Require ruby files in that path into a module namespace
         path = File.expand_path(path)
-        random_module_name = [*('A'..'Z')].sample(20).join
-        random_module_symbol = random_module_name.to_sym
 
-        AutomationObject::BluePrint::PageObjectAdapter.module_eval %Q?
-          module #{random_module_name}
-
-          end
-        ?
-
-        defined_module = const_get(random_module_symbol)
+        defined_module = define_random_module()
 
         # Remove any defined classes in UserDefined namespace
         defined_module.constants.select do |constant|
@@ -44,6 +36,19 @@ module AutomationObject
         # Will look for classes defined
         adapter_top = self::Top.new(defined_module)
         AutomationObject::BluePrint::Composite::Top.new(adapter_top)
+      end
+
+      def define_random_module
+        random_module_name = [*('A'..'Z')].sample(20).join
+        random_module_symbol = random_module_name.to_sym
+
+        AutomationObject::BluePrint::PageObjectAdapter.module_eval %Q?
+          module #{random_module_name}
+
+          end
+        ?
+
+        const_get(random_module_symbol)
       end
     end
   end
