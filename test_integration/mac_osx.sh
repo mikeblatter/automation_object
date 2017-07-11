@@ -26,13 +26,26 @@ else
 fi
 brew tap caskroom/cask
 
-#Install GPG
+#Install gpg
 if which gpg >/dev/null; then
-  echo "Updating GPG"
-  brew upgrade gpg
+  if brew list | grep gpg >/dev/null; then
+    echo "Updating gpg"
+    brew upgrade gpg
+  fi
 else
-  echo "Installing GPG"
+  echo "Installing gpg"
   brew install gpg
+fi
+
+#Install libxml2
+if which libxml2 >/dev/null; then
+  if brew list | grep libxml2 >/dev/null; then
+    echo "Updating libxml2"
+    brew upgrade libxml2
+  fi
+else
+  echo "Installing libxml2"
+  brew install libxml2
 fi
 
 #Install RVM
