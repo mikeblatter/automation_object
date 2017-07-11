@@ -5,7 +5,7 @@
 #
 # Dependencies are for running a Selenium Server and a Rails app
 
-RUBY_VERSION="2.3.3"
+RUBY_VERSION="2.3.1"
 RVM_GPG_KEY="409B6B1796C275462A1703113804BB82D39DC0E3"
 
 #Install xCode Command Line Tools
@@ -44,6 +44,8 @@ else
   echo "Installing RVM"
   gpg --keyserver hkp://keys.gnupg.net --recv-keys $RVM_GPG_KEY
   \curl -sSL https://get.rvm.io | bash -s stable --ruby=$RUBY_VERSION
+
+  rvm pkg install readline --verify-downloads 1
 fi
 
 #Install Ruby
@@ -88,23 +90,6 @@ if which bundle >/dev/null; then
 else
   echo "Installing Bundle"
   gem install bundler
-fi
-
-#Install Postgres + Redis
-if which postgres >/dev/null; then
-  echo "Updating Postgres"
-  brew upgrade postgres
-else
-  echo "Installing Postgres"
-  brew install postgres
-fi
-
-if which redis-server >/dev/null; then
-  echo "Updating Redis"
-  brew upgrade redis
-else
-  echo "Installing Redis"
-  brew install redis
 fi
 
 cd rails_app/
