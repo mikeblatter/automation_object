@@ -12,6 +12,13 @@ module AutomationObject
       class ElementHash < Composite
         include ElementHelper
         include MultipleElementsHelper
+
+        # @return [Symbol, nil] element method to define element keys by
+        def define_elements_by
+          return nil unless get_property(:define_elements_by)
+
+          get_property(:define_elements_by).to_sym
+        end
       end
     end
   end

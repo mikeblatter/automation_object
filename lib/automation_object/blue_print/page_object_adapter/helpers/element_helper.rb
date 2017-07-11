@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../hook'
+
 module AutomationObject
   module BluePrint
     module PageObjectAdapter

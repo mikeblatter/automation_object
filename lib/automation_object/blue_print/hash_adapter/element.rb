@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Require parent class
 require_relative 'composite'
 
 # Require child classes
