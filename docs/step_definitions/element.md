@@ -6,6 +6,7 @@
 
 * I click on the "home_screen" "about_button" element
 * I hover over the "home_screen" "test_link" element
+* I hover over the "home_screen" "menu_modal" "test_link" element
 * I tap on "home_screen" "logo_button" element
 
 #### Regex
@@ -23,6 +24,7 @@
 * I type "blah" into the "home_screen" "text_field" element
 * I type "test" in the "home_screen" "text_field" element
 * I type "blah" in "home_screen" "text_field" element
+* I type "blah" in "home_screen" "menu_modal" "text_field" element
 
 #### Regex
 
@@ -38,6 +40,7 @@
 
 * I scroll to the "home_screen" "logo_button" element
 * I focus to the "home_screen" "logo_button" element
+* I focus to the "home_screen" "menu_modal" "logo_button" element
 * I scroll to "home_screen" "logo_button" element
 
 #### Regex
@@ -54,6 +57,7 @@
 
 * I save "text" as "unique_value" from the "home_screen" "logo_button" element
 * I save "id" as "unique_value" from "home_screen" "logo_button" element
+* I save "id" as "unique_value" from "home_screen" "menu_modal" "logo_button" element
 
 #### Regex
 
@@ -69,6 +73,7 @@
 
 * the "home_screen" "title" element should exist
 * the "home_screen" "title" element shouldn't exist
+* the "home_screen" "menu_modal" "title" element shouldn't exist
 * "home_screen" "title" element should not exist
 
 #### Regex
@@ -85,6 +90,7 @@
 
 * the "home_screen" "title" element "text" should equal "Home"
 * "home_screen" "title" element "text" should not equal "About"
+* "home_screen" "menu_modal" "title" element "text" should not equal "About"
 * the "home_screen" "title" element "text" shouldn't equal "%{saved_value}"
 
 #### Regex
