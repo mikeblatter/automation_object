@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.name = 'automation_object'
   spec.version = AutomationObject::VERSION
   spec.authors = ['Michael Blatter']
+  spec.email = 'automation_object@blatter.me'
   spec.summary = 'YAML configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.'
   spec.description = 'This gem provides a way to create a dynamic usable DSL framework representing your website or app.
 Implementing Selenium/Appium driver and YAML configurations, this API will provide a layer in between your automation code and the driver.
