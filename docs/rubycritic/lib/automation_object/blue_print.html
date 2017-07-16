@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-10-30 14:47:10 -0500'>2016-10-30 14:47:10 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 13:51:03 -0500'>2017-07-03 13:51:03 -0500</time>
         
       </span>
     </div>
@@ -65,15 +65,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">44</span><small> lines of codes</small></div>
+              <div><span class="metric">52</span><small> lines of codes</small></div>
               <div><span class="metric">3</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">4.3</span><small> complexity/method</small></div>
-              <div><span class="metric">13</span><small> loc/method</small></div>
+              <div><span class="metric">6.7</span><small> complexity/method</small></div>
+              <div><span class="metric">16</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">13</span><small> complexity</small></div>
+              <div><span class="metric">20</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -95,8 +95,10 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;blue_print/hash_adapter&#39;
 require_relative &#39;blue_print/yaml_adapter&#39;
+require_relative &#39;blue_print/page_object_adapter&#39;
 
 module AutomationObject
   # BluePrint Port, encapsulation of code required to parse and build composite data structure representing UI
@@ -107,7 +109,7 @@ module AutomationObject
 
     # Get method for BluePrint adapter const for composite BluePrint build
     # Each adapter will implement common BluePrint interface
-    # @return [AutomationObject::BluePrint::YamlAdapter, AutomationObject::BluePrint::HashAdapter]
+    # @return [AutomationObject::BluePrint::YamlAdapter, AutomationObject::BluePrint::HashAdapter, AutomationObject::BluePrint::PageObjectAdapter]
     def adapter
       return @adapter if @adapter
       self.adapter = :hash
@@ -117,9 +119,9 @@ module AutomationObject
     # Sets adapter const will append _adapter if needed
     # @param adapter_name [String] name of adapter wanted for composite creation
     def adapter=(adapter_name)
-      adapter_name = adapter_name.to_s<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </div>  </li></ol>
-      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </div>  </li></ol>
-      adapter_const = adapter_name.pascalize<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="blue_print.html#L24" class="js-smell-location">0</a>                  <a href="blue_print.html#L25" class="js-smell-location">1</a>                  <a href="blue_print.html#L26" class="js-smell-location">2</a>                  </div>  </li></ol>
+      adapter_name = adapter_name.to_s<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="blue_print.html#L26" class="js-smell-location">0</a>                  <a href="blue_print.html#L27" class="js-smell-location">1</a>                  <a href="blue_print.html#L28" class="js-smell-location">2</a>                  </div>  </li></ol>
+      adapter_name &lt;&lt; &#39;_adapter&#39; unless adapter_name =~ /_adapter$/<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="blue_print.html#L26" class="js-smell-location">0</a>                  <a href="blue_print.html#L27" class="js-smell-location">1</a>                  <a href="blue_print.html#L28" class="js-smell-location">2</a>                  </div>  </li></ol>
+      adapter_const = adapter_name.pascalize<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint#adapter= refers to 'adapter_name' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="blue_print.html#L26" class="js-smell-location">0</a>                  <a href="blue_print.html#L27" class="js-smell-location">1</a>                  <a href="blue_print.html#L28" class="js-smell-location">2</a>                  </div>  </li></ol>
 
       @adapter = AutomationObject::BluePrint.const_get(adapter_const.to_s)
     end
@@ -129,7 +131,13 @@ module AutomationObject
     def create(blueprint_arg)
       case blueprint_arg
       when String
-        self.adapter = :yaml
+        path = File.expand_path(blueprint_arg)
+
+        self.adapter = if !Dir[File.join(path, &#39;/**/*.rb&#39;)].empty?
+                         :page_object
+                       else
+                         :yaml
+                       end
       when Hash
         self.adapter = :hash
       end

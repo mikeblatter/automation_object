@@ -343,23 +343,23 @@
       <pre class="lines">
 
 
-38
 39
 40
 41
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_changes'>changes</span>
   <span class='id identifier rubyid_changes'>changes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each_value'>each_value</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_hook'>hook</span><span class='op'>|</span>
+  <span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each_value'>each_value</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_hook'>hook</span><span class='op'>|</span>
     <span class='id identifier rubyid_changes'>changes</span> <span class='op'>+=</span> <span class='id identifier rubyid_hook'>hook</span><span class='period'>.</span><span class='id identifier rubyid_changes'>changes</span>
-  <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
 
   <span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
 <span class='kw'>end</span></pre>
@@ -410,12 +410,12 @@
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_input'>default_input</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_default_input'>default_input</span>
@@ -467,12 +467,12 @@
       <pre class="lines">
 
 
-18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_iframe'>in_iframe</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_in_iframe'>in_iframe</span>
@@ -524,12 +524,12 @@
       <pre class="lines">
 
 
-23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_iframe?'>in_iframe?</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_in_iframe?'>in_iframe?</span>
@@ -576,12 +576,12 @@
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_hook?'>method_hook?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_method_hook?'>method_hook?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -633,12 +633,12 @@
       <pre class="lines">
 
 
-32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_hooks'>method_hooks</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span>
@@ -709,7 +709,6 @@
       <pre class="lines">
 
 
-49
 50
 51
 52
@@ -717,17 +716,18 @@
 54
 55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_to_container'>method_to_container</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_hook'>hook</span><span class='op'>|</span>
+  <span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_hook'>hook</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_hook'>hook</span><span class='period'>.</span><span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
     <span class='kw'>return</span> <span class='id identifier rubyid_method_name'>method_name</span>
-  <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
 
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
@@ -778,12 +778,12 @@
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/helpers/element_helper.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_selector_params'>selector_params</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_selector_params'>selector_params</span>
@@ -798,9 +798,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:24 2017 by
+  Generated on Sun Jul 16 11:36:03 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

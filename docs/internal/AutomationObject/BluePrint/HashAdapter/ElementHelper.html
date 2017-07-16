@@ -301,12 +301,12 @@
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_input'>default_input</span>
   <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='symbol'>:default_input</span><span class='rbracket'>]</span>
@@ -358,15 +358,15 @@
       <pre class="lines">
 
 
-22
 23
 24
 25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_iframe'>in_iframe</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='symbol'>:in_iframe</span><span class='rbracket'>]</span>
@@ -421,12 +421,12 @@
       <pre class="lines">
 
 
-30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_iframe?'>in_iframe?</span>
   <span class='id identifier rubyid_in_iframe'>in_iframe</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
@@ -473,12 +473,12 @@
       <pre class="lines">
 
 
-34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_hook?'>method_hook?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_method_hooks'>method_hooks</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -530,7 +530,6 @@
       <pre class="lines">
 
 
-39
 40
 41
 42
@@ -546,10 +545,11 @@
 52
 53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_hooks'>method_hooks</span>
   <span class='kw'>return</span> <span class='ivar'>@method_hooks</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@method_hooks</span>
@@ -558,7 +558,7 @@
   <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
     <span class='comment'># Skip possible keys that elements can have
 </span>    <span class='comment'># Otherwise should be a method hook
-</span>    <span class='kw'>next</span> <span class='kw'>if</span> <span class='lbracket'>[</span><span class='symbol'>:load</span><span class='comma'>,</span> <span class='symbol'>:custom_methods</span><span class='comma'>,</span> <span class='symbol'>:in_iframe</span><span class='comma'>,</span> <span class='symbol'>:css</span><span class='comma'>,</span> <span class='symbol'>:xpath</span><span class='comma'>,</span> <span class='symbol'>:define_elements_by</span><span class='comma'>,</span> <span class='symbol'>:custom_range</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+</span>    <span class='kw'>next</span> <span class='kw'>if</span> <span class='qsymbols_beg'>%i[</span><span class='tstring_content'>load</span><span class='words_sep'> </span><span class='tstring_content'>custom_methods</span><span class='words_sep'> </span><span class='tstring_content'>in_iframe</span><span class='words_sep'> </span><span class='tstring_content'>css</span><span class='words_sep'> </span><span class='tstring_content'>xpath</span><span class='words_sep'> </span><span class='tstring_content'>define_elements_by</span><span class='words_sep'> </span><span class='tstring_content'>custom_range</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_children'>children</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
   <span class='kw'>end</span>
 
@@ -615,16 +615,16 @@
       <pre class="lines">
 
 
-13
 14
 15
 16
 17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/element_helper.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_selector_params'>selector_params</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='symbol'>:xpath</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../String.html" title="String (class)">String</a></span></span><span class='rparen'>)</span>
@@ -643,9 +643,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:25 2017 by
+  Generated on Sun Jul 16 11:36:03 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

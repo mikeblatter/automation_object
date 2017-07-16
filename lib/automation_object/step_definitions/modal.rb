@@ -1,20 +1,21 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 
-# Description: Provides step definitions related to modals
+# Modal Step Definitions
+# Provides step definitions related to modals
 
-# For: Automatically navigate to the modal
+# Automatically navigate to the modal
 # Examples:
 # - I go to the "home_screen" "test_modal" modal
 # - I go to "login_screen" "test_modal" modal
-Then(%r(^I go to (?:the |)"([\w\s]+|%\{\w+\})" "([\w\s]+|%\{\w+\})" modal$)) do |*args|
+When(%r(^I go to (?:the |)"([\w\s]+|%\{\w+\})" "([\w\s]+|%\{\w+\})" modal$)) do |*args|
   screen, modal = AutomationObject::StepDefinitions::Parse.new(args).get
 
   success = AutomationObject::Framework.get.screen(screen).modal(modal).go
   expect(success).to eq(true)
 end
 
-# For: Test if modal is currently active
+# Test if modal is currently active
 # Examples:
 # - the "home_screen" "test_modal" modal should be active
 # - the "login_screen" "test_modal" modal shouldn't be active

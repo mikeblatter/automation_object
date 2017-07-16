@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-20 12:26:08 -0600'>2016-11-20 12:26:08 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">34</span><small> lines of codes</small></div>
+              <div><span class="metric">35</span><small> lines of codes</small></div>
               <div><span class="metric">1</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">21.0</span><small> complexity/method</small></div>
-              <div><span class="metric">2</span><small> loc/method</small></div>
+              <div><span class="metric">3</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">21</span><small> complexity</small></div>
@@ -85,8 +85,8 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                2
-                smells
+                1
+                smell
               </a>
             </li>
           </ul>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;_base&#39;
 require_relative &#39;_common_element&#39;
 
@@ -108,7 +109,7 @@ module AutomationObject
 
       # @return [Hash&lt;String, AutomationObject::State::ElementProxy&gt;] Selenium proxy
       def utilize<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::State::ElementHash#utilize has approx 9 statements</span>          </div>  </li></ol>
-        return self.cache if self.cache<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::ElementHash#utilize calls 'self.cache' 2 times</span>          </div>  </li></ol>
+        return cache if cache
 
         elements = driver.find_elements(*blue_prints.selector_params)
         self.cache = {}

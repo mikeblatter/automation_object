@@ -467,7 +467,6 @@ can also automate XML</p>
       <pre class="lines">
 
 
-30
 31
 32
 33
@@ -475,10 +474,11 @@ can also automate XML</p>
 35
 36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_driver'>driver</span> <span class='op'>=</span> <span class='id identifier rubyid_driver'>driver</span>
@@ -536,12 +536,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-98
-99
-100</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_singleton'>singleton</span>
   <span class='ivar'>@singleton</span>
@@ -595,12 +595,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span>
   <span class='ivar'>@blue_prints</span>
@@ -649,12 +649,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_driver'>driver</span>
   <span class='ivar'>@driver</span>
@@ -708,12 +708,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dsl'>dsl</span>
   <span class='ivar'>@dsl</span>
@@ -762,12 +762,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_state'>state</span>
   <span class='ivar'>@state</span>
@@ -826,12 +826,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-102
-103
-104</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span>
   <span class='id identifier rubyid_singleton'>singleton</span>
@@ -885,12 +885,12 @@ can also automate XML</p>
       <pre class="lines">
 
 
-50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_current_screen'>current_screen</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_current_screen'>current_screen</span>
@@ -926,13 +926,13 @@ Leave the driver alone here, can be done elsewhere</p>
       <pre class="lines">
 
 
-89
-90
-91
-92</pre>
+83
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_quit'>quit</span> <span class='comment'># Quit the state.  That way it knows to kill threads if operational
@@ -1013,12 +1013,12 @@ Leave the driver alone here, can be done elsewhere</p>
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/framework.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_screen'>screen</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -1033,9 +1033,9 @@ Leave the driver alone here, can be done elsewhere</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:25 2017 by
+  Generated on Sun Jul 16 11:36:04 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

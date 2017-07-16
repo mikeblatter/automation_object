@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">51</span><small> lines of codes</small></div>
+              <div><span class="metric">52</span><small> lines of codes</small></div>
               <div><span class="metric">3</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">13.7</span><small> complexity/method</small></div>
-              <div><span class="metric">1</span><small> loc/method</small></div>
+              <div><span class="metric">2</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">41</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;_base&#39;
 
 require_relative &#39;hook_action&#39;
@@ -108,9 +109,9 @@ module AutomationObject
       def live?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#live? has approx 7 statements</span>          </div>  </li></ol>
         before
 
-        return nil if blue_prints.live?.empty?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#live? calls 'blue_prints.live?' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L15" class="js-smell-location">0</a>                  <a href="hook.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
+        return nil if blue_prints.live?.empty?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#live? calls 'blue_prints.live?' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L16" class="js-smell-location">0</a>                  <a href="hook.html#L18" class="js-smell-location">1</a>                  </div>  </li></ol>
 
-        blue_prints.live?.each do |element_requirement_blueprints|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#live? calls 'blue_prints.live?' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L15" class="js-smell-location">0</a>                  <a href="hook.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
+        blue_prints.live?.each do |element_requirement_blueprints|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#live? calls 'blue_prints.live?' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L16" class="js-smell-location">0</a>                  <a href="hook.html#L18" class="js-smell-location">1</a>                  </div>  </li></ol>
           hook_element_requirement = ElementRequirement.new(self, driver, element_requirement_blueprints, 1)
           return false unless hook_element_requirement.run
         end
@@ -122,11 +123,11 @@ module AutomationObject
 
       # Runs the before hook
       # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
-      def before<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L29" class="js-smell-location">0</a>                  <a href="hook.html#L41" class="js-smell-location">1</a>                  </div>  </li></ol>
-        return nil if blue_prints.before.empty?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#before calls 'blue_prints.before' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L30" class="js-smell-location">0</a>                  <a href="hook.html#L33" class="js-smell-location">1</a>                  </div>  </li></ol>
+      def before<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L30" class="js-smell-location">0</a>                  <a href="hook.html#L42" class="js-smell-location">1</a>                  </div>  </li></ol>
+        return nil if blue_prints.before.empty?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#before calls 'blue_prints.before' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L31" class="js-smell-location">0</a>                  <a href="hook.html#L34" class="js-smell-location">1</a>                  </div>  </li></ol>
 
         hook_action = HookAction.new(driver,
-                                     blue_prints.before,<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#before calls 'blue_prints.before' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L30" class="js-smell-location">0</a>                  <a href="hook.html#L33" class="js-smell-location">1</a>                  </div>  </li></ol>
+                                     blue_prints.before,<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#before calls 'blue_prints.before' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L31" class="js-smell-location">0</a>                  <a href="hook.html#L34" class="js-smell-location">1</a>                  </div>  </li></ol>
                                      :hook_action, self, location + &#39;[hook_action]&#39;)
 
         hook_action.run
@@ -134,11 +135,11 @@ module AutomationObject
 
       # Runs the after hook
       # @return [Boolean, nil] return nil unless there is a hook, otherwise boolean depending on success of hook
-      def after<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L29" class="js-smell-location">0</a>                  <a href="hook.html#L41" class="js-smell-location">1</a>                  </div>  </li></ol>
-        return nil if blue_prints.after.empty?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#after calls 'blue_prints.after' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L42" class="js-smell-location">0</a>                  <a href="hook.html#L45" class="js-smell-location">1</a>                  </div>  </li></ol>
+      def after<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L30" class="js-smell-location">0</a>                  <a href="hook.html#L42" class="js-smell-location">1</a>                  </div>  </li></ol>
+        return nil if blue_prints.after.empty?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#after calls 'blue_prints.after' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L43" class="js-smell-location">0</a>                  <a href="hook.html#L46" class="js-smell-location">1</a>                  </div>  </li></ol>
 
         hook_action = HookAction.new(driver,
-                                     blue_prints.after,<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#after calls 'blue_prints.after' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L42" class="js-smell-location">0</a>                  <a href="hook.html#L45" class="js-smell-location">1</a>                  </div>  </li></ol>
+                                     blue_prints.after,<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::Hook#after calls 'blue_prints.after' 2 times</span>              <span>Locations:</span>                  <a href="hook.html#L43" class="js-smell-location">0</a>                  <a href="hook.html#L46" class="js-smell-location">1</a>                  </div>  </li></ol>
                                      :hook_action, self, location + &#39;[hook_action]&#39;)
         hook_action.run
       end

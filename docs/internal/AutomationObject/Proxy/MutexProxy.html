@@ -276,15 +276,15 @@
       <pre class="lines">
 
 
-8
 9
 10
 11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -320,7 +320,6 @@
       <pre class="lines">
 
 
-27
 28
 29
 30
@@ -339,10 +338,11 @@
 43
 44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exec_procedures'>exec_procedures</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -413,14 +413,14 @@
       <pre class="lines">
 
 
-15
 16
 17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_mutex'>add_mutex</span><span class='lparen'>(</span><span class='id identifier rubyid_mutex_object'>mutex_object</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expecting mutex_object argument to be a Mutex object</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_mutex_object'>mutex_object</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Mutex</span><span class='rparen'>)</span>
@@ -469,14 +469,14 @@
       <pre class="lines">
 
 
-21
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_mutex'>delete_mutex</span><span class='lparen'>(</span><span class='id identifier rubyid_mutex_object'>mutex_object</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expecting mutex_object argument to be a Mutex object</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_mutex_object'>mutex_object</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Mutex</span><span class='rparen'>)</span>
@@ -503,7 +503,6 @@
       <pre class="lines">
 
 
-48
 49
 50
 51
@@ -512,10 +511,11 @@
 54
 55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/mutex_proxy.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_protect_object'>protect_object</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_object'>object</span> <span class='kw'>if</span> <span class='ivar'>@skip_protection_classes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rparen'>)</span>
@@ -537,9 +537,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:26 2017 by
+  Generated on Sun Jul 16 11:36:05 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

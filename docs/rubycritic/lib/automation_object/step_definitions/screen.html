@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-06-28 14:11:26 -0500'>2017-06-28 14:11:26 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:39:42 -0500'>2017-07-03 11:39:42 -0500</time>
         
       </span>
     </div>
@@ -65,15 +65,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">78</span><small> lines of codes</small></div>
+              <div><span class="metric">89</span><small> lines of codes</small></div>
               <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">10</span><small> loc/method</small></div>
+              <div><span class="metric">11</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">77</span><small> complexity</small></div>
+              <div><span class="metric">89</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -98,6 +98,17 @@
 require_relative &#39;support/parse&#39;
 
 # Description: Provides step definitions related to screens
+
+# For: Automatically navigate to the modal
+# Examples:
+# - I go to the &quot;home_screen&quot; screen
+# - I go to &quot;login_screen&quot; screen
+Then(%r(^I go to (?:the |)&quot;([\w\s]+|%\{\w+\})&quot; screen)) do |*args|
+  screen = AutomationObject::StepDefinitions::Parse.new(args).get
+
+  success = AutomationObject::Framework.get.screen(screen).go
+  expect(success).to eq(true)
+end
 
 # For: Close the current screen or given screen
 # Examples:

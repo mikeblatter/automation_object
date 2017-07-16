@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">96</span><small> lines of codes</small></div>
+              <div><span class="metric">97</span><small> lines of codes</small></div>
               <div><span class="metric">6</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">11.0</span><small> complexity/method</small></div>
-              <div><span class="metric">14</span><small> loc/method</small></div>
+              <div><span class="metric">15</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">66</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;../../helpers/composite&#39;
 require_relative &#39;../../helpers/string&#39;
 
@@ -124,9 +125,9 @@ module AutomationObject
           # Validate using ValidationHelper
           return if valid?
 
-          raise ValidationError, errors.uniq.reverse unless self.parent<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#initialize calls 'self.parent' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L31" class="js-smell-location">0</a>                  <a href="composite.html#L33" class="js-smell-location">1</a>                  </div>  </li></ol>
+          raise ValidationError, errors.uniq.reverse unless self.parent<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#initialize calls 'self.parent' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L32" class="js-smell-location">0</a>                  <a href="composite.html#L34" class="js-smell-location">1</a>                  </div>  </li></ol>
 
-          self.parent.add_errors(errors)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#initialize calls 'self.parent' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L31" class="js-smell-location">0</a>                  <a href="composite.html#L33" class="js-smell-location">1</a>                  </div>  </li></ol>
+          self.parent.add_errors(errors)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#initialize calls 'self.parent' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L32" class="js-smell-location">0</a>                  <a href="composite.html#L34" class="js-smell-location">1</a>                  </div>  </li></ol>
         end
 
         # Overriding base get_child method
@@ -179,12 +180,12 @@ module AutomationObject
 
         def create_composite(args, child, name, location)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank"><b>LongParameterList</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#create_composite has 4 parameters</span>          </div>  </li></ol>
           # Get the Composite Class that corresponds with the HashAdapter Class
-          class_name = args[:interface].name.split(&#39;::&#39;).last<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#create_composite calls 'args[:interface]' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L86" class="js-smell-location">0</a>                  <a href="composite.html#L91" class="js-smell-location">1</a>                  </div>  </li></ol>
+          class_name = args[:interface].name.split(&#39;::&#39;).last<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#create_composite calls 'args[:interface]' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L87" class="js-smell-location">0</a>                  <a href="composite.html#L92" class="js-smell-location">1</a>                  </div>  </li></ol>
 
           require_relative &quot;../composite/#{class_name.to_underscore}&quot;
           composite_class = AutomationObject::BluePrint::Composite.const_get(class_name)
 
-          composite_class.new(args[:interface].new(child, name, self, location))<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#create_composite calls 'args[:interface]' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L86" class="js-smell-location">0</a>                  <a href="composite.html#L91" class="js-smell-location">1</a>                  </div>  </li></ol>
+          composite_class.new(args[:interface].new(child, name, self, location))<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Composite#create_composite calls 'args[:interface]' 2 times</span>              <span>Locations:</span>                  <a href="composite.html#L87" class="js-smell-location">0</a>                  <a href="composite.html#L92" class="js-smell-location">1</a>                  </div>  </li></ol>
         end
       end
     end

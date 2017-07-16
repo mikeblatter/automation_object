@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-20 14:55:23 -0600'>2016-11-20 14:55:23 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">27</span><small> lines of codes</small></div>
+              <div><span class="metric">28</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">3.0</span><small> complexity/method</small></div>
-              <div><span class="metric">5</span><small> loc/method</small></div>
+              <div><span class="metric">6</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">6</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 module AutomationObject
   module BluePrint
     module HashAdapter
@@ -112,10 +113,10 @@ module AutomationObject
         def message
           message = &quot;\nBluePrint::HashAdapter composite validation failed for the following errors:\n&quot;
           @errors.each do |error|
-            message = message + &quot;     - #{error}\n&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="validation_error.html#L19" class="js-smell-location">0</a>                  <a href="validation_error.html#L22" class="js-smell-location">1</a>                  </div>  </li></ol>
+            message += &quot;     - #{error}\n&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="validation_error.html#L20" class="js-smell-location">0</a>                  <a href="validation_error.html#L23" class="js-smell-location">1</a>                  </div>  </li></ol>
           end
 
-          message + &quot;\n&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="validation_error.html#L19" class="js-smell-location">0</a>                  <a href="validation_error.html#L22" class="js-smell-location">1</a>                  </div>  </li></ol>
+          message + &quot;\n&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ValidationError#message refers to 'message' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="validation_error.html#L20" class="js-smell-location">0</a>                  <a href="validation_error.html#L23" class="js-smell-location">1</a>                  </div>  </li></ol>
         end
       end
     end

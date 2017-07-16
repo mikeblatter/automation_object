@@ -473,7 +473,6 @@
       <pre class="lines">
 
 
-21
 22
 23
 24
@@ -486,10 +485,11 @@
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='symbol'>:top</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>top</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='comment'># Add hash before calling super
@@ -542,12 +542,12 @@
       <pre class="lines">
 
 
-15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hash'>hash</span>
   <span class='ivar'>@hash</span>
@@ -637,7 +637,6 @@
       <pre class="lines">
 
 
-60
 61
 62
 63
@@ -646,10 +645,11 @@
 66
 67
 68
-69</pre>
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_array_children'>create_array_children</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_children'>children</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_composite_children'>composite_children</span> <span class='op'>=</span> <span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='period'>.</span><span class='id identifier rubyid_with_index'>with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_child'>child</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span><span class='op'>|</span>
@@ -681,7 +681,6 @@
       <pre class="lines">
 
 
-84
 85
 86
 87
@@ -689,10 +688,11 @@
 89
 90
 91
-92</pre>
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_composite'>create_composite</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_child'>child</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
   <span class='comment'># Get the Composite Class that corresponds with the HashAdapter Class
@@ -766,7 +766,6 @@
       <pre class="lines">
 
 
-73
 74
 75
 76
@@ -775,10 +774,11 @@
 79
 80
 81
-82</pre>
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_hash_children'>create_hash_children</span><span class='lparen'>(</span><span class='id identifier rubyid_children'>children</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_composite_children'>composite_children</span> <span class='op'>=</span> <span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_hash'>hash</span><span class='op'>|</span>
@@ -854,15 +854,15 @@
       <pre class="lines">
 
 
-39
 40
 41
 42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_child'>get_child</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_child'>child</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -934,15 +934,15 @@
       <pre class="lines">
 
 
-50
 51
 52
 53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/composite.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_children'>get_children</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_children'>children</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
@@ -960,9 +960,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:28 2017 by
+  Generated on Sun Jul 16 11:36:08 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

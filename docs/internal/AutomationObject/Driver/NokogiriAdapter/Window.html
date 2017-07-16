@@ -348,16 +348,16 @@
       <pre class="lines">
 
 
-15
 16
 17
 18
 19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_hex'>hex</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span>
@@ -403,12 +403,12 @@
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle'>handle</span>
   <span class='ivar'>@handle</span>
@@ -445,12 +445,12 @@
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_xml'>xml</span>
   <span class='ivar'>@xml</span>
@@ -504,15 +504,15 @@
       <pre class="lines">
 
 
-40
 41
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_back'>back</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="UnableToNavigateBackward.html" title="AutomationObject::Driver::NokogiriAdapter::UnableToNavigateBackward (class)">UnableToNavigateBackward</a></span></span> <span class='kw'>if</span> <span class='ivar'>@position</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
@@ -562,13 +562,13 @@
       <pre class="lines">
 
 
-34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_current_url'>current_url</span>
   <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='ivar'>@position</span><span class='rparen'>)</span>
@@ -616,15 +616,15 @@
       <pre class="lines">
 
 
-48
 49
 50
 51
 52
-53</pre>
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forward'>forward</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="UnableToNavigateForward.html" title="AutomationObject::Driver::NokogiriAdapter::UnableToNavigateForward (class)">UnableToNavigateForward</a></span></span> <span class='kw'>if</span> <span class='ivar'>@position</span> <span class='op'>&gt;=</span> <span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>2</span>
@@ -661,12 +661,12 @@
       <pre class="lines">
 
 
-56
 57
-58</pre>
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh'>refresh</span>
   <span class='id identifier rubyid_make_request'>make_request</span><span class='lparen'>(</span><span class='ivar'>@history</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='ivar'>@position</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -737,15 +737,15 @@
       <pre class="lines">
 
 
-26
 27
 28
 29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/window.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Request.html" title="AutomationObject::Driver::NokogiriAdapter::Request (class)">Request</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Request.html#initialize-instance_method" title="AutomationObject::Driver::NokogiriAdapter::Request#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -763,9 +763,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:27 2017 by
+  Generated on Sun Jul 16 11:36:07 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

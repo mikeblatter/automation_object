@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -59,22 +59,22 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-1">
-            <div class="rating c big">
-              C
+            <div class="rating a big">
+              A
             </div>
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">31</span><small> lines of codes</small></div>
+              <div><span class="metric">32</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">3.0</span><small> complexity/method</small></div>
-              <div><span class="metric">8</span><small> loc/method</small></div>
+              <div><span class="metric">9</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">6</span><small> complexity</small></div>
-              <div><span class="metric">17</span><small> duplications</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                1
+                0
                 smell
               </a>
             </li>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 require_relative &#39;composite&#39;
 
@@ -107,7 +108,7 @@ module AutomationObject
         validates :element_method, instance_of: [String, Symbol], presence_of: true
         validates :evaluate, instance_of: [String], presence_of: true
 
-        def element_method<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="automatic_modal_change.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </div>  </li></ol>
+        def element_method
           element_method = hash[:element_method]
 
           case element_method

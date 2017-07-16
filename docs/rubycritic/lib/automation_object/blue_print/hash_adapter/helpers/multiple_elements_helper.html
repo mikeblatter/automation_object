@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -59,22 +59,22 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-1">
-            <div class="rating c big">
-              C
+            <div class="rating b big">
+              B
             </div>
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">36</span><small> lines of codes</small></div>
+              <div><span class="metric">37</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">9.5</span><small> complexity/method</small></div>
-              <div><span class="metric">7</span><small> loc/method</small></div>
+              <div><span class="metric">8</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">19</span><small> complexity</small></div>
-              <div><span class="metric">17</span><small> duplications</small></div>
+              <div><span class="metric">62</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -95,8 +95,9 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 module AutomationObject
-  module BluePrint
+  module BluePrint<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="multiple_elements_helper.html#L4" class="js-smell-location">0</a>                  <a href="../../page_object_adapter/helpers/multiple_elements_helper.html#L4" class="js-smell-location">1</a>                  </div>  </li></ol>
     module HashAdapter
       # Helper module for multiple element composite classes
       module MultipleElementsHelper
@@ -106,17 +107,17 @@ module AutomationObject
 
           case custom_range
           when String
-            integer_array = custom_range.split(&#39;..&#39;).map { |number| Integer(number) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::MultipleElementsHelper#custom_range refers to 'custom_range' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="multiple_elements_helper.html#L13" class="js-smell-location">0</a>                  <a href="multiple_elements_helper.html#L16" class="js-smell-location">1</a>                  </div>  </li></ol>
+            integer_array = custom_range.split(&#39;..&#39;).map { |number| Integer(number) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::MultipleElementsHelper#custom_range refers to 'custom_range' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="multiple_elements_helper.html#L14" class="js-smell-location">0</a>                  <a href="multiple_elements_helper.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
             return integer_array[0]..integer_array[1]
           when Hash
-            return custom_range[:start].to_i..custom_range[:end].to_i<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::MultipleElementsHelper#custom_range refers to 'custom_range' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="multiple_elements_helper.html#L13" class="js-smell-location">0</a>                  <a href="multiple_elements_helper.html#L16" class="js-smell-location">1</a>                  </div>  </li></ol>
+            return custom_range[:start].to_i..custom_range[:end].to_i<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::MultipleElementsHelper#custom_range refers to 'custom_range' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="multiple_elements_helper.html#L14" class="js-smell-location">0</a>                  <a href="multiple_elements_helper.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
           end
 
           nil
         end
 
         # @return [Symbol, nil] gives element method to remove duplicates on or nil
-        def remove_duplicates<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="../automatic_modal_change.html#L15" class="js-smell-location">0</a>                  <a href="../custom_method.html#L14" class="js-smell-location">1</a>                  <a href="multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="../hook_action.html#L49" class="js-smell-location">3</a>                  <a href="../hook_action.html#L61" class="js-smell-location">4</a>                  <a href="../hook_action.html#L88" class="js-smell-location">5</a>                  <a href="../hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="../top.html#L36" class="js-smell-location">7</a>                  </div>  </li></ol>
+        def remove_duplicates
           remove_duplicates = hash[:remove_duplicates]
 
           case remove_duplicates

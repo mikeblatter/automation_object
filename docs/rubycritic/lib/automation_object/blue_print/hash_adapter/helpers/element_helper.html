@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-06-30 12:16:37 -0500'>2017-06-30 12:16:37 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -59,22 +59,22 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-1">
-            <div class="rating a big">
-              A
+            <div class="rating d big">
+              D
             </div>
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">59</span><small> lines of codes</small></div>
+              <div><span class="metric">60</span><small> lines of codes</small></div>
               <div><span class="metric">6</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">5.7</span><small> complexity/method</small></div>
-              <div><span class="metric">13</span><small> loc/method</small></div>
+              <div><span class="metric">14</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">34</span><small> complexity</small></div>
-              <div><span class="metric">0</span><small> duplications</small></div>
+              <div><span class="metric">65</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                4
+                6
                 smells
               </a>
             </li>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 module AutomationObject
   module BluePrint
     module HashAdapter
@@ -106,19 +107,19 @@ module AutomationObject
         end
 
         # @return [Array&lt;Symbol, String&gt;, nil] params as an array for driver find_element args
-        def selector_params
-          if hash[:xpath].is_a?(String)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:xpath]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L14" class="js-smell-location">0</a>                  <a href="element_helper.html#L15" class="js-smell-location">1</a>                  </div>  </li></ol>
-            [:xpath, hash[:xpath]]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:xpath]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L14" class="js-smell-location">0</a>                  <a href="element_helper.html#L15" class="js-smell-location">1</a>                  </div>  </li></ol>
-          elsif hash[:css].is_a?(String)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:css]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L16" class="js-smell-location">0</a>                  <a href="element_helper.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
-            [:css, hash[:css]]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:css]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L16" class="js-smell-location">0</a>                  <a href="element_helper.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
+        def selector_params<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element_helper.html#L14" class="js-smell-location">0</a>                  <a href="../../page_object_adapter/helpers/element_helper.html#L16" class="js-smell-location">1</a>                  </div>  </li></ol>
+          if hash[:xpath].is_a?(String)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:xpath]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L15" class="js-smell-location">0</a>                  <a href="element_helper.html#L16" class="js-smell-location">1</a>                  </div>  </li></ol>
+            [:xpath, hash[:xpath]]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:xpath]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L15" class="js-smell-location">0</a>                  <a href="element_helper.html#L16" class="js-smell-location">1</a>                  </div>  </li></ol>
+          elsif hash[:css].is_a?(String)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:css]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L17" class="js-smell-location">0</a>                  <a href="element_helper.html#L18" class="js-smell-location">1</a>                  </div>  </li></ol>
+            [:css, hash[:css]]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#selector_params calls 'hash[:css]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L17" class="js-smell-location">0</a>                  <a href="element_helper.html#L18" class="js-smell-location">1</a>                  </div>  </li></ol>
           end
         end
 
         # @return [Symbol, nil] element name of iframe element is in or nil if not
         def in_iframe
-          case hash[:in_iframe]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#in_iframe calls 'hash[:in_iframe]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L23" class="js-smell-location">0</a>                  <a href="element_helper.html#L25" class="js-smell-location">1</a>                  </div>  </li></ol>
+          case hash[:in_iframe]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#in_iframe calls 'hash[:in_iframe]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L24" class="js-smell-location">0</a>                  <a href="element_helper.html#L26" class="js-smell-location">1</a>                  </div>  </li></ol>
           when Symbol, String
-            hash[:in_iframe].to_sym<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#in_iframe calls 'hash[:in_iframe]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L23" class="js-smell-location">0</a>                  <a href="element_helper.html#L25" class="js-smell-location">1</a>                  </div>  </li></ol>
+            hash[:in_iframe].to_sym<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#in_iframe calls 'hash[:in_iframe]' 2 times</span>              <span>Locations:</span>                  <a href="element_helper.html#L24" class="js-smell-location">0</a>                  <a href="element_helper.html#L26" class="js-smell-location">1</a>                  </div>  </li></ol>
           end
         end
 
@@ -132,14 +133,14 @@ module AutomationObject
         end
 
         # @return [Hash&lt;Hook&gt;] hash of Hook that are defined under the element
-        def method_hooks<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#method_hooks has approx 7 statements</span>          </div>  </li></ol>
+        def method_hooks<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element_helper.html#L40" class="js-smell-location">0</a>                  <a href="../../page_object_adapter/helpers/element_helper.html#L42" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::ElementHelper#method_hooks has approx 7 statements</span>          </div>  </li></ol>
           return @method_hooks if defined? @method_hooks
 
           children = {}
           hash.each do |key, value|
             # Skip possible keys that elements can have
             # Otherwise should be a method hook
-            next if [:load, :custom_methods, :in_iframe, :css, :xpath, :define_elements_by, :custom_range].include?(key)
+            next if %i[load custom_methods in_iframe css xpath define_elements_by custom_range].include?(key)
             children[key] = value
           end
 

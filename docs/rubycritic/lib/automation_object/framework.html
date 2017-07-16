@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-27 12:32:54 -0600'>2016-11-27 12:32:54 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 13:02:31 -0500'>2017-07-03 13:02:31 -0500</time>
         
       </span>
     </div>
@@ -65,15 +65,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">107</span><small> lines of codes</small></div>
+              <div><span class="metric">101</span><small> lines of codes</small></div>
               <div><span class="metric">7</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">4.1</span><small> complexity/method</small></div>
-              <div><span class="metric">19</span><small> loc/method</small></div>
+              <div><span class="metric">3.6</span><small> complexity/method</small></div>
+              <div><span class="metric">21</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">29</span><small> complexity</small></div>
+              <div><span class="metric">25</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;proxy/proxy&#39;
 require_relative &#39;blue_print&#39;
 require_relative &#39;driver&#39;
@@ -127,8 +128,8 @@ module AutomationObject
       self.driver = driver
       self.blue_prints = blue_prints
 
-      self.state = State.create(self.driver, self.blue_prints)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Framework#initialize calls 'self.blue_prints' 2 times</span>              <span>Locations:</span>                  <a href="framework.html#L34" class="js-smell-location">0</a>                  <a href="framework.html#L35" class="js-smell-location">1</a>                  </div>  </li></ol>
-      @subject = Dsl.create(self.blue_prints, state)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Framework#initialize calls 'self.blue_prints' 2 times</span>              <span>Locations:</span>                  <a href="framework.html#L34" class="js-smell-location">0</a>                  <a href="framework.html#L35" class="js-smell-location">1</a>                  </div>  </li></ol>
+      self.state = State.create(self.driver, self.blue_prints)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Framework#initialize calls 'self.blue_prints' 2 times</span>              <span>Locations:</span>                  <a href="framework.html#L35" class="js-smell-location">0</a>                  <a href="framework.html#L36" class="js-smell-location">1</a>                  </div>  </li></ol>
+      @subject = Dsl.create(self.blue_prints, state)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Framework#initialize calls 'self.blue_prints' 2 times</span>              <span>Locations:</span>                  <a href="framework.html#L35" class="js-smell-location">0</a>                  <a href="framework.html#L36" class="js-smell-location">1</a>                  </div>  </li></ol>
 
       AutomationObject::Framework.singleton = self
     end
@@ -149,17 +150,10 @@ module AutomationObject
 
     # BluePrints (UI configurations) wrapped in an composite
     # Composite provides a common interface for all adapters
-    # @param value [String, Hash] String to YAML files or Hash configuration
+    # @param value [String, Hash] String to YAML files, PageObject, or Hash configuration
     # @return [AutomationObject::BluePrint::Composite::Top] top composite object
     undef :blue_prints= if defined? :blue_prints=
     def blue_prints=(value)
-      case value
-      when String
-        BluePrint.adapter = :yaml
-      when Hash
-        BluePrint.adapter = :hash
-      end
-
       @blue_prints = BluePrint.create(value)
     end
 

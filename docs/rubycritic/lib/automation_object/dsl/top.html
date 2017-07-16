@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-27 12:32:54 -0600'>2016-11-27 12:32:54 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,15 +65,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">47</span><small> lines of codes</small></div>
+              <div><span class="metric">48</span><small> lines of codes</small></div>
               <div><span class="metric">4</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">3.8</span><small> complexity/method</small></div>
-              <div><span class="metric">11</span><small> loc/method</small></div>
+              <div><span class="metric">3.5</span><small> complexity/method</small></div>
+              <div><span class="metric">12</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">15</span><small> complexity</small></div>
+              <div><span class="metric">14</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;_base&#39;
 require_relative &#39;_proxy&#39;
 require_relative &#39;_error&#39;
@@ -128,7 +129,7 @@ module AutomationObject
       # @return [AutomationObject::Dsl::ScreenProxy]
       def screen(name)
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ScreenDoesNotExistError.new(name) unless @subject.to_h.include?(name)
+        raise AutomationObject::Dsl::Error::ScreenDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @subject.send(name)
       end

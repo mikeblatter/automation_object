@@ -589,12 +589,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='id identifier rubyid_driver'>driver</span>
@@ -646,14 +646,14 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-86
 87
 88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accept_prompt'>accept_prompt</span>
   <span class='id identifier rubyid_alert'>alert</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_switch_to'>switch_to</span><span class='period'>.</span><span class='id identifier rubyid_alert'>alert</span>
@@ -707,12 +707,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser?'>browser?</span>
   <span class='kw'>true</span>
@@ -747,12 +747,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-125
 126
-127</pre>
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
@@ -787,14 +787,14 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-93
 94
 95
 96
-97</pre>
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dismiss_prompt'>dismiss_prompt</span>
   <span class='id identifier rubyid_alert'>alert</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_switch_to'>switch_to</span><span class='period'>.</span><span class='id identifier rubyid_alert'>alert</span>
@@ -848,7 +848,6 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-131
 132
 133
 134
@@ -856,10 +855,11 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
 136
 137
 138
-139</pre>
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_document_complete?'>document_complete?</span>
   <span class='comment'># Loop through a few times to double check correctness
@@ -951,7 +951,6 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-50
 51
 52
 53
@@ -963,10 +962,11 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exists'>exists</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -1062,15 +1062,15 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-67
 68
 69
 70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1159,16 +1159,16 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-77
 78
 79
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_elements'>find_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_elements'>elements</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_elements'>find_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1226,12 +1226,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_navigate'>navigate</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
@@ -1266,12 +1266,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-142
 143
-144</pre>
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_quit'>quit</span>
@@ -1319,12 +1319,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span>
@@ -1380,13 +1380,13 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait'>wait</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>0</span> <span class='kw'>unless</span> <span class='id identifier rubyid_timeout'>timeout</span>
@@ -1439,12 +1439,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-113
 114
-115</pre>
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span>
@@ -1498,12 +1498,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-119
 120
-121</pre>
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle='>window_handle=</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_switch_to'>switch_to</span><span class='period'>.</span><span class='id identifier rubyid_window'>window</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
@@ -1555,12 +1555,12 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-107
 108
-109</pre>
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/selenium_adapter/driver.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handles'>window_handles</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_window_handles'>window_handles</span>
@@ -1575,9 +1575,9 @@ Conform Selenium driver interface to what&#39;s expected of the Driver Port</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:28 2017 by
+  Generated on Sun Jul 16 11:36:07 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

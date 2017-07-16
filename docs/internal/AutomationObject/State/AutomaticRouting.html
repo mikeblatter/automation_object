@@ -229,13 +229,13 @@
       <pre class="lines">
 
 
-8
-9
 10
-11</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/automatic_routing.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/automatic_routing.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_top_state'>top_state</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
   <span class='ivar'>@top</span> <span class='op'>=</span> <span class='id identifier rubyid_top_state'>top_state</span>
@@ -295,8 +295,6 @@
       <pre class="lines">
 
 
-14
-15
 16
 17
 18
@@ -308,22 +306,24 @@
 24
 25
 26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/automatic_routing.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/automatic_routing.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_route'>route</span>
   <span class='id identifier rubyid_paths'>paths</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@top</span><span class='period'>.</span><span class='id identifier rubyid_active_screens'>active_screens</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_screen_name'>screen_name</span><span class='comma'>,</span> <span class='id identifier rubyid_screen'>screen</span><span class='op'>|</span>
+  <span class='ivar'>@top</span><span class='period'>.</span><span class='id identifier rubyid_active_screens'>active_screens</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_screen_name'>screen_name</span><span class='comma'>,</span> <span class='id identifier rubyid_screen'>screen</span><span class='op'>|</span>
     <span class='id identifier rubyid_paths'>paths</span><span class='lbracket'>[</span><span class='id identifier rubyid_screen_name'>screen_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_recursive_search'>recursive_search</span><span class='lparen'>(</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span>
-  <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
 
   <span class='id identifier rubyid_flattened_paths'>flattened_paths</span> <span class='op'>=</span> <span class='id identifier rubyid_flat_hash'>flat_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_paths'>paths</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:length</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_flattened_paths'>flattened_paths</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_flattened_path'>flattened_path</span><span class='op'>|</span>
+  <span class='id identifier rubyid_flattened_paths'>flattened_paths</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_flattened_path'>flattened_path</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_flattened_path'>flattened_path</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='ivar'>@target</span>
     <span class='kw'>return</span> <span class='id identifier rubyid_follow_route'>follow_route</span><span class='lparen'>(</span><span class='id identifier rubyid_flattened_path'>flattened_path</span><span class='rparen'>)</span>
-  <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
 
   <span class='kw'>false</span>
 <span class='kw'>end</span></pre>
@@ -337,9 +337,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:28 2017 by
+  Generated on Sun Jul 16 11:36:07 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

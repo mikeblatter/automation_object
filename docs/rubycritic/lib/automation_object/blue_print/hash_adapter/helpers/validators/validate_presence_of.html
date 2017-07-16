@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">37</span><small> lines of codes</small></div>
+              <div><span class="metric">38</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">8.0</span><small> complexity/method</small></div>
-              <div><span class="metric">7</span><small> loc/method</small></div>
+              <div><span class="metric">8</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">16</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;validate&#39;
 
 module AutomationObject
@@ -117,11 +118,11 @@ module AutomationObject
           # @return [nil] no return on exceptions on failure
           def validate(composite_object)
             # Get the hash value from the composite object
-            return if composite_object.hash.key?(@key)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf#validate calls 'composite_object.hash' 2 times</span>              <span>Locations:</span>                  <a href="validate_presence_of.html#L24" class="js-smell-location">0</a>                  <a href="validate_presence_of.html#L28" class="js-smell-location">1</a>                  </div>  </li></ol>
+            return if composite_object.hash.key?(@key)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf#validate calls 'composite_object.hash' 2 times</span>              <span>Locations:</span>                  <a href="validate_presence_of.html#L25" class="js-smell-location">0</a>                  <a href="validate_presence_of.html#L29" class="js-smell-location">1</a>                  </div>  </li></ol>
 
             # Do unless_presence_of check
             if @unless_presence_of
-              return if composite_object.hash.key?(@unless_presence_of)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf#validate calls 'composite_object.hash' 2 times</span>              <span>Locations:</span>                  <a href="validate_presence_of.html#L24" class="js-smell-location">0</a>                  <a href="validate_presence_of.html#L28" class="js-smell-location">1</a>                  </div>  </li></ol>
+              return if composite_object.hash.key?(@unless_presence_of)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Validators::ValidatePresenceOf#validate calls 'composite_object.hash' 2 times</span>              <span>Locations:</span>                  <a href="validate_presence_of.html#L25" class="js-smell-location">0</a>                  <a href="validate_presence_of.html#L29" class="js-smell-location">1</a>                  </div>  </li></ol>
             end
 
             error_messages.push(&quot;Required Key Missing: #{@key}, at: #{composite_object.location}.&quot;)

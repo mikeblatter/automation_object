@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">141</span><small> lines of codes</small></div>
+              <div><span class="metric">142</span><small> lines of codes</small></div>
               <div><span class="metric">21</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">2.4</span><small> complexity/method</small></div>
-              <div><span class="metric">14</span><small> loc/method</small></div>
+              <div><span class="metric">15</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">50</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;base&#39;
 require_relative &#39;element&#39;
 
@@ -148,21 +149,21 @@ module AutomationObject
       # @param selector_type [Symbol] selector type (:css, :xpath, etc...)
       # @param selector_path [String] path to element
       # @return [Boolean] exists or not
-      def exists?(selector_type, selector_path)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank"><b>DataClump</b></a>        </span>      </div>      <span>AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods</span>              <span>Locations:</span>                  <a href="driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L62" class="js-smell-location">1</a>                  <a href="driver.html#L69" class="js-smell-location">2</a>                  </div>  </li></ol>
+      def exists?(selector_type, selector_path)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank"><b>DataClump</b></a>        </span>      </div>      <span>AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods</span>              <span>Locations:</span>                  <a href="driver.html#L56" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  <a href="driver.html#L70" class="js-smell-location">2</a>                  </div>  </li></ol>
         adapter.exists?(selector_type, selector_path)
       end
 
       # @param selector_type [Symbol] selector type, :css, :xpath, etc...
       # @param selector_path [String] path to element
       # @return [AutomationObject::Driver::Element] element
-      def find_element(selector_type, selector_path)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank"><b>DataClump</b></a>        </span>      </div>      <span>AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods</span>              <span>Locations:</span>                  <a href="driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L62" class="js-smell-location">1</a>                  <a href="driver.html#L69" class="js-smell-location">2</a>                  </div>  </li></ol>
+      def find_element(selector_type, selector_path)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank"><b>DataClump</b></a>        </span>      </div>      <span>AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods</span>              <span>Locations:</span>                  <a href="driver.html#L56" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  <a href="driver.html#L70" class="js-smell-location">2</a>                  </div>  </li></ol>
         adapter.find_element(selector_type, selector_path)
       end
 
       # @param selector_type [Symbol] selector type, :css, :xpath, etc...
       # @param selector_path [String] path to element
       # @return [Array&lt;AutomationObject::Driver::Element&gt;] elements
-      def find_elements(selector_type, selector_path)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank"><b>DataClump</b></a>        </span>      </div>      <span>AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods</span>              <span>Locations:</span>                  <a href="driver.html#L55" class="js-smell-location">0</a>                  <a href="driver.html#L62" class="js-smell-location">1</a>                  <a href="driver.html#L69" class="js-smell-location">2</a>                  </div>  </li></ol>
+      def find_elements(selector_type, selector_path)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Data-Clump.md" target="_blank"><b>DataClump</b></a>        </span>      </div>      <span>AutomationObject::Driver::Driver takes parameters ['selector_path', 'selector_type'] to 3 methods</span>              <span>Locations:</span>                  <a href="driver.html#L56" class="js-smell-location">0</a>                  <a href="driver.html#L63" class="js-smell-location">1</a>                  <a href="driver.html#L70" class="js-smell-location">2</a>                  </div>  </li></ol>
         adapter.find_elements(selector_type, selector_path)
       end
 

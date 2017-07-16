@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 
-# Description: Provides step definitions related to elements
+# Element Step Definitions
+# Provides step definitions related to elements
 
 # Call an element method
 # Examples:
@@ -14,7 +15,7 @@ When(%r(^I (\w+|%\{\w+\}) ?(?: on| over)? (?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{
   AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send(method)
 end
 
-# For: Type into element field
+# Type into element field
 # Examples:
 # - I type "blah" into the "home_screen" "text_field" element
 # - I type "test" in the "home_screen" "text_field" element
@@ -25,7 +26,7 @@ When(%r(^I type "([^"]+|%\{\w+\})" in(?:to)? (?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|
   AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send_keys(text)
 end
 
-# For: Scroll element into focus
+# Scroll element into focus
 # Examples:
 # - I scroll to the "home_screen" "logo_button" element
 # - I focus to the "home_screen" "logo_button" element
@@ -36,7 +37,7 @@ When(%r(^I (?:scroll |focus )to (?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\
   AutomationObject::Framework.get.screen(screen).modal(modal).element(element).scroll_into_view
 end
 
-# For: Save value from element for use later
+# Save value from element for use later
 # Examples:
 # - I save "text" as "unique_value" from the "home_screen" "logo_button" element
 # - I save "id" as "unique_value" from "home_screen" "logo_button" element
@@ -48,7 +49,7 @@ When(%r(^I save "(\w+|%\{\w+\})" as "(\w+)" from (?:the )?"(\w+|%\{\w+\})"\s*"?(
   AutomationObject::StepDefinitions::Cache.set(key, value)
 end
 
-# For: Test if the element exists or not
+# Test if the element exists or not
 # Examples:
 # - the "home_screen" "title" element should exist
 # - the "home_screen" "title" element shouldn't exist
@@ -65,7 +66,7 @@ Then(%r(^(?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" elem
   end
 end
 
-# For: Test if the element method value equals a given value
+# Test if the element method value equals a given value
 # Examples:
 # - the "home_screen" "title" element "text" should equal "Home"
 # - "home_screen" "title" element "text" should not equal "About"

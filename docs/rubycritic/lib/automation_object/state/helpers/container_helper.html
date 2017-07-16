@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-03 09:53:44 -0500'>2017-07-03 09:53:44 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">44</span><small> lines of codes</small></div>
+              <div><span class="metric">46</span><small> lines of codes</small></div>
               <div><span class="metric">5</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">7.2</span><small> complexity/method</small></div>
-              <div><span class="metric">4</span><small> loc/method</small></div>
+              <div><span class="metric">5</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">36</span><small> complexity</small></div>
@@ -94,7 +94,9 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">module AutomationObject
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
+module AutomationObject
   module State
     module ContainerHelper<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>AutomationObject::State::ContainerHelper has no descriptive comment</span>          </div>  </li></ol>
       # Whether or not modal is active
@@ -113,7 +115,7 @@
           return true
         end
 
-        AutomaticRouting.new(self.top, self.name).route
+        AutomaticRouting.new(top, name).route
       end
 
       # @return [Array&lt;Symbol&gt;]
@@ -125,9 +127,9 @@
       # @return [AutomationObject::State::Element]
       def element_to_container(name)
         element_name, element_type = blue_prints.element_to_container(name)
-        return unless element_name or element_type
+        return unless element_name || element_type
 
-        self.send(element_type)[element_name]
+        send(element_type)[element_name]
       end
 
       def reset

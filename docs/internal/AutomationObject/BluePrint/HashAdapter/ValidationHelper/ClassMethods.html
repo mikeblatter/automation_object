@@ -243,12 +243,12 @@
       <pre class="lines">
 
 
-63
 64
-65</pre>
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skip_validations'>skip_validations</span>
   <span class='ivar'>@skip_validations</span> <span class='op'>||=</span> <span class='kw'>false</span>
@@ -273,12 +273,12 @@
       <pre class="lines">
 
 
-59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skip_validations='>skip_validations=</span><span class='lparen'>(</span><span class='id identifier rubyid_boolean'>boolean</span><span class='rparen'>)</span>
   <span class='ivar'>@skip_validations</span> <span class='op'>=</span> <span class='id identifier rubyid_boolean'>boolean</span>
@@ -361,17 +361,17 @@
       <pre class="lines">
 
 
-70
 71
 72
 73
 74
 75
 76
-77</pre>
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validates'>validates</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_validator_name'>validator_name</span><span class='comma'>,</span> <span class='id identifier rubyid_validation_args'>validation_args</span><span class='op'>|</span>
@@ -444,12 +444,12 @@
       <pre class="lines">
 
 
-81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validates_keys'>validates_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validations'>validations</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Validators.html" title="AutomationObject::BluePrint::HashAdapter::Validators (module)">Validators</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Validators/ValidateAllowedKeys.html" title="AutomationObject::BluePrint::HashAdapter::Validators::ValidateAllowedKeys (class)">ValidateAllowedKeys</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Validators/ValidateAllowedKeys.html#initialize-instance_method" title="AutomationObject::BluePrint::HashAdapter::Validators::ValidateAllowedKeys#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -501,13 +501,13 @@
       <pre class="lines">
 
 
-86
 87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/helpers/validation_helper.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validations'>validations</span>
   <span class='ivar'>@validations</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='kw'>defined?</span> <span class='ivar'>@validations</span>
@@ -523,9 +523,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:25 2017 by
+  Generated on Sun Jul 16 11:36:03 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

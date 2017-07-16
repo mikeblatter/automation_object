@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 21:29:45 -0500'>2016-09-18 21:29:45 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">38</span><small> lines of codes</small></div>
+              <div><span class="metric">39</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">11.5</span><small> complexity/method</small></div>
-              <div><span class="metric">8</span><small> loc/method</small></div>
+              <div><span class="metric">9</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">23</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Extend file class
 # Collect files in directory recursively and return Array
 class File<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>File assumes too much for instance variable '@file_array'</span>          </div>  </li></ol>
@@ -120,9 +121,9 @@ class File<ol class="nocode errors smells">  <li>    <div class="description">  
     # @param path [String] specified directory path for getting files underneath
     def recursive_collection(path)
       Dir.foreach(path) do |item|
-        next if item == &#39;.&#39; || item == &#39;..&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>File#recursive_collection refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="file.html#L27" class="js-smell-location">0</a>                  <a href="file.html#L29" class="js-smell-location">1</a>                  </div>  </li></ol>
+        next if item == &#39;.&#39; || item == &#39;..&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>File#recursive_collection refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="file.html#L28" class="js-smell-location">0</a>                  <a href="file.html#L30" class="js-smell-location">1</a>                  </div>  </li></ol>
 
-        file_path = File.join(path, item.to_s)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>File#recursive_collection refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="file.html#L27" class="js-smell-location">0</a>                  <a href="file.html#L29" class="js-smell-location">1</a>                  </div>  </li></ol>
+        file_path = File.join(path, item.to_s)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>File#recursive_collection refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="file.html#L28" class="js-smell-location">0</a>                  <a href="file.html#L30" class="js-smell-location">1</a>                  </div>  </li></ol>
         if File.directory?(file_path)
           recursive_collection(file_path)
         else

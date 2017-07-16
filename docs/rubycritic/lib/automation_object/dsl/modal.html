@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-27 13:05:17 -0600'>2016-11-27 13:05:17 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 10:35:11 -0500'>2017-07-16 10:35:11 -0500</time>
         
       </span>
     </div>
@@ -65,16 +65,16 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">90</span><small> lines of codes</small></div>
+              <div><span class="metric">91</span><small> lines of codes</small></div>
               <div><span class="metric">7</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">6.3</span><small> complexity/method</small></div>
-              <div><span class="metric">20</span><small> loc/method</small></div>
+              <div><span class="metric">5.3</span><small> complexity/method</small></div>
+              <div><span class="metric">22</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">44</span><small> complexity</small></div>
-              <div><span class="metric">83</span><small> duplications</small></div>
+              <div><span class="metric">37</span><small> complexity</small></div>
+              <div><span class="metric">80</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                6
+                5
                 smells
               </a>
             </li>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;_base&#39;
 require_relative &#39;_proxy&#39;
 require_relative &#39;_error&#39;
@@ -113,7 +114,7 @@ module AutomationObject
     end
 
     # Proxy for Modal
-    class ModalProxy &lt; Proxy<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@name'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@state'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@subject'</span>          </div>  </li></ol>
+    class ModalProxy &lt; Proxy<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@state'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy assumes too much for instance variable '@subject'</span>          </div>  </li></ol>
       # @param [AutomationObject::BluePrint::Composite::Modal] blue_prints
       # @param [AutomationObject::State::Screen] state
       # @param [Symbol] name
@@ -124,7 +125,7 @@ module AutomationObject
       # @param [Symbol] method
       # @param [Array, nil] args
       # @param [Proc] block
-      def method_missing(method, *args, &amp;block)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L31" class="js-smell-location">0</a>                  <a href="screen.html#L33" class="js-smell-location">1</a>                  </div>  </li></ol>
+      def method_missing(method, *args, &amp;block)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L32" class="js-smell-location">0</a>                  <a href="screen.html#L34" class="js-smell-location">1</a>                  </div>  </li></ol>
         return super if Modal.methods.include?(method)
 
         # Attempt to load modal if composite object contains that child
@@ -141,18 +142,18 @@ module AutomationObject
       # Go to this modal
       # Will try to automatically reach it, will throw error if it cannot
       # @raise [AutomationObject::Dsl::Error::AutoReachModalError]
-      # @return [void]
+      # @return [Boolean]
       def go
-        raise AutomationObject::Dsl::Error::AutoReachModalError.new(@name) unless @state.go
+        @state.go
       end
 
       # Retrieve element from composite
       # @param name [String, Symbol] name of element
       # @raise [AutomationObject::Dsl::Error::ElementDoesNotExistError]
       # @return [AutomationObject::Dsl::ElementProxy]
-      def element(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L57" class="js-smell-location">0</a>                  <a href="modal.html#L69" class="js-smell-location">1</a>                  <a href="modal.html#L81" class="js-smell-location">2</a>                  <a href="screen.html#L66" class="js-smell-location">3</a>                  <a href="screen.html#L78" class="js-smell-location">4</a>                  <a href="screen.html#L90" class="js-smell-location">5</a>                  <a href="screen.html#L102" class="js-smell-location">6</a>                  </div>  </li></ol>
+      def element(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 6 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L58" class="js-smell-location">0</a>                  <a href="modal.html#L70" class="js-smell-location">1</a>                  <a href="modal.html#L82" class="js-smell-location">2</a>                  <a href="screen.html#L80" class="js-smell-location">3</a>                  <a href="screen.html#L92" class="js-smell-location">4</a>                  <a href="screen.html#L104" class="js-smell-location">5</a>                  </div>  </li></ol>
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementDoesNotExistError.new(name) unless @subject.to_h.include?(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy tests '@subject.to_h.include?(name)' at least 3 times</span>              <span>Locations:</span>                  <a href="modal.html#L59" class="js-smell-location">0</a>                  <a href="modal.html#L71" class="js-smell-location">1</a>                  <a href="modal.html#L83" class="js-smell-location">2</a>                  </div>  </li></ol>
+        raise AutomationObject::Dsl::Error::ElementDoesNotExistError, name unless @subject.to_h.include?(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy tests '@subject.to_h.include?(name)' at least 3 times</span>              <span>Locations:</span>                  <a href="modal.html#L60" class="js-smell-location">0</a>                  <a href="modal.html#L72" class="js-smell-location">1</a>                  <a href="modal.html#L84" class="js-smell-location">2</a>                  </div>  </li></ol>
 
         @state.utilize
         @subject.send(name)
@@ -162,9 +163,9 @@ module AutomationObject
       # @param name [String, Symbol] name of element array
       # @raise [AutomationObject::Dsl::Error::ElementArrayDoesNotExistError]
       # @return [AutomationObject::Dsl::ElementArrayProxy]
-      def element_array(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L57" class="js-smell-location">0</a>                  <a href="modal.html#L69" class="js-smell-location">1</a>                  <a href="modal.html#L81" class="js-smell-location">2</a>                  <a href="screen.html#L66" class="js-smell-location">3</a>                  <a href="screen.html#L78" class="js-smell-location">4</a>                  <a href="screen.html#L90" class="js-smell-location">5</a>                  <a href="screen.html#L102" class="js-smell-location">6</a>                  </div>  </li></ol>
+      def element_array(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 6 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L58" class="js-smell-location">0</a>                  <a href="modal.html#L70" class="js-smell-location">1</a>                  <a href="modal.html#L82" class="js-smell-location">2</a>                  <a href="screen.html#L80" class="js-smell-location">3</a>                  <a href="screen.html#L92" class="js-smell-location">4</a>                  <a href="screen.html#L104" class="js-smell-location">5</a>                  </div>  </li></ol>
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError.new(name) unless @subject.to_h.include?(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy tests '@subject.to_h.include?(name)' at least 3 times</span>              <span>Locations:</span>                  <a href="modal.html#L59" class="js-smell-location">0</a>                  <a href="modal.html#L71" class="js-smell-location">1</a>                  <a href="modal.html#L83" class="js-smell-location">2</a>                  </div>  </li></ol>
+        raise AutomationObject::Dsl::Error::ElementArrayDoesNotExistError, name unless @subject.to_h.include?(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy tests '@subject.to_h.include?(name)' at least 3 times</span>              <span>Locations:</span>                  <a href="modal.html#L60" class="js-smell-location">0</a>                  <a href="modal.html#L72" class="js-smell-location">1</a>                  <a href="modal.html#L84" class="js-smell-location">2</a>                  </div>  </li></ol>
 
         @state.utilize
         @subject.send(name)
@@ -174,9 +175,9 @@ module AutomationObject
       # @param name [String, Symbol] name of element hash
       # @raise [AutomationObject::Dsl::Error::ElementHashDoesNotExistError]
       # @return [AutomationObject::Dsl::ElementHashProxy]
-      def element_hash(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L57" class="js-smell-location">0</a>                  <a href="modal.html#L69" class="js-smell-location">1</a>                  <a href="modal.html#L81" class="js-smell-location">2</a>                  <a href="screen.html#L66" class="js-smell-location">3</a>                  <a href="screen.html#L78" class="js-smell-location">4</a>                  <a href="screen.html#L90" class="js-smell-location">5</a>                  <a href="screen.html#L102" class="js-smell-location">6</a>                  </div>  </li></ol>
+      def element_hash(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 6 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L58" class="js-smell-location">0</a>                  <a href="modal.html#L70" class="js-smell-location">1</a>                  <a href="modal.html#L82" class="js-smell-location">2</a>                  <a href="screen.html#L80" class="js-smell-location">3</a>                  <a href="screen.html#L92" class="js-smell-location">4</a>                  <a href="screen.html#L104" class="js-smell-location">5</a>                  </div>  </li></ol>
         name = name.to_sym
-        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError.new(name) unless @subject.to_h.include?(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy tests '@subject.to_h.include?(name)' at least 3 times</span>              <span>Locations:</span>                  <a href="modal.html#L59" class="js-smell-location">0</a>                  <a href="modal.html#L71" class="js-smell-location">1</a>                  <a href="modal.html#L83" class="js-smell-location">2</a>                  </div>  </li></ol>
+        raise AutomationObject::Dsl::Error::ElementHashDoesNotExistError, name unless @subject.to_h.include?(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Dsl::ModalProxy tests '@subject.to_h.include?(name)' at least 3 times</span>              <span>Locations:</span>                  <a href="modal.html#L60" class="js-smell-location">0</a>                  <a href="modal.html#L72" class="js-smell-location">1</a>                  <a href="modal.html#L84" class="js-smell-location">2</a>                  </div>  </li></ol>
 
         @state.utilize
         @subject.send(name)

@@ -246,7 +246,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#go-instance_method" title="#go (instance method)">#<strong>go</strong>  &#x21d2; void </a>
+      <a href="#go-instance_method" title="#go (instance method)">#<strong>go</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -316,7 +316,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#modal-instance_method" title="#modal (instance method)">#<strong>modal</strong>(name)  &#x21d2; AutomationObject::Dsl::ModalProxy </a>
+      <a href="#modal-instance_method" title="#modal (instance method)">#<strong>modal</strong>(name)  &#x21d2; AutomationObject::Dsl::ModalProxy, AutomationObject::Dsl::ScreenProxy </a>
     
 
     
@@ -330,7 +330,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Retrieve modal from composite.</p>
+    <span class="summary_desc"><div class='inline'><p>Retrieve modal or self from composite.</p>
 </div></span>
   
 </li>
@@ -416,12 +416,12 @@
       <pre class="lines">
 
 
-26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>super</span> <span class='const'><span class='object_link'><a href="Screen.html" title="AutomationObject::Dsl::Screen (class)">Screen</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
@@ -500,17 +500,17 @@
       <pre class="lines">
 
 
-33
 34
 35
 36
 37
 38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>super</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="Screen.html" title="AutomationObject::Dsl::Screen (class)">Screen</a></span></span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
@@ -570,12 +570,12 @@
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span>
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_active?'>active?</span>
@@ -610,12 +610,12 @@
       <pre class="lines">
 
 
-50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
@@ -695,20 +695,20 @@
       <pre class="lines">
 
 
-78
-79
 80
 81
 82
 83
-84</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element'>element</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementDoesNotExistError (class)">ElementDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ElementDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ElementDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementDoesNotExistError (class)">ElementDoesNotExistError</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -788,20 +788,20 @@
       <pre class="lines">
 
 
-90
-91
 92
 93
 94
 95
-96</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element_array'>element_array</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementArrayDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementArrayDoesNotExistError (class)">ElementArrayDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ElementArrayDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ElementArrayDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementArrayDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementArrayDoesNotExistError (class)">ElementArrayDoesNotExistError</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -881,20 +881,20 @@
       <pre class="lines">
 
 
-102
-103
 104
 105
 106
 107
-108</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element_hash'>element_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementHashDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementHashDoesNotExistError (class)">ElementHashDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ElementHashDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ElementHashDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ElementHashDoesNotExistError.html" title="AutomationObject::Dsl::Error::ElementHashDoesNotExistError (class)">ElementHashDoesNotExistError</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -907,7 +907,7 @@
       <div class="method_details ">
   <h3 class="signature " id="go-instance_method">
   
-    #<strong>go</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>go</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -915,7 +915,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p class="note returns_void">This method returns an undefined value.</p><p>Go to this screen
+    <p>Go to this screen
 Will try to automatically reach it, will throw error if it cannot</p>
 
 
@@ -923,13 +923,26 @@ Will try to automatically reach it, will throw error if it cannot</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 <p class="tag_title">Raises:</p>
 <ul class="raise">
   
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Error/AutoReachScreenError.html" title="AutomationObject::Dsl::Error::AutoReachScreenError (class)">AutomationObject::Dsl::Error::AutoReachScreenError</a></span></tt>)</span>
+        <span class='type'>(<tt>AutomationObject::Dsl::Error::AutoReachScreenError</tt>)</span>
       
       
       
@@ -943,15 +956,15 @@ Will try to automatically reach it, will throw error if it cannot</p>
       <pre class="lines">
 
 
-58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_go'>go</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/AutoReachScreenError.html" title="AutomationObject::Dsl::Error::AutoReachScreenError (class)">AutoReachScreenError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/AutoReachScreenError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::AutoReachScreenError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_go'>go</span>
+  <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_go'>go</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -961,7 +974,7 @@ Will try to automatically reach it, will throw error if it cannot</p>
       <div class="method_details ">
   <h3 class="signature " id="modal-instance_method">
   
-    #<strong>modal</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="ModalProxy.html" title="AutomationObject::Dsl::ModalProxy (class)">AutomationObject::Dsl::ModalProxy</a></span></tt> 
+    #<strong>modal</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="ModalProxy.html" title="AutomationObject::Dsl::ModalProxy (class)">AutomationObject::Dsl::ModalProxy</a></span></tt>, <tt><span class='object_link'><a href="" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt> 
   
 
   
@@ -969,7 +982,7 @@ Will try to automatically reach it, will throw error if it cannot</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Retrieve modal from composite</p>
+    <p>Retrieve modal or self from composite</p>
 
 
   </div>
@@ -1001,7 +1014,7 @@ Will try to automatically reach it, will throw error if it cannot</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="ModalProxy.html" title="AutomationObject::Dsl::ModalProxy (class)">AutomationObject::Dsl::ModalProxy</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="ModalProxy.html" title="AutomationObject::Dsl::ModalProxy (class)">AutomationObject::Dsl::ModalProxy</a></span></tt>, <tt><span class='object_link'><a href="" title="AutomationObject::Dsl::ScreenProxy (class)">AutomationObject::Dsl::ScreenProxy</a></span></tt>)</span>
       
       
       
@@ -1014,7 +1027,7 @@ Will try to automatically reach it, will throw error if it cannot</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Error/ModalDoesNotExistError.html" title="AutomationObject::Dsl::Error::ModalDoesNotExistError (class)">AutomationObject::Dsl::Error::ModalDoesNotExistError</a></span></tt>)</span>
+        <span class='type'>(<tt>AutomationObject::Dsl::Error::ModalDoesNotExistError</tt>)</span>
       
       
       
@@ -1034,17 +1047,21 @@ Will try to automatically reach it, will throw error if it cannot</p>
 69
 70
 71
-72</pre>
+72
+73
+74</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/dsl/screen.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_modal'>modal</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error/ModalDoesNotExistError.html" title="AutomationObject::Dsl::Error::ModalDoesNotExistError (class)">ModalDoesNotExistError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Error/ModalDoesNotExistError.html#initialize-instance_method" title="AutomationObject::Dsl::Error::ModalDoesNotExistError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Dsl.html" title="AutomationObject::Dsl (module)">Dsl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Error.html" title="AutomationObject::Dsl::Error (module)">Error</a></span></span><span class='op'>::</span><span class='const'>ModalDoesNotExistError</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
   <span class='ivar'>@state</span><span class='period'>.</span><span class='id identifier rubyid_utilize'>utilize</span>
-  <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1056,9 +1073,9 @@ Will try to automatically reach it, will throw error if it cannot</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:25 2017 by
+  Generated on Sun Jul 16 11:36:04 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-16 12:04:04 -0600'>2016-11-16 12:04:04 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,16 +65,16 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">132</span><small> lines of codes</small></div>
+              <div><span class="metric">133</span><small> lines of codes</small></div>
               <div><span class="metric">13</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">3.8</span><small> complexity/method</small></div>
-              <div><span class="metric">15</span><small> loc/method</small></div>
+              <div><span class="metric">16</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">49</span><small> complexity</small></div>
-              <div><span class="metric">81</span><small> duplications</small></div>
+              <div><span class="metric">46</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 require_relative &#39;composite&#39;
 require_relative &#39;hook_element_requirements&#39;
@@ -108,9 +109,9 @@ module AutomationObject
         before_create :wait_for_elements
 
         # Validations
-        validates_keys allowed_keys: [:new_screen, :show_modal, :close_screen, :change_screen,
-                                      :sleep, :wait_for_elements, :change_to_previous_screen, :close_modal, :reset_screen,
-                                      :possible_screen_changes]
+        validates_keys allowed_keys: %i[new_screen show_modal close_screen change_screen
+                                        sleep wait_for_elements change_to_previous_screen close_modal reset_screen
+                                        possible_screen_changes]
 
         validates :change_screen, instance_of: [String, Symbol], screen_presence_of: true
         validates :new_screen, instance_of: [String, Symbol], screen_presence_of: true
@@ -142,7 +143,7 @@ module AutomationObject
         end
 
         # @return [Symbol, nil] screen to change to
-        def change_screen<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="automatic_modal_change.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </div>  </li></ol>
+        def change_screen
           change_screen = hash[:change_screen]
 
           case change_screen
@@ -154,7 +155,7 @@ module AutomationObject
         end
 
         # @return [Symbol, nil] new screen
-        def new_screen<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="automatic_modal_change.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </div>  </li></ol>
+        def new_screen
           new_screen = hash[:new_screen]
 
           case new_screen
@@ -181,7 +182,7 @@ module AutomationObject
         end
 
         # @return [Symbol, nil]
-        def show_modal<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="automatic_modal_change.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </div>  </li></ol>
+        def show_modal
           show_modal = hash[:show_modal]
 
           case show_modal
@@ -193,7 +194,7 @@ module AutomationObject
         end
 
         # @return [Array]
-        def possible_screen_changes
+        def possible_screen_changes<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook_action.html#L101" class="js-smell-location">0</a>                  <a href="../page_object_adapter/hook_action.html#L80" class="js-smell-location">1</a>                  </div>  </li></ol>
           return hash[:possible_screen_changes].map(&amp;:to_sym) if hash[:possible_screen_changes].is_a?(Array)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookAction#possible_screen_changes calls 'hash[:possible_screen_changes]' 2 times</span>          </div>  </li></ol>
 
           []
@@ -211,7 +212,7 @@ module AutomationObject
 
         # Custom method for array of children instead of Hash
         # @return [Array&lt;HookElementRequirements&gt;] array of wait for element children
-        def wait_for_elements<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookAction#wait_for_elements has approx 6 statements</span>          </div>  </li></ol>
+        def wait_for_elements<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L25" class="js-smell-location">0</a>                  <a href="hook_action.html#L119" class="js-smell-location">1</a>                  <a href="screen.html#L53" class="js-smell-location">2</a>                  <a href="view.html#L44" class="js-smell-location">3</a>                  <a href="../page_object_adapter/hook_action.html#L98" class="js-smell-location">4</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookAction#wait_for_elements has approx 6 statements</span>          </div>  </li></ol>
           return @wait_for_elements if defined? @wait_for_elements
           wait_for_elements = hash[:wait_for_elements]
 

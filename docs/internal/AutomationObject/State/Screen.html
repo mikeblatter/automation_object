@@ -473,12 +473,12 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span>
   <span class='ivar'>@automatic_screen_changes</span>
@@ -515,12 +515,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_modal'>modal</span>
   <span class='ivar'>@modal</span>
@@ -557,12 +557,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_previous_screen_name'>previous_screen_name</span>
   <span class='ivar'>@previous_screen_name</span>
@@ -599,12 +599,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='ivar'>@window_handle</span>
@@ -645,7 +645,6 @@
       <pre class="lines">
 
 
-38
 39
 40
 41
@@ -658,24 +657,25 @@
 48
 49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_activate'>activate</span>
   <span class='ivar'>@active</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>=</span> <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span>
 
-  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
 
   <span class='comment'># Add automatic screen change to a new thread and test for screen changes
 </span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="AutomaticScreenChanges.html" title="AutomationObject::State::AutomaticScreenChanges (class)">AutomaticScreenChanges</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Base.html#initialize-instance_method" title="AutomationObject::State::Base#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span>
                                                              <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='comma'>,</span>
                                                              <span class='symbol'>:automatic_screen_changes</span><span class='comma'>,</span>
                                                              <span class='kw'>self</span><span class='comma'>,</span>
-                                                             <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_location'>location</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>[automatic_screen_changes]</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='period'>.</span><span class='id identifier rubyid_activate'>activate</span>
+                                                             <span class='id identifier rubyid_location'>location</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>[automatic_screen_changes]</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='period'>.</span><span class='id identifier rubyid_activate'>activate</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -706,14 +706,14 @@
       <pre class="lines">
 
 
-71
 72
 73
 74
-75</pre>
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='id identifier rubyid_utilize'>utilize</span>
@@ -762,12 +762,12 @@
       <pre class="lines">
 
 
-78
 79
-80</pre>
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_closed?'>closed?</span>
   <span class='op'>!</span><span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_window_handles'>window_handles</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_window_handle'>window_handle</span><span class='rparen'>)</span>
@@ -801,7 +801,6 @@
       <pre class="lines">
 
 
-54
 55
 56
 57
@@ -809,13 +808,14 @@
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deactivate'>deactivate</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='period'>.</span><span class='id identifier rubyid_deactivate'>deactivate</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span>
+  <span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='op'>&amp;.</span><span class='id identifier rubyid_deactivate'>deactivate</span>
 
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_automatic_screen_changes'>automatic_screen_changes</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@active</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -865,16 +865,16 @@
       <pre class="lines">
 
 
-65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/screen.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_utilize'>utilize</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="ScreenNotActiveError.html" title="AutomationObject::State::ScreenNotActiveError (class)">ScreenNotActiveError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ScreenNotActiveError.html#initialize-instance_method" title="AutomationObject::State::ScreenNotActiveError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_active?'>active?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="ScreenNotActiveError.html" title="AutomationObject::State::ScreenNotActiveError (class)">ScreenNotActiveError</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='id identifier rubyid_active?'>active?</span>
   <span class='id identifier rubyid_driver'>driver</span><span class='period'>.</span><span class='id identifier rubyid_window_handle'>window_handle</span> <span class='op'>=</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -887,9 +887,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:26 2017 by
+  Generated on Sun Jul 16 11:36:05 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

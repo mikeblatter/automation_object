@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-03 09:43:48 -0500'>2017-07-03 09:43:48 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-04 18:06:35 -0500'>2017-07-04 18:06:35 -0500</time>
         
       </span>
     </div>
@@ -65,15 +65,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">49</span><small> lines of codes</small></div>
-              <div><span class="metric">5</span><small> methods</small></div>
+              <div><span class="metric">24</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">2.4</span><small> complexity/method</small></div>
-              <div><span class="metric">13</span><small> loc/method</small></div>
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">15</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">12</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 require_relative &#39;base&#39;
 
@@ -113,32 +114,6 @@ module AutomationObject
       # Modal composite class
       class Modal &lt; Base
         include ContainerHelper
-
-        # @return [Array&lt;Symbol&gt;]
-        def included_views
-          adapter.included_views
-        end
-
-        # @return [AutomationObject::BluePrint::Composite::Hook]
-        def load
-          adapter.load
-        end
-
-        # @return [Hash&lt;AutomationObject::BluePrint::Composite::Element&gt;]
-        def elements
-          adapter.elements
-        end
-
-        # @return [Hash&lt;AutomationObject::BluePrint::Composite::ElementArray&gt;]
-        def element_arrays
-          adapter.element_arrays
-        end
-
-        # @return [Hash&lt;AutomationObject::BluePrint::Composite::ElementHash&gt;]
-        def element_hashes
-          adapter.element_hashes
-        end
-
       end
     end
   end

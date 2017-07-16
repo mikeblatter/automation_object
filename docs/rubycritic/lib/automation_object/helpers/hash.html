@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 22:44:32 -0500'>2016-09-18 22:44:32 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">16</span><small> lines of codes</small></div>
+              <div><span class="metric">17</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">10.5</span><small> complexity/method</small></div>
-              <div><span class="metric">8</span><small> loc/method</small></div>
+              <div><span class="metric">9</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">21</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Hash class method additions
 class Hash<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Prima-Donna-Method.md" target="_blank"><b>PrimaDonnaMethod</b></a>        </span>      </div>      <span>Hash has prima donna method 'symbolize_keys_deep!'</span>          </div>  </li></ol>
   def deep_merge(second)
@@ -103,10 +104,10 @@ class Hash<ol class="nocode errors smells">  <li>    <div class="description">  
   end
 
   def symbolize_keys_deep!(h = self)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank"><b>UncommunicativeParameterName</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! has the parameter name 'h'</span>          </div>  </li></ol>
-    h.keys.each do |k|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! has the variable name 'k'</span>          </div>  </li></ol>
+    h.keys.each do |k|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L11" class="js-smell-location">0</a>                  <a href="hash.html#L13" class="js-smell-location">1</a>                  <a href="hash.html#L14" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! has the variable name 'k'</span>          </div>  </li></ol>
       ks = k.respond_to?(:to_sym) ? k.to_sym : k<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Manual-Dispatch.md" target="_blank"><b>ManualDispatch</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! manually dispatches method call</span>          </div>  </li></ol>
-      h[ks] = h.delete k # Preserve order even when k == ks<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </div>  </li></ol>
-      symbolize_keys_deep! h[ks] if h[ks].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! calls 'h[ks]' 2 times</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L10" class="js-smell-location">0</a>                  <a href="hash.html#L12" class="js-smell-location">1</a>                  <a href="hash.html#L13" class="js-smell-location">2</a>                  </div>  </li></ol>
+      h[ks] = h.delete k # Preserve order even when k == ks<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L11" class="js-smell-location">0</a>                  <a href="hash.html#L13" class="js-smell-location">1</a>                  <a href="hash.html#L14" class="js-smell-location">2</a>                  </div>  </li></ol>
+      symbolize_keys_deep! h[ks] if h[ks].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! calls 'h[ks]' 2 times</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Hash#symbolize_keys_deep! refers to 'h' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hash.html#L11" class="js-smell-location">0</a>                  <a href="hash.html#L13" class="js-smell-location">1</a>                  <a href="hash.html#L14" class="js-smell-location">2</a>                  </div>  </li></ol>
     end
   end
 end

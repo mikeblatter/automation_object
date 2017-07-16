@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">42</span><small> lines of codes</small></div>
+              <div><span class="metric">43</span><small> lines of codes</small></div>
               <div><span class="metric">5</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">3.8</span><small> complexity/method</small></div>
-              <div><span class="metric">8</span><small> loc/method</small></div>
+              <div><span class="metric">9</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">19</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 module AutomationObject
   module Driver
     module NokogiriAdapter
@@ -121,8 +122,8 @@ module AutomationObject
           params = {}
 
           node.traverse do |node|
-            next unless node.name == &#39;input&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Form#params refers to 'node' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="form.html#L28" class="js-smell-location">0</a>                  <a href="form.html#L29" class="js-smell-location">1</a>                  </div>  </li></ol>
-            params[node[&#39;name&#39;]] = node[&#39;value&#39;]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Form#params refers to 'node' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="form.html#L28" class="js-smell-location">0</a>                  <a href="form.html#L29" class="js-smell-location">1</a>                  </div>  </li></ol>
+            next unless node.name == &#39;input&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Form#params refers to 'node' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="form.html#L29" class="js-smell-location">0</a>                  <a href="form.html#L30" class="js-smell-location">1</a>                  </div>  </li></ol>
+            params[node[&#39;name&#39;]] = node[&#39;value&#39;]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Form#params refers to 'node' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="form.html#L29" class="js-smell-location">0</a>                  <a href="form.html#L30" class="js-smell-location">1</a>                  </div>  </li></ol>
           end
 
           params

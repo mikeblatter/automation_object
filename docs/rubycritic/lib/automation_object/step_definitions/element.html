@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-06-28 14:11:26 -0500'>2017-06-28 14:11:26 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 10:30:56 -0500'>2017-07-16 10:30:56 -0500</time>
         
       </span>
     </div>
@@ -65,16 +65,16 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">77</span><small> lines of codes</small></div>
+              <div><span class="metric">83</span><small> lines of codes</small></div>
               <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">15</span><small> loc/method</small></div>
+              <div><span class="metric">16</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">91</span><small> complexity</small></div>
-              <div><span class="metric">90</span><small> duplications</small></div>
+              <div><span class="metric">105</span><small> complexity</small></div>
+              <div><span class="metric">58</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -103,20 +103,22 @@ require_relative &#39;support/parse&#39;
 # Examples:
 # - I click on the &quot;home_screen&quot; &quot;about_button&quot; element
 # - I hover over the &quot;home_screen&quot; &quot;test_link&quot; element
+# - I hover over the &quot;home_screen&quot; &quot;menu_modal&quot; &quot;test_link&quot; element
 # - I tap on &quot;home_screen&quot; &quot;logo_button&quot; element
-When(%r(^I (\w+|%\{\w+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{\w+\})&quot; &quot;(\w+|%\{\w+\})&quot; element$)) do |*args|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element.html#L11" class="js-smell-location">0</a>                  <a href="element.html#L21" class="js-smell-location">1</a>                  </div>  </li></ol>
-  method, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
-  AutomationObject::Framework.get.screen(screen).element(element).send(method)
+When(%r(^I (\w+|%\{\w+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&quot;(\w+|%\{\w+\})&quot; element$)) do |*args|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L23" class="js-smell-location">1</a>                  </div>  </li></ol>
+  method, screen, modal, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send(method)
 end
 
 # For: Type into element field
 # Examples:
 # - I type &quot;blah&quot; into the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;text_field&quot; element
+# - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;menu_modal&quot; &quot;text_field&quot; element
 # - I type &quot;blah&quot; in &quot;home_screen&quot; &quot;text_field&quot; element
-When(%r(^I type &quot;([^&quot;]+|%\{\w+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{\w+\})&quot; &quot;(\w+|%\{\w+\})&quot; element$)) do |*args|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element.html#L11" class="js-smell-location">0</a>                  <a href="element.html#L21" class="js-smell-location">1</a>                  </div>  </li></ol>
-  text, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
-  AutomationObject::Framework.get.screen(screen).element(element).send_keys(text)
+When(%r(^I type &quot;([^&quot;]+|%\{\w+\})&quot; in(?:to)? (?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&quot;(\w+|%\{\w+\})&quot; element$)) do |*args|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element.html#L12" class="js-smell-location">0</a>                  <a href="element.html#L23" class="js-smell-location">1</a>                  </div>  </li></ol>
+  text, screen, modal, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send_keys(text)
 end
 
 # For: Scroll element into focus
@@ -124,19 +126,21 @@ end
 # - I scroll to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I focus to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I scroll to &quot;home_screen&quot; &quot;logo_button&quot; element
-When(%r(^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{\w+\})&quot; &quot;(\w+|%\{\w+\})&quot; element$)) do |*args|
-  screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
-  AutomationObject::Framework.get.screen(screen).element(element).scroll_into_view
+# - I scroll to &quot;home_screen&quot; &quot;menu_modal&quot; &quot;logo_button&quot; element
+When(%r(^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&quot;(\w+|%\{\w+\})&quot; element$)) do |*args|
+  screen, modal, element = AutomationObject::StepDefinitions::Parse.new(args).get
+  AutomationObject::Framework.get.screen(screen).modal(modal).element(element).scroll_into_view
 end
 
 # For: Save value from element for use later
 # Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I save &quot;id&quot; as &quot;unique_value&quot; from &quot;home_screen&quot; &quot;logo_button&quot; element
-When(%r(^I save &quot;(\w+|%\{\w+\})&quot; as &quot;(\w+)&quot; from (?:the )?&quot;(\w+|%\{\w+\})&quot; &quot;(\w+|%\{\w+\})&quot; element$)) do |*args|
-  method, key, screen, element = AutomationObject::StepDefinitions::Parse.new(args).get
+# - I save &quot;id&quot; as &quot;unique_value&quot; from &quot;home_screen&quot; &quot;menu_modal&quot; &quot;logo_button&quot; element
+When(%r(^I save &quot;(\w+|%\{\w+\})&quot; as &quot;(\w+)&quot; from (?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&quot;(\w+|%\{\w+\})&quot; element$)) do |*args|
+  method, key, screen, modal, element = AutomationObject::StepDefinitions::Parse.new(args).get
   # Save value from called method/property
-  value = AutomationObject::Framework.get.screen(screen).element(element).send(method)
+  value = AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send(method)
   AutomationObject::StepDefinitions::Cache.set(key, value)
 end
 
@@ -145,10 +149,11 @@ end
 # - the &quot;home_screen&quot; &quot;title&quot; element should exist
 # - the &quot;home_screen&quot; &quot;title&quot; element shouldn&#39;t exist
 # - &quot;home_screen&quot; &quot;title&quot; element should not exist
-Then(%r(^(?:the )?&quot;(\w+|%\{\w+\})&quot; &quot;(\w+|%\{\w+\})&quot; element should ?(n&#39;t |not )?exist$)) do |*args|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="element.html#L52" class="js-smell-location">0</a>                  <a href="modal.html#L10" class="js-smell-location">1</a>                  </div>  </li></ol>
-  screen, element, negative = AutomationObject::StepDefinitions::Parse.new(args).get
+# - &quot;home_screen&quot; &quot;menu_modal&quot; &quot;title&quot; element should not exist
+Then(%r(^(?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&quot;(\w+|%\{\w+\})&quot; element should ?(n&#39;t |not )?exist$)) do |*args|
+  screen, modal, element, negative = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  exists = AutomationObject::Framework.get.screen(screen).element(element).exists?
+  exists = AutomationObject::Framework.get.screen(screen).modal(modal).element(element).exists?
   if negative
     expect(exists).to eq(false)
   else
@@ -160,11 +165,12 @@ end
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should equal &quot;Home&quot;
 # - &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should not equal &quot;About&quot;
+# - &quot;home_screen&quot; &quot;menu_modal&quot; &quot;title&quot; element &quot;text&quot; should not equal &quot;About&quot;
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; shouldn&#39;t equal &quot;%{saved_value}&quot;
-Then(%r(^(?:the )?&quot;(\w+|%\{\w+\})&quot; &quot;(\w+|%\{\w+\})&quot; element &quot;(\w+|%\{\w+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{\w+\})&quot;$)) do |*args|
-  screen, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
+Then(%r(^(?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&quot;(\w+|%\{\w+\})&quot; element &quot;(\w+|%\{\w+\})&quot; should ?(n&#39;t |not )?equal &quot;(\w+|%\{\w+\})&quot;$)) do |*args|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>Then#/^(?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element "(\w+|%\{\w+\})" should ?(n't |not )?equal "(\w+|%\{\w+\})"$/ has a flog score of 25</span>          </div>  </li></ol>
+  screen, modal, element, method, negative, expected_value = AutomationObject::StepDefinitions::Parse.new(args).get
 
-  actual_value = AutomationObject::Framework.get.screen(screen).element(element).send(method)
+  actual_value = AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send(method)
   if negative
     expect(expected_value).not_to eq(actual_value)
   else

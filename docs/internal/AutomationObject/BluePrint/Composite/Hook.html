@@ -306,12 +306,12 @@
       <pre class="lines">
 
 
-16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_after'>after</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span>
@@ -358,12 +358,12 @@
       <pre class="lines">
 
 
-11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_before'>before</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span>
@@ -411,17 +411,17 @@
       <pre class="lines">
 
 
-27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_changes'>changes</span>
-  <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_change_screen'>change_screen</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_new_screen'>new_screen</span><span class='comma'>,</span>
-                    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_change_screen'>change_screen</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_new_screen'>new_screen</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_show_modal'>show_modal</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_show_modal'>show_modal</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
+  <span class='lbracket'>[</span><span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_change_screen'>change_screen</span><span class='comma'>,</span> <span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_new_screen'>new_screen</span><span class='comma'>,</span>
+   <span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_change_screen'>change_screen</span><span class='comma'>,</span> <span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_new_screen'>new_screen</span><span class='comma'>,</span> <span class='id identifier rubyid_before'>before</span><span class='period'>.</span><span class='id identifier rubyid_show_modal'>show_modal</span><span class='comma'>,</span> <span class='id identifier rubyid_after'>after</span><span class='period'>.</span><span class='id identifier rubyid_show_modal'>show_modal</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -480,12 +480,12 @@
       <pre class="lines">
 
 
-34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_changes_to_container?'>changes_to_container?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -537,12 +537,12 @@
       <pre class="lines">
 
 
-21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/composite/hook.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_live?'>live?</span>
   <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_live?'>live?</span>
@@ -557,9 +557,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:27 2017 by
+  Generated on Sun Jul 16 11:36:06 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

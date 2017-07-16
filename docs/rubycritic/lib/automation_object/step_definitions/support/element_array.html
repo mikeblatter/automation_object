@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-27 12:32:54 -0600'>2016-11-27 12:32:54 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 10:30:56 -0500'>2017-07-16 10:30:56 -0500</time>
         
       </span>
     </div>
@@ -69,11 +69,11 @@
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">20.0</span><small> complexity/method</small></div>
-              <div><span class="metric">5</span><small> loc/method</small></div>
+              <div><span class="metric">20.5</span><small> complexity/method</small></div>
+              <div><span class="metric">6</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">40</span><small> complexity</small></div>
+              <div><span class="metric">41</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -101,8 +101,8 @@ module AutomationObject
     module ElementArray
       module_function
 
-      def iterate_and_do(screen, element, key, low_range, high_range)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do has a flog score of 30</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank"><b>LongParameterList</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do has 5 parameters</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do has approx 9 statements</span>          </div>  </li></ol>
-        element_array = AutomationObject::Framework.get.screen(screen).element_array(element)
+      def iterate_and_do(screen, modal, element, key, low_range, high_range)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do has a flog score of 32</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank"><b>LongParameterList</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do has 6 parameters</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do has approx 9 statements</span>          </div>  </li></ol>
+        element_array = AutomationObject::Framework.get.screen(screen).modal(modal).element_array(element)
         assert element_array.is_a?(Array)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::StepDefinitions::ElementArray#iterate_and_do refers to 'element_array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element_array.html#L10" class="js-smell-location">0</a>                  <a href="element_array.html#L16" class="js-smell-location">1</a>                  <a href="element_array.html#L20" class="js-smell-location">2</a>                  <a href="element_array.html#L22" class="js-smell-location">3</a>                  <a href="element_array.html#L24" class="js-smell-location">4</a>                  <a href="element_array.html#L26" class="js-smell-location">5</a>                  </div>  </li></ol>
 
         return range(element_array, low_range, high_range) if low_range &amp;&amp; high_range

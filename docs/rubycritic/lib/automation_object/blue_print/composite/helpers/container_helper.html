@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-03 09:43:48 -0500'>2017-07-03 09:43:48 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-04 18:06:35 -0500'>2017-07-04 18:06:35 -0500</time>
         
       </span>
     </div>
@@ -65,15 +65,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">74</span><small> lines of codes</small></div>
-              <div><span class="metric">8</span><small> methods</small></div>
+              <div><span class="metric">70</span><small> lines of codes</small></div>
+              <div><span class="metric">7</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">5.0</span><small> complexity/method</small></div>
-              <div><span class="metric">13</span><small> loc/method</small></div>
+              <div><span class="metric">5.4</span><small> complexity/method</small></div>
+              <div><span class="metric">15</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">40</span><small> complexity</small></div>
+              <div><span class="metric">38</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -95,20 +95,16 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 module AutomationObject
   module BluePrint
     module Composite
       # Screen composite class
       module ContainerHelper
-        # @return [Array&lt;AutomationObject::BluePrint::Composite::AutomaticModalChange&gt;]
-        def automatic_modal_changes
-          adapter.automatic_modal_changes
-        end
-
         # @return [Array&lt;Symbol&gt;]
-        def automatic_screen_changes
-          adapter.automatic_screen_changes
+        def included_views
+          adapter.included_views
         end
 
         # @return [AutomationObject::BluePrint::Composite::Hook]
@@ -135,9 +131,9 @@ module AutomationObject
         # @return [Array&lt;Symbol&gt;]
         def changes
           changes = []
-          elements.merge(element_arrays).merge(element_hashes).each_value { |element|
+          elements.merge(element_arrays).merge(element_hashes).each_value do |element|
             changes += element.changes
-          }
+          end
 
           changes.uniq.compact
         end
@@ -145,24 +141,24 @@ module AutomationObject
         # @param name [Symbol] name of container you want to go to
         # @return [Symbol, Symbol] name and type of element
         def element_to_container(name)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::Composite::ContainerHelper#element_to_container has approx 8 statements</span>          </div>  </li></ol>
-          elements.merge(element_arrays).merge(element_hashes).each { |element_name, element|
+          elements.merge(element_arrays).merge(element_hashes).each do |element_name, element|
             next unless element.changes.include?(name)
 
             element_type = nil
 
             case element
-              when Element
-                  element_type = :elements
-              when ElementArray
-                  element_type = :element_arrays
-              when ElementHash
-                  element_type = :element_hashes
+            when Element
+              element_type = :elements
+            when ElementArray
+              element_type = :element_arrays
+            when ElementHash
+              element_type = :element_hashes
             end
 
             return element_name, element_type
-          }
+          end
 
-          return nil, nil
+          [nil, nil]
         end
       end
     end

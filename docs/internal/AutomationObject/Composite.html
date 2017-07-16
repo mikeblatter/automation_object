@@ -117,7 +117,7 @@ Composite classes should inherit from this class and use the class-level methods
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="BluePrint/HashAdapter/Composite.html" title="AutomationObject::BluePrint::HashAdapter::Composite (class)">BluePrint::HashAdapter::Composite</a></span>, <span class='object_link'><a href="State/Base.html" title="AutomationObject::State::Base (class)">State::Base</a></span></p>
+  <p class="children"><span class='object_link'><a href="BluePrint/HashAdapter/Composite.html" title="AutomationObject::BluePrint::HashAdapter::Composite (class)">BluePrint::HashAdapter::Composite</a></span>, <span class='object_link'><a href="BluePrint/PageObjectAdapter/Composite.html" title="AutomationObject::BluePrint::PageObjectAdapter::Composite (class)">BluePrint::PageObjectAdapter::Composite</a></span>, <span class='object_link'><a href="State/Base.html" title="AutomationObject::State::Base (class)">State::Base</a></span></p>
 </div>
 
 
@@ -390,7 +390,7 @@ Composite classes should inherit from this class and use the class-level methods
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_child-instance_method" title="#get_child (instance method)">#<strong>get_child</strong>(name, options)  &#x21d2; Object </a>
+      <a href="#get_child-instance_method" title="#get_child (instance method)">#<strong>get_child</strong>(_name, _options)  &#x21d2; Object </a>
     
 
     
@@ -413,7 +413,7 @@ Composite classes should inherit from this class and use the class-level methods
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_children-instance_method" title="#get_children (instance method)">#<strong>get_children</strong>(name, options)  &#x21d2; Object </a>
+      <a href="#get_children-instance_method" title="#get_children (instance method)">#<strong>get_children</strong>(_name, _options)  &#x21d2; Object </a>
     
 
     
@@ -589,7 +589,6 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-17
 18
 19
 20
@@ -600,10 +599,11 @@ Composite classes should inherit from this class and use the class-level methods
 25
 26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='symbol'>:top</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>top</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
@@ -654,12 +654,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_children'>children</span>
   <span class='ivar'>@children</span>
@@ -696,12 +696,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_location'>location</span>
   <span class='ivar'>@location</span>
@@ -738,12 +738,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -780,12 +780,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parent'>parent</span>
   <span class='ivar'>@parent</span>
@@ -861,12 +861,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-78
 79
-80</pre>
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_many'>has_many</span><span class='lparen'>(</span><span class='id identifier rubyid_children_name'>children_name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_has_many_relationships'>has_many_relationships</span><span class='lbracket'>[</span><span class='id identifier rubyid_children_name'>children_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span>
@@ -918,12 +918,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-83
 84
-85</pre>
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_many_relationships'>has_many_relationships</span>
   <span class='ivar'>@has_many_relationships</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -991,12 +991,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-89
 90
-91</pre>
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_one'>has_one</span><span class='lparen'>(</span><span class='id identifier rubyid_child_name'>child_name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_has_one_relationships'>has_one_relationships</span><span class='lbracket'>[</span><span class='id identifier rubyid_child_name'>child_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span>
@@ -1048,12 +1048,12 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-94
 95
-96</pre>
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_one_relationships'>has_one_relationships</span>
   <span class='ivar'>@has_one_relationships</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -1084,16 +1084,16 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-66
 67
 68
 69
 70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_has_many_relationships'>add_has_many_relationships</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_has_many_relationships'>has_many_relationships</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='op'>|</span>
@@ -1122,15 +1122,15 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-59
 60
 61
 62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_has_one_relationships'>add_has_one_relationships</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_has_one_relationships'>has_one_relationships</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='op'>|</span>
@@ -1146,7 +1146,7 @@ Composite classes should inherit from this class and use the class-level methods
       <div class="method_details ">
   <h3 class="signature " id="get_child-instance_method">
   
-    #<strong>get_child</strong>(name, options)  &#x21d2; <tt>Object</tt> 
+    #<strong>get_child</strong>(_name, _options)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1165,7 +1165,7 @@ Composite classes should inherit from this class and use the class-level methods
   
     <li>
       
-        <span class='name'>name</span>
+        <span class='name'>_name</span>
       
       
         <span class='type'>(<tt>Symbol</tt>)</span>
@@ -1180,7 +1180,7 @@ Composite classes should inherit from this class and use the class-level methods
   
     <li>
       
-        <span class='name'>options</span>
+        <span class='name'>_options</span>
       
       
         <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
@@ -1202,14 +1202,14 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_child'>get_child</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_child'>get_child</span><span class='lparen'>(</span><span class='id identifier rubyid__name'>_name</span><span class='comma'>,</span> <span class='id identifier rubyid__options'>_options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Abstract method</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1220,7 +1220,7 @@ Composite classes should inherit from this class and use the class-level methods
       <div class="method_details ">
   <h3 class="signature " id="get_children-instance_method">
   
-    #<strong>get_children</strong>(name, options)  &#x21d2; <tt>Object</tt> 
+    #<strong>get_children</strong>(_name, _options)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1239,7 +1239,7 @@ Composite classes should inherit from this class and use the class-level methods
   
     <li>
       
-        <span class='name'>name</span>
+        <span class='name'>_name</span>
       
       
         <span class='type'>(<tt>Symbol</tt>)</span>
@@ -1254,7 +1254,7 @@ Composite classes should inherit from this class and use the class-level methods
   
     <li>
       
-        <span class='name'>options</span>
+        <span class='name'>_options</span>
       
       
         <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
@@ -1276,14 +1276,14 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 56</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_children'>get_children</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_children'>get_children</span><span class='lparen'>(</span><span class='id identifier rubyid__name'>_name</span><span class='comma'>,</span> <span class='id identifier rubyid__options'>_options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Abstract method</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1329,13 +1329,13 @@ Composite classes should inherit from this class and use the class-level methods
       <pre class="lines">
 
 
-38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/composite.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_top'>top</span>
   <span class='comment'># Should recursively call top until parent is nil
@@ -1351,9 +1351,9 @@ Composite classes should inherit from this class and use the class-level methods
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:26 2017 by
+  Generated on Sun Jul 16 11:36:05 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

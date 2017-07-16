@@ -262,13 +262,13 @@
       <pre class="lines">
 
 
-14
 15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_join_url'>join_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_full_url'>full_url</span> <span class='op'>=</span> <span class='id identifier rubyid_chomp'>chomp</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_url'>url</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
@@ -304,13 +304,13 @@
       <pre class="lines">
 
 
-20
 21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pascalize'>pascalize</span>
   <span class='kw'>return</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='kw'>self</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>_</span><span class='regexp_end'>/</span></span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[A-Z]+.*</span><span class='regexp_end'>/</span></span>
@@ -363,12 +363,12 @@
       <pre class="lines">
 
 
-34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_underscore'>to_underscore</span>
   <span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_underscore!</span><span class='rparen'>)</span>
@@ -420,13 +420,13 @@
       <pre class="lines">
 
 
-27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_underscore!'>to_underscore!</span>
   <span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.)([A-Z])</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1_\2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -475,16 +475,16 @@
       <pre class="lines">
 
 
-6
 7
 8
 9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/helpers/string.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_url?'>valid_url?</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -503,9 +503,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:26 2017 by
+  Generated on Sun Jul 16 11:36:05 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

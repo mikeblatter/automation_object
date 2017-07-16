@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -59,18 +59,18 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-1">
-            <div class="rating b big">
-              B
+            <div class="rating c big">
+              C
             </div>
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">38</span><small> lines of codes</small></div>
+              <div><span class="metric">39</span><small> lines of codes</small></div>
               <div><span class="metric">1</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">8.0</span><small> complexity/method</small></div>
-              <div><span class="metric">10</span><small> loc/method</small></div>
+              <div><span class="metric">11</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">8</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 require_relative &#39;composite&#39;
 
@@ -114,10 +115,10 @@ module AutomationObject
         has_one :after, interface: HookAction
 
         # Validations
-        validates_keys allowed_keys: [:before, :live?, :after]
+        validates_keys allowed_keys: %i[before live? after]
 
         # @return [Array&lt;HookElementRequirements&gt;] array of element requirements
-        def live?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L24" class="js-smell-location">0</a>                  <a href="hook_action.html#L118" class="js-smell-location">1</a>                  <a href="screen.html#L52" class="js-smell-location">2</a>                  <a href="view.html#L43" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Hook#live? has approx 6 statements</span>          </div>  </li></ol>
+        def live?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="hook.html#L25" class="js-smell-location">0</a>                  <a href="hook_action.html#L119" class="js-smell-location">1</a>                  <a href="screen.html#L53" class="js-smell-location">2</a>                  <a href="view.html#L44" class="js-smell-location">3</a>                  <a href="../page_object_adapter/hook_action.html#L98" class="js-smell-location">4</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Hook#live? has approx 6 statements</span>          </div>  </li></ol>
           return @live if defined? @live
 
           children = hash[:live?]

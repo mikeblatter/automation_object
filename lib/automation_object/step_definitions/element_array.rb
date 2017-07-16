@@ -2,6 +2,7 @@
 require_relative 'support/parse'
 require_relative 'support/element_array'
 
+# Title: Element Array Step Definitions
 # Description: Provides step definitions related to element arrays
 
 # For: Call an element array method

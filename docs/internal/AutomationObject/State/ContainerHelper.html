@@ -280,12 +280,12 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+7
+8
+9</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active'>active</span>
   <span class='ivar'>@active</span>
@@ -344,12 +344,12 @@
       <pre class="lines">
 
 
-8
-9
-10</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span>
   <span class='ivar'>@active</span> <span class='op'>||=</span> <span class='kw'>false</span>
@@ -396,12 +396,12 @@
       <pre class="lines">
 
 
-24
-25
-26</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_changes'>changes</span>
   <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_changes'>changes</span>
@@ -467,21 +467,21 @@
       <pre class="lines">
 
 
-30
-31
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element_to_container'>element_to_container</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_element_name'>element_name</span><span class='comma'>,</span> <span class='id identifier rubyid_element_type'>element_type</span> <span class='op'>=</span> <span class='id identifier rubyid_blue_prints'>blue_prints</span><span class='period'>.</span><span class='id identifier rubyid_element_to_container'>element_to_container</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_element_name'>element_name</span> <span class='kw'>or</span> <span class='id identifier rubyid_element_type'>element_type</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_element_name'>element_name</span> <span class='op'>||</span> <span class='id identifier rubyid_element_type'>element_type</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_element_type'>element_type</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='id identifier rubyid_element_name'>element_name</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_element_type'>element_type</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='id identifier rubyid_element_name'>element_name</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -526,17 +526,17 @@
       <pre class="lines">
 
 
-14
-15
 16
 17
 18
 19
 20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_go'>go</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_active?'>active?</span>
@@ -544,7 +544,7 @@
     <span class='kw'>return</span> <span class='kw'>true</span>
   <span class='kw'>end</span>
 
-  <span class='const'><span class='object_link'><a href="AutomaticRouting.html" title="AutomationObject::State::AutomaticRouting (class)">AutomaticRouting</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AutomaticRouting.html#initialize-instance_method" title="AutomationObject::State::AutomaticRouting#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_top'>top</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_route'><span class='object_link'><a href="AutomaticRouting.html#route-instance_method" title="AutomationObject::State::AutomaticRouting#route (method)">route</a></span></span>
+  <span class='const'><span class='object_link'><a href="AutomaticRouting.html" title="AutomationObject::State::AutomaticRouting (class)">AutomaticRouting</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AutomaticRouting.html#initialize-instance_method" title="AutomationObject::State::AutomaticRouting#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_top'>top</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_route'><span class='object_link'><a href="AutomaticRouting.html#route-instance_method" title="AutomationObject::State::AutomaticRouting#route (method)">route</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -566,14 +566,14 @@
       <pre class="lines">
 
 
-37
-38
 39
 40
-41</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/state/helpers/container_helper.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset'>reset</span>
   <span class='id identifier rubyid_elements'>elements</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:reset</span><span class='rparen'>)</span>
@@ -590,9 +590,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:24 2017 by
+  Generated on Sun Jul 16 11:36:03 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

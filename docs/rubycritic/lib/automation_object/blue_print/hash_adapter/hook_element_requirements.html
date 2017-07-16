@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 20:50:46 -0500'>2016-09-18 20:50:46 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,16 +65,16 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">60</span><small> lines of codes</small></div>
+              <div><span class="metric">61</span><small> lines of codes</small></div>
               <div><span class="metric">4</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">5.8</span><small> complexity/method</small></div>
-              <div><span class="metric">11</span><small> loc/method</small></div>
+              <div><span class="metric">12</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">23</span><small> complexity</small></div>
-              <div><span class="metric">17</span><small> duplications</small></div>
+              <div><span class="metric">47</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                3
+                4
                 smells
               </a>
             </li>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 require_relative &#39;composite&#39;
 
@@ -109,11 +110,11 @@ module AutomationObject
 
         # Get the order to run the hook in
         # @return [Array&lt;Symbol&gt;] list of hook methods to run in given order
-        def hook_order
+        def hook_order<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook_element_requirements.html#L17" class="js-smell-location">0</a>                  <a href="../page_object_adapter/hook_element_requirements.html#L12" class="js-smell-location">1</a>                  </div>  </li></ol>
           hook_order = [:exists?] # Always put exists? first
 
           hash.each_key do |hook_name|
-            hook_order.push(hook_name) unless [:element_name, :exists?].include?(hook_name)
+            hook_order.push(hook_name) unless %i[element_name exists?].include?(hook_name)
           end
 
           hook_order
@@ -127,7 +128,7 @@ module AutomationObject
 
         # Get name of the element
         # @return [Symbol] name of element
-        def element_name<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="automatic_modal_change.html#L15" class="js-smell-location">0</a>                  <a href="custom_method.html#L14" class="js-smell-location">1</a>                  <a href="helpers/multiple_elements_helper.html#L23" class="js-smell-location">2</a>                  <a href="hook_action.html#L49" class="js-smell-location">3</a>                  <a href="hook_action.html#L61" class="js-smell-location">4</a>                  <a href="hook_action.html#L88" class="js-smell-location">5</a>                  <a href="hook_element_requirements.html#L34" class="js-smell-location">6</a>                  <a href="top.html#L36" class="js-smell-location">7</a>                  </div>  </li></ol>
+        def element_name
           element_name = hash[:element_name]
 
           case element_name
@@ -140,13 +141,13 @@ module AutomationObject
 
         # Convience for getting element blueprints
         # @return [AutomationObject::BluePrint::HashAdapter::Element]
-        def element_blueprints(composite_object = nil)
+        def element_blueprints(composite_object = nil)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="hook_element_requirements.html#L48" class="js-smell-location">0</a>                  <a href="../page_object_adapter/hook_element_requirements.html#L43" class="js-smell-location">1</a>                  </div>  </li></ol>
           composite_object = self unless composite_object
 
           # Traverse!
-          return composite_object.elements[element_name] if composite_object.hash[:elements].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookElementRequirements#element_blueprints refers to 'composite_object' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hook_element_requirements.html#L51" class="js-smell-location">0</a>                  <a href="hook_element_requirements.html#L53" class="js-smell-location">1</a>                  </div>  </li></ol>
+          return composite_object.elements[element_name] if composite_object.hash[:elements].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookElementRequirements#element_blueprints refers to 'composite_object' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hook_element_requirements.html#L52" class="js-smell-location">0</a>                  <a href="hook_element_requirements.html#L54" class="js-smell-location">1</a>                  </div>  </li></ol>
 
-          return element_blueprints(composite_object.parent) if composite_object.parent<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookElementRequirements#element_blueprints calls 'composite_object.parent' 2 times</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookElementRequirements#element_blueprints refers to 'composite_object' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hook_element_requirements.html#L51" class="js-smell-location">0</a>                  <a href="hook_element_requirements.html#L53" class="js-smell-location">1</a>                  </div>  </li></ol>
+          return element_blueprints(composite_object.parent) if composite_object.parent<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookElementRequirements#element_blueprints calls 'composite_object.parent' 2 times</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::HookElementRequirements#element_blueprints refers to 'composite_object' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="hook_element_requirements.html#L52" class="js-smell-location">0</a>                  <a href="hook_element_requirements.html#L54" class="js-smell-location">1</a>                  </div>  </li></ol>
 
           nil
         end

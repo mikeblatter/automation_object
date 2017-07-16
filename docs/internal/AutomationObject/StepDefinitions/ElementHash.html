@@ -111,7 +111,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#iterate_and_do-class_method" title="iterate_and_do (class method)">.<strong>iterate_and_do</strong>(screen, element, key, low_range, high_range)  &#x21d2; Object </a>
+      <a href="#iterate_and_do-class_method" title="iterate_and_do (class method)">.<strong>iterate_and_do</strong>(screen, modal, element, key, low_range, high_range)  &#x21d2; Object </a>
     
 
     
@@ -142,7 +142,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="iterate_and_do-class_method">
   
-    .<strong>iterate_and_do</strong>(screen, element, key, low_range, high_range)  &#x21d2; <tt>Object</tt> 
+    .<strong>iterate_and_do</strong>(screen, modal, element, key, low_range, high_range)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -179,8 +179,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/automation_object/step_definitions/support/element_hash.rb', line 8</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_iterate_and_do'>iterate_and_do</span><span class='lparen'>(</span><span class='id identifier rubyid_screen'>screen</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_low_range'>low_range</span><span class='comma'>,</span> <span class='id identifier rubyid_high_range'>high_range</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_element_hash'>element_hash</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Framework.html" title="AutomationObject::Framework (class)">Framework</a></span></span><span class='period'>.</span><span class='id identifier rubyid_get'><span class='object_link'><a href="../Framework.html#get-class_method" title="AutomationObject::Framework.get (method)">get</a></span></span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_iterate_and_do'>iterate_and_do</span><span class='lparen'>(</span><span class='id identifier rubyid_screen'>screen</span><span class='comma'>,</span> <span class='id identifier rubyid_modal'>modal</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_low_range'>low_range</span><span class='comma'>,</span> <span class='id identifier rubyid_high_range'>high_range</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_element_hash'>element_hash</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Framework.html" title="AutomationObject::Framework (class)">Framework</a></span></span><span class='period'>.</span><span class='id identifier rubyid_get'><span class='object_link'><a href="../Framework.html#get-class_method" title="AutomationObject::Framework.get (method)">get</a></span></span><span class='period'>.</span><span class='id identifier rubyid_screen'><span class='object_link'><a href="../Framework.html#screen-instance_method" title="AutomationObject::Framework#screen (method)">screen</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_modal'><span class='object_link'><a href="../Dsl/ScreenProxy.html#modal-instance_method" title="AutomationObject::Dsl::ScreenProxy#modal (method)">modal</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_modal'>modal</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_element'><span class='object_link'><a href="../Dsl/ModalProxy.html#element-instance_method" title="AutomationObject::Dsl::ModalProxy#element (method)">element</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_assert'>assert</span> <span class='id identifier rubyid_element_hash'>element_hash</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_range'>range</span><span class='lparen'>(</span><span class='id identifier rubyid_element_hash'>element_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_low_range'>low_range</span><span class='comma'>,</span> <span class='id identifier rubyid_high_range'>high_range</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_low_range'>low_range</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_high_range'>high_range</span>
@@ -210,9 +210,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:24 2017 by
+  Generated on Sun Jul 16 11:36:03 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

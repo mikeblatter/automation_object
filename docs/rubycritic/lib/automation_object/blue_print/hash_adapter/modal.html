@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-09-18 19:06:34 -0500'>2016-09-18 19:06:34 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">53</span><small> lines of codes</small></div>
+              <div><span class="metric">54</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">11.0</span><small> complexity/method</small></div>
-              <div><span class="metric">10</span><small> loc/method</small></div>
+              <div><span class="metric">11</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">22</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 # Require parent class
 require_relative &#39;composite&#39;
 
@@ -117,7 +118,7 @@ module AutomationObject
         has_many :element_hashes, interface: ElementHash
 
         # Validations
-        validates_keys allowed_keys: [:load, :elements, :element_arrays, :element_hashes]
+        validates_keys allowed_keys: %i[load elements element_arrays element_hashes]
 
         validates :load, instance_of: Hash
         validates :elements, instance_of: Hash
@@ -131,16 +132,16 @@ module AutomationObject
         end
 
         # Method to take views and merge into this composite
-        def merge_views<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 3 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L38" class="js-smell-location">0</a>                  <a href="screen.html#L77" class="js-smell-location">1</a>                  <a href="view.html#L68" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views has approx 7 statements</span>          </div>  </li></ol>
+        def merge_views<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 3 nodes</span>              <span>Locations:</span>                  <a href="modal.html#L39" class="js-smell-location">0</a>                  <a href="screen.html#L78" class="js-smell-location">1</a>                  <a href="view.html#L69" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views has approx 7 statements</span>          </div>  </li></ol>
           top_hash = top.hash
 
           return unless top_hash.is_a?(Hash)
-          return unless top_hash[:views].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_hash[:views]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L42" class="js-smell-location">0</a>                  <a href="modal.html#L43" class="js-smell-location">1</a>                  </div>  </li></ol>
-          top_view_hash = top_hash[:views]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_hash[:views]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L42" class="js-smell-location">0</a>                  <a href="modal.html#L43" class="js-smell-location">1</a>                  </div>  </li></ol>
+          return unless top_hash[:views].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_hash[:views]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L43" class="js-smell-location">0</a>                  <a href="modal.html#L44" class="js-smell-location">1</a>                  </div>  </li></ol>
+          top_view_hash = top_hash[:views]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_hash[:views]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L43" class="js-smell-location">0</a>                  <a href="modal.html#L44" class="js-smell-location">1</a>                  </div>  </li></ol>
 
           included_views.each do |included_view|
-            next unless top_view_hash[included_view].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_view_hash[included_view]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L46" class="js-smell-location">0</a>                  <a href="modal.html#L47" class="js-smell-location">1</a>                  </div>  </li></ol>
-            self.hash = hash.deep_merge(top_view_hash[included_view])<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_view_hash[included_view]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L46" class="js-smell-location">0</a>                  <a href="modal.html#L47" class="js-smell-location">1</a>                  </div>  </li></ol>
+            next unless top_view_hash[included_view].is_a?(Hash)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_view_hash[included_view]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L47" class="js-smell-location">0</a>                  <a href="modal.html#L48" class="js-smell-location">1</a>                  </div>  </li></ol>
+            self.hash = hash.deep_merge(top_view_hash[included_view])<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::HashAdapter::Modal#merge_views calls 'top_view_hash[included_view]' 2 times</span>              <span>Locations:</span>                  <a href="modal.html#L47" class="js-smell-location">0</a>                  <a href="modal.html#L48" class="js-smell-location">1</a>                  </div>  </li></ol>
           end
         end
       end

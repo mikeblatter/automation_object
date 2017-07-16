@@ -1,83 +1,123 @@
-# Element Hash Step Definitions
+# Element_hash Step Definitions
+
+## Steps: 
 
 ### Call an element hash method
+ 
+#### Examples: 
 
-#### Examples
+*  I click on the first "home_screen" "menu_modal" "about_button" element hash
 
-#### Regex
+*  I click on the first "home_screen" "about_button" element hash
 
+
+#### Regex: 
+
+ ```
+^I (\w+|%\{\w+\})?(?: on| over)?(?: the| a)? (%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash$
 ```
-^I (\w+|%\{\w+\})?(?: on| over)?(?: the| a)? (%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash$
-```
 
----
+----
 
 ### Type into element hash field
+ 
+#### Examples: 
 
-#### Examples
+*  I type "blah" into the first "home_screen" "menu_modal" "text_field" element hash
 
-#### Regex
+*  I type "blah" into the first "home_screen" "text_field" element hash
 
+
+#### Regex: 
+
+ ```
+^I type "([\w\s]+|%\{\w+\})" in(?:to| to)? (?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash$
 ```
-^I type "([\w\s]+|%\{\w+\})" in(?:to| to)? (?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash$
-```
 
----
+----
 
 ### Scroll element hash item(s) into focus
+ 
+#### Examples: 
 
-#### Examples
+*  I scroll to the first "home_screen" "menu_modal" "logo_button" element hash
 
-#### Regex
+*  I scroll to the first "home_screen" "logo_button" element hash
 
+
+#### Regex: 
+
+ ```
+^I (?:scroll |focus )(?:to |through )(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash$
 ```
-^I (?:scroll |focus )(?:to |through )(?:the )?(%\{\w+\}|all|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash$
-```
 
----
+----
 
 ### Save value from element hash for use later
+ 
+#### Examples: 
 
-#### Examples
+*  I save "text" as "unique_value" from the first "home_screen" "menu_modal" "logo_button" element hash
 
-#### Regex
+*  I save "text" as "unique_value" from the first "home_screen" "logo_button" element hash
 
+
+#### Regex: 
+
+ ```
+^I save "(\w+|%\{\w+\})" as "(\w+)" from (?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash$
 ```
-^I save "(\w+|%\{\w+\})" as "(\w+)" from (?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash$
-```
 
----
+----
 
 ### Test the element hashes size
+ 
+#### Examples: 
 
-#### Examples
+*  the "home_screen" "menu_modal" "title" element hash should be greater than 0
 
-#### Regex
+*  the "home_screen" "title" element hash should be greater than 0
 
+
+#### Regex: 
+
+ ```
+^(?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$
 ```
-^(?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash should(n't|not)? (?:be )?(larger th[ae]n|greater th[ae]n|less th[ae]n|smaller th[ae]n|equals?) (?:to )?(\d+)$
-```
 
----
+----
 
 ### Test if the element hash value equals a given value
+ 
+#### Examples: 
 
-#### Examples
+*  the first "home_screen" "menu_modal" "title" element hash "text" should equal "Home"
 
-#### Regex
+*  the first "home_screen" "title" element hash "text" should equal "Home"
 
+
+#### Regex: 
+
+ ```
+^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash "(\w+|%\{\w+\})" should ?(n't |not )?equal "(\w+|%\{\w+\})"$
 ```
-^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash "(\w+|%\{\w+\})" should ?(n't |not )?equal "(\w+|%\{\w+\})"$
-```
 
----
+----
 
 ### Test if the element hash is unique
+ 
+#### Examples: 
 
-#### Examples
+*  the "home_screen" "menu_modal" "title" element hash "text" should be unique
 
-#### Regex
+*  the "home_screen" "title" element hash "text" should be unique
 
+
+#### Regex: 
+
+ ```
+^(?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" element hash "(\w+|%\{\w+\})" should(n't|not)? be unique$
 ```
-^(?:the )?"(\w+|%\{\w+\})" "(\w+|%\{\w+\})" element hash "(\w+|%\{\w+\})" should(n't|not)? be unique$
-```
+
+----
+

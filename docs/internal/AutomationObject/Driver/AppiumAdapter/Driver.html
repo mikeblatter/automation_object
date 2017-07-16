@@ -586,12 +586,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_driver'>driver</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='id identifier rubyid_driver'>driver</span>
@@ -642,12 +642,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-77
 78
-79</pre>
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accept_prompt'>accept_prompt</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_alert_accept'>alert_accept</span>
@@ -699,7 +699,6 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-87
 88
 89
 90
@@ -713,10 +712,11 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 98
 99
 100
-101</pre>
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser?'>browser?</span>
   <span class='kw'>return</span> <span class='ivar'>@browser</span> <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='ivar'>@browser</span>
@@ -763,12 +763,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-156
 157
-158</pre>
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
@@ -802,12 +802,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-82
 83
-84</pre>
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dismiss_prompt'>dismiss_prompt</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_alert_dismiss'>alert_dismiss</span>
@@ -859,7 +859,6 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-142
 143
 144
 145
@@ -869,10 +868,11 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 149
 150
 151
-152</pre>
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_document_complete?'>document_complete?</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>unless</span> <span class='id identifier rubyid_browser?'>browser?</span> <span class='comment'># Skip for non-browser Appium sessions
@@ -966,12 +966,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-51
 52
-53</pre>
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_exists'>exists</span> <span class='lbrace'>{</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -1057,14 +1057,14 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-58
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_element'>find_element</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1152,17 +1152,17 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-67
 68
 69
 70
 71
 72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_elements'>find_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_elements'>elements</span> <span class='op'>=</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_find_elements'>find_elements</span><span class='lparen'>(</span><span class='id identifier rubyid_selector_type'>selector_type</span><span class='comma'>,</span> <span class='id identifier rubyid_selector_path'>selector_path</span><span class='rparen'>)</span>
@@ -1221,12 +1221,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
@@ -1260,12 +1260,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-161
 162
-163</pre>
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_driver_quit'>driver_quit</span>
@@ -1313,12 +1313,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span>
@@ -1374,12 +1374,12 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait'>wait</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_set_wait'>set_wait</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
@@ -1431,16 +1431,16 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-122
 123
 124
 125
 126
 127
-128</pre>
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='kw'>return</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_current_context'>current_context</span> <span class='kw'>unless</span> <span class='id identifier rubyid_browser?'>browser?</span>
@@ -1498,16 +1498,16 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-133
 134
 135
 136
 137
 138
-139</pre>
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle='>window_handle=</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_device_is_android?'>device_is_android?</span>
@@ -1563,7 +1563,6 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
       <pre class="lines">
 
 
-105
 106
 107
 108
@@ -1576,10 +1575,11 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 115
 116
 117
-118</pre>
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/appium_adapter/driver.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handles'>window_handles</span>
   <span class='kw'>if</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_device_is_android?'>device_is_android?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_browser?'>browser?</span>
@@ -1605,9 +1605,9 @@ Conform Appium driver interface to what&#39;s expected of the Driver Port</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:27 2017 by
+  Generated on Sun Jul 16 11:36:06 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

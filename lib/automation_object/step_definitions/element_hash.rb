@@ -2,9 +2,10 @@
 require_relative 'support/parse'
 require_relative 'support/element_hash'
 
+# Title: Element Hash Step Definitions
 # Description: Provides step definitions related to element hashes
 
-# For: Call an element hash method
+# Call an element hash method
 # Examples:
 # - I click on the first "home_screen" "about_button" element hash
 # - I click on the first "home_screen" "menu_modal" "about_button" element hash
@@ -18,7 +19,7 @@ When(%r(^I (\w+|%\{\w+\})?(?: on| over)?(?: the| a)? (%\{\w+\}|all|random|last|f
   end
 end
 
-# For: Type into element hash field
+# Type into element hash field
 # Examples:
 # - I type "blah" into the first "home_screen" "text_field" element hash
 # - I type "blah" into the first "home_screen" "menu_modal" "text_field" element hash
@@ -32,7 +33,7 @@ When(%r(^I type "([\w\s]+|%\{\w+\})" in(?:to| to)? (?:the )?(%\{\w+\}|random|las
   end
 end
 
-# For: Scroll element hash item(s) into focus
+# Scroll element hash item(s) into focus
 # Examples:
 # - I scroll to the first "home_screen" "logo_button" element hash
 # - I scroll to the first "home_screen" "menu_modal" "logo_button" element hash
@@ -44,7 +45,7 @@ When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{\w+\}|all|random|last|
   )
 end
 
-# For: Save value from element hash for use later
+# Save value from element hash for use later
 # Examples:
 # - I save "text" as "unique_value" from the first "home_screen" "logo_button" element hash
 # - I save "text" as "unique_value" from the first "home_screen" "menu_modal" "logo_button" element hash
@@ -59,7 +60,7 @@ When(%r(^I save "(\w+|%\{\w+\})" as "(\w+)" from (?:the )?(%\{\w+\}|random|last|
   end
 end
 
-# For: Test the element hashes size
+# Test the element hashes size
 # Examples:
 # - the "home_screen" "title" element hash should be greater than 0
 # - the "home_screen" "menu_modal" "title" element hash should be greater than 0
@@ -90,7 +91,7 @@ Then(%r(^(?:the )?"(\w+|%\{\w+\})"\s*"?(\w+|%\{\w+\})?"?\s*"(\w+|%\{\w+\})" elem
   end
 end
 
-# For: Test if the element hash value equals a given value
+# Test if the element hash value equals a given value
 # Examples:
 # - the first "home_screen" "title" element hash "text" should equal "Home"
 # - the first "home_screen" "menu_modal" "title" element hash "text" should equal "Home"
@@ -110,7 +111,7 @@ Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) "(\w+|%\{\w+\})"\s
   end
 end
 
-# For: Test if the element hash is unique
+# Test if the element hash is unique
 # Examples:
 # - the "home_screen" "title" element hash "text" should be unique
 # - the "home_screen" "menu_modal" "title" element hash "text" should be unique

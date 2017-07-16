@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-03 09:43:48 -0500'>2017-07-03 09:43:48 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">61</span><small> lines of codes</small></div>
+              <div><span class="metric">62</span><small> lines of codes</small></div>
               <div><span class="metric">8</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">3.3</span><small> complexity/method</small></div>
-              <div><span class="metric">8</span><small> loc/method</small></div>
+              <div><span class="metric">9</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">26</span><small> complexity</small></div>
@@ -85,7 +85,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                0
+                1
                 smell
               </a>
             </li>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 module AutomationObject
   module BluePrint
     module Composite
@@ -133,21 +134,21 @@ module AutomationObject
         # @return [Array&lt;Symbol&gt;]
         def changes
           changes = []
-          self.method_hooks.each_value { |hook|
-            changes += hook.changes
-          }
+          method_hooks.each_value do |hook|
+            changes += hook.changes<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::Composite::ElementHelper#changes refers to 'changes' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element_helper.html#L42" class="js-smell-location">0</a>                  <a href="element_helper.html#L45" class="js-smell-location">1</a>                  </div>  </li></ol>
+          end
 
-          changes.uniq.compact
+          changes.uniq.compact<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::BluePrint::Composite::ElementHelper#changes refers to 'changes' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element_helper.html#L42" class="js-smell-location">0</a>                  <a href="element_helper.html#L45" class="js-smell-location">1</a>                  </div>  </li></ol>
         end
 
         # @param name [Symbol] name of container you want to go to
         # @return [Symbol] method name
         def method_to_container(name)
-          self.method_hooks.each { |method_name, hook|
+          method_hooks.each do |method_name, hook|
             next unless hook.changes.include?(name)
 
             return method_name
-          }
+          end
 
           nil
         end

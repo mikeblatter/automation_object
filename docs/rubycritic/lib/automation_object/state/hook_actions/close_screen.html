@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-11-19 15:41:12 -0600'>2016-11-19 15:41:12 -0600</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">20</span><small> lines of codes</small></div>
+              <div><span class="metric">21</span><small> lines of codes</small></div>
               <div><span class="metric">1</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">12.0</span><small> complexity/method</small></div>
-              <div><span class="metric">1</span><small> loc/method</small></div>
+              <div><span class="metric">2</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">12</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;action_loop&#39;
 require_relative &#39;../_error&#39;
 
@@ -103,11 +104,11 @@ module AutomationObject
     # Close screen hook loop
     class CloseScreen &lt; ActionLoop
       def single_run
-        raise ScreenParentExpected unless composite.screen<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::CloseScreen#single_run calls 'composite.screen' 3 times</span>              <span>Locations:</span>                  <a href="close_screen.html#L10" class="js-smell-location">0</a>                  <a href="close_screen.html#L12" class="js-smell-location">1</a>                  <a href="close_screen.html#L14" class="js-smell-location">2</a>                  </div>  </li></ol>
+        raise ScreenParentExpected unless composite.screen<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::CloseScreen#single_run calls 'composite.screen' 3 times</span>              <span>Locations:</span>                  <a href="close_screen.html#L11" class="js-smell-location">0</a>                  <a href="close_screen.html#L13" class="js-smell-location">1</a>                  <a href="close_screen.html#L15" class="js-smell-location">2</a>                  </div>  </li></ol>
 
-        return false unless composite.screen.closed?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::CloseScreen#single_run calls 'composite.screen' 3 times</span>              <span>Locations:</span>                  <a href="close_screen.html#L10" class="js-smell-location">0</a>                  <a href="close_screen.html#L12" class="js-smell-location">1</a>                  <a href="close_screen.html#L14" class="js-smell-location">2</a>                  </div>  </li></ol>
+        return false unless composite.screen.closed?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::CloseScreen#single_run calls 'composite.screen' 3 times</span>              <span>Locations:</span>                  <a href="close_screen.html#L11" class="js-smell-location">0</a>                  <a href="close_screen.html#L13" class="js-smell-location">1</a>                  <a href="close_screen.html#L15" class="js-smell-location">2</a>                  </div>  </li></ol>
 
-        composite.screen.deactivate<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::CloseScreen#single_run calls 'composite.screen' 3 times</span>              <span>Locations:</span>                  <a href="close_screen.html#L10" class="js-smell-location">0</a>                  <a href="close_screen.html#L12" class="js-smell-location">1</a>                  <a href="close_screen.html#L14" class="js-smell-location">2</a>                  </div>  </li></ol>
+        composite.screen.deactivate<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::State::CloseScreen#single_run calls 'composite.screen' 3 times</span>              <span>Locations:</span>                  <a href="close_screen.html#L11" class="js-smell-location">0</a>                  <a href="close_screen.html#L13" class="js-smell-location">1</a>                  <a href="close_screen.html#L15" class="js-smell-location">2</a>                  </div>  </li></ol>
 
         true
       end

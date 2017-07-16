@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2016-10-30 15:20:37 -0500'>2016-10-30 15:20:37 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-03 11:56:52 -0500'>2017-07-03 11:56:52 -0500</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">163</span><small> lines of codes</small></div>
+              <div><span class="metric">158</span><small> lines of codes</small></div>
               <div><span class="metric">25</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">2.2</span><small> complexity/method</small></div>
-              <div><span class="metric">14</span><small> loc/method</small></div>
+              <div><span class="metric">16</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">56</span><small> complexity</small></div>
@@ -95,6 +95,7 @@
     </div>
 
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
 require_relative &#39;../driver&#39;
 require_relative &#39;error&#39;
 
@@ -157,22 +158,18 @@ module AutomationObject
         end
 
         # @return [Boolean]
-        def visible?
-        end
+        def visible?; end
 
         # @return [Boolean]
-        def invisible?
-        end
+        def invisible?; end
 
         # Get the location
         # @return [Point]
-        def location
-        end
+        def location; end
 
         # Get the size of an element
         # @return [Dimension]
-        def size
-        end
+        def size; end
 
         # Perform a submit action on an element
         # @return [void]
@@ -184,8 +181,7 @@ module AutomationObject
 
         # Scroll the element into view
         # @return [void]
-        def scroll_into_view
-        end
+        def scroll_into_view; end
 
         # Perform a click action on the element
         # @return [void]
@@ -226,8 +222,8 @@ module AutomationObject
           BoxCoordinates.new(x1: 0, y1: 0, x2: 0, y2: 0)
         end
 
-        # @param second_element_object [Object] element to compare to
-        # @param collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
+        # @param _second_element_object [Object] element to compare to
+        # @param _collision_tolerance [Numeric, FalseClass] pixel tolerance of collisions
         # @return [Boolean] element collides with other
         def collides_with_element?(_second_element_object, _collision_tolerance = false)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Boolean-Parameter.md" target="_blank"><b>BooleanParameter</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Element#collides_with_element? has boolean parameter '_collision_tolerance'</span>          </div>  </li></ol>
           false
@@ -235,8 +231,7 @@ module AutomationObject
 
         # Hover over element
         # @return [void]
-        def hover
-        end
+        def hover; end
 
         # Helper method to switch to this element&#39;s iframe
         # @return [void]
@@ -250,8 +245,8 @@ module AutomationObject
         def find_form(element)
           return nil unless element
 
-          return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == &#39;form&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to 'element' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </div>  </li></ol>
-          find_form(element.parent)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to 'element' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element.html#L157" class="js-smell-location">0</a>                  <a href="element.html#L158" class="js-smell-location">1</a>                  </div>  </li></ol>
+          return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == &#39;form&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to 'element' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element.html#L152" class="js-smell-location">0</a>                  <a href="element.html#L153" class="js-smell-location">1</a>                  </div>  </li></ol>
+          find_form(element.parent)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>AutomationObject::Driver::NokogiriAdapter::Element#find_form refers to 'element' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="element.html#L152" class="js-smell-location">0</a>                  <a href="element.html#L153" class="js-smell-location">1</a>                  </div>  </li></ol>
         end
       end
     end

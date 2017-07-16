@@ -15,9 +15,13 @@ require 'redcarpet'
 require 'rubocop/rake_task'
 require 'rubycritic/rake_task'
 
-THIS_DIRECTORY = File.expand_path(__dir__).freeze
-LINTABLE_PATHS = [File.join(THIS_DIRECTORY, 'lib/**/*.rb'),
-                  File.join(THIS_DIRECTORY, 'test/**/*.rb')].freeze
+require_relative 'docs/step_definition'
+
+BASE_DIR = File.expand_path(__dir__).freeze
+STEP_DEFINITIONS_DIR = File.join(BASE_DIR, 'lib/automation_object/step_definitions')
+
+LINTABLE_PATHS = [File.join(BASE_DIR, 'lib/**/*.rb'),
+                  File.join(BASE_DIR, 'test/**/*.rb')].freeze
 GEM_NAME = 'automation_object'
 
 # Testing Tasks
@@ -45,7 +49,7 @@ RubyCritic::RakeTask.new do |task|
 end
 
 Rake::Task[:rubycritic].enhance do
-  rubycritic_dir = File.join(THIS_DIRECTORY, 'docs/rubycritic')
+  rubycritic_dir = File.join(BASE_DIR, 'docs/rubycritic')
 
   rubycritic_overview = File.join(rubycritic_dir, 'overview.html')
   rubycritic_index = File.join(rubycritic_dir, 'index.html')
@@ -54,11 +58,18 @@ Rake::Task[:rubycritic].enhance do
   FileUtils.cp(rubycritic_overview, rubycritic_index)
 end
 
-desc 'Build Docs'
-task docs: %i[yard rubycritic] do
+desc 'Build Step Definition Docs'
+task :step_definition_docs do
+  Dir.glob(File.join(STEP_DEFINITIONS_DIR, '*.rb')) do |step_definition_file|
+    step_definition = StepDefinition.new(step_definition_file)
+    step_definition.generate
+  end
 end
 
-# Building
+desc 'Build Docs'
+task docs: %i[yard rubycritic step_definition_docs] do
+end
+
 desc 'Build Gem'
 task build: %i[rubocop test] do
   system "gem build #{GEM_NAME}.gemspec"

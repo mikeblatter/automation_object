@@ -300,12 +300,12 @@
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -338,15 +338,15 @@
       <pre class="lines">
 
 
-16
 17
 18
 19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_start_time'>start_time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
@@ -403,7 +403,6 @@
       <pre class="lines">
 
 
-23
 24
 25
 26
@@ -411,10 +410,11 @@
 28
 29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_method_throttle'>add_method_throttle</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expecting method_symbol argument to be a Symbol</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span>
@@ -474,12 +474,12 @@
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_method_throttle'>delete_method_throttle</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_throttle_methods'>throttle_methods</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='rparen'>)</span>
@@ -504,12 +504,12 @@
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_throttle_methods'>throttle_methods</span>
   <span class='ivar'>@throttle_methods</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -591,16 +591,16 @@
       <pre class="lines">
 
 
-43
 44
 45
 46
 47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/proxy/throttle_proxy.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_throttle_speed'>throttle_speed</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_start_time'>start_time</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_throttle_methods'>throttle_methods</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_method_symbol'>method_symbol</span><span class='rparen'>)</span>
@@ -619,9 +619,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:26 2017 by
+  Generated on Sun Jul 16 11:36:05 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

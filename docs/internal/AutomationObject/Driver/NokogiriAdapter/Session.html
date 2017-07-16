@@ -429,13 +429,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-11
 12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@windows</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Window.html" title="AutomationObject::Driver::NokogiriAdapter::Window (class)">Window</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Window.html#initialize-instance_method" title="AutomationObject::Driver::NokogiriAdapter::Window#initialize (method)">new</a></span></span><span class='rbracket'>]</span>
@@ -468,13 +468,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-64
 65
 66
-67</pre>
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_back'>back</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@windows</span><span class='lbracket'>[</span><span class='ivar'>@position</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -500,16 +500,16 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-79
 80
 81
 82
 83
 84
-85</pre>
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='comment'># Reset session if only one window
@@ -565,13 +565,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-33
 34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_current_url'>current_url</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='ivar'>@windows</span><span class='lbracket'>[</span><span class='ivar'>@position</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -597,13 +597,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-69
 70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forward'>forward</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@windows</span><span class='lbracket'>[</span><span class='ivar'>@position</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -639,12 +639,12 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quit'>quit</span>
   <span class='ivar'>@windows</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Window.html" title="AutomationObject::Driver::NokogiriAdapter::Window (class)">Window</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Window.html#initialize-instance_method" title="AutomationObject::Driver::NokogiriAdapter::Window#initialize (method)">new</a></span></span><span class='rbracket'>]</span>
@@ -669,13 +669,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-74
 75
 76
-77</pre>
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh'>refresh</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@windows</span><span class='lbracket'>[</span><span class='ivar'>@position</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -779,17 +779,17 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-55
 56
 57
 58
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_blank'>blank</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_blank'>blank</span>
@@ -846,13 +846,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle'>window_handle</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='ivar'>@windows</span><span class='lbracket'>[</span><span class='ivar'>@position</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -920,17 +920,17 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-40
 41
 42
 43
 44
 45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handle='>window_handle=</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="NoSuchWindowError.html" title="AutomationObject::Driver::NokogiriAdapter::NoSuchWindowError (class)">NoSuchWindowError</a></span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_window_handles'>window_handles</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_handle_value'>handle_value</span><span class='rparen'>)</span>
@@ -987,12 +987,12 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_window_handles'>window_handles</span>
   <span class='ivar'>@windows</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:handle</span><span class='rparen'>)</span>
@@ -1017,13 +1017,13 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
       <pre class="lines">
 
 
-16
 17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/driver/nokogiri_adapter/session.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_xml'>xml</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='ivar'>@windows</span><span class='lbracket'>[</span><span class='ivar'>@position</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1039,9 +1039,9 @@ Trying to replicate some functionality of Selenium like multiple windows, etc...
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:28 2017 by
+  Generated on Sun Jul 16 11:36:07 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>

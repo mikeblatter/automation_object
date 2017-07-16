@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: AutomationObject::BluePrint::PageObjectAdapter::Composite
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "AutomationObject::BluePrint::PageObjectAdapter::Composite";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../BluePrint.html" title="AutomationObject::BluePrint (module)">BluePrint</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../PageObjectAdapter.html" title="AutomationObject::BluePrint::PageObjectAdapter (module)">PageObjectAdapter</a></span></span>
+     &raquo; 
+    <span class="title">Composite</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: AutomationObject::BluePrint::PageObjectAdapter::Composite
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="../../Composite.html" title="AutomationObject::Composite (class)">Composite</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../../Composite.html" title="AutomationObject::Composite (class)">Composite</a></span></li>
+          
+            <li class="next">AutomationObject::BluePrint::PageObjectAdapter::Composite</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/automation_object/blue_print/page_object_adapter/composite.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Base composite for PageObject adapter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="AutomaticModalChange.html" title="AutomationObject::BluePrint::PageObjectAdapter::AutomaticModalChange (class)">AutomaticModalChange</a></span>, <span class='object_link'><a href="CustomMethod.html" title="AutomationObject::BluePrint::PageObjectAdapter::CustomMethod (class)">CustomMethod</a></span>, <span class='object_link'><a href="ElementArray.html" title="AutomationObject::BluePrint::PageObjectAdapter::ElementArray (class)">ElementArray</a></span>, <span class='object_link'><a href="ElementHash.html" title="AutomationObject::BluePrint::PageObjectAdapter::ElementHash (class)">ElementHash</a></span>, <span class='object_link'><a href="HockAction.html" title="AutomationObject::BluePrint::PageObjectAdapter::HockAction (class)">HockAction</a></span>, <span class='object_link'><a href="HookElementRequirements.html" title="AutomationObject::BluePrint::PageObjectAdapter::HookElementRequirements (class)">HookElementRequirements</a></span></p>
+</div>
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#constant-instance_method" title="#constant (instance method)">#<strong>constant</strong>  &#x21d2; AutomationObject::PageObject::Base </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_defined_module-instance_method" title="#user_defined_module (instance method)">#<strong>user_defined_module</strong>  &#x21d2; Module </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../../Composite.html" title="AutomationObject::Composite (class)">Composite</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../Composite.html#children-instance_method" title="AutomationObject::Composite#children (method)">#children</a></span>, <span class='object_link'><a href="../../Composite.html#location-instance_method" title="AutomationObject::Composite#location (method)">#location</a></span>, <span class='object_link'><a href="../../Composite.html#name-instance_method" title="AutomationObject::Composite#name (method)">#name</a></span>, <span class='object_link'><a href="../../Composite.html#parent-instance_method" title="AutomationObject::Composite#parent (method)">#parent</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_composite-instance_method" title="#create_composite (instance method)">#<strong>create_composite</strong>(constant, interface, name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_child-instance_method" title="#get_child (instance method)">#<strong>get_child</strong>(name, options)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get child of composite.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_children-instance_method" title="#get_children (instance method)">#<strong>get_children</strong>(name, options)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get children of composite.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_page_object-instance_method" title="#get_page_object (instance method)">#<strong>get_page_object</strong>(adapter_interface)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_property-instance_method" title="#get_property (instance method)">#<strong>get_property</strong>(name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(user_defined_module, constant = nil, name = :top, parent = nil, location = &#39;top&#39;)  &#x21d2; Composite </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of Composite.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../../Composite.html" title="AutomationObject::Composite (class)">Composite</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../Composite.html#add_has_many_relationships-instance_method" title="AutomationObject::Composite#add_has_many_relationships (method)">#add_has_many_relationships</a></span>, <span class='object_link'><a href="../../Composite.html#add_has_one_relationships-instance_method" title="AutomationObject::Composite#add_has_one_relationships (method)">#add_has_one_relationships</a></span>, <span class='object_link'><a href="../../Composite.html#has_many-class_method" title="AutomationObject::Composite.has_many (method)">has_many</a></span>, <span class='object_link'><a href="../../Composite.html#has_many_relationships-class_method" title="AutomationObject::Composite.has_many_relationships (method)">has_many_relationships</a></span>, <span class='object_link'><a href="../../Composite.html#has_one-class_method" title="AutomationObject::Composite.has_one (method)">has_one</a></span>, <span class='object_link'><a href="../../Composite.html#has_one_relationships-class_method" title="AutomationObject::Composite.has_one_relationships (method)">has_one_relationships</a></span>, <span class='object_link'><a href="../../Composite.html#top-instance_method" title="AutomationObject::Composite#top (method)">#top</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../Reflection.html" title="AutomationObject::Reflection (module)">Reflection</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../Reflection.html#add_alias-instance_method" title="AutomationObject::Reflection#add_alias (method)">#add_alias</a></span>, <span class='object_link'><a href="../../Reflection.html#add_attribute-instance_method" title="AutomationObject::Reflection#add_attribute (method)">#add_attribute</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../CompositeHook.html" title="AutomationObject::CompositeHook (module)">CompositeHook</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../CompositeHook.html#after_create_run-instance_method" title="AutomationObject::CompositeHook#after_create_run (method)">#after_create_run</a></span>, <span class='object_link'><a href="../../CompositeHook.html#before_create_run-instance_method" title="AutomationObject::CompositeHook#before_create_run (method)">#before_create_run</a></span>, <span class='object_link'><a href="../../CompositeHook.html#included-class_method" title="AutomationObject::CompositeHook.included (method)">included</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(user_defined_module, constant = nil, name = :top, parent = nil, location = &#39;top&#39;)  &#x21d2; <tt><span class='object_link'><a href="" title="AutomationObject::BluePrint::PageObjectAdapter::Composite (class)">Composite</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of Composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>user_defined_module</span>
+      
+      
+        <span class='type'>(<tt>Module</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>runtime defined module for loaded page objects</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>constant</span>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>class to build composite off of</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:top</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>name of composite element</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>parent</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>parent composite object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>location</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;top&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>string location for error/debugging purposes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_user_defined_module'>user_defined_module</span><span class='comma'>,</span> <span class='id identifier rubyid_constant'>constant</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='symbol'>:top</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>top</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_defined_module'>user_defined_module</span> <span class='op'>=</span> <span class='id identifier rubyid_user_defined_module'>user_defined_module</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_constant'>constant</span> <span class='op'>=</span> <span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Class</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_constant'>constant</span> <span class='op'>:</span> <span class='kw'>nil</span>
+
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="constant=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="constant-instance_method">
+  
+    #<strong>constant</strong>  &#x21d2; <tt><span class='object_link'><a href="../../PageObject/Base.html" title="AutomationObject::PageObject::Base (class)">AutomationObject::PageObject::Base</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../PageObject/Base.html" title="AutomationObject::PageObject::Base (class)">AutomationObject::PageObject::Base</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_constant'>constant</span>
+  <span class='ivar'>@constant</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="user_defined_module=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="user_defined_module-instance_method">
+  
+    #<strong>user_defined_module</strong>  &#x21d2; <tt>Module</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_user_defined_module'>user_defined_module</span>
+  <span class='ivar'>@user_defined_module</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="create_composite-instance_method">
+  
+    #<strong>create_composite</strong>(constant, interface, name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_composite'>create_composite</span><span class='lparen'>(</span><span class='id identifier rubyid_constant'>constant</span><span class='comma'>,</span> <span class='id identifier rubyid_interface'>interface</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='comment'># Get the Composite Class that corresponds with the PageObjectAdapter Class
+</span>  <span class='id identifier rubyid_class_name'>class_name</span> <span class='op'>=</span> <span class='id identifier rubyid_interface'>interface</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+  <span class='id identifier rubyid_child_location'>child_location</span> <span class='op'>=</span> <span class='id identifier rubyid_location'>location</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../composite/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_class_name'>class_name</span><span class='period'>.</span><span class='id identifier rubyid_to_underscore'>to_underscore</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_composite_class'>composite_class</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../BluePrint.html" title="AutomationObject::BluePrint (module)">BluePrint</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Composite.html" title="AutomationObject::BluePrint::Composite (module)">Composite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_class_name'>class_name</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_composite_class'>composite_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_interface'>interface</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_user_defined_module'>user_defined_module</span><span class='comma'>,</span> <span class='id identifier rubyid_constant'>constant</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_child_location'>child_location</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_child-instance_method">
+  
+    #<strong>get_child</strong>(name, options)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get child of composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of child</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>options for child</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_child'>get_child</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_constants'>constants</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_constant_symbol'>constant_symbol</span><span class='op'>|</span>
+    <span class='id identifier rubyid_constant'>constant</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_symbol'>constant_symbol</span><span class='rparen'>)</span>
+
+    <span class='comment'># Check to see if constant is a child class of the public PageObject interface
+</span>    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_constant'>constant</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_get_page_object'>get_page_object</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:interface</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_to_underscore'>to_underscore</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_create_composite'>create_composite</span><span class='lparen'>(</span><span class='id identifier rubyid_constant'>constant</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:interface</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_children-instance_method">
+  
+    #<strong>get_children</strong>(name, options)  &#x21d2; <tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get children of composite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of child</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>options for child</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>return children and names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_children'>get_children</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_children'>new_children</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_constants'>constants</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_constant_symbol'>constant_symbol</span><span class='op'>|</span>
+    <span class='id identifier rubyid_constant'>constant</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_symbol'>constant_symbol</span><span class='rparen'>)</span>
+
+    <span class='comment'># Check to see if constant is a child class of the public PageObject interface
+</span>    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_constant'>constant</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_get_page_object'>get_page_object</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:interface</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_to_underscore'>to_underscore</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+    <span class='id identifier rubyid_new_children'>new_children</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_create_composite'>create_composite</span><span class='lparen'>(</span><span class='id identifier rubyid_constant'>constant</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:interface</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_new_children'>new_children</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_page_object-instance_method">
+  
+    #<strong>get_page_object</strong>(adapter_interface)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_page_object'>get_page_object</span><span class='lparen'>(</span><span class='id identifier rubyid_adapter_interface'>adapter_interface</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_adapter_interface'>adapter_interface</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='const'><span class='object_link'><a href="../../../AutomationObject.html" title="AutomationObject (module)">AutomationObject</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../PageObject.html" title="AutomationObject::PageObject (module)">PageObject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_property-instance_method">
+  
+    #<strong>get_property</strong>(name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/page_object_adapter/composite.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_property'>get_property</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_constant'>constant</span><span class='period'>.</span><span class='id identifier rubyid_get_property'>get_property</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Jul 16 11:36:09 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>

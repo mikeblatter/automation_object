@@ -343,7 +343,6 @@
       <pre class="lines">
 
 
-47
 48
 49
 50
@@ -352,10 +351,11 @@
 53
 54
 55
-56</pre>
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element_blueprints'>element_blueprints</span><span class='lparen'>(</span><span class='id identifier rubyid_composite_object'>composite_object</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_composite_object'>composite_object</span> <span class='op'>=</span> <span class='kw'>self</span> <span class='kw'>unless</span> <span class='id identifier rubyid_composite_object'>composite_object</span>
@@ -414,7 +414,6 @@
       <pre class="lines">
 
 
-34
 35
 36
 37
@@ -423,10 +422,11 @@
 40
 41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element_name'>element_name</span>
   <span class='id identifier rubyid_element_name'>element_name</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='symbol'>:element_name</span><span class='rbracket'>]</span>
@@ -485,7 +485,6 @@
       <pre class="lines">
 
 
-16
 17
 18
 19
@@ -493,16 +492,17 @@
 21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hook_order'>hook_order</span>
   <span class='id identifier rubyid_hook_order'>hook_order</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:exists?</span><span class='rbracket'>]</span> <span class='comment'># Always put exists? first
 </span>
   <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='op'>|</span>
-    <span class='id identifier rubyid_hook_order'>hook_order</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='lbracket'>[</span><span class='symbol'>:element_name</span><span class='comma'>,</span> <span class='symbol'>:exists?</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_hook_order'>hook_order</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='qsymbols_beg'>%i[</span><span class='tstring_content'>element_name</span><span class='words_sep'> </span><span class='tstring_content'>exists?</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_hook_name'>hook_name</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_hook_order'>hook_order</span>
@@ -556,12 +556,12 @@
       <pre class="lines">
 
 
-28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/automation_object/blue_print/hash_adapter/hook_element_requirements.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_requirement'>requirement</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>nil</span>
@@ -576,9 +576,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul  3 11:30:29 2017 by
+  Generated on Sun Jul 16 11:36:10 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.3).
+  0.9.9 (ruby-2.3.1).
 </div>
 
     </div>
