@@ -31,15 +31,6 @@ module AutomationObject
         end
       end
 
-      # Error for non-existent modal
-      class ModalDoesNotExistError < StandardError
-        # @param name [Symbol,String] modal name
-        def initialize(name)
-          message = "#{name} modal does not exist"
-          super(message)
-        end
-      end
-
       # Error for non-existent element
       class ElementDoesNotExistError < StandardError
         # @param name [Symbol,String] element name

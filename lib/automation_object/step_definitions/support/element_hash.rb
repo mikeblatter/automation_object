@@ -5,8 +5,8 @@ module AutomationObject
     module ElementHash
       module_function
 
-      def iterate_and_do(screen, element, key, low_range, high_range)
-        element_hash = AutomationObject::Framework.get.send(screen).send(element)
+      def iterate_and_do(screen, modal, element, key, low_range, high_range)
+        element_hash = AutomationObject::Framework.get.screen(screen).modal(modal).element(element)
         assert element_hash.is_a?(Hash)
 
         return range(element_hash, low_range, high_range) if low_range && high_range

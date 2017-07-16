@@ -5,8 +5,8 @@ module AutomationObject
     module ElementArray
       module_function
 
-      def iterate_and_do(screen, element, key, low_range, high_range)
-        element_array = AutomationObject::Framework.get.screen(screen).element_array(element)
+      def iterate_and_do(screen, modal, element, key, low_range, high_range)
+        element_array = AutomationObject::Framework.get.screen(screen).modal(modal).element_array(element)
         assert element_array.is_a?(Array)
 
         return range(element_array, low_range, high_range) if low_range && high_range

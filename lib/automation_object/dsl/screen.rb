@@ -60,16 +60,17 @@ module AutomationObject
         raise AutomationObject::Dsl::Error::AutoReachScreenError, @name unless @state.go
       end
 
-      # Retrieve modal from composite
+      # Retrieve modal or self from composite
       # @param name [String, Symbol] name of modal
-      # @raise [AutomationObject::Dsl::Error::ModalDoesNotExistError]
-      # @return [AutomationObject::Dsl::ModalProxy]
+      # @return [AutomationObject::Dsl::ModalProxy, AutomationObject::Dsl::ScreenProxy]
       def modal(name)
         name = name.to_sym
         raise AutomationObject::Dsl::Error::ModalDoesNotExistError, name unless @subject.to_h.include?(name)
 
         @state.utilize
-        @subject.send(name)
+        return @subject.send(name) if @subject.send(name)
+
+        self
       end
 
       # Retrieve element from composite
