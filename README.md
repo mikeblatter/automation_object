@@ -33,7 +33,7 @@ gem install automation_object
 
 There are a number of Cucumber step definitions available within this gem to help you UI test.
 
-- [Overview](docs/step_definitions/overview.md)
+- [Overview](docs/step_definitions/README.md)
 - [Screen Step Definitions](docs/step_definitions/screen.md)
 - [Modal Step Definitions](docs/step_definitions/modal.md)
 - [Element Array Step Definitions](docs/step_definitions/element_array.md)
