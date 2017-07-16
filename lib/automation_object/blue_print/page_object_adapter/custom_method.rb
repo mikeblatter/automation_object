@@ -19,7 +19,7 @@ module AutomationObject
         end
 
         def evaluate
-          get_property(:evaluate) ||= nil
+          get_property(:evaluate) || nil
         end
       end
     end
