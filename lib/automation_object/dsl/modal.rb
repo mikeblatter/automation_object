@@ -46,9 +46,9 @@ module AutomationObject
       # Go to this modal
       # Will try to automatically reach it, will throw error if it cannot
       # @raise [AutomationObject::Dsl::Error::AutoReachModalError]
-      # @return [void]
+      # @return [Boolean]
       def go
-        raise AutomationObject::Dsl::Error::AutoReachModalError, @name unless @state.go
+        @state.go
       end
 
       # Retrieve element from composite

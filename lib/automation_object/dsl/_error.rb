@@ -4,24 +4,6 @@ module AutomationObject
   module Dsl
     # Errors related to interacting with the DSL
     module Error
-      # Error for automatically reaching screen
-      class AutoReachScreenError < StandardError
-        # @param name [Symbol,String] screen name
-        def initialize(name)
-          message = "#{name}, unable to automatically reach screen"
-          super(message)
-        end
-      end
-
-      # Error for automatically reaching modal
-      class AutoReachModalError < StandardError
-        # @param name [Symbol,String] screen name
-        def initialize(name)
-          message = "#{name}, unable to automatically reach modal"
-          super(message)
-        end
-      end
-
       # Error for non-existent screen
       class ScreenDoesNotExistError < StandardError
         # @param name [Symbol,String] screen name

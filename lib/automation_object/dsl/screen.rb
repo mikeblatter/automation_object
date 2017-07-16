@@ -55,9 +55,9 @@ module AutomationObject
       # Go to this screen
       # Will try to automatically reach it, will throw error if it cannot
       # @raise [AutomationObject::Dsl::Error::AutoReachScreenError]
-      # @return [void]
+      # @return [Boolean]
       def go
-        raise AutomationObject::Dsl::Error::AutoReachScreenError, @name unless @state.go
+        @state.go
       end
 
       # Retrieve modal or self from composite
