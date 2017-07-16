@@ -1,5 +1,10 @@
 # Cucumber Step Definitions Overview
 
+The following documentation will demonstrate how to use AutomationObject in a Ruby/Cucumber context.
+We have created common step definitions that you can include for automating and testing a website or app.
+
+## Features
+
 * Using RSpec for Assertions
 
 ## Loading Step Definitions in Cucumber

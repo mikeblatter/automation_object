@@ -44,19 +44,31 @@ class Step
 end
 
 class StepDefinition
-  attr_accessor :name, :title
+  attr_accessor :path, :name, :title
 
   def initialize(path)
     $steps = []
 
+    self.path = path
     self.name = File.basename(path, '.rb')
-    self.title = "#{self.name.capitalize} Step Definitions\n"
+    self.title = "#{self.name.gsub('_', ' ').split.map(&:capitalize).join(' ')} Step Definitions\n"
 
     require path
   end
 
+  def description
+    contents = File.read(self.path)
+
+    description_match = contents.match(/\s*#\s*Description: ([^\n]+)/)
+
+    return '' unless description_match and description_match.length > 1
+
+    description_match[1]
+  end
+
   def output
     output = "# #{self.title}\n"
+    output += "#{self.description}\n"
 
     output += "## Steps: \n\n"
 

@@ -2,8 +2,7 @@
 require_relative 'support/parse'
 require_relative 'support/element_hash'
 
-# Title: Element Hash Step Definitions
-# Description: Provides step definitions related to element hashes
+# Description: Use the following step definitions to interact with or test element hashes
 
 # Call an element hash method
 # Examples:

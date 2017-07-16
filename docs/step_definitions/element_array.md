@@ -1,5 +1,6 @@
-# Element_array Step Definitions
+# Element Array Step Definitions
 
+Use the following step definitions to interact with or test element arrays
 ## Steps: 
 
 ### For: Call an element array method

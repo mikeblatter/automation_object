@@ -1,5 +1,6 @@
 # Modal Step Definitions
 
+Use the following step definitions to interact with or test modals
 ## Steps: 
 
 ### Automatically navigate to the modal

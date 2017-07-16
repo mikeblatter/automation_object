@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 
-# Screen Step Definitions
-# Provides step definitions related to screens
+# Description: Use the following step definitions to interact with or test screens
 
-# Automatically navigate to the modal
+# Automatically navigate to the screen
 # Examples:
 # - I go to the "home_screen" screen
 # - I go to "login_screen" screen

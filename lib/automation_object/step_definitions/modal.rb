@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 
-# Modal Step Definitions
-# Provides step definitions related to modals
+# Description: Use the following step definitions to interact with or test modals
 
 # Automatically navigate to the modal
 # Examples:

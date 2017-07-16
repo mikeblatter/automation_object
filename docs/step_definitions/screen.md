@@ -1,8 +1,9 @@
 # Screen Step Definitions
 
+Use the following step definitions to interact with or test screens
 ## Steps: 
 
-### Automatically navigate to the modal
+### Automatically navigate to the screen
  
 #### Examples: 
 

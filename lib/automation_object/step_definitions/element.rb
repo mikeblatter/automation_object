@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 require_relative 'support/parse'
 
-# Element Step Definitions
-# Provides step definitions related to elements
+# Description: Use the following step definitions to interact with or test elements
 
 # Call an element method
 # Examples:

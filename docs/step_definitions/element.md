@@ -1,5 +1,6 @@
 # Element Step Definitions
 
+Use the following step definitions to interact with or test elements
 ## Steps: 
 
 ### Call an element method

@@ -1,5 +1,6 @@
-# Element_hash Step Definitions
+# Element Hash Step Definitions
 
+Use the following step definitions to interact with or test element hashes
 ## Steps: 
 
 ### Call an element hash method
