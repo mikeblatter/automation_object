@@ -65,11 +65,11 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">168</span><small> lines of codes</small></div>
-              <div><span class="metric">16</span><small> methods</small></div>
+              <div><span class="metric">174</span><small> lines of codes</small></div>
+              <div><span class="metric">17</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">3.6</span><small> complexity/method</small></div>
+              <div><span class="metric">3.4</span><small> complexity/method</small></div>
               <div><span class="metric">23</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
@@ -85,7 +85,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                9
+                8
                 smells
               </a>
             </li>
@@ -111,7 +111,7 @@ module AutomationObject
     module AppiumAdapter
       # Driver proxy for Appium
       # Conform Appium driver interface to what&#39;s expected of the Driver Port
-      class Driver &lt; AutomationObject::Proxy::Proxy<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver assumes too much for instance variable '@browser'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank"><b>TooManyMethods</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver has at least 16 methods</span>          </div>  </li></ol>
+      class Driver &lt; AutomationObject::Proxy::Proxy<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank"><b>TooManyMethods</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver has at least 17 methods</span>          </div>  </li></ol>
         include AutomationObject::Driver::CommonSelenium::Driver
 
         DOCUMENT_COMPLETE_LOOPS = 5
@@ -180,21 +180,27 @@ module AutomationObject
           @subject.alert_dismiss
         end
 
-        # @return [Boolean] whether or not browser is being used
-        def browser?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#browser? has approx 7 statements</span>          </div>  </li></ol>
-          return @browser if defined? @browser
-          @browser = false
+        # @return [Boolean]
+        attr_accessor :browser<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#browser is a writable attribute</span>          </div>  </li></ol>
 
+        undef :browser if defined? :browser
+        # @return [Boolean]
+        def browser
+          @browser ||= false
+        end
+
+        # @return [Boolean] whether or not browser is being used
+        def browser?
           # Now we need to check Appium&#39;s contexts to see if WEBVIEW is in available_contexts
           available_contexts = @subject.available_contexts
           available_contexts.each do |context|
             if context =~ /^WEBVIEW_\d+$/
-              @browser = true
+              self.browser = true
               break
             end
           end
 
-          @browser
+          browser
         end
 
         # Window Handles Override
@@ -203,10 +209,10 @@ module AutomationObject
           if @subject.device_is_android? &amp;&amp; browser?
             window_handles = @subject.window_handles
           else
-            return @subject.available_contexts unless browser?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handles calls '@subject.available_contexts' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L110" class="js-smell-location">0</a>                  <a href="driver.html#L113" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver tests 'browser?' at least 3 times</span>              <span>Locations:</span>                  <a href="driver.html#L110" class="js-smell-location">0</a>                  <a href="driver.html#L124" class="js-smell-location">1</a>                  <a href="driver.html#L144" class="js-smell-location">2</a>                  </div>  </li></ol>
+            return @subject.available_contexts unless browser?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handles calls '@subject.available_contexts' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L116" class="js-smell-location">0</a>                  <a href="driver.html#L119" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver tests 'browser?' at least 3 times</span>              <span>Locations:</span>                  <a href="driver.html#L116" class="js-smell-location">0</a>                  <a href="driver.html#L130" class="js-smell-location">1</a>                  <a href="driver.html#L150" class="js-smell-location">2</a>                  </div>  </li></ol>
 
             window_handles = []
-            @subject.available_contexts.each do |context|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handles calls '@subject.available_contexts' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L110" class="js-smell-location">0</a>                  <a href="driver.html#L113" class="js-smell-location">1</a>                  </div>  </li></ol>
+            @subject.available_contexts.each do |context|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handles calls '@subject.available_contexts' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L116" class="js-smell-location">0</a>                  <a href="driver.html#L119" class="js-smell-location">1</a>                  </div>  </li></ol>
               window_handles.push(context) if context =~ /^WEBVIEW_\d+$/
             end
           end
@@ -217,11 +223,11 @@ module AutomationObject
         # Get window handle override
         # @return [String] current window handle
         def window_handle
-          return @subject.current_context unless browser?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handle calls '@subject.current_context' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L124" class="js-smell-location">0</a>                  <a href="driver.html#L128" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver tests 'browser?' at least 3 times</span>              <span>Locations:</span>                  <a href="driver.html#L110" class="js-smell-location">0</a>                  <a href="driver.html#L124" class="js-smell-location">1</a>                  <a href="driver.html#L144" class="js-smell-location">2</a>                  </div>  </li></ol>
+          return @subject.current_context unless browser?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handle calls '@subject.current_context' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L130" class="js-smell-location">0</a>                  <a href="driver.html#L134" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver tests 'browser?' at least 3 times</span>              <span>Locations:</span>                  <a href="driver.html#L116" class="js-smell-location">0</a>                  <a href="driver.html#L130" class="js-smell-location">1</a>                  <a href="driver.html#L150" class="js-smell-location">2</a>                  </div>  </li></ol>
 
           return @subject.window_handle if @subject.device_is_android?
 
-          @subject.current_context<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handle calls '@subject.current_context' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L124" class="js-smell-location">0</a>                  <a href="driver.html#L128" class="js-smell-location">1</a>                  </div>  </li></ol>
+          @subject.current_context<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver#window_handle calls '@subject.current_context' 2 times</span>              <span>Locations:</span>                  <a href="driver.html#L130" class="js-smell-location">0</a>                  <a href="driver.html#L134" class="js-smell-location">1</a>                  </div>  </li></ol>
         end
 
         # Set window handle override
@@ -237,7 +243,7 @@ module AutomationObject
 
         # @return [Boolean] document is complete
         def document_complete?
-          return true unless browser? # Skip for non-browser Appium sessions<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver tests 'browser?' at least 3 times</span>              <span>Locations:</span>                  <a href="driver.html#L110" class="js-smell-location">0</a>                  <a href="driver.html#L124" class="js-smell-location">1</a>                  <a href="driver.html#L144" class="js-smell-location">2</a>                  </div>  </li></ol>
+          return true unless browser? # Skip for non-browser Appium sessions<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Repeated-Conditional.md" target="_blank"><b>RepeatedConditional</b></a>        </span>      </div>      <span>AutomationObject::Driver::AppiumAdapter::Driver tests 'browser?' at least 3 times</span>              <span>Locations:</span>                  <a href="driver.html#L116" class="js-smell-location">0</a>                  <a href="driver.html#L130" class="js-smell-location">1</a>                  <a href="driver.html#L150" class="js-smell-location">2</a>                  </div>  </li></ol>
 
           # Loop through a few times to double check correctness
           DOCUMENT_COMPLETE_LOOPS.times do

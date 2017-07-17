@@ -84,21 +84,27 @@ module AutomationObject
           @subject.alert_dismiss
         end
 
+        # @return [Boolean]
+        attr_accessor :browser
+
+        undef :browser if defined? :browser
+        # @return [Boolean]
+        def browser
+          @browser ||= false
+        end
+
         # @return [Boolean] whether or not browser is being used
         def browser?
-          return @browser if defined? @browser
-          @browser = false
-
           # Now we need to check Appium's contexts to see if WEBVIEW is in available_contexts
           available_contexts = @subject.available_contexts
           available_contexts.each do |context|
             if context =~ /^WEBVIEW_\d+$/
-              @browser = true
+              self.browser = true
               break
             end
           end
 
-          @browser
+          browser
         end
 
         # Window Handles Override

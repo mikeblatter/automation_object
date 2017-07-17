@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-16 10:30:56 -0500'>2017-07-16 10:30:56 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 13:19:32 -0500'>2017-07-16 13:19:32 -0500</time>
         
       </span>
     </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">16</span><small> loc/method</small></div>
+              <div><span class="metric">18</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">105</span><small> complexity</small></div>
@@ -97,7 +97,7 @@
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
 
-# Description: Provides step definitions related to elements
+# Description: Use the following step definitions to interact with or test elements
 
 # Call an element method
 # Examples:
@@ -110,7 +110,7 @@ When(%r(^I (\w+|%\{\w+\}) ?(?: on| over)? (?:the )?&quot;(\w+|%\{\w+\})&quot;\s*
   AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send(method)
 end
 
-# For: Type into element field
+# Type into element field
 # Examples:
 # - I type &quot;blah&quot; into the &quot;home_screen&quot; &quot;text_field&quot; element
 # - I type &quot;test&quot; in the &quot;home_screen&quot; &quot;text_field&quot; element
@@ -121,7 +121,7 @@ When(%r(^I type &quot;([^&quot;]+|%\{\w+\})&quot; in(?:to)? (?:the )?&quot;(\w+|
   AutomationObject::Framework.get.screen(screen).modal(modal).element(element).send_keys(text)
 end
 
-# For: Scroll element into focus
+# Scroll element into focus
 # Examples:
 # - I scroll to the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I focus to the &quot;home_screen&quot; &quot;logo_button&quot; element
@@ -132,7 +132,7 @@ When(%r(^I (?:scroll |focus )to (?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w
   AutomationObject::Framework.get.screen(screen).modal(modal).element(element).scroll_into_view
 end
 
-# For: Save value from element for use later
+# Save value from element for use later
 # Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the &quot;home_screen&quot; &quot;logo_button&quot; element
 # - I save &quot;id&quot; as &quot;unique_value&quot; from &quot;home_screen&quot; &quot;logo_button&quot; element
@@ -144,7 +144,7 @@ When(%r(^I save &quot;(\w+|%\{\w+\})&quot; as &quot;(\w+)&quot; from (?:the )?&q
   AutomationObject::StepDefinitions::Cache.set(key, value)
 end
 
-# For: Test if the element exists or not
+# Test if the element exists or not
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element should exist
 # - the &quot;home_screen&quot; &quot;title&quot; element shouldn&#39;t exist
@@ -161,7 +161,7 @@ Then(%r(^(?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&
   end
 end
 
-# For: Test if the element method value equals a given value
+# Test if the element method value equals a given value
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should equal &quot;Home&quot;
 # - &quot;home_screen&quot; &quot;title&quot; element &quot;text&quot; should not equal &quot;About&quot;

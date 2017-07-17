@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-16 10:30:56 -0500'>2017-07-16 10:30:56 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 13:19:32 -0500'>2017-07-16 13:19:32 -0500</time>
         
       </span>
     </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">13</span><small> loc/method</small></div>
+              <div><span class="metric">15</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">182</span><small> complexity</small></div>
@@ -98,9 +98,9 @@
 require_relative &#39;support/parse&#39;
 require_relative &#39;support/element_hash&#39;
 
-# Description: Provides step definitions related to element hashes
+# Description: Use the following step definitions to interact with or test element hashes
 
-# For: Call an element hash method
+# Call an element hash method
 # Examples:
 # - I click on the first &quot;home_screen&quot; &quot;about_button&quot; element hash
 # - I click on the first &quot;home_screen&quot; &quot;menu_modal&quot; &quot;about_button&quot; element hash
@@ -114,7 +114,7 @@ When(%r(^I (\w+|%\{\w+\})?(?: on| over)?(?: the| a)? (%\{\w+\}|all|random|last|f
   end
 end
 
-# For: Type into element hash field
+# Type into element hash field
 # Examples:
 # - I type &quot;blah&quot; into the first &quot;home_screen&quot; &quot;text_field&quot; element hash
 # - I type &quot;blah&quot; into the first &quot;home_screen&quot; &quot;menu_modal&quot; &quot;text_field&quot; element hash
@@ -128,7 +128,7 @@ When(%r(^I type &quot;([\w\s]+|%\{\w+\})&quot; in(?:to| to)? (?:the )?(%\{\w+\}|
   end
 end
 
-# For: Scroll element hash item(s) into focus
+# Scroll element hash item(s) into focus
 # Examples:
 # - I scroll to the first &quot;home_screen&quot; &quot;logo_button&quot; element hash
 # - I scroll to the first &quot;home_screen&quot; &quot;menu_modal&quot; &quot;logo_button&quot; element hash
@@ -140,7 +140,7 @@ When(%r(^I (?:scroll |focus )(?:to |through )(?:the )?(%\{\w+\}|all|random|last|
   )
 end
 
-# For: Save value from element hash for use later
+# Save value from element hash for use later
 # Examples:
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the first &quot;home_screen&quot; &quot;logo_button&quot; element hash
 # - I save &quot;text&quot; as &quot;unique_value&quot; from the first &quot;home_screen&quot; &quot;menu_modal&quot; &quot;logo_button&quot; element hash
@@ -155,7 +155,7 @@ When(%r(^I save &quot;(\w+|%\{\w+\})&quot; as &quot;(\w+)&quot; from (?:the )?(%
   end
 end
 
-# For: Test the element hashes size
+# Test the element hashes size
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element hash should be greater than 0
 # - the &quot;home_screen&quot; &quot;menu_modal&quot; &quot;title&quot; element hash should be greater than 0
@@ -186,7 +186,7 @@ Then(%r(^(?:the )?&quot;(\w+|%\{\w+\})&quot;\s*&quot;?(\w+|%\{\w+\})?&quot;?\s*&
   end
 end
 
-# For: Test if the element hash value equals a given value
+# Test if the element hash value equals a given value
 # Examples:
 # - the first &quot;home_screen&quot; &quot;title&quot; element hash &quot;text&quot; should equal &quot;Home&quot;
 # - the first &quot;home_screen&quot; &quot;menu_modal&quot; &quot;title&quot; element hash &quot;text&quot; should equal &quot;Home&quot;
@@ -206,7 +206,7 @@ Then(%r(^(?:the )?(%\{\w+\}|random|last|first|(\d+)\.\.(\d+)) &quot;(\w+|%\{\w+\
   end
 end
 
-# For: Test if the element hash is unique
+# Test if the element hash is unique
 # Examples:
 # - the &quot;home_screen&quot; &quot;title&quot; element hash &quot;text&quot; should be unique
 # - the &quot;home_screen&quot; &quot;menu_modal&quot; &quot;title&quot; element hash &quot;text&quot; should be unique

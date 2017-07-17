@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-03 11:39:42 -0500'>2017-07-03 11:39:42 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 13:19:32 -0500'>2017-07-16 13:19:32 -0500</time>
         
       </span>
     </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">11</span><small> loc/method</small></div>
+              <div><span class="metric">13</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">89</span><small> complexity</small></div>
@@ -97,25 +97,25 @@
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
 
-# Description: Provides step definitions related to screens
+# Description: Use the following step definitions to interact with or test screens
 
-# For: Automatically navigate to the modal
+# Automatically navigate to the screen
 # Examples:
 # - I go to the &quot;home_screen&quot; screen
 # - I go to &quot;login_screen&quot; screen
-Then(%r(^I go to (?:the |)&quot;([\w\s]+|%\{\w+\})&quot; screen)) do |*args|
+When(%r(^I go to (?:the |)&quot;([\w\s]+|%\{\w+\})&quot; screen)) do |*args|
   screen = AutomationObject::StepDefinitions::Parse.new(args).get
 
   success = AutomationObject::Framework.get.screen(screen).go
   expect(success).to eq(true)
 end
 
-# For: Close the current screen or given screen
+# Close the current screen or given screen
 # Examples:
 # - I close the &quot;contact&quot; screen
 # - I close the screen
 # - I destroy the screen
-Then(%r(^I (?:close|destroy) the (&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen$)) do |*args|
+When(%r(^I (?:close|destroy) the (&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen$)) do |*args|
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
@@ -125,11 +125,11 @@ Then(%r(^I (?:close|destroy) the (&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen$)) do
   end
 end
 
-# For: Navigate back on a given or current screen
+# Navigate back on a given or current screen
 # Examples:
 # - I navigate back on the screen
 # - I navigate back on the &quot;contact&quot; screen
-Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?(&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen$)) do
+When(%r(^I (?:navigate|go) back (?:on )?(?:the )?(&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen$)) do
   _unparsed_name, name = AutomationObject::StepDefinitions::Parse.new(args).get
 
   if name
@@ -139,22 +139,22 @@ Then(%r(^I (?:navigate|go) back (?:on )?(?:the )?(&quot;([\w\s]+|%\{\w+\})&quot;
   end
 end
 
-# For: Switch/Focus screen
+# Switch/Focus screen
 # Examples:
 # - I switch to the &quot;home&quot; screen
 # - I focus the &quot;contact&quot; screen
-Then(%r(^I (?:switch|focus) (?:to )?(?:the )?&quot;([\w\s]+|%\{\w+\})&quot; screen$)) do |*args|
+When(%r(^I (?:switch|focus) (?:to )?(?:the )?&quot;([\w\s]+|%\{\w+\})&quot; screen$)) do |*args|
   screen = AutomationObject::StepDefinitions::Parse.new(args).get
   AutomationObject::Framework.get.focus(screen)
 end
 
-# For: Setting the current screen&#39;s width or given screen
+# Setting the current screen&#39;s width or given screen
 # Examples:
 # - I set the screen size to 1000x2000
 # - I set the &quot;home&quot; screen size to 1000x2000
 # - I set the screen width to 1000
 # - I set the screen height to 2000
-Then(%r(^I set the (&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$)) do |*args|
+When(%r(^I set the (&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen (size|width|height) to (\d+|(\d+)x(\d+))$)) do |*args|
   _unparsed_screen, screen, dimension, size, width, height = AutomationObject::StepDefinitions::Parse.new(args).get
 
   screen = if screen
@@ -168,7 +168,7 @@ Then(%r(^I set the (&quot;([\w\s]+|%\{\w+\})&quot;)? ?screen (size|width|height)
   screen.height(size) if dimension == &#39;height&#39; &amp;&amp; size
 end
 
-# For: Test if screen is currently active
+# Test if screen is currently active
 # Examples:
 # - the &quot;home&quot; screen should be active
 # - the &quot;login&quot; screen shouldn&#39;t be active

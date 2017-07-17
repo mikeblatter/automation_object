@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-07-03 11:39:42 -0500'>2017-07-03 11:39:42 -0500</time>
+          Updated <time class='js-timeago' datetime='2017-07-16 13:19:32 -0500'>2017-07-16 13:19:32 -0500</time>
         
       </span>
     </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">4</span><small> loc/method</small></div>
+              <div><span class="metric">6</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">34</span><small> complexity</small></div>
@@ -97,20 +97,20 @@
     <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 require_relative &#39;support/parse&#39;
 
-# Description: Provides step definitions related to modals
+# Description: Use the following step definitions to interact with or test modals
 
-# For: Automatically navigate to the modal
+# Automatically navigate to the modal
 # Examples:
 # - I go to the &quot;home_screen&quot; &quot;test_modal&quot; modal
 # - I go to &quot;login_screen&quot; &quot;test_modal&quot; modal
-Then(%r(^I go to (?:the |)&quot;([\w\s]+|%\{\w+\})&quot; &quot;([\w\s]+|%\{\w+\})&quot; modal$)) do |*args|
+When(%r(^I go to (?:the |)&quot;([\w\s]+|%\{\w+\})&quot; &quot;([\w\s]+|%\{\w+\})&quot; modal$)) do |*args|
   screen, modal = AutomationObject::StepDefinitions::Parse.new(args).get
 
   success = AutomationObject::Framework.get.screen(screen).modal(modal).go
   expect(success).to eq(true)
 end
 
-# For: Test if modal is currently active
+# Test if modal is currently active
 # Examples:
 # - the &quot;home_screen&quot; &quot;test_modal&quot; modal should be active
 # - the &quot;login_screen&quot; &quot;test_modal&quot; modal shouldn&#39;t be active
