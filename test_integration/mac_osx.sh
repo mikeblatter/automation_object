@@ -8,15 +8,15 @@
 RUBY_VERSION="2.3.1"
 RVM_GPG_KEY="409B6B1796C275462A1703113804BB82D39DC0E3"
 
-#Install xCode Command Line Tools
+# Install xCode Command Line Tools
 if [ ! -f "/usr/local/bin/gcc-4.2" ]; then
   xcode-select --install
 fi
 
-#Link GCC
+# Link GCC
 ln -s /usr/bin/gcc /usr/local/bin/gcc-4.2
 
-#Install Brew
+# Install Brew
 if which brew >/dev/null; then
   echo "Updating Brew"
   brew update
@@ -26,7 +26,7 @@ else
 fi
 brew tap caskroom/cask
 
-#Install gpg
+# Install gpg
 if which gpg >/dev/null; then
   if brew list | grep gpg >/dev/null; then
     echo "Updating gpg"
@@ -37,7 +37,7 @@ else
   brew install gpg
 fi
 
-#Install libxml2
+# Install libxml2
 if which libxml2 >/dev/null; then
   if brew list | grep libxml2 >/dev/null; then
     echo "Updating libxml2"
@@ -48,29 +48,34 @@ else
   brew install libxml2
 fi
 
-#Install RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys $RVM_GPG_KEY
+command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+
+# Install RVM
 if which rvm >/dev/null; then
   echo "Updating RVM"
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys $RVM_GPG_KEY
   rvm get head
 else
   echo "Installing RVM"
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys $RVM_GPG_KEY
   \curl -sSL https://get.rvm.io | bash -s stable --ruby=$RUBY_VERSION
 
   rvm pkg install readline --verify-downloads 1
 fi
 
-#Install Ruby
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Install Ruby
 if which ruby >/dev/null; then
   echo "Installing Ruby"
   rvm install $RUBY_VERSION
 else
-  #Check version if not then update
+  # Check version if not then update
   if ruby -v | grep $RUBY_VERSION >/dev/null; then
     echo "Ruby Version up to date!"
   else
-    #Already exists in list, then use version, otherwise install
+    # Already exists in list, then use version, otherwise install
     if rvm list | grep $RUBY_VERSION >/dev/null; then
       echo "Ruby exists already, will end up using it below"
       rvm use $RUBY_VERSION
@@ -81,13 +86,13 @@ else
   fi
 fi
 
-#Set Ruby version to current and update dot files in home dir
+# Set Ruby version to current and update dot files in home dir
 rvm use $RUBY_VERSION
 rvm get stable --auto-dotfile
 
-#Install Gems
+# Install Gems
 
-#Install Rake
+# Install Rake
 if which rake >/dev/null; then
   echo "Updating Rake"
   gem update rake
@@ -96,7 +101,7 @@ else
   gem install rake
 fi
 
-#Install Bundle
+# Install Bundle
 if which bundle >/dev/null; then
   echo "Updating Bundle"
   gem update bundler
