@@ -110,6 +110,8 @@ else
   gem install bundler
 fi
 
+bundle
+
 cd rails_app/
 bundle
 bundle exec rake db:create
