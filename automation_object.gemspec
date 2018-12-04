@@ -29,31 +29,31 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.required_ruby_version = '>= 2.2'
 
   # Installation
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'bundler', '~> 1.17'
+  spec.add_development_dependency 'rake', '~> 12.3'
 
   # Code Checking
-  spec.add_development_dependency 'rubocop', '~> 0.4'
-  spec.add_development_dependency 'rubycritic', '~> 3.2'
+  spec.add_development_dependency 'rubocop', '~> 0.60'
+  spec.add_development_dependency 'rubycritic', '~> 3.5'
 
   # Documentation
   spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'redcarpet', '~> 3.4'
 
   # Debugging
-  spec.add_development_dependency 'pry', '0.10'
-  spec.add_development_dependency 'awesome_print', '~> 1.7'
+  spec.add_development_dependency 'pry', '~> 0.12'
+  spec.add_development_dependency 'awesome_print', '~> 1.8'
 
   # Testing
   spec.add_development_dependency 'coveralls', '~> 0.8'
-  spec.add_development_dependency 'simplecov', '~> 0.1'
-  spec.add_development_dependency 'mocha', '~> 1.2'
-  spec.add_development_dependency 'fakefs', '~> 0.11'
-  spec.add_development_dependency 'minitest', '~> 5.10'
+  spec.add_development_dependency 'simplecov', '~> 0.16'
+  spec.add_development_dependency 'mocha', '~> 1.7'
+  spec.add_development_dependency 'fakefs', '~> 0.18'
+  spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 3.0'
 
   # Step Definition Testing
-  spec.add_runtime_dependency 'rspec-expectations', '~> 3.6'
+  spec.add_runtime_dependency 'rspec-expectations', '~> 3.8'
 
   # Runtime dependencies
   spec.add_runtime_dependency 'colorize', '~> 0.8'
@@ -62,13 +62,13 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_runtime_dependency 'event_emitter', '~> 0.2'
 
   # For step definitions
-  spec.add_runtime_dependency 'cucumber', '~> 2.4'
+  spec.add_runtime_dependency 'cucumber', '~> 3.1'
 
   # XML Driver
   spec.add_runtime_dependency 'rest-client', '~> 2.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.8'
 
   # Supported Drivers
-  spec.add_runtime_dependency 'appium_lib', '~> 9.4'
-  spec.add_runtime_dependency 'selenium-webdriver', '~> 3.4'
+  spec.add_runtime_dependency 'appium_lib', '~> 9.16'
+  spec.add_runtime_dependency 'selenium-webdriver', '~> 3.141'
 end
