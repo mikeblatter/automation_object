@@ -13,7 +13,12 @@ module AutomationObject
 
       # @param path [String] path to YAML directory
       # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
-      def build(path = '')
+      def build(path)
+        # Check if directory exists otherwise throw error
+        unless Dir.exist?(path)
+          raise ArgumentError.new('Expecting path to exist')
+        end
+
         path = File.expand_path(path)
 
         file_array = File.collect_files(path)

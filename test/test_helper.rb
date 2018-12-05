@@ -5,7 +5,7 @@ require_relative '../lib/automation_object'
 require 'minitest/autorun'
 
 require 'minitest/unit'
-require 'mocha/mini_test'
+require 'mocha/minitest'
 require 'minitest-bonus-assertions'
 
 require 'simplecov'

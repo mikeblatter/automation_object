@@ -18,11 +18,11 @@ module AutomationObject
 
       # @param path [String] path to PageObject classes
       # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
-      def build(path = '')
+      def build(path)
         # Require ruby files in that path into a module namespace
         path = File.expand_path(path)
 
-        defined_module = define_random_module()
+        defined_module = define_random_module
 
         # Remove any defined classes in UserDefined namespace
         defined_module.constants.select do |constant|
@@ -31,8 +31,12 @@ module AutomationObject
         end
 
         # Add classes defined into UserDefined module
-        Dir[File.join(path, '**/*.rb')].each do |file|
-          defined_module.module_eval(File.read(file))
+        if Dir.exist?(path)
+          Dir[File.join(path, '**/*.rb')].each do |file|
+            defined_module.module_eval(File.read(file))
+          end
+        else
+          raise ArgumentError.new('Expecting path to exist')
         end
 
         # Will look for classes defined
@@ -40,6 +44,8 @@ module AutomationObject
         AutomationObject::BluePrint::Composite::Top.new(adapter_top)
       end
 
+      # adding a wrapper for classes added, so they can be redefined elsewhere
+      # internal for page object
       def define_random_module
         random_module_name = [*('A'..'Z')].sample(20).join
         random_module_symbol = random_module_name.to_sym
