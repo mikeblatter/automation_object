@@ -6,11 +6,13 @@ require_relative 'page_object_adapter/top'
 
 require_relative '../page_object'
 
-# PageObject adapter
+# PageObject Adapter
 module AutomationObject
   module BluePrint
     # BluePrint PageObject Adapter
-    # Using classes to define page objects
+    # Using classes to define screens vs hashes/YAML
+    # Think will be easier for IDE to process
+    # as well as provide custom callback methods for interacting with UI/etc...
     module PageObjectAdapter
       module_function
 

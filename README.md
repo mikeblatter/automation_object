@@ -10,6 +10,20 @@ representing your website. It encapsulates many UI automation problems, supports
 and has built in Cucumber step definitions to get your tests up and running quick. With this, you can create scalable 
 automation tests quickly.
 
+## NOTE: This is a alpha product
+
+Portions of the project are still incomplete as well as testing. It is possible to use
+cucumber steps, YAML/HASH configuration adapters, selenium/appium drivers
+
+## Steps to Complete Before Beta
+
+May add more steps in the future as I add more to the project
+
+- [ ] XML driver and any additional test drivers (ie selenium)
+- [ ] Page object configuration style classes for blueprints
+- [ ] Complete integration testing/fixes with different drivers, inputs, tests
+- [ ] Majority Completion of Unit Tests
+
 ## Features
 
 * Supports Appium, Selenium, Nokogiri as drivers
