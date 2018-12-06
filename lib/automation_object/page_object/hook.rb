@@ -1,8 +1,8 @@
-require_relative 'base'
+# frozen_string_literal: true
 
 module AutomationObject
   module PageObject
-    class Hook < Base
+    class Hook
       class << self
       end
     end

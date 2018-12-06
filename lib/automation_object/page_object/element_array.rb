@@ -1,8 +1,8 @@
-require_relative 'base'
+# frozen_string_literal: true
 
 module AutomationObject
   module PageObject
-    class ElementArray < Base
+    class ElementArray
       class << self
       end
     end

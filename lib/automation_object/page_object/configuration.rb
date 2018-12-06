@@ -1,34 +1,30 @@
-require_relative 'base'
+# frozen_string_literal: true
 
 module AutomationObject
   module PageObject
-    class Configuration < Base
+    class Configuration
       class << self
-        # Set base url
-        # @param url [String] base url
-        def base_url(url)
-          set_property(:base_url, url)
-        end
+        # Sets the base url for AutomationObject to start at
+        # @return [String, nil] base url for testing
+        attr_accessor :base_url
 
-        # @param name [Const]
-        def default_screen(name)
-          set_property(:default_screen, name)
-        end
+        # Sets the base url for AutomationObject to start at
+        # @return [String, nil] base url for testing
+        attr_accessor :default_screen
 
-        # @param time [Numeric]
-        def screen_transition_sleep(time)
-          set_property(:screen_transition_sleep, time)
-        end
+        # Sets sleep time in seconds to wait between switch screens
+        # This is to help when starting testing, should use hooks to know when on a page
+        # will operate faster through checks then brittle sleeps
+        # @return [Number, nil] base url for testing
+        attr_accessor :screen_transition_sleep
 
-        # @param hash [Hash]
-        def throttle_driver_methods(hash)
-          set_property(:throttle_driver_methods, hash)
-        end
+        # Throttles driver methods to seconds specified in hash
+        # @return [Hash<Symbol, Number>, nil] symbols and minimum run time for method
+        attr_accessor :throttle_driver_methods
 
-        # @param hash [Hash]
-        def throttle_element_methods(hash)
-          set_property(:throttle_element_methods, hash)
-        end
+        # Throttles element methods to seconds specified in hash
+        # @return [Hash<Symbol, Number>, nil] symbols and minimum run time for method
+        attr_accessor :throttle_element_methods
       end
     end
   end

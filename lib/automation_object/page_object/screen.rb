@@ -1,8 +1,8 @@
-require_relative 'base'
+# frozen_string_literal: true
 
 module AutomationObject
   module PageObject
-    class Screen < Base
+    class Screen
       class << self
       end
     end
