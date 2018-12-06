@@ -41,7 +41,7 @@ module AutomationObject
         # @param timeout [Integer] the timeout in seconds
         # @return [void]
         def wait(timeout = nil)
-          timeout = 0 unless timeout
+          timeout ||= 0
           @subject.manage.timeouts.implicit_wait = timeout
         end
 

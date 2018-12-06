@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Set up Java Drivers
 drivers_path = File.expand_path(File.join(__dir__, 'drivers/'))
 ENV['SELENIUM_SERVER_JAR'] = drivers_path
@@ -13,20 +15,20 @@ RailsApp.new
 driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = 3 # seconds
 
-at_exit {
+at_exit do
   begin
     driver.quit
   rescue Exception => e
     ap e
   end
-}
+end
 
 ao = AutomationObject::Framework.new(driver, File.expand_path(File.join(__dir__, 'page_object_blueprints/')))
 
-#100.times do
+# 100.times do
 #  ao.home_screen.contact_button.click
 #  ao.contact_screen.home_button.click
-#end
+# end
 
 # Allow user to debug using pry
 binding.pry

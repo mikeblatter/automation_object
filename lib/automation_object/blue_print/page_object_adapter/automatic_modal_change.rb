@@ -12,10 +12,10 @@ module AutomationObject
           modal_name = get_property(:modal_name)
 
           case modal_name
-            when Symbol, String
-              return modal_name.to_sym
-            else
-              return nil
+          when Symbol, String
+            return modal_name.to_sym
+          else
+            return nil
           end
         end
 

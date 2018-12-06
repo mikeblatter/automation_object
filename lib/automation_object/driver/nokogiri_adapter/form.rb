@@ -27,6 +27,7 @@ module AutomationObject
 
           node.traverse do |node|
             next unless node.name == 'input'
+
             params[node['name']] = node['value']
           end
 

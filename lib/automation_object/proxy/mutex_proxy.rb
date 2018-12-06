@@ -48,6 +48,7 @@ module AutomationObject
 
       def protect_object(object)
         return object if @skip_protection_classes.include?(object.class)
+
         protected_object = MutexProxy.new(object)
 
         @mutexes.each do |mutex|

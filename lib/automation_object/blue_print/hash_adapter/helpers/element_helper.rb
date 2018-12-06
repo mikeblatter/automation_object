@@ -45,6 +45,7 @@ module AutomationObject
             # Skip possible keys that elements can have
             # Otherwise should be a method hook
             next if %i[load custom_methods in_iframe css xpath define_elements_by custom_range].include?(key)
+
             children[key] = value
           end
 

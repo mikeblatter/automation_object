@@ -65,6 +65,7 @@ module AutomationObject
       # @return [void]
       def utilize
         raise ScreenNotActiveError, name unless active?
+
         driver.window_handle = window_handle
       end
 

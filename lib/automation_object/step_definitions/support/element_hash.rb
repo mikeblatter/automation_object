@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module AutomationObject
   module StepDefinitions
     # Element hash module for iterating through an hash

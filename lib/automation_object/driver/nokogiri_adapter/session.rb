@@ -16,6 +16,7 @@ module AutomationObject
 
         def xml
           return nil if @windows[@position].nil?
+
           @windows[@position].xml
         end
 
@@ -27,12 +28,14 @@ module AutomationObject
         # @return [String] current window handle
         def window_handle
           return nil if @windows[@position].nil?
+
           @windows[@position].handle
         end
 
         # @return [String] current URL
         def current_url
           return nil if @windows[@position].nil?
+
           @windows[@position].current_url
         end
 
@@ -64,16 +67,19 @@ module AutomationObject
 
         def back
           return if @windows[@position].nil?
+
           @windows[@position].back
         end
 
         def forward
           return if @windows[@position].nil?
+
           @windows[@position].forward
         end
 
         def refresh
           return if @windows[@position].nil?
+
           @windows[@position].refresh
         end
 

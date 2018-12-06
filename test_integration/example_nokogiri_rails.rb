@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Set up Java Drivers
 drivers_path = File.expand_path(File.join(__dir__, 'drivers/'))
 ENV['SELENIUM_SERVER_JAR'] = drivers_path

@@ -7,9 +7,10 @@ class String
   def valid_url?
     uri = URI.parse(self)
     return true if uri.is_a?(URI::HTTP)
-    return !(self =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix).nil?
+
+    !(self =~ /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix).nil?
   rescue URI::InvalidURIError
-    return false
+    false
   end
 
   def join_url(url)
@@ -20,6 +21,7 @@ class String
   # Convert self to pascal case
   def pascalize
     return self if self !~ /_/ && self =~ /[A-Z]+.*/
+
     split('_').map(&:capitalize).join
   end
 

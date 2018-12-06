@@ -71,10 +71,12 @@ module AutomationObject
 
           return unless top_hash.is_a?(Hash)
           return unless top_hash[:views].is_a?(Hash)
+
           top_view_hash = top_hash[:views]
 
           included_views.each do |included_view|
             next unless top_view_hash[included_view].is_a?(Hash)
+
             self.hash = hash.deep_merge(top_view_hash[included_view])
           end
         end

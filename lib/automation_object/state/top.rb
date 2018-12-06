@@ -43,6 +43,7 @@ module AutomationObject
 
         screens.each_value do |screen|
           next unless screen.load.live?
+
           return screen.activate
         end
 

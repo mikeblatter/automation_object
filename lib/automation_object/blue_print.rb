@@ -16,6 +16,7 @@ module AutomationObject
     # @return [AutomationObject::BluePrint::YamlAdapter, AutomationObject::BluePrint::HashAdapter, AutomationObject::BluePrint::PageObjectAdapter]
     def adapter
       return @adapter if @adapter
+
       self.adapter = :hash
       @adapter
     end

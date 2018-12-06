@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'securerandom'
 
 require_relative 'composite/top'
@@ -36,7 +37,7 @@ module AutomationObject
             defined_module.module_eval(File.read(file))
           end
         else
-          raise ArgumentError.new('Expecting path to exist')
+          raise ArgumentError, 'Expecting path to exist'
         end
 
         # Will look for classes defined
@@ -50,11 +51,11 @@ module AutomationObject
         random_module_name = [*('A'..'Z')].sample(20).join
         random_module_symbol = random_module_name.to_sym
 
-        AutomationObject::BluePrint::PageObjectAdapter.module_eval %Q?
+        AutomationObject::BluePrint::PageObjectAdapter.module_eval %(
           module #{random_module_name}
 
           end
-        ?
+        )
 
         const_get(random_module_symbol)
       end

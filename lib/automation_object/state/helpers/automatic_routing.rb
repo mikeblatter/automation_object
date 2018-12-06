@@ -22,6 +22,7 @@ module AutomationObject
         flattened_paths = flat_hash(paths).keys.sort_by(&:length)
         flattened_paths.each do |flattened_path|
           next unless flattened_path.last == @target
+
           return follow_route(flattened_path)
         end
 
@@ -60,6 +61,7 @@ module AutomationObject
 
       def flat_hash(h, f = [], g = {})
         return g.update(f => h) unless h.is_a? Hash
+
         h.each { |k, r| flat_hash(r, f + [k], g) }
         g
       end
@@ -89,6 +91,7 @@ module AutomationObject
       # @return [AutomationObject::State::Screen, AutomationObject::State::Modal]
       def container_by_key(container_name, parent_name)
         return @top.screens[container_name] if @top.screens[container_name]
+
         @top.screens[parent_name].modals[container_name]
       end
     end

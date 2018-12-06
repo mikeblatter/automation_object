@@ -118,6 +118,7 @@ module AutomationObject
         # @return [Array<HookElementRequirements>] array of wait for element children
         def wait_for_elements
           return @wait_for_elements if defined? @wait_for_elements
+
           wait_for_elements = hash[:wait_for_elements]
 
           children = wait_for_elements.is_a?(Array) ? wait_for_elements : []

@@ -1,4 +1,6 @@
-#Run rails app everytime and clean up
+# frozen_string_literal: true
+
+# Run rails app everytime and clean up
 require 'rest-client'
 
 class RailsApp
@@ -7,16 +9,15 @@ class RailsApp
   BASE_DIR = File.expand_path(File.join(File.dirname(__FILE__), 'rails_app/'))
 
   def initialize
-    self.create
+    create
 
-    at_exit {
+    at_exit do
       begin
-        self.destroy
+        destroy
       rescue Exception => e
         ap e
       end
-
-    }
+    end
   end
 
   def create
@@ -24,7 +25,7 @@ class RailsApp
     `cd #{BASE_DIR}; bundle exec rake db:create`
     `cd #{BASE_DIR}; bundle exec rake db:migrate`
 
-    @pid = Process.spawn("cd #{BASE_DIR}; bundle exec rails s -p #{PORT} > /dev/null 2>&1")#
+    @pid = Process.spawn("cd #{BASE_DIR}; bundle exec rails s -p #{PORT} > /dev/null 2>&1")
 
     10.times do
       sleep(5)

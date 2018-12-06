@@ -1,16 +1,1 @@
 inherit_from: .rubocop_todo.yml
-AllCops:
-  Exclude:
-    - 'test_integration/**/*'
-    - 'docs/**/*'
-    - 'lib/automation_object/step_definitions/**/*'
-  TargetRubyVersion: 2.3
-
-Style/IfUnlessModifier:
-  MaxLineLength: 200
-
-Style/WhileUntilModifier:
-  MaxLineLength: 200
-
-Metrics/LineLength:
-  Max: 200

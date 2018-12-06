@@ -1,7 +1,6 @@
-# coding: utf-8
 # frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'automation_object/version'
@@ -11,16 +10,11 @@ Gem::Specification.new do |spec|
   spec.version = AutomationObject::VERSION
   spec.authors = ['Michael Blatter']
   spec.email = 'automation_object@blatter.me'
-  spec.summary = 'YAML configuration based dynamic DSL framework for UI automation using Selenium or Appium drivers.'
-  spec.description = 'This gem provides a way to create a dynamic usable DSL framework representing your website or app.
-Implementing Selenium/Appium driver and YAML configurations, this API will provide a layer in between your automation code and the driver.
-By creating YAML configurations that represents your website/app, the DSL framework in turn will reflect your configuration
-and allow you to control the automation through the DSL framework.  Using this gem can help remove tedious tasks that are often
-repeated throughout code and help improve the scalability of code by mapping UI in YAML configuration files.'
+  spec.summary = 'Configuration Based UI Automation'
+  spec.description = 'AutomationObject uses UI configurations to generate a usable DSL object representing the UI you want to automate. Also includes builtin Cucumber step definitions to get you up and running quick'
   spec.homepage = 'https://github.com/mikeblatter/automation_object'
   spec.license = 'MIT'
 
-  # spec.files = `git ls-files -z`.split("\x0")
   spec.files = Dir.glob('{lib}/**/*')
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files = spec.files.grep(%r{^(docs|test|spec|features)/})
@@ -37,20 +31,24 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_development_dependency 'rubycritic', '~> 3.5'
 
   # Documentation
-  spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'redcarpet', '~> 3.4'
+  spec.add_development_dependency 'yard', '~> 0.9'
 
   # Debugging
-  spec.add_development_dependency 'pry', '~> 0.12'
   spec.add_development_dependency 'awesome_print', '~> 1.8'
+  spec.add_development_dependency 'pry', '~> 0.12'
 
   # Testing
   spec.add_development_dependency 'coveralls', '~> 0.8'
-  spec.add_development_dependency 'simplecov', '~> 0.16'
-  spec.add_development_dependency 'mocha', '~> 1.7'
   spec.add_development_dependency 'fakefs', '~> 0.18'
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 3.0'
+  spec.add_development_dependency 'mocha', '~> 1.7'
+  spec.add_development_dependency 'simplecov', '~> 0.16'
+
+  # Integration Testing
+  spec.add_runtime_dependency 'appium_lib', '~> 9.16'
+  spec.add_runtime_dependency 'selenium-webdriver', '~> 3.141'
 
   # Step Definition Testing
   spec.add_runtime_dependency 'rspec-expectations', '~> 3.8'
@@ -65,10 +63,6 @@ repeated throughout code and help improve the scalability of code by mapping UI 
   spec.add_runtime_dependency 'cucumber', '~> 3.1'
 
   # XML Driver
-  spec.add_runtime_dependency 'rest-client', '~> 2.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.8'
-
-  # Supported Drivers
-  spec.add_runtime_dependency 'appium_lib', '~> 9.16'
-  spec.add_runtime_dependency 'selenium-webdriver', '~> 3.141'
+  spec.add_runtime_dependency 'rest-client', '~> 2.0'
 end

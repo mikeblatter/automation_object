@@ -40,6 +40,7 @@ module AutomationObject
         # @return [void]
         def back
           raise UnableToNavigateBackward if @position.zero?
+
           @position -= 1
 
           make_request(@history.at(@position))
@@ -48,6 +49,7 @@ module AutomationObject
         # @return [void]
         def forward
           raise UnableToNavigateForward if @position >= @history.length - 2
+
           @position += 1
 
           make_request(@history.at(@position))

@@ -31,17 +31,17 @@ module AutomationObject
           element_name = hash[:element_name]
 
           case element_name
-            when Symbol, String
-              return element_name.to_sym
-            else
-              return nil
+          when Symbol, String
+            return element_name.to_sym
+          else
+            return nil
           end
         end
 
         # Convience for getting element blueprints
         # @return [AutomationObject::BluePrint::HashAdapter::Element]
         def element_blueprints(composite_object = nil)
-          composite_object = self unless composite_object
+          composite_object ||= self
 
           # Traverse!
           return composite_object.elements[element_name] if composite_object.hash[:elements].is_a?(Hash)

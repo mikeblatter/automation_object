@@ -43,6 +43,7 @@ module AutomationObject
       # @return [nil]
       def throttle_speed(method_symbol, start_time)
         return unless throttle_methods.key?(method_symbol)
+
         total_time_taken = Time.new.to_f - start_time
 
         sleep_time = throttle_methods[method_symbol] - total_time_taken

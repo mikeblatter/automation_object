@@ -42,6 +42,7 @@ module Minitest
         yield
       rescue Minitest::Skip => exception
         return exception if expected.include? Minitest::Skip
+
         raise exception
       rescue StandardError => exception
         expected = expected.any? do |ex|

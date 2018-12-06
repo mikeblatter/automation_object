@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gem 'rake'
@@ -5,20 +7,20 @@ gem 'rake'
 gem 'rails'
 gem 'railties'
 
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
-gem "bootstrap-switch-rails"
+gem 'bootstrap-switch-rails'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'
+gem 'sass-rails'
 gem 'turbolinks'
+gem 'uglifier'
 
-gem 'jbuilder'
-gem 'sqlite3'
-gem 'web-console', '~> 2.0'
-gem 'spring'
 gem 'better_errors'
+gem 'jbuilder'
 gem 'quiet_assets'
 gem 'rails_layout'
+gem 'spring'
+gem 'sqlite3'
+gem 'web-console', '~> 2.0'

@@ -1,4 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('boot', __dir__)
 
 require 'rails/all'
 
@@ -21,8 +23,7 @@ module LearnRails
     # config.i18n.default_locale = :de
 
     # For Foundation 5
-    config.assets.precompile += %w( vendor/modernizr )
-
+    config.assets.precompile += %w[vendor/modernizr]
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true

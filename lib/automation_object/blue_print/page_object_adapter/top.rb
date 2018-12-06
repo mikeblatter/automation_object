@@ -25,10 +25,10 @@ module AutomationObject
           default_screen = get_property(:default_screen)
 
           case default_screen
-            when Symbol, String
-              return default_screen.to_sym
-            else
-              return nil
+          when Symbol, String
+            return default_screen.to_sym
+          else
+            return nil
           end
         end
 

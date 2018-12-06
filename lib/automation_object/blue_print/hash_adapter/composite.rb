@@ -60,7 +60,7 @@ module AutomationObject
         # @param args [Hash] arguments for adding children
         def create_array_children(name, children, args)
           composite_children = children.map.with_index do |child, index|
-            location = args[:location] ? args[:location] : self.location
+            location = args[:location] || self.location
             child_location = location + "[#{index}]"
 
             create_composite(args, child, "#{name}[#{index}]", child_location)

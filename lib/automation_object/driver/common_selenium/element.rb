@@ -98,7 +98,7 @@ module AutomationObject
           iframe_switch_value = attribute('id')
           iframe_switch_value = attribute('name') if iframe_switch_value.length.zero?
 
-          iframe_switch_value = attribute('name', SecureRandom.hex(16)) unless iframe_switch_value
+          iframe_switch_value ||= attribute('name', SecureRandom.hex(16))
 
           iframe_switch_value
         end

@@ -33,7 +33,7 @@ module AutomationObject
         # @param options [Hash] options for child
         # @return child [Object, nil] return child composite object
         def get_child(name, options)
-          self.constant.constants.each { |constant_symbol|
+          constant.constants.each do |constant_symbol|
             constant = self.constant.const_get(constant_symbol)
 
             # Check to see if constant is a child class of the public PageObject interface
@@ -41,7 +41,7 @@ module AutomationObject
 
             name = constant.name.split('::').last.to_underscore.to_sym
             return create_composite(constant, options[:interface], name)
-          }
+          end
 
           nil
         end
@@ -53,7 +53,7 @@ module AutomationObject
         def get_children(name, options)
           new_children = {}
 
-          self.constant.constants.each { |constant_symbol|
+          constant.constants.each do |constant_symbol|
             constant = self.constant.const_get(constant_symbol)
 
             # Check to see if constant is a child class of the public PageObject interface
@@ -61,7 +61,7 @@ module AutomationObject
 
             name = constant.name.split('::').last.to_underscore.to_sym
             new_children[name] = create_composite(constant, options[:interface], name)
-          }
+          end
 
           new_children
         end
@@ -85,7 +85,7 @@ module AutomationObject
         # @param name [Symbol]
         # @return [Object]
         def get_property(name)
-          self.constant.get_property(name)
+          constant.get_property(name)
         end
       end
     end

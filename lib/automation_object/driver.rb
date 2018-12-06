@@ -19,6 +19,7 @@ module AutomationObject
 
     def adapter
       return @adapter if @adapter
+
       self.adapter = :nokogiri
       @adapter
     end

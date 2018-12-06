@@ -15,9 +15,7 @@ module AutomationObject
       # @return [AutomationObject::BluePrint::Composite::Top] Composite BluePrint Object
       def build(path)
         # Check if directory exists otherwise throw error
-        unless Dir.exist?(path)
-          raise ArgumentError.new('Expecting path to exist')
-        end
+        raise ArgumentError, 'Expecting path to exist' unless Dir.exist?(path)
 
         path = File.expand_path(path)
 

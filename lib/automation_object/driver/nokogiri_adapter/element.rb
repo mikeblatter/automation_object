@@ -80,6 +80,7 @@ module AutomationObject
         def submit
           form_element = find_form(@subject)
           raise NoSuchElementError unless form_element
+
           @driver.session.request(form.request_method, form.url, form.params, form_element.new_window?)
         end
 
@@ -150,6 +151,7 @@ module AutomationObject
           return nil unless element
 
           return AutomationObject::Driver::NokogiriAdapter::Form.new(element) if element.name == 'form'
+
           find_form(element.parent)
         end
       end

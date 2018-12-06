@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Set up Java Drivers
 drivers_path = File.expand_path(File.join(__dir__, 'drivers/'))
 
@@ -10,11 +12,9 @@ require_relative '../lib/automation_object'
 driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = 3 # seconds
 
-at_exit {
+at_exit do
   driver.quit
-}
+end
 
 # Allow user to debug using pry
 binding.pry
-
-
