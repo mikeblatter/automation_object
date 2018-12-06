@@ -10,10 +10,15 @@ representing your website. It encapsulates many UI automation problems, supports
 and has built in Cucumber step definitions to get your tests up and running quick. With this, you can create scalable 
 automation tests quickly.
 
-## NOTE: This is a alpha product
+## NOTE: This is a alpha library
 
 Portions of the project are still incomplete as well as testing. It is possible to use
 cucumber steps, YAML/HASH configuration adapters, selenium/appium drivers
+
+## Git branches/issues/etc...
+
+Since this is just a personal project committing directly to master, not doing issues. 
+If have more people using or contributing will formalize to whichever works for everyone
 
 ## Steps to Complete Before Beta
 

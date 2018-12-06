@@ -1,5 +1,7 @@
 module AutomationObject
+  # PageObject module is the public interface for loading configurations via page objects
   module PageObject
+    # Base class for PageObject model
     class Base
       class << self
         attr_accessor :configuration

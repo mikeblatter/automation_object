@@ -23,22 +23,22 @@ class TestHash < Minitest::Test
   def test_deep_merge
     merged_hash = @first_hash.deep_merge(@second_hash)
 
-    assert_equal merged_hash.key?('test_two'), true
-    assert_equal merged_hash['test_two'].key?('test_three'), true
-    assert_equal merged_hash['test_two']['test_three']['test_four'], 'blah'
+    assert_equal true, merged_hash.key?('test_two')
+    assert_equal true, merged_hash['test_two'].key?('test_three')
+    assert_equal 'blah', merged_hash['test_two']['test_three']['test_four']
   end
 
   def test_symbolize_keys_deep!
     cloned_hash = @first_hash
     cloned_hash.symbolize_keys_deep!
 
-    assert_equal cloned_hash.key?('test_one'), false
-    assert_equal cloned_hash.key?(:test_one), true
+    assert_equal false, cloned_hash.key?('test_one')
+    assert_equal true, cloned_hash.key?(:test_one)
 
-    assert_equal cloned_hash.key?('test_two'), false
-    assert_equal cloned_hash.key?(:test_two), true
+    assert_equal false, cloned_hash.key?('test_two')
+    assert_equal true, cloned_hash.key?(:test_two)
 
-    assert_equal cloned_hash[:test_two].key?('test_three'), false
-    assert_equal cloned_hash[:test_two].key?(:test_three), true
+    assert_equal false, cloned_hash[:test_two].key?('test_three')
+    assert_equal true, cloned_hash[:test_two].key?(:test_three)
   end
 end

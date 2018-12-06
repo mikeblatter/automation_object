@@ -14,18 +14,21 @@ Kernel.suppress_warnings do
   require 'pry'
 end
 
-# Local Files
-require_relative 'automation_object/version'
-
 # Class method additions
 require_relative 'automation_object/helpers/string'
 require_relative 'automation_object/helpers/hash'
 
-# Core Framework
+# Core
 require_relative 'automation_object/framework'
 
 # Cucumber Step Definitions
 require_relative 'automation_object/step_definitions'
+
+# Page Object Public Interfaces for Blue Prints
+require_relative 'automation_object/page_object'
+
+# Gem Versioning
+require_relative 'automation_object/version'
 
 # Top level namespace
 # AutomationObject is a dynamic DSL framework created by configurations that
