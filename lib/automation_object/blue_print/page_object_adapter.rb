@@ -33,8 +33,8 @@ module AutomationObject
 
         # Add classes defined into UserDefined module
         if Dir.exist?(path)
-          Dir[File.join(path, '**/*.rb')].each do |file|
-            defined_module.module_eval(File.read(file))
+          Dir[File.join(path, '**/*.rb')].each do |file_path|
+            defined_module.module_eval(File.read(file_path))
           end
         else
           raise ArgumentError, 'Expecting path to exist'

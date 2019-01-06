@@ -23,7 +23,7 @@ at_exit do
   end
 end
 
-ao = AutomationObject::Framework.new(driver, File.expand_path(File.join(__dir__, 'blue_prints/')))
+ao = AutomationObject::Framework.new(driver, File.expand_path(File.join(__dir__, 'blue_prints/yaml')))
 
 # 100.times do
 #  ao.home_screen.contact_button.click

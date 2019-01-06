@@ -13,7 +13,7 @@ at_exit do
   end
 end
 
-blue_prints_path = File.expand_path(File.join(__dir__, '../../blue_prints'))
+blue_prints_path = File.expand_path(File.join(__dir__, '../../blue_prints/yaml'))
 
 # Create Framework
 AutomationObject::Framework.new(driver, blue_prints_path)
