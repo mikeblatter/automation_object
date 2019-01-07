@@ -84,10 +84,8 @@ module AutomationObject
           @subject.alert_dismiss
         end
 
-        # @return [Boolean]
-        attr_accessor :browser
+        attr_writer :browser
 
-        undef :browser if defined? :browser
         # @return [Boolean]
         def browser
           @browser ||= false
