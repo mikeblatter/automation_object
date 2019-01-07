@@ -1,7 +1,6 @@
-path = File.expand_path(File.join(__dir__, '../../../../lib/automation_object/page_object'))
-require path
+require 'automation_object/page_object'
 
 
 class BaseConfiguration < AutomationObject::PageObject::Configuration
-
+  base_url 'http://localhost'
 end

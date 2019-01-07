@@ -9,6 +9,7 @@ require 'mocha/minitest'
 require 'minitest-bonus-assertions'
 
 require 'simplecov'
+require 'simplecov-console'
 require 'coveralls'
 
 BASE_DIR = File.expand_path(File.join(__dir__, '../'))
@@ -19,16 +20,14 @@ def automation_object_require(path)
 end
 
 SimpleCov.root(BASE_DIR)
+# SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
-  add_group 'BluePrint', '../lib/automation_object/blue_print'
-  add_group 'Dsl', '../lib/automation_object/dsl'
-  add_group 'State', '../lib/automation_object/state'
-  add_group 'Driver', '../lib/automation_object/driver'
+  add_group 'AutomationObject', 'lib'
 
-  add_filter '../test'
-  add_filter '../test_integration'
-  add_filter '../docs'
+  add_filter 'test'
+  add_filter 'test_integration'
+  add_filter 'docs'
 end
 
 # Extension of Assertions

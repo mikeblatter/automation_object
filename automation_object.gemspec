@@ -45,6 +45,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 3.0'
   spec.add_development_dependency 'mocha', '~> 1.7'
   spec.add_development_dependency 'simplecov', '~> 0.16'
+  spec.add_development_dependency 'simplecov-console', '~> 0.4'
 
   # Integration Testing
   spec.add_runtime_dependency 'appium_lib', '~> 9.16'

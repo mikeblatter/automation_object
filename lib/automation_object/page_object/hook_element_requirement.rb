@@ -2,7 +2,7 @@
 
 module AutomationObject
   module PageObject
-    class Screen
+    class HookElementRequirement
       # Key to define elements by
       # @return [Symbol, nil]
       def key

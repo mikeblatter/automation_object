@@ -8,7 +8,7 @@ module AutomationObject
     module HashAdapter
       # Hook Element Requirements-level composite
       class HookElementRequirements < Composite
-        # Valdiations
+        # Validations
         validates :element_name, presence_of: true, instance_of: [String, Symbol], element_presence_of: true
         validates :exists?, presence_of: true, instance_of: [FalseClass, TrueClass]
 
