@@ -20,14 +20,14 @@ Gem::Specification.new do |spec|
   spec.test_files = spec.files.grep(%r{^(docs|test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.2'
+  spec.required_ruby_version = '>= 2.3'
 
   # Installation
-  spec.add_development_dependency 'bundler', '~> 1.17'
+  spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 12.3'
 
   # Code Checking
-  spec.add_development_dependency 'rubocop', '~> 0.60'
+  spec.add_development_dependency 'rubocop', '~> 0.63'
   spec.add_development_dependency 'rubycritic', '~> 3.5'
 
   # Documentation
@@ -43,12 +43,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'fakefs', '~> 0.18'
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'minitest-bonus-assertions', '~> 3.0'
-  spec.add_development_dependency 'mocha', '~> 1.7'
+  spec.add_development_dependency 'mocha', '~> 1.8'
   spec.add_development_dependency 'simplecov', '~> 0.16'
   spec.add_development_dependency 'simplecov-console', '~> 0.4'
 
   # Integration Testing
-  spec.add_runtime_dependency 'appium_lib', '~> 9.16'
+  spec.add_runtime_dependency 'appium_lib', '~> 9.18'
   spec.add_runtime_dependency 'selenium-webdriver', '~> 3.141'
 
   # Step Definition Testing
