@@ -5,7 +5,7 @@
 #
 # Dependencies are for running a Selenium Server and a Rails app
 
-RUBY_VERSION="2.3.1"
+RUBY_VERSION="2.6.0"
 RVM_GPG_KEY="409B6B1796C275462A1703113804BB82D39DC0E3"
 
 # Install xCode Command Line Tools
@@ -26,7 +26,15 @@ else
 fi
 brew tap caskroom/cask
 
-# Install gpg
+# Brew Relink All
+# brew list -1 | while read line; do brew unlink $line; brew link $line; done
+
+# Install Java
+if which javac >/dev/null; then
+  brew cask update java
+fi
+
+# Install GPG
 if which gpg >/dev/null; then
   if brew list | grep gpg >/dev/null; then
     echo "Updating gpg"
@@ -35,10 +43,11 @@ if which gpg >/dev/null; then
 else
   echo "Installing gpg"
   brew install gpg
+  brew link gnupg
 fi
 
 # Install libxml2
-if which libxml2 >/dev/null; then
+if which xmllint >/dev/null; then
   if brew list | grep libxml2 >/dev/null; then
     echo "Updating libxml2"
     brew upgrade libxml2
@@ -47,6 +56,9 @@ else
   echo "Installing libxml2"
   brew install libxml2
 fi
+
+# Upgrade Casks
+brew cask upgrade
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -90,7 +102,9 @@ fi
 rvm use $RUBY_VERSION
 rvm get stable --auto-dotfile
 
-# Install Gems
+# Install/Update Gems
+
+gem update --system
 
 # Install Rake
 if which rake >/dev/null; then
