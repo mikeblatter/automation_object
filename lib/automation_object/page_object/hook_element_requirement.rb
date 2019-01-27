@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+require_relative 'base'
+
 module AutomationObject
   module PageObject
     class HookElementRequirement
+      include AutomationObject::PageObject::Base
+
       # Key to define elements by
       # @return [Symbol, nil]
       def key

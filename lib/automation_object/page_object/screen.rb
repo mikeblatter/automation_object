@@ -1,23 +1,13 @@
 # frozen_string_literal: true
 
+require_relative 'base'
+
 module AutomationObject
   module PageObject
     class Screen
-      # Key to define elements by
-      # @return [Symbol, nil]
-      def key
-        self.class._key
-      end
+      include AutomationObject::PageObject::Base
 
-      class << self
-        attr_reader :_key
-
-        # method to set keys by
-        # @param [Symbol, String]
-        def key(method)
-          @_key = method
-        end
-      end
+      class << self; end
     end
   end
 end
